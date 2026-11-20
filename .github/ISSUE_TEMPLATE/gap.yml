@@ -1,0 +1,17 @@
+name: Gap
+description: A step that we do not understand yet.
+labels: ["gap", "area/proof"]
+body:
+  - type: input
+    id: decl
+    attributes:
+      label: Lean name
+      description: The full name of the declaration, for example Formalism.VW.rh_of_every.
+    validations:
+      required: true
+  - type: textarea
+    id: question
+    attributes:
+      label: What is not clear
+    validations:
+      required: true

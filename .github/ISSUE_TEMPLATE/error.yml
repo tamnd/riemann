@@ -1,0 +1,25 @@
+name: Error in the text
+description: A step or a chapter says something that is wrong or not clear.
+labels: ["area/proof", "type/fix"]
+body:
+  - type: input
+    id: page
+    attributes:
+      label: Page
+      description: The address of the page, for example https://riemann.tamnd.com/proof/.
+    validations:
+      required: true
+  - type: textarea
+    id: text
+    attributes:
+      label: The text
+      description: Copy the sentence or the formula.
+    validations:
+      required: true
+  - type: textarea
+    id: reason
+    attributes:
+      label: Why it is wrong
+      description: Give the reason, and the Lean name or the reference when you can.
+    validations:
+      required: true

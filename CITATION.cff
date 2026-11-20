@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "To cite the written proof, use this entry. To cite the Lean proof itself, cite the release of Levent Alpöge (see references)."
+title: "riemann: a written proof of the Lean proof of the Riemann Hypothesis"
+type: dataset
+authors:
+  - family-names: Nguyen Duc
+    given-names: Tam
+license: CC-BY-4.0
+repository-code: "https://github.com/tamnd/riemann"
+url: "https://riemann.tamnd.com"
+keywords:
+  - Riemann Hypothesis
+  - Lean 4
+  - formal proof
+  - blueprint
+references:
+  - type: software
+    title: "Lean proof of the Riemann Hypothesis"
+    authors:
+      - family-names: Alpöge
+        given-names: Levent
+    date-released: 2026-11-20
+    url: "https://alpo.ge/"
+    repository-code: "https://github.com/tamnd/riemann-lean"
