@@ -26,6 +26,6 @@ The command `rh fetch -compare` downloads the 14 parts from the site of the auth
 | [Formalism/GammaFactorNonvanishing/CritLine.lean](lean:Formalism/GammaFactorNonvanishing/CritLine.lean) | the critical line for primitive characters, and `rh_of_every` |
 | [CharacterBoxes/MainConclusion.lean](lean:Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean) | `everyCharacter`, the start of the large part |
 
-## The libraries
+## The data
 
-The source directory `src` has these top folders: `Development`, `Formalism`, `GroundTheory`, `Lemmata`, `PositivityTheory`, `ReciprocityTheory`, `CompanionTheory`, `Supplements` and `BuildAid`. Milestone M1 adds a page for each library and module on the path of the proof, with the graph of imports and uses.
+The numbers, the trunk and the branches above come from the records of `rh index` and `rh spine`. The summaries are in [records/](https://github.com/tamnd/riemann/tree/main/records) of the content repository, and the full records are the release [records-9110120](https://github.com/tamnd/riemann/releases/tag/records-9110120). Each declaration has a page. Search for its name above, or follow a link from the trunk.
