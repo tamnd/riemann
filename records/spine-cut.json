@@ -1,0 +1,57 @@
+{
+  "root": "riemannHypothesis",
+  "weak": false,
+  "size": 156339,
+  "full": 769260,
+  "cuts": {
+    "literature": 719
+  },
+  "libraries": {
+    "CompanionTheory": 3563,
+    "Development": 130987,
+    "Formalism": 4194,
+    "GroundTheory": 13127,
+    "Lemmata": 25,
+    "Main": 1,
+    "PositivityTheory": 1270,
+    "ReciprocityTheory": 3170,
+    "Supplements": 2
+  },
+  "kinds": {
+    "abbrev": 1811,
+    "class": 23,
+    "def": 27153,
+    "inductive": 18,
+    "instance": 87,
+    "lemma": 4095,
+    "structure": 1129,
+    "theorem": 122023
+  },
+  "max_depth": 167,
+  "trunk": [
+    "riemannHypothesis",
+    "rhOfAll",
+    "allChi",
+    "UpperTheory.FinalTheorems.everyCharacter"
+  ],
+  "candidates": [
+    {
+      "name": "UpperTheory.FinalTheorems.everyCharacter_of_row",
+      "module": "Development.AutomorphicArithmetic.CharacterBoxes.MainConclusion",
+      "size": 72228,
+      "from": "UpperTheory.FinalTheorems.everyCharacter"
+    },
+    {
+      "name": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
+      "module": "Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.IntegralStructures.RowSrc",
+      "size": 37549,
+      "from": "UpperTheory.FinalTheorems.everyCharacter"
+    },
+    {
+      "name": "UpperTheory.Lit.Mix.twoAt_charZero",
+      "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.FockModels.TwoAtCharZero",
+      "size": 3081,
+      "from": "UpperTheory.FinalTheorems.everyCharacter"
+    }
+  ]
+}

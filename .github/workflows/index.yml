@@ -1,0 +1,64 @@
+name: index
+
+# Make the records of rh index and rh spine for the source in manifests/source.yaml, and upload them as the release records-<commit>. Run it by hand when the source changes. Then put the URL and the SHA-256 that the run prints in manifests/records.yaml.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  records:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          path: content
+      - name: read the source commit
+        id: source
+        run: echo "commit=$(sed -n 's/^commit: *//p' content/manifests/source.yaml)" >> "$GITHUB_OUTPUT"
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: tamnd/riemann-lean
+          ref: ${{ steps.source.outputs.commit }}
+          path: lean
+          sparse-checkout: lean/src
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+          repository: tamnd/riemann-agent
+          ref: main
+          path: toolchain
+      - uses: actions/setup-go@b7ad1dad31e06c5925ef5d2fc7ad053ef454303e # v7.0.0
+        with:
+          go-version-file: toolchain/go.mod
+          cache-dependency-path: toolchain/go.sum
+      - name: build rh
+        working-directory: toolchain
+        run: go build -trimpath -o "$RUNNER_TEMP/rh" ./cmd/rh
+      - name: make the records
+        run: |
+          r="$RUNNER_TEMP/out/records"
+          "$RUNNER_TEMP/rh" index -src lean/lean/src -out "$r/index"
+          "$RUNNER_TEMP/rh" spine -index "$r/index" -nocut -out "$r/spine"
+          "$RUNNER_TEMP/rh" spine -index "$r/index" -out "$r/spine/cut"
+          rm "$r/spine/cut/spine.jsonl.gz"
+          tar -cf "$RUNNER_TEMP/records.tar" -C "$RUNNER_TEMP/out" records
+          sha256sum "$RUNNER_TEMP/records.tar"
+      - name: upload the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          COMMIT: ${{ steps.source.outputs.commit }}
+        working-directory: content
+        run: |
+          tag="records-${COMMIT:0:7}"
+          if gh release view "$tag" >/dev/null 2>&1; then
+            gh release upload "$tag" "$RUNNER_TEMP/records.tar" --clobber
+          else
+            gh release create "$tag" "$RUNNER_TEMP/records.tar" --title "Records of riemann-lean ${COMMIT:0:7}" --notes "The records of rh index and rh spine for riemann-lean at commit $COMMIT." --latest=false
+          fi
+          echo "url: https://github.com/${GITHUB_REPOSITORY}/releases/download/$tag/records.tar"
+          echo "sha256: $(sha256sum "$RUNNER_TEMP/records.tar" | cut -d' ' -f1)"

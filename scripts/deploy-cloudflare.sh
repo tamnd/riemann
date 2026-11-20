@@ -39,8 +39,9 @@ fi
 echo "$(date -u +%FT%TZ) deploy riemann $content, riemann-agent $toolchain"
 (cd "$dir/toolchain" && go build -trimpath -o "$dir/rh" ./cmd/rh)
 # wrangler.jsonc reads the files from public/ next to it.
+sh "$dir/content/scripts/fetch-records.sh" "$dir/content" "$dir/data"
 rm -rf "$dir/content/public"
-"$dir/rh" site build -content "$dir/content" -out "$dir/content/public" -url "$url" -commit "$content" -date now -strict
+"$dir/rh" site build -content "$dir/content" -out "$dir/content/public" -url "$url" -commit "$content" -date now -strict -index "$dir/data/records/index" -spine "$dir/data/records/spine"
 "$dir/rh" site check -dir "$dir/content/public"
 (cd "$dir/content" && npx --yes wrangler@4 deploy --message "riemann $content")
 echo "$state" >"$dir/deployed"

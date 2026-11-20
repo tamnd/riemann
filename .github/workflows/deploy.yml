@@ -20,7 +20,7 @@ jobs:
   site:
     name: build, check and deploy the site
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 45
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
@@ -39,11 +39,13 @@ jobs:
       - name: build rh
         working-directory: toolchain
         run: go build -trimpath -o "$RUNNER_TEMP/rh" ./cmd/rh
+      - name: get the records
+        run: content/scripts/fetch-records.sh content "$RUNNER_TEMP/records"
       - name: build the site
         env:
           COMMIT: ${{ github.sha }}
         run: |
-          "$RUNNER_TEMP/rh" site build -content content -out content/public -url https://riemann.tamnd.com -commit "$COMMIT" -date now -strict
+          "$RUNNER_TEMP/rh" site build -content content -out content/public -url https://riemann.tamnd.com -commit "$COMMIT" -date now -strict -index "$RUNNER_TEMP/records/records/index" -spine "$RUNNER_TEMP/records/records/spine"
       - name: check the site
         run: |
           "$RUNNER_TEMP/rh" site check -dir content/public

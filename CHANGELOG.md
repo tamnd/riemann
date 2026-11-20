@@ -4,6 +4,12 @@ All changes that a reader can see are in this file. The versions follow the mile
 
 ## Unreleased
 
+### Added
+
+- The code pages: the numbers of the release, the trunk, the large branches, a page for each declaration and each module, and the search of Lean names.
+- `records/` has the summaries of `rh index` and `rh spine`. `manifests/records.yaml` names the full records, which are the release `records-9110120`. `scripts/fetch-records.sh` downloads and checks them, and the two deploy methods use it.
+- The workflow `index` makes the records again when the source changes.
+
 ## v0.1.0 (2026-11-21)
 
 Milestone M0, the source and the site.

@@ -1,0 +1,90 @@
+{
+  "root": "riemannHypothesis",
+  "weak": false,
+  "size": 769260,
+  "full": 769260,
+  "cuts": {},
+  "libraries": {
+    "CompanionTheory": 10280,
+    "Development": 526163,
+    "Formalism": 159203,
+    "GroundTheory": 43244,
+    "Lemmata": 216,
+    "Main": 1,
+    "PositivityTheory": 2910,
+    "ReciprocityTheory": 27241,
+    "Supplements": 2
+  },
+  "kinds": {
+    "abbrev": 8629,
+    "alias": 10,
+    "class": 32,
+    "def": 130322,
+    "inductive": 73,
+    "instance": 326,
+    "lemma": 26951,
+    "structure": 5165,
+    "theorem": 597752
+  },
+  "max_depth": 175,
+  "trunk": [
+    "riemannHypothesis",
+    "rhOfAll",
+    "allChi",
+    "UpperTheory.FinalTheorems.everyCharacter",
+    "UpperTheory.FinalTheorems.everyCharacter_of_row",
+    "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin",
+    "UpperTheory.Lit.every_character_of_theta_integrals_local_matching",
+    "UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound"
+  ],
+  "candidates": [
+    {
+      "name": "GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt",
+      "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.ThetaPairLifts.ThirdPlaceSeries.HypothesesNonemptyOfUnramifiedExponents",
+      "size": 89250,
+      "from": "UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound"
+    },
+    {
+      "name": "UpperTheory.One.vwin_of_row",
+      "module": "Development.AutomorphicArithmetic.AutomorphicVarieties.ModularityArgument.ThresholdArguments.DenseThresholdCases.VwinOfRow",
+      "size": 56145,
+      "from": "UpperTheory.FinalTheorems.everyCharacter_of_row"
+    },
+    {
+      "name": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
+      "module": "Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.IntegralStructures.RowSrc",
+      "size": 54225,
+      "from": "UpperTheory.FinalTheorems.everyCharacter"
+    },
+    {
+      "name": "SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt",
+      "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.ThetaPairLifts.ThirdPlaceSeries.TopCovolSlim2Use",
+      "size": 52322,
+      "from": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+    },
+    {
+      "name": "GlobalTheory.Fc.S0.ontoX_and_lamLow_of_unitaryGroupHypotheses'",
+      "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.ThetaPairLifts.ThirdPlaceSeries.SurjectiveAndLowWeightOfUnramifiedExponents",
+      "size": 19048,
+      "from": "UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound"
+    },
+    {
+      "name": "UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature",
+      "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.ThetaPairLifts.ThirdPlaceSeries.EveryCharacterOfLiteratureOfVWin",
+      "size": 13076,
+      "from": "UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin"
+    },
+    {
+      "name": "GlobalTheory.T.open0_of_unitary_group_hypotheses",
+      "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.ThetaPairLifts.ThirdPlaceSeries.OpenOrbitOfUnramifiedExponents",
+      "size": 12571,
+      "from": "UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound"
+    },
+    {
+      "name": "UpperTheory.Top.every_character_of_green_v_win",
+      "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.ThetaPairLifts.ThirdPlaceSeries.TopPlug",
+      "size": 12087,
+      "from": "UpperTheory.Lit.every_character_of_theta_integrals_local_matching"
+    }
+  ]
+}
