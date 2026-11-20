@@ -4,6 +4,10 @@ All changes that a reader can see are in this file. The versions follow the mile
 
 ## Unreleased
 
+## v0.1.0 (2026-11-21)
+
+Milestone M0, the source and the site.
+
 ### Added
 
 - The first pages of the site: the main page, the proof in one page (`proof/00-overview.md`), the timeline of the note, and the pages Learn, Code, Trust and About.
