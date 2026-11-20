@@ -45,6 +45,18 @@ The claim is not checked yet. We did not build the project yet, and nobody check
 
 The toolchain is [riemann-agent](https://github.com/tamnd/riemann-agent).
 
+## Build the site
+
+Build `rh` from riemann-agent, then build, check and serve the site:
+
+```sh
+rh site build -content . -out public
+rh site check -dir public
+rh site serve -dir public
+```
+
+The workflow `deploy` does the same on each push to `main` and once each day, and deploys `public/` to the Cloudflare Worker `riemann` with `wrangler.jsonc`. The Worker has no script. It serves the static files only.
+
 ## Help
 
 Each step has a status: `drafted`, `checked` or `reviewed`. A model can draft a step, but only a person can change its status to `checked`. Read [CONTRIBUTING.md](CONTRIBUTING.md) to help.
