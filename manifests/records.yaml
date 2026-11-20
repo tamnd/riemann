@@ -1,4 +1,4 @@
 # The records of rh index and rh spine for the source in source.yaml. The site build reads them for the code pages. The full records are too large for git, so they are a release asset of this repository. records/ has the summaries.
 source_commit: 9110120cdc195ee8d2fb08d2adac8b1747912d8f
 url: https://github.com/tamnd/riemann/releases/download/records-9110120/records.tar
-sha256: 77384b6c8c1bcd7614dcc4ecec772eb24d58385f6c04ead4a17baad42c044335
+sha256: 2aba0e06398fb41c4172e8593c2853ac39f8b4bcf5a4211a148bfde003c2e3d3
