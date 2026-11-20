@@ -1,0 +1,67 @@
+title: The timeline of the note
+description: The 20 steps of the note remark.pdf, in the order of the note, with the date of each step.
+lead: The note remark.pdf gives the history of the idea as 20 dated steps. They are the best guide to the order of the ideas. A step links to its chapter when the chapter exists.
+intro: |
+  The dates are in the form of the note. The first step is from 2026-10-06 and the last step is from 2026-11-16. The note does not give the steps in the order of their dates, and this table keeps the order of the note. The text of each step is a short summary in our words. Read [the note](https://alpo.ge/remark.pdf) for the words of the author.
+steps:
+  - n: 1
+    date: 2026-10-06
+    text: "The Stepanov determinant."
+  - n: 2
+    date: 2026-10-09
+    text: "$D^p \\equiv 0$ on a CM curve for $p$ inert in $K$, where $D$ is the invariant derivation. This gives a divisibility of $D^a \\theta(0) / \\Omega^a$ by a power of $p$."
+  - n: 3
+    date: 2026-10-19
+    text: "$qN = M^k + R$. $N$ is automorphic, because $\\mu$ is automorphic from $\\theta$ on the sixfold cover of $\\mathrm{GL}_5$, as a period integral of thetas. The Poincaré bundle gives the thetas."
+  - n: 4
+    date: 2026-10-06
+    text: "$W(1_S) \\geq 0$ through a determinant. Read it as Stepanov with multiplicity one."
+  - n: 5
+    date: 2026-10-20
+    text: "Change to $\\Lambda$: the sum of $\\Lambda(n)(X/n - 1)_+ - X \\log X + (1 + \\gamma)X$. Guinand-Weil gives the sign. A variance test function makes it look like a trace formula."
+  - n: 6
+    date: 2026-10-08
+    text: "$W(1_{(0,1]} + (\\approx X^{\\eta}) 1_{(0,1/X]}) \\geq 0$ gives a bound larger than $1 - \\eta$."
+  - n: 7
+    date: 2026-10-14
+    text: "Determinants for $W(\\cdot)$ that contain the GGP periods. The values $0$ and $1$ mean interlacing weights."
+  - n: 8
+    date: 2026-11-15
+    text: "Iterated theta lifts $U(X_0) \\to U(X_1) \\to \\dots \\to U(X_m)$ between totally definite unitary groups. The map $\\pi \\mapsto \\pi \\boxplus \\mu_j[t]$ gains multiplicity $m$. Take $m$ near $\\sqrt{X}$."
+  - n: 9
+    date: 2026-11-15
+    text: "The norms of the lifts and the level. Terms of order $m$ cancel, with divisibility from Chowla-Selberg, Weyl and the Siegel mass."
+  - n: 10
+    date: 2026-11-15
+    text: "A lower bound on the divisibility of the $m$-fold lift that is sufficient."
+  - n: 11
+    date: 2026-10-06
+    text: "An Iwasawa tower, by analogy with the pigeonhole argument on $\\mathbb{F}_{q^n}/\\mathbb{F}_q$."
+  - n: 12
+    date: 2026-11-15
+    text: "Seesaw: the period of the iterated lift is a Bessel period, and it does not depend on the Hecke characters (Rallis)."
+  - n: 13
+    date: 2026-10-06
+    text: "The Bost slope inequality."
+  - n: 14
+    date: 2026-11-15
+    text: "The cost of each lift. A priori the argument stops at $2/3$. A main term. Move to a function field, or remove it by a twist."
+  - n: 15
+    date: 2026-11-15
+    text: "Glue an integral structure across the Hecke characters to get a gcd."
+  - n: 16
+    date: 2026-10-14
+    text: "The relative trace formula on the sixfold cover of $\\mathrm{GL}_5$. Cauchy-Schwarz bounds a projected Poincaré series."
+  - n: 17
+    date: 2026-11-15
+    text: "Classes in $H^1(\\mathcal{O}_E[1/\\ell], \\mathbb{Q}_\\ell/\\mathbb{Z}_\\ell(-e))$ that a twist does not remove. A weak form of Vandiver."
+  - n: 18
+    date: 2026-11-15
+    text: "Covolumes, the index of theta series, and congruences between lifts and forms."
+  - n: 19
+    date: 2026-10-19
+    text: "The choice of the Iwasawa tower, with Behrend."
+  - n: 20
+    date: 2026-11-16
+    text: "GRH. The overview shows where GRH is in the Lean code."
+    chapter: overview
