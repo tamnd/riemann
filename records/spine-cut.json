@@ -1,33 +1,33 @@
 {
   "root": "riemannHypothesis",
   "weak": false,
-  "size": 156339,
-  "full": 769260,
+  "size": 145427,
+  "full": 757483,
   "cuts": {
-    "literature": 719
+    "literature": 628
   },
   "libraries": {
-    "CompanionTheory": 3563,
-    "Development": 130987,
-    "Formalism": 4194,
-    "GroundTheory": 13127,
+    "CompanionTheory": 3557,
+    "Development": 122975,
+    "Formalism": 3693,
+    "GroundTheory": 11825,
     "Lemmata": 25,
     "Main": 1,
-    "PositivityTheory": 1270,
-    "ReciprocityTheory": 3170,
+    "PositivityTheory": 1265,
+    "ReciprocityTheory": 2084,
     "Supplements": 2
   },
   "kinds": {
-    "abbrev": 1811,
-    "class": 23,
-    "def": 27153,
+    "abbrev": 1644,
+    "class": 22,
+    "def": 25111,
     "inductive": 18,
-    "instance": 87,
-    "lemma": 4095,
-    "structure": 1129,
-    "theorem": 122023
+    "instance": 81,
+    "lemma": 3873,
+    "structure": 1035,
+    "theorem": 113643
   },
-  "max_depth": 167,
+  "max_depth": 132,
   "trunk": [
     "riemannHypothesis",
     "rhOfAll",
@@ -38,19 +38,25 @@
     {
       "name": "UpperTheory.FinalTheorems.everyCharacter_of_row",
       "module": "Development.AutomorphicArithmetic.CharacterBoxes.MainConclusion",
-      "size": 72228,
+      "size": 72360,
       "from": "UpperTheory.FinalTheorems.everyCharacter"
     },
     {
       "name": "UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter",
       "module": "Development.AutomorphicArithmetic.Foundations.GaloisRepresentations.IntegralStructures.RowSrc",
-      "size": 37549,
+      "size": 27776,
       "from": "UpperTheory.FinalTheorems.everyCharacter"
     },
     {
       "name": "UpperTheory.Lit.Mix.twoAt_charZero",
       "module": "Development.AutomorphicArithmetic.ThetaCorrespondence.FockModels.TwoAtCharZero",
-      "size": 3081,
+      "size": 3090,
+      "from": "UpperTheory.FinalTheorems.everyCharacter"
+    },
+    {
+      "name": "PositivityTheory.AdelicQuotientData.rsPole",
+      "module": "Development.WeilBound.CoreStatements.PublishedTheorems.JacquetShalikaRigidity.JacquetShalikaRigidity",
+      "size": 1543,
       "from": "UpperTheory.FinalTheorems.everyCharacter"
     }
   ]

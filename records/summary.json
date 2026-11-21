@@ -81,18 +81,18 @@
       "decls": 4
     },
     {
-      "name": "Statements",
-      "modules": 1,
-      "lines": 16,
-      "bytes": 783,
-      "decls": 4
-    },
-    {
       "name": "Main",
       "modules": 1,
       "lines": 12,
       "bytes": 433,
       "decls": 5
+    },
+    {
+      "name": "Statements",
+      "modules": 1,
+      "lines": 16,
+      "bytes": 783,
+      "decls": 4
     }
   ],
   "imports": 753569,
@@ -448,7 +448,7 @@
   ],
   "unreachable": 0,
   "longest_chain": 203,
-  "uses": 5697113,
-  "weak": 595775,
+  "uses": 5599522,
+  "weak": 867357,
   "duplicate_names": 165
 }
