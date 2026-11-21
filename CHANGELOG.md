@@ -4,6 +4,10 @@ All changes that a reader can see are in this file. The versions follow the mile
 
 ## Unreleased
 
+## v0.6.2 (2026-11-22)
+
+The Learn section as a book, for milestone M6.
+
 ### Changed
 
 - The Learn section is now a book. Part I has 17 chapters on the background subjects, in the order to read them, with each definition and theorem that the proof uses. Part II has one short guide for each chapter of the proof. Pull request #20.
