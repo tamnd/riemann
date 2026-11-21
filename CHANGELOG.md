@@ -4,6 +4,10 @@ All changes that a reader can see are in this file. The versions follow the mile
 
 ## Unreleased
 
+## v0.6.0 (2026-11-21)
+
+This version follows milestones M4 and M5 of rh. It has the learning paths, the L2 steps and the chapters for each group of the timeline.
+
 ### Added
 
 - The written steps of the trunk, in `proof/steps/`. There are 20 steps, from the statement of the Riemann Hypothesis down to the first named results. Each step has a statement, the Lean statement, a proof or a reading of the definition, the steps that it uses and its status. All steps are drafts by a model, and each one has the field `drafted_by`. A person must check each one.
@@ -11,10 +15,19 @@ All changes that a reader can see are in this file. The versions follow the mile
 - `links/literature.yaml` lists the 18 named results of the trunk. For each one it gives what the Lean statement says, the published works, and how the Lean statement differs from them. Each DOI was checked.
 - CONTRIBUTING.md tells the format of a step.
 - The deploy workflow runs `rh check` before it builds the site.
+- The 12 learning paths give a definition for each of their 156 concepts. The glossary has 207 names, and `links/math2.yaml` has the summaries of the Math 2.0 nodes that the paths use. Each concept with no node has a node proposal in tamnd/math2.
+- 30 steps at level L2 that follow the main branch of each chapter. Their Notes record findings in the code, for example arguments that a theorem does not read.
+- Five chapters of the proof, level L1, as drafts: the Weil bound and arithmetic positivity, Bessel periods and seesaw, Siegel-Weil and the metaplectic representation, CM curves and divisibility, and block determinants and theta Parseval. With them, each group of the timeline of the note has a chapter. The Notes of each chapter say which ideas of the note have no counterpart in the code.
+- Each step of the timeline links to its chapter, and the parent chapters link to the new chapters.
 
 ### Changed
 
+- The site uses the records of the release `records-9110120-r2`, made by rh v0.6.1. That version does not resolve local names as uses. The spine has 757,483 declarations (it had 769,260), and the sizes in all chapters now come from these records.
 - The theta chapter tells that `ZeroFreeAll` has no exception at s = 1, and that the case s = 1 is true only because of the value that Mathlib gives to ζ(1).
+
+### Fixed
+
+- The YAML of the workflow `index`. It failed on each push, and it could not run by hand.
 
 ## v0.2.1 (2026-11-21)
 
