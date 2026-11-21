@@ -55,6 +55,7 @@ next:
   - text: The literature statements
     path: proof/literature/
     sub: the named inputs
+steps: [vwin-def, vwin-of-row]
 ---
 ## Result
 

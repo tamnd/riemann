@@ -53,6 +53,7 @@ next:
   - text: The trunk
     path: proof/trunk/
     sub: the map of the proof
+steps: [nonempty-hyps]
 ---
 ## Result
 

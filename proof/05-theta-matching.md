@@ -62,6 +62,7 @@ next:
   - text: The map of the trunk
     path: proof/trunk/
     sub: where this step sits
+steps: [theta-local-matching, green-vwin]
 ---
 ## Result
 
@@ -219,7 +220,7 @@ theorem UpperTheory.Top.zero_free_all_of_green_v_win (hG : GlobalTheory.GLq.Gree
     fun ψ => UpperTheory.Top.supplyChi ψ (hV ψ)
 ```
 
-A `PChar` is a primitive Dirichlet character $\psi$ of some conductor $N$. `ZeroFreeAll` says: for each `PChar` $\psi$ and each $s$ with $\operatorname{Re}(s) > \tfrac12$, $L(s,\psi) \neq 0$ ([ExplicitFormulaErrorOfHostConditions.lean#L18](lean:Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/ExplicitFormulaErrorOfHostConditions.lean#L18)). The proof has three pieces.
+A `PChar` is a primitive Dirichlet character $\psi$ of some conductor $N$. `ZeroFreeAll` says: for each `PChar` $\psi$ and each $s$ with $\operatorname{Re}(s) > \tfrac12$, $L(s,\psi) \neq 0$ ([ExplicitFormulaErrorOfHostConditions.lean#L18](lean:Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/ExplicitFormulaErrorOfHostConditions.lean#L18)). The statement has no exception at $s = 1$. The trivial character modulo 1 is primitive, and its L-function is $\zeta$, so at $s = 1$ the statement says that `riemannZeta 1` is not zero. Mathlib gives $\zeta$ a value at its pole by a convention, and the lemma `riemannZeta_one` says that this value is $(\gamma - \log 4\pi)/2$, which is not zero. So the case $s = 1$ is true, but only because of the convention. The proof has three pieces.
 
 First, `shape_closed_link_n_of_green` (9,548 declarations) proves `TopShapeAlt True True N TopG` from `Green`. `TopShapeAlt V NR N G` is a long implication: if about 50 named conditions on a family class $\mathcal{A}$ hold (and $V$, $NR$, and $N(\mathcal{A}')$ for a derived class), then $G$ holds. The theorem `forall_goal_of_shape_of_hyps` feeds the 46 fields of `HypsAlt` into these slots. It is a direct pass of fields, with two small conversions. The result is `TopG`.
 

@@ -49,6 +49,7 @@ next:
   - text: Theta integrals and local matching
     path: proof/theta-matching/
     sub: the main output of this page
+steps: [open-literature-statements-def, every-character-of-literature]
 ---
 ## Result
 

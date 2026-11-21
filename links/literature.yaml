@@ -1,0 +1,445 @@
+# The named results: the places where the written proof cites a published result in place of a step.
+# rh check reads this file (rule L1). Each Lean name here is a theorem or a structure of the Lean code. The Lean code proves each theorem. The citation tells where the same mathematics is published, and the note tells how the Lean statement differs from it.
+
+- name: UpperTheory.LiteratureTheorems.ar_degree_of_literature
+  statement: GlobalTheory.Published.ArDegree
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 251
+  result: Birational invariance of arithmetic self-intersection, and the Chern-Weil degree formula
+  says: '`ArDegree` is the conjunction of `ArBirational` and `ChernDegree`. `ArBirational` says that the arithmetic self-intersection number of a hermitian line bundle does not change under pullback by a birational morphism of generically smooth arithmetic varieties. `ChernDegree` says that for a smooth metric on a line bundle given by a divisor, the integral of the top power of its Chern form equals the degree of the divisor.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Henri Gillet, Christophe Soulé]
+      title: Arithmetic intersection theory
+      venue: Publ. Math. IHÉS 72
+      year: 1990
+      doi: 10.1007/BF02699132
+      verified: true
+    - authors: [Phillip Griffiths, Joseph Harris]
+      title: Principles of Algebraic Geometry
+      venue: Wiley
+      year: 1978
+      doi: 10.1002/9781118032527
+      verified: true
+  note: 'This is two standard facts in one statement, not one named theorem. The first part is a case of the projection formula of Gillet-Soulé. The proof does not use `O`. It uses the in-repository Poincaré-Lelong result and resolution.'
+
+- name: UpperTheory.LiteratureTheorems.fargues_exact_of_literature
+  statement: GlobalTheory.CompanionTheory.Ar.HT.FarguesExact
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 549
+  result: Exactness of the Hodge-Tate sequence for p-divisible groups over the ring of integers of an algebraically closed p-adic field (Fargues)
+  says: 'Let $G$ be a $p$-divisible group over the ring of integers $\mathcal{O}$ of a complete algebraically closed field $C$ of characteristic zero. Let $B$ be the $\mathcal{O}$-linear extension of the Weil pairing between the Tate modules of $G$ and its dual. Then an element $x$ of $\mathcal{O} \otimes T_p G$ is in the kernel of the Hodge-Tate map if and only if $B(x, y) = 0$ for all $y$ in the kernel of the $\operatorname{dlog}$ map of the dual.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Laurent Fargues]
+      title: "L'isomorphisme entre les tours de Lubin-Tate et de Drinfeld au niveau des points"
+      venue: "in: L'isomorphisme entre les tours de Lubin-Tate et de Drinfeld, Progr. Math. 262, Birkhäuser"
+      year: 2008
+      doi: 10.1007/978-3-7643-8456-2_3
+      verified: true
+    - authors: [Peter Scholze, Jared Weinstein]
+      title: Moduli of p-divisible groups
+      venue: Camb. J. Math. 1
+      year: 2013
+      doi: 10.4310/CJM.2013.v1.n2.a1
+      verified: true
+    - authors: [John Tate]
+      title: p-divisible groups
+      venue: Proceedings of a Conference on Local Fields (Driebergen 1966), Springer
+      year: 1967
+      doi: 10.1007/978-3-642-87942-5_12
+      verified: true
+  math2: 6YDZNXR19H
+  note: 'The Lean form is an orthogonality statement about kernels. It is not the exact sequence itself. Over $\mathcal{O}_C$ the integral Hodge-Tate sequence is exact only up to torsion killed by $p^{1/(p-1)}$. Check that the integral if-and-only-if in Lean is true as stated. The exact section of Fargues'' chapter was not checked. The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature
+  statement: GlobalTheory.Published.GrothendieckDeformation
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 405
+  result: Grothendieck-Messing deformation theory of abelian schemes
+  says: 'Let $R \to R_0$ be a surjection of rings whose kernel $I$ has nilpotent divided powers. For abelian schemes over $R_0$ with a lift to $R$, the crystal gives a canonical identification with de Rham cohomology. Lifts of an abelian scheme correspond to admissible lifts of its Hodge filtration. A homomorphism lifts, and lifts uniquely, when it respects the lifted filtrations.'
+  reads_hypothesis: true
+  cite:
+    - authors: [William Messing]
+      title: "The Crystals Associated to Barsotti-Tate Groups: with Applications to Abelian Schemes"
+      venue: Lecture Notes in Math. 264, Springer
+      year: 1972
+      doi: 10.1007/BFb0058301
+      verified: true
+    - authors: [Barry Mazur, William Messing]
+      title: Universal Extensions and One Dimensional Crystalline Cohomology
+      venue: Lecture Notes in Math. 370, Springer
+      year: 1974
+      doi: 10.1007/BFb0061628
+      verified: true
+  math2: H8AAQJ1SZW
+  note: 'The proof passes `O` to `abelian_de_rham_of_literature` and `abelian_lifting_of_literature`. Both ignore `O`, so `O` is used in name only. The Lean form has no hypothesis that $p$ is nilpotent in $R$. The derived `GrothendieckMessing` has that hypothesis. So the Lean form is the general form for abelian schemes, as in Mazur-Messing. It is not Messing''s $p$-nilpotent setting. Check that the published results cover this generality.'
+
+- name: UpperTheory.LiteratureTheorems.local_langlands_gl_recT_exists_of_literature
+  statement: UpperTheory.Zero.LLC.RecTExists
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 313
+  result: Local Langlands correspondence for GL(n) over p-adic fields (Harris-Taylor, Henniart)
+  says: 'At each finite place $w$ of a number field there is a map $rc$ from irreducible admissible representations of $\mathrm{GL}_n(E_w)$ to Weil-Deligne representations. The map keeps dimension. It agrees with local class field theory for $n = 1$ and is compatible with Langlands classification by segments. It sends cuspidals to irreducibles, respects twists, central characters and contragredients, and is injective on a class of good representations. It sends depth-zero representations to tame ones and follows a law for depth-zero types.'
+  reads_hypothesis: true
+  cite:
+    - authors: [Michael Harris, Richard Taylor]
+      title: The Geometry and Cohomology of Some Simple Shimura Varieties
+      venue: Ann. of Math. Stud. 151, Princeton Univ. Press
+      year: 2001
+      doi: 10.1515/9781400837205
+      verified: true
+    - authors: [Guy Henniart]
+      title: Une preuve simple des conjectures de Langlands pour GL(n) sur un corps p-adique
+      venue: Invent. Math. 139
+      year: 2000
+      doi: 10.1007/s002220050012
+      verified: true
+    - authors: [Peter Scholze]
+      title: The local Langlands correspondence for GL_n over p-adic fields
+      venue: Invent. Math. 192
+      year: 2013
+      doi: 10.1007/s00222-012-0420-5
+      verified: true
+  math2: 9E45NBX1G0
+  note: 'The proof is `llOf_alt` applied to `O.localLanglandsExists`, and `llOf_alt` is `fun h _ ... _ => h`. So the theorem returns the field `localLanglandsExists` of `O` without change. On the trunk, `everyCharacter_of_row` fills this field with the theorem `recTExists`, which the Lean code proves. So the proof on the trunk does not assume local Langlands. The Lean statement is weaker than the published theorem. It states existence only, with no uniqueness and no surjectivity. It does not match $L$-factors or $\varepsilon$-factors of pairs, and injectivity holds only on good representations.'
+
+- name: UpperTheory.LiteratureTheorems.nef_rr_of_literature
+  statement: GlobalTheory.CompanionTheory.Ar.Pub.NefRR
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 551
+  result: Asymptotic Riemann-Roch for nef divisors
+  says: 'Let $X$ be a variety of dimension $D$ in a product of projective spaces, and let $a$ be a multidegree that is nef on the generic fibre. Then the spaces of sections of $\mathcal{O}(\tau a)$ are finite-dimensional over $\mathbb{Q}$. Also $D!$ times their dimension divided by $\tau^D$ tends to the degree of $a$ on $X$.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Robert Lazarsfeld]
+      title: Positivity in Algebraic Geometry I
+      venue: Ergeb. Math. Grenzgeb. 48, Springer
+      year: 2004
+      doi: 10.1007/978-3-642-18808-4
+      verified: true
+  note: 'In Lazarsfeld this is Corollary 1.4.41 (the corollary number is from memory and was not checked). In Lean, sections are modelled as the $\mathbb{Q}$-span of a lattice of elements integral over the chart rings, so the model is the normalisation of the generic fibre. The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature
+  statement: GlobalTheory.CompanionTheory.Hypotheses₂.PoincareLelongInv
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 553
+  result: Poincaré-Lelong formula (integrated form used in arithmetic intersection theory)
+  says: 'Let $X$ be an arithmetic subvariety of a product of projective spaces, with smooth conjugation-invariant metrized line bundles $L_j$, $A$ and $B$, where $B$ has weight zero. Let $s$ be a section of $A$. Then the integral of $\log \lVert s \rVert$ against the Chern forms of $B$ and the $L_j$ equals two terms. The first is the sum over horizontal components $W$ of $\operatorname{div}(s)$ of their multiplicity times the integral of $\log h_B$ over $W$. The second, which is subtracted, is the integral of $\log h_B$ against the Chern form of $A$.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Phillip Griffiths, Joseph Harris]
+      title: Principles of Algebraic Geometry
+      venue: Wiley
+      year: 1978
+      doi: 10.1002/9781118032527
+      verified: true
+    - authors: [Jean-Benoît Bost, Henri Gillet, Christophe Soulé]
+      title: Heights of projective varieties and positive Green forms
+      venue: J. Amer. Math. Soc. 7
+      year: 1994
+      doi: 10.1090/S0894-0347-1994-1260106-X
+      verified: true
+  math2: B2YBWQQMHA
+  note: 'This is a consequence of the Poincaré-Lelong formula $dd^c \log \lvert s \rvert^2 = [\operatorname{div} s] - c_1(A)$, combined with Stokes. It is not the formula itself. In Lean the integral over the complex points uses a projection chosen with `Classical.choice`. A Lebesgue integral of a non-integrable function is $0$, so check that the model integral is the right one. The proof does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.point_separation_pair_of_literature
+  statement: GlobalTheory.Published.PointSeparationPair
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 471
+  result: Angehrn-Siu point separation for adjoint bundles
+  says: 'Let $X$ be a normal projective complex variety of dimension $n$ with a klt boundary $\Delta$. Let $M$ be a line bundle numerically equal to $G/m + N_0/r$, where $G$ is a log canonical multiple and $N_0$ is nef and big. Assume that every subvariety of dimension $e$ through $x_1$ or $x_2$ has $N_0$-degree large compared with $c_e^e$, and that the sum of $2^{1/e} e / c_e$ is at most $1$. Then some section of $M$ vanishes at exactly one of the two distinct closed points $x_1$ and $x_2$.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Urban Angehrn, Yum-Tong Siu]
+      title: Effective freeness and point separation for adjoint bundles
+      venue: Invent. Math. 122
+      year: 1995
+      doi: 10.1007/BF01231446
+      verified: true
+  note: 'This is a variant of the Angehrn-Siu theorem, written with a $\mathbb{Q}$-divisor $\Delta$ and numerical constants $c_e$. The exact constants were not compared with the published statement. The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature
+  statement: GlobalTheory.CompanionTheory.Hypotheses₂.PrincipalisationCharZero
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 555
+  result: Principalisation of ideals in characteristic zero (Hironaka)
+  says: 'Let $X$ be smooth, quasi-compact and separated over a field of characteristic zero. Let $I$ be an ideal sheaf that contains no irreducible component of $X$ in its support, and let $E$ be a simple normal crossings divisor. Then a sequence of blow-ups in smooth centres with normal crossings with $E$ makes the pullback of $I$ an effective Cartier divisor with snc support. The sequence is an isomorphism outside the support of $I$.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Heisuke Hironaka]
+      title: "Resolution of singularities of an algebraic variety over a field of characteristic zero: I"
+      venue: Ann. of Math. 79
+      year: 1964
+      doi: 10.2307/1970486
+      verified: true
+    - authors: [Edward Bierstone, Pierre D. Milman]
+      title: Canonical desingularization in characteristic zero by blowing up the maximum strata of a local invariant
+      venue: Invent. Math. 128
+      year: 1997
+      doi: 10.1007/s002220050141
+      verified: true
+    - authors: [Jarosław Włodarczyk]
+      title: Simple Hironaka resolution in characteristic zero
+      venue: J. Amer. Math. Soc. 18
+      year: 2005
+      doi: 10.1090/S0894-0347-05-00493-5
+      verified: true
+    - authors: [János Kollár]
+      title: Lectures on Resolution of Singularities
+      venue: Ann. of Math. Stud. 166, Princeton Univ. Press
+      year: 2007
+      doi: 10.1515/9781400827800
+      verified: true
+  math2: MB52NDA6WN
+  note: 'The Math 2.0 node is for resolution of singularities in general. No node for principalisation was found. The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature
+  statement: GlobalTheory.CompanionTheory.Hypotheses₂.ResolutionCharZero
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 557
+  result: Hironaka's resolution of singularities in characteristic zero
+  says: 'Let $X$ be a reduced scheme of finite type, quasi-compact and separated over a field of characteristic zero. Then a finite sequence of blow-ups gives a smooth $X'' \to X$. This map is an isomorphism over the smooth locus of $X$, and the reduced preimage of the singular locus is a simple normal crossings divisor.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Heisuke Hironaka]
+      title: "Resolution of singularities of an algebraic variety over a field of characteristic zero: I"
+      venue: Ann. of Math. 79
+      year: 1964
+      doi: 10.2307/1970486
+      verified: true
+    - authors: [Heisuke Hironaka]
+      title: "Resolution of singularities of an algebraic variety over a field of characteristic zero: II"
+      venue: Ann. of Math. 79
+      year: 1964
+      doi: 10.2307/1970547
+      verified: true
+    - authors: [János Kollár]
+      title: Lectures on Resolution of Singularities
+      venue: Ann. of Math. Stud. 166, Princeton Univ. Press
+      year: 2007
+      doi: 10.1515/9781400827800
+      verified: true
+  math2: MB52NDA6WN
+  note: 'The statement matches the published theorem. The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.semi_abelian_lie_seminegative_of_literature
+  statement: GlobalTheory.Published.SemiAbelianLieSeminegative
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 499
+  result: Seminegativity of the Lie algebra of a semi-abelian scheme over a curve (dually, nefness of the Hodge bundle)
+  says: 'Let $C$ be a smooth projective geometrically connected curve over a field of characteristic zero, and let $G$ be a semi-abelian group scheme over $C$. Then every vector bundle $W$ that injects into $\operatorname{Lie}(G)$ has $\det W$ of degree at most $0$.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Laurent Moret-Bailly]
+      title: Pinceaux de variétés abéliennes
+      venue: Astérisque 129, Soc. Math. France
+      year: 1985
+      verified: true
+    - authors: [Takao Fujita]
+      title: On Kähler fiber spaces over curves
+      venue: J. Math. Soc. Japan 30
+      year: 1978
+      doi: 10.2969/jmsj/03040779
+      verified: true
+    - authors: [Gerd Faltings, Ching-Li Chai]
+      title: Degeneration of Abelian Varieties
+      venue: Ergeb. Math. Grenzgeb. (3) 22, Springer
+      year: 1990
+      doi: 10.1007/978-3-662-02632-8
+      verified: true
+  note: 'Moret-Bailly (on Numdam, no DOI) proves that the determinant of the relative Lie algebra is negative. The Lean form is stronger: it covers every subsheaf that is a vector bundle, which is seminegativity of $\operatorname{Lie}(G)$ as a bundle. In characteristic zero this follows from the semipositivity of the Hodge bundle (Griffiths, Fujita). The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature
+  statement: GlobalTheory.Published.SiegelToroidalIntegral
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 509
+  result: Faltings-Chai toroidal compactification of the Siegel moduli space over the integers with the n-th roots of unity and 1/n
+  says: 'For each $g \geq 1$ there is a polarised fan with the following property. For each odd $n \geq 3$ the moduli space of principally polarised abelian schemes with level $n$ has a compactification $S$, which is projective and smooth over $\mathbb{Z}[\zeta_n, 1/n]$ of relative dimension $g(g+1)/2$. The open part is dense in every fibre. The universal abelian scheme extends to a semi-abelian scheme, and the boundary has toroidal charts. A power of the Hodge bundle is generated by global sections, and large powers of it twisted by minus the boundary are ample.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Gerd Faltings, Ching-Li Chai]
+      title: Degeneration of Abelian Varieties
+      venue: Ergeb. Math. Grenzgeb. (3) 22, Springer
+      year: 1990
+      doi: 10.1007/978-3-662-02632-8
+      verified: true
+  note: 'The Lean form asks only for odd $n \geq 3$. The published theorem covers all $n \geq 3$. The relevant results are in Faltings-Chai Chapters IV and V. The theorem numbers were not checked. The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature
+  statement: GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.ThetaIntegralsAgree ∧ GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.LocalMatching
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 565
+  result: Not identified (theta integrals for unitary dual pairs, with Siegel-Weil inputs)
+  says: '`LocalMatching` says that for each admissible triple of geometric data, characters and test data for a unitary dual pair over a CM extension, there are matched local data. `ThetaIntegralsAgree` says three things. The theta integrals decay. Matched data give one constant and coinvariance. The constants for signature $(a, b+2)$ and $(a, b)$, or $(b+2, a'')$ and $(b, a'')$, differ by an explicit factor that involves a partial Hecke $L$-value.'
+  reads_hypothesis: true
+  cite:
+    - authors: [Stephen S. Kudla, Stephen Rallis]
+      title: "A regularized Siegel-Weil formula: the first term identity"
+      venue: Ann. of Math. 140
+      year: 1994
+      doi: 10.2307/2118540
+      verified: true
+    - authors: [Atsushi Ichino]
+      title: A regularized Siegel-Weil formula for unitary groups
+      venue: Math. Z. 247
+      year: 2004
+      doi: 10.1007/s00209-003-0580-5
+      verified: true
+  note: 'This is a project-specific statement, not a published theorem we could identify. The proof is `theoremK_head2` applied to `eis_bl_of_literature O` and `siegel_weil_std_of_literature O`. Both ignore `O`, so `O` is used in name only. The citations are only the probable sources of those two inputs (Eisenstein series and Siegel-Weil). They are not a source for this statement.'
+
+- name: UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature
+  statement: GlobalTheory.Published.ToroidalForFanKS
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 523
+  result: Toroidal compactifications of PEL-type unitary Shimura varieties with the log Kodaira-Spencer isomorphism
+  says: 'Take a unitary Shimura variety of signature $(p, q)$ over a CM field, a level, and a smooth polarised fan with no self-intersection. Then there is a toroidal model over the coefficient field. Its generic part is smooth, its boundary has simple normal crossings and lies outside the abelian locus, and it has toroidal charts. A twist of the Hodge bundle by the boundary is ample, and the log Kodaira-Spencer map is an isomorphism.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Kai-Wen Lan]
+      title: Arithmetic Compactifications of PEL-Type Shimura Varieties
+      venue: London Math. Soc. Monogr. 36, Princeton Univ. Press
+      year: 2013
+      doi: 10.1515/9781400846016
+      verified: true
+    - authors: [Gerd Faltings, Ching-Li Chai]
+      title: Degeneration of Abelian Varieties
+      venue: Ergeb. Math. Grenzgeb. (3) 22, Springer
+      year: 1990
+      doi: 10.1007/978-3-662-02632-8
+      verified: true
+  note: 'The Lean form is over the coefficient field (characteristic zero), so it is weaker than Lan''s integral result. The proof is a direct term and does not use `O`.'
+
+- name: UpperTheory.LiteratureTheorems.zarhin_statement
+  statement: GlobalTheory.CompanionTheory.Ar.GR.ZarhinStatement
+  file: Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean
+  line: 547
+  result: Zarhin's trick
+  says: 'Let $R$ be the valuation ring of an algebraically closed valued field, and let $A$ be an abelian scheme over $R$ with a relatively ample line bundle. Then $A$ is a retract of a principally polarised abelian scheme over $R$, through group homomorphisms $i$ and $r$ with $i$ followed by $r$ equal to the identity.'
+  reads_hypothesis: true
+  cite:
+    - authors: [Yuri G. Zarhin]
+      title: A remark on endomorphisms of abelian varieties over function fields of finite characteristic
+      venue: Math. USSR-Izv. 8
+      year: 1974
+      doi: 10.1070/IM1974v008n03ABEH002115
+      verified: true
+    - authors: [Yuri G. Zarhin]
+      title: A finiteness theorem for unpolarized abelian varieties over number fields with prescribed places of bad reduction
+      venue: Invent. Math. 79
+      year: 1985
+      doi: 10.1007/BF01388976
+      verified: true
+    - authors: [Laurent Moret-Bailly]
+      title: Pinceaux de variétés abéliennes
+      venue: Astérisque 129, Soc. Math. France
+      year: 1985
+      verified: true
+  note: 'The Lean form is a consequence of Zarhin''s trick, which says $(A \times A^\vee)^4$ has a principal polarisation. It is weaker, because it does not name the principally polarised scheme. The DOI 10.1007/BF01388979 given in the task template is wrong. It resolves to Hendriks, ''Hyperplane complements of large type''. The correct DOI for Zarhin, Invent. Math. 79 (1985) is 10.1007/BF01388976. The proof passes `O` to `dual_abelian_scheme_of_literature`, which ignores `O`, so `O` is used in name only.'
+
+- name: UpperTheory.LiteratureTheorems.OpenImageCondition
+  statement: "structure with one field galoisRepOfPolarizedPairLit : UpperTheory.V.Z.Win.RowT"
+  file: Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TemperedProductOfSquareIntegrable.lean
+  line: 207
+  result: Galois representations attached to regular algebraic polarised cuspidal automorphic representations of GL(n) over CM fields, with local-global compatibility
+  says: 'For each regular algebraic cuspidal automorphic representation $\pi$ of $\mathrm{GL}_a$ over a CM field that is part of a polarised pair, and each prime $\ell$, there is a continuous semisimple $\ell$-adic Galois representation. It has the expected Hodge-Tate weights, and they are symmetric under complex conjugation. Away from $\ell$ it is compatible with the local Langlands map $rc$, and at places above $\ell$ it has the expected $p$-adic Hodge theoretic behaviour.'
+  cite:
+    - authors: [Gaëtan Chenevier, Michael Harris]
+      title: Construction of automorphic Galois representations, II
+      venue: Camb. J. Math. 1
+      year: 2013
+      doi: 10.4310/CJM.2013.v1.n1.a2
+      verified: true
+    - authors: [Sug Woo Shin]
+      title: Galois representations arising from some compact Shimura varieties
+      venue: Ann. of Math. 173
+      year: 2011
+      doi: 10.4007/annals.2011.173.3.9
+      verified: true
+    - authors: [Ana Caraiani]
+      title: Local-global compatibility and the action of monodromy on nearby cycles
+      venue: Duke Math. J. 161
+      year: 2012
+      doi: 10.1215/00127094-1723706
+      verified: true
+    - authors: [Thomas Barnet-Lamb, Toby Gee, David Geraghty, Richard Taylor]
+      title: Local-global compatibility for l = p, II
+      venue: Ann. Sci. Éc. Norm. Supér. (4) 47
+      year: 2014
+      doi: 10.24033/asens.2212
+      verified: true
+  math2: ZCQ7KAV3A0
+  note: 'This is a hypothesis structure, not a theorem. On the trunk, `vwin_of_row` builds it as `OpenImageCondition.mk h`, where `h` is the hypothesis `Row0b`, and the Lean code proves `Row0b` with `galoisLocalGlobalStrong_recParameter`. So the proof on the trunk does not assume it. The name is misleading, because the field states the existence of Galois representations, not an open image condition. The compatibility is stated for the map $rc$ given by `IsRecT`, so it depends on the Lean local Langlands statement. The ''$\ell = p$, I'' paper of the same authors was not checked.'
+
+- name: GlobalTheory.Hk3.howeUnram_holds
+  statement: GlobalTheory.Hk3.HoweUnram
+  file: Development/AbelianVarietyTheory/Proofs/SatakeParameters/RhoMemOfMkEq.lean
+  line: 250
+  result: Unramified Howe duality (the spherical vector generates the invariants)
+  says: 'Take an unramified local unitary dual pair over a $p$-adic field of characteristic zero, with a Weil representation $M$ and a nonzero vacuum vector $s$ that is cyclic. Then every vector fixed by the integral points of the first group lies in the span of the second group''s orbit of $s$. The same holds with the two groups exchanged.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Roger Howe]
+      title: θ-series and invariant theory
+      venue: "Proc. Sympos. Pure Math. 33, Part 1, Amer. Math. Soc."
+      year: 1979
+      doi: 10.1090/pspum/033.1/546602
+      verified: true
+    - authors: [Stephen Rallis]
+      title: "Langlands' functoriality and the Weil representation"
+      venue: Amer. J. Math. 104
+      year: 1982
+      doi: 10.2307/2374151
+      verified: true
+  math2: 6WB6TKE70H
+  note: 'This theorem is proved in Lean and takes no `O` argument. It is a lemma of the unramified theta correspondence, not full Howe duality. The exact place of the statement in Howe or Rallis was not checked.'
+
+- name: PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright
+  statement: PositivityTheory.Pf1.HilbertSamuelMoriwaki.HSUse
+  file: Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/MoriwakiBigTheorem/Outright.lean
+  line: 13
+  result: Arithmetic Hilbert-Samuel theorem (upper bound) and arithmetic nonnegativity for nef bundles
+  says: '`HSUse` is three statements about arithmetic subvarieties of a product of projective spaces over $\mathbb{Z}$. `ArithKleiman` says a nef hermitian line bundle with nonnegative heights on arithmetic curves has nonnegative self-intersection. `G7` and `ArithmeticVolumeNef` say that the number of small sections of tensor powers grows at most like the arithmetic self-intersection times $n^{D+1}/(D+1)!$, as a $\limsup$ bound.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Henri Gillet, Christophe Soulé]
+      title: An arithmetic Riemann-Roch theorem
+      venue: Invent. Math. 110
+      year: 1992
+      doi: 10.1007/BF01231343
+      verified: true
+    - authors: [Ahmed Abbes, Thierry Bouche]
+      title: Théorème de Hilbert-Samuel « arithmétique »
+      venue: Ann. Inst. Fourier 45
+      year: 1995
+      doi: 10.5802/aif.1458
+      verified: true
+    - authors: [Shouwu Zhang]
+      title: Positive line bundles on arithmetic varieties
+      venue: J. Amer. Math. Soc. 8
+      year: 1995
+      doi: 10.1090/S0894-0347-1995-1254133-7
+      verified: true
+  note: 'The Lean form has only the upper bound ($\limsup \leq$), not the asymptotic equality of the published theorem. Intersection numbers come from an abstract `IntersectionSystem` that satisfies the axioms `IsIntersectionSystem`. They are not the Gillet-Soulé numbers, so the result depends on those axioms. This entry takes no `O` argument. It is proved from `resK`, the Poincaré-Lelong result and `DenseCurves`.'
+
+- name: PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright
+  statement: ReciprocityTheory.ChartRestriction.G.ArakelovGeometry.MoriwakiBigStatement
+  file: Development/WeilBound/CoreStatements/AutomorphicKernels/MoriwakiBigness/MoriwakiBigTheorem/Outright.lean
+  line: 9
+  result: Moriwaki's bigness / volume of nef hermitian line bundles (with Yuan)
+  says: 'Let $A$ be a hermitian line bundle on an arithmetic variety of dimension $D+1$ in a product of projective spaces. Assume $A$ is semipositive, conjugation-invariant, nef on fibres and nef on the generic fibre. Then its arithmetic self-intersection number is at most its arithmetic volume.'
+  reads_hypothesis: false
+  cite:
+    - authors: [Atsushi Moriwaki]
+      title: Continuity of volumes on arithmetic varieties
+      venue: J. Algebraic Geom. 18
+      year: 2009
+      doi: 10.1090/S1056-3911-08-00500-6
+      verified: true
+    - authors: [Xinyi Yuan]
+      title: Big line bundles over arithmetic varieties
+      venue: Invent. Math. 173
+      year: 2008
+      doi: 10.1007/s00222-008-0127-9
+      verified: true
+  note: 'The Lean form is the inequality self-intersection $\leq$ volume. For nef bundles the published result gives equality, so the Lean form is weaker. Positive self-intersection then implies bigness. As in `hsUse_outright`, the intersection numbers come from an abstract `IntersectionSystem`. This entry takes no `O` argument.'

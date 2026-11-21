@@ -90,6 +90,7 @@ next:
   - text: The unitary hypotheses
     path: proof/unitary-hypotheses/
     sub: the nonempty hypotheses on the definite side
+steps: [every-character-of-row]
 ---
 ## Result
 
