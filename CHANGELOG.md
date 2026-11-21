@@ -4,6 +4,19 @@ All changes that a reader can see are in this file. The versions follow the mile
 
 ## Unreleased
 
+## v0.6.1 (2026-11-21)
+
+The first real results of the trust report, for milestone M2.
+
+### Added
+
+- `records/trust.json`. Q0 is yes: the workflow `source` of riemann-lean downloaded the release from alpo.ge again, and each part, the archive and each file matched. Q4 is open. Pull request #17.
+- `reviews/fidelity.md`, the draft review of the five statements of `Main.lean` against the Mathlib definitions. It waits for a named reviewer. Pull request #17.
+
+### Changed
+
+- The trust page gives the result of the build trial in Q1, links the draft review in Q4, and adds the check of notation to the scan table. Pull request #17.
+
 ## v0.6.0 (2026-11-21)
 
 This version follows milestones M4 and M5 of rh. It has the learning paths, the L2 steps and the chapters for each group of the timeline.
