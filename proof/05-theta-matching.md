@@ -87,9 +87,9 @@ In words, the Lean code states: if seven inputs hold, then each Dirichlet L-func
 
 The proof of the theorem has two parts, and it is three lines of Lean.
 
-The first part is the trunk. The theorem `nonempty_hyps_definite_side_of_closed_bound` uses all inputs except `VWin`, and builds one large structure `HypsAlt`. This structure has 46 fields. They are bounds and choices for families of objects that the code calls `FamP`. This part dominates 263,288 declarations. It is the subject of [the next chapter](/proof/unitary-hypotheses/).
+The first part is the trunk. The theorem `nonempty_hyps_definite_side_of_closed_bound` uses all inputs except `VWin`, and builds one large structure `HypsAlt`. This structure has 46 fields. They are bounds and choices for families of objects that the code calls `FamP`. This part dominates 263,615 declarations. It is the subject of [the next chapter](/proof/unitary-hypotheses/).
 
-The second part is the branch `every_character_of_green_v_win`. It takes three inputs: the statement `Green` (about cuspidal characters of $\mathrm{GL}_d(\mathbb{F}_g)$), the statement `VWin`, and the structure `HypsAlt`. From them it proves `ZeroFreeAll`, which is the same nonvanishing for primitive characters only. Then a short Mathlib argument removes the condition "primitive". This branch dominates 12,087 declarations.
+The second part is the branch `every_character_of_green_v_win`. It takes three inputs: the statement `Green` (about cuspidal characters of $\mathrm{GL}_d(\mathbb{F}_g)$), the statement `VWin`, and the structure `HypsAlt`. From them it proves `ZeroFreeAll`, which is the same nonvanishing for primitive characters only. Then a short Mathlib argument removes the condition "primitive". This branch dominates 12,070 declarations.
 
 The theta inputs `hA` and `hM` are not used in the branch. They go only into the trunk part. So the name of the theorem refers to the two inputs, and the work that uses them is in the next chapter. This page still unfolds them, because their statements are concrete. `ThetaIntegralsAgree` says that two theta integrals into the same unitary group are proportional, with one nonzero constant, when their test functions match. `LocalMatching` says that test functions can be matched: at each place there are quotient maps of the two local Weil representations onto one common irreducible space.
 
@@ -185,7 +185,7 @@ The statement is at [WeilTensorModels.lean#L581](lean:Development/AbelianVariety
 
 So `LocalMatching` says: the local theta lifts of $\omega_v$ and $\omega'_v$ to $U_W(F_v)$ have a common irreducible quotient, at every place, with matched spherical vectors. A pair $(\Phi,\Phi')$ is matched (`Match`, `PolMatch`) when their pure tensor pieces have the same image in $\Pi_\infty \otimes \bigotimes_{v \in T'} \Pi_v$ for some finite set $T' \supseteq T$, up to limits.
 
-In the proof of the Riemann Hypothesis, both `hA` and `hM` come from `theta_integrals_agree_and_local_matching_of_literature`, which applies `PositivityTheory.ThKR.theoremK_head2` to two statements named `EisBL` and `SiegelWeilStd`. That proof dominates 13,076 declarations. The names refer to Eisenstein series and the Siegel-Weil formula in the literature. This page does not unfold `EisBL` or `SiegelWeilStd`.
+In the proof of the Riemann Hypothesis, both `hA` and `hM` come from `theta_integrals_agree_and_local_matching_of_literature`, which applies `PositivityTheory.ThKR.theoremK_head2` to two statements named `EisBL` and `SiegelWeilStd`. That proof dominates 8,520 declarations. The names refer to Eisenstein series and the Siegel-Weil formula in the literature. This page does not unfold `EisBL` or `SiegelWeilStd`.
 
 ### Step 5. The trunk part
 
@@ -222,11 +222,11 @@ theorem UpperTheory.Top.zero_free_all_of_green_v_win (hG : GlobalTheory.GLq.Gree
 
 A `PChar` is a primitive Dirichlet character $\psi$ of some conductor $N$. `ZeroFreeAll` says: for each `PChar` $\psi$ and each $s$ with $\operatorname{Re}(s) > \tfrac12$, $L(s,\psi) \neq 0$ ([ExplicitFormulaErrorOfHostConditions.lean#L18](lean:Formalism/SharpRestriction/RamificationFrobenius/TotientGaloisClasses/ExplicitFormulaErrorOfHostConditions.lean#L18)). The statement has no exception at $s = 1$. The trivial character modulo 1 is primitive, and its L-function is $\zeta$, so at $s = 1$ the statement says that `riemannZeta 1` is not zero. Mathlib gives $\zeta$ a value at its pole by a convention, and the lemma `riemannZeta_one` says that this value is $(\gamma - \log 4\pi)/2$, which is not zero. So the case $s = 1$ is true, but only because of the convention. The proof has three pieces.
 
-First, `shape_closed_link_n_of_green` (9,548 declarations) proves `TopShapeAlt True True N TopG` from `Green`. `TopShapeAlt V NR N G` is a long implication: if about 50 named conditions on a family class $\mathcal{A}$ hold (and $V$, $NR$, and $N(\mathcal{A}')$ for a derived class), then $G$ holds. The theorem `forall_goal_of_shape_of_hyps` feeds the 46 fields of `HypsAlt` into these slots. It is a direct pass of fields, with two small conversions. The result is `TopG`.
+First, `shape_closed_link_n_of_green` (9,550 declarations) proves `TopShapeAlt True True N TopG` from `Green`. `TopShapeAlt V NR N G` is a long implication: if about 50 named conditions on a family class $\mathcal{A}$ hold (and $V$, $NR$, and $N(\mathcal{A}')$ for a derived class), then $G$ holds. The theorem `forall_goal_of_shape_of_hyps` feeds the 46 fields of `HypsAlt` into these slots. It is a direct pass of fields, with two small conversions. The result is `TopG`.
 
 Second, `TopG` ([ZeroFreeAllOfTopG.lean#L12](lean:Development/AutomorphicArithmetic/CharacterBoxes/ZeroFreeAllOfTopG.lean#L12)) says: for each $\lambda > 1$ and each requirement $G$, if suitable hosts exist on windows of scale $\lambda$ (`HostExW la G.req`), and each family in the class `G.cls la` satisfies `HypV`, then the class is `FamilyClassConnected`. That means: for small $\varepsilon$ there is a family `Fm` in the class whose members satisfy the inequality `ChainTied` for all large $x$ in its window set.
 
-Third, `supplyChi` (1,463 declarations) turns `VWinAt ψ 401` into `HostExW (3/2) (GChi ψ).req`. So `VWin` supplies the hosts for each $\psi$, at $\lambda = 3/2$.
+Third, `supplyChi` (1,462 declarations) turns `VWinAt ψ 401` into `HostExW (3/2) (GChi ψ).req`. So `VWin` supplies the hosts for each $\psi$, at $\lambda = 3/2$.
 
 The theorem `zeroFreeAll_of_topG` (417 declarations) then ends the proof. For $\psi$, it takes the level `Level.cyc ψ`, built from the subgroup generated by $\psi$. The code defines
 
@@ -254,19 +254,19 @@ Sizes are dominator sizes: the number of declarations that only this node reache
 
 | Declaration | Module (file) | Size |
 |---|---|---|
-| `UpperTheory.Lit.every_character_of_theta_integrals_local_matching` | `ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean` | 312,785 |
-| `UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound` | same file | 263,288 |
-| `UpperTheory.Top.every_character_of_green_v_win` | `ThirdPlaceSeries/TopPlug.lean` | 12,087 |
-| `UpperTheory.Top.zero_free_all_of_green_v_win` | `ThirdPlaceSeries/TopPlug.lean` | 12,082 |
-| `UpperTheory.Top.shape_closed_link_n_of_green` | `ThirdPlaceSeries/TopShape.lean` | 9,548 |
-| `UpperTheory.Top.supplyChi` | `CharacterBoxes/SupplyChi.lean` | 1,463 |
+| `UpperTheory.Lit.every_character_of_theta_integrals_local_matching` | `ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean` | 313,327 |
+| `UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound` | same file | 263,615 |
+| `UpperTheory.Top.every_character_of_green_v_win` | `ThirdPlaceSeries/TopPlug.lean` | 12,070 |
+| `UpperTheory.Top.zero_free_all_of_green_v_win` | `ThirdPlaceSeries/TopPlug.lean` | 12,065 |
+| `UpperTheory.Top.shape_closed_link_n_of_green` | `ThirdPlaceSeries/TopShape.lean` | 9,550 |
+| `UpperTheory.Top.supplyChi` | `CharacterBoxes/SupplyChi.lean` | 1,462 |
 | `UpperTheory.Top.zeroFreeAll_of_topG` | `CharacterBoxes/ZeroFreeAllOfTopG.lean` | 417 |
 | `UpperTheory.Top.imprimitive` | `CharacterBoxes/Imprimitive.lean` | 1 |
-| `UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature` | `ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean` | 13,076 |
+| `UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature` | `ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean` | 8,520 |
 | `GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.ThetaIntegralsAgree` | `BlockTheory/DivisorBase/WeilTensorModels.lean` | definition |
 | `GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.LocalMatching` | `BlockTheory/DivisorBase/WeilTensorModels.lean` | definition |
 
-The `ThirdPlaceSeries` files are in `Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/`. The `CharacterBoxes` files are in `Development/AutomorphicArithmetic/`. The full closure of the main theorem (all declarations it uses, shared or not) has 457,187 declarations. The closure of `every_character_of_green_v_win` has 50,815. Besides the two big children, the main theorem dominates some smaller nodes that both children reach, for example `theorem_A_closed_form_holds` (3,025) and `globalLatticeIndexTheorem_of_lengthBoundAtPlaces` (2,272).
+The `ThirdPlaceSeries` files are in `Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/`. The `CharacterBoxes` files are in `Development/AutomorphicArithmetic/`. The full closure of the main theorem (all declarations it uses, shared or not) has 452,823 declarations. The closure of `every_character_of_green_v_win` has 50,160. Besides the two big children, the main theorem dominates some smaller nodes that both children reach, for example `theorem_A_closed_form_holds` (3,015) and `globalLatticeIndexTheorem_of_lengthBoundAtPlaces` (2,223).
 
 ## Notes
 

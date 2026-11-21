@@ -228,7 +228,7 @@ theorem UpperTheory.FinalTheorems.everyCharacter_of_row (h : UpperTheory.GalStar
 
 The anonymous constructor `⟨h, recTExists, h⟩` puts $h$ in the first and third fields.
 
-The theorem `recTExists` ([RecTExists.lean#L20](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean#L20)) proves `RecTExists`. The Lean proof does this. It takes a local Artin map $a$ from `artEx`. It takes a map `r` on cuspidal classes from `cuspEx`. It extends `r` to all classes with `exists_isLExt`, through the Langlands classification. Then it checks each law of `LawsT` with the lemmas `extDim`, `extTw`, `extDual`, `extInj`, `extDepth` and `typeIff`. Its dependency closure has 11,791 declarations, which is small for this proof. This page does not go below it. No later chapter in the list above covers it in detail.
+The theorem `recTExists` ([RecTExists.lean#L20](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean#L20)) proves `RecTExists`. The Lean proof does this. It takes a local Artin map $a$ from `artEx`. It takes a map `r` on cuspidal classes from `cuspEx`. It extends `r` to all classes with `exists_isLExt`, through the Langlands classification. Then it checks each law of `LawsT` with the lemmas `extDim`, `extTw`, `extDual`, `extInj`, `extDepth` and `typeIff`. Its dependency closure has 11,316 declarations, which is small for this proof. This page does not go below it. No later chapter in the list above covers it in detail.
 
 ### Step 5. The statement VWin
 
@@ -302,23 +302,23 @@ All paths are relative to `lean/src`. "Closure" is the number of declarations th
 
 | Declaration | Module | Closure | Dominated |
 |---|---|---|---|
-| `FinalTheorems.everyCharacter` | [MainConclusion.lean#L10](lean:Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean#L10) | 769,254 | |
+| `FinalTheorems.everyCharacter` | [MainConclusion.lean#L10](lean:Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean#L10) | 757,477 | |
 | `FinalTheorems.everyCharacter_of_row` | [MainConclusion.lean#L7](lean:Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean#L7) | | |
-| `Gal.Int.galoisLocalGlobalStrong_recParameter` | [RowSrc.lean#L6](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean#L6) | 191,805 | 54,225 |
+| `Gal.Int.galoisLocalGlobalStrong_recParameter` | [RowSrc.lean#L6](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/RowSrc.lean#L6) | 181,653 | 51,591 |
 | `GalStar.Row0b` | [WeightsConjBis.lean#L69](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean#L69) | 707 | |
 | `Zero.LLC.IsRecT`, `RecTExists` | [IsRecTOfIsRec.lean#L76](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/IsRecTOfIsRec.lean#L76) | 152 (`RecTExists`) | |
-| `Zero.LLC.recTExists` | [RecTExists.lean#L20](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean#L20) | 11,791 | |
-| `One.vwin_of_row` | [VwinOfRow.lean#L4](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean#L4) | 166,306 | 56,145 |
+| `Zero.LLC.recTExists` | [RecTExists.lean#L20](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/LocalCentralUnits/RecTExists.lean#L20) | 11,316 | |
+| `One.vwin_of_row` | [VwinOfRow.lean#L4](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean#L4) | 164,523 | 55,805 |
 | `Top.VWin` | [ExistsPageN.lean#L49](lean:Development/AutomorphicArithmetic/CharacterBoxes/ExistsPageN.lean#L49) | 38 | |
 | `LiteratureTheorems.OpenLiteratureStatements` | [EveryCharacterOfLiteratureOfVWin.lean#L215](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean#L215) | | |
-| `LiteratureTheorems.every_character_of_literature_of_vWin` | [EveryCharacterOfLiteratureOfVWin.lean#L810](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean#L810) | 643,054 | |
-| `SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt` | [TopCovolSlim2Use.lean#L16](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean#L16) | 149,286 | 52,322 |
-| `LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature` | [EveryCharacterOfLiteratureOfVWin.lean#L565](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean#L565) | 48,967 | 13,076 |
-| `Lit.every_character_of_theta_integrals_local_matching` | [SiegelEisensteinSecondTermHypotheses.lean#L69](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L69) | 457,187 | |
-| `Lit.nonempty_hyps_definite_side_of_closed_bound` | [SiegelEisensteinSecondTermHypotheses.lean#L44](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L44) | 444,753 | |
-| `Top.every_character_of_green_v_win` | [TopPlug.lean#L16](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean#L16) | 50,815 | 12,087 |
+| `LiteratureTheorems.every_character_of_literature_of_vWin` | [EveryCharacterOfLiteratureOfVWin.lean#L810](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean#L810) | 634,302 | |
+| `SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt` | [TopCovolSlim2Use.lean#L16](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean#L16) | 147,778 | 52,186 |
+| `LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature` | [EveryCharacterOfLiteratureOfVWin.lean#L565](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin.lean#L565) | 38,926 | 8,520 |
+| `Lit.every_character_of_theta_integrals_local_matching` | [SiegelEisensteinSecondTermHypotheses.lean#L69](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L69) | 452,823 | |
+| `Lit.nonempty_hyps_definite_side_of_closed_bound` | [SiegelEisensteinSecondTermHypotheses.lean#L44](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L44) | 440,406 | |
+| `Top.every_character_of_green_v_win` | [TopPlug.lean#L16](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopPlug.lean#L16) | 50,160 | 12,070 |
 
-The whole proof of `riemannHypothesis` has 769,260 declarations in its closure. The spine data puts eight names on the trunk, from `riemannHypothesis` down to `nonempty_hyps_definite_side_of_closed_bound`. The largest single branch below the trunk is `hypotheses_nonempty_of_unramified_exponents_alt`, with 89,250 dominated declarations.
+The whole proof of `riemannHypothesis` has 757,483 declarations in its closure. The spine data puts eight names on the trunk, from `riemannHypothesis` down to `nonempty_hyps_definite_side_of_closed_bound`. The largest single branch below the trunk is `hypotheses_nonempty_of_unramified_exponents_alt`, with 88,131 dominated declarations.
 
 ## Notes
 
