@@ -1,0 +1,41 @@
+{
+  "updated": "2026-11-21",
+  "checks": [
+    {
+      "id": "Q0",
+      "question": "Is the source the same as the release?",
+      "state": "yes",
+      "note": "On 2026-11-21 the workflow source of riemann-lean downloaded the 14 parts from alpo.ge again, checked each hash and the hash of the archive, and compared each file with the tree. All matched. Run 44912930359."
+    },
+    {
+      "id": "Q1",
+      "question": "Does the project build with the pinned Lean and Mathlib?",
+      "state": "not run",
+      "note": "A trial built 299 sample modules with no errors. The full build needs about 350 to 2,300 worker hours, so it needs a machine with 64 cores. It waits for the approval of the owner."
+    },
+    {
+      "id": "Q2",
+      "question": "Which axioms does riemannHypothesis use?",
+      "state": "not run",
+      "note": "Runs after the full build, with rh trust: #print axioms and a walk of our own."
+    },
+    {
+      "id": "Q3",
+      "question": "Does a second kernel accept the proof?",
+      "state": "not run",
+      "note": "Runs after the full build, with lean4checker."
+    },
+    {
+      "id": "Q4",
+      "question": "Do the Lean statements say what the standard statements say?",
+      "state": "open",
+      "note": "The draft review reviews/fidelity.md finds that the five statements say RH and GRH for Dirichlet L-functions. It needs a reviewer who knows analytic number theory to sign it."
+    },
+    {
+      "id": "Q5",
+      "question": "How much of the proof is written in words?",
+      "state": "not run",
+      "note": "Milestone M3 and later."
+    }
+  ]
+}
