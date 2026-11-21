@@ -5,10 +5,10 @@ decl: UpperTheory.LiteratureTheorems.OpenLiteratureStatements
 chapter: literature
 status: drafted
 drafted_by: writer@claude-opus-5-5
-uses: [rect-exists-def, row0b-def, is-rect-def]
+uses: [rect-exists-def, row0b-def, is-rect-def, row-def]
 concepts: [QW17YJ6ZCT, 9E45NBX1G0, WXGM3VWEK6]
 routine: []
-open: [UpperTheory.One.M.Row]
+open: []
 ---
 ## Statement
 

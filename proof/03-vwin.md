@@ -55,7 +55,7 @@ next:
   - text: The literature statements
     path: proof/literature/
     sub: the named inputs
-steps: [vwin-def, vwin-of-row]
+steps: [vwin-def, vwin-of-row, automorphic-window-of-inputs, v-window-of-depth-zero-residual-bc-cm, cm-abelian-inputs-from-literature, open-image-condition-def, base-change-n, base-change-isobaric-n-def]
 ---
 ## Result
 

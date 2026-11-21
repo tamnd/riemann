@@ -62,7 +62,7 @@ next:
   - text: The map of the trunk
     path: proof/trunk/
     sub: where this step sits
-steps: [theta-local-matching, green-vwin]
+steps: [theta-local-matching, theta-integrals-agree-def, local-matching-def, green-of-regular, green-def, green-vwin, zero-free-all-of-green-v-win, imprimitive]
 ---
 ## Result
 

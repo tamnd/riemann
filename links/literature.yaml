@@ -58,7 +58,7 @@
   line: 405
   result: Grothendieck-Messing deformation theory of abelian schemes
   says: 'Let $R \to R_0$ be a surjection of rings whose kernel $I$ has nilpotent divided powers. For abelian schemes over $R_0$ with a lift to $R$, the crystal gives a canonical identification with de Rham cohomology. Lifts of an abelian scheme correspond to admissible lifts of its Hodge filtration. A homomorphism lifts, and lifts uniquely, when it respects the lifted filtrations.'
-  reads_hypothesis: true
+  reads_hypothesis: false
   cite:
     - authors: [William Messing]
       title: "The Crystals Associated to Barsotti-Tate Groups: with Applications to Abelian Schemes"
@@ -272,7 +272,7 @@
   line: 565
   result: Not identified (theta integrals for unitary dual pairs, with Siegel-Weil inputs)
   says: '`LocalMatching` says that for each admissible triple of geometric data, characters and test data for a unitary dual pair over a CM extension, there are matched local data. `ThetaIntegralsAgree` says three things. The theta integrals decay. Matched data give one constant and coinvariance. The constants for signature $(a, b+2)$ and $(a, b)$, or $(b+2, a'')$ and $(b, a'')$, differ by an explicit factor that involves a partial Hecke $L$-value.'
-  reads_hypothesis: true
+  reads_hypothesis: false
   cite:
     - authors: [Stephen S. Kudla, Stephen Rallis]
       title: "A regularized Siegel-Weil formula: the first term identity"
@@ -316,7 +316,7 @@
   line: 547
   result: Zarhin's trick
   says: 'Let $R$ be the valuation ring of an algebraically closed valued field, and let $A$ be an abelian scheme over $R$ with a relatively ample line bundle. Then $A$ is a retract of a principally polarised abelian scheme over $R$, through group homomorphisms $i$ and $r$ with $i$ followed by $r$ equal to the identity.'
-  reads_hypothesis: true
+  reads_hypothesis: false
   cite:
     - authors: [Yuri G. Zarhin]
       title: A remark on endomorphisms of abelian varieties over function fields of finite characteristic
@@ -335,7 +335,7 @@
       venue: Astérisque 129, Soc. Math. France
       year: 1985
       verified: true
-  note: 'The Lean form is a consequence of Zarhin''s trick, which says $(A \times A^\vee)^4$ has a principal polarisation. It is weaker, because it does not name the principally polarised scheme. The DOI 10.1007/BF01388979 given in the task template is wrong. It resolves to Hendriks, ''Hyperplane complements of large type''. The correct DOI for Zarhin, Invent. Math. 79 (1985) is 10.1007/BF01388976. The proof passes `O` to `dual_abelian_scheme_of_literature`, which ignores `O`, so `O` is used in name only.'
+  note: 'The Lean form is a consequence of Zarhin''s trick, which says $(A \times A^\vee)^4$ has a principal polarisation. It is weaker, because it does not name the principally polarised scheme. The DOI 10.1007/BF01388979 is not this paper. It resolves to Hendriks, ''Hyperplane complements of large type''. The correct DOI for Zarhin, Invent. Math. 79 (1985) is 10.1007/BF01388976. The proof passes `O` to `dual_abelian_scheme_of_literature`, which ignores `O`, so `O` is used in name only.'
 
 - name: UpperTheory.LiteratureTheorems.OpenImageCondition
   statement: "structure with one field galoisRepOfPolarizedPairLit : UpperTheory.V.Z.Win.RowT"
