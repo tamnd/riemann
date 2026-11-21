@@ -1,0 +1,129 @@
+id: elliptic-curves
+title: Elliptic curves and complex multiplication
+order: 12
+needs: [automorphic-forms, class-field-theory]
+lead: 'Lattices in $\mathbb{C}$ and the Weierstrass function, elliptic curves with their reduction, twists and periods, and complex multiplication, with the Chowla-Selberg formula and the CM curves of Gross. The last sections are on abelian varieties and abelian schemes.'
+items:
+  - concept: Lattice
+    text: 'Silverman, The Arithmetic of Elliptic Curves, VI.3'
+    says: 'A lattice in $\mathbb{C}$ is a subgroup $L = \mathbb{Z}\omega_1 + \mathbb{Z}\omega_2$ with $\omega_1, \omega_2$ linearly independent over $\mathbb{R}$; $L$ and $cL$ are homothetic.'
+    why: 'The CM curve of [the CM divisibility chapter](/proof/cm-divisibility/) starts from the lattice $L$ of integers of $\mathbb{Q}(\sqrt{-p})$.'
+  - concept: Complex torus
+    math2: Y7MA6KBE9M
+    says: 'A complex torus of dimension $g$ is a quotient $\mathbb{C}^g/\Lambda$ by a lattice of rank $2g$; for $g = 1$ it is $\mathbb{C}/L$.'
+    why: 'An elliptic curve over $\mathbb{C}$ is the torus $\mathbb{C}/L$, which is how [the CM divisibility chapter](/proof/cm-divisibility/) attaches a curve to a lattice.'
+  - concept: Eisenstein sum
+    math2: EYREVY31BN
+    says: 'The Eisenstein sum of weight $k \geq 3$ of a lattice is $G_k(L) = \sum_{\omega \in L \setminus \{0\}} \omega^{-k}$, and $g_2 = 60 G_4$, $g_3 = 140 G_6$.'
+    why: 'The statement `JetInt` of [the CM divisibility chapter](/proof/cm-divisibility/) bounds derivatives of Eisenstein lattice sums divided by periods.'
+  - concept: Weierstrass function
+    math2: 361NAK68QK
+    says: 'The Weierstrass function is $\wp(z) = z^{-2} + \sum_{\omega \neq 0} ((z - \omega)^{-2} - \omega^{-2})$, with $\wp''^2 = 4\wp^3 - g_2\wp - g_3$.'
+    why: 'It gives the model $y^2 = x^3 - \tfrac{g_2}{4}x - \tfrac{g_3}{4}$ that the proof of `CMCurveGoodOutsidePrimeSt` twists ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: Discriminant
+    text: 'Silverman, The Arithmetic of Elliptic Curves, VI.3'
+    says: 'The discriminant of a lattice is $\Delta(L) = g_2(L)^3 - 27 g_3(L)^2$; it is nonzero and $\Delta(cL) = c^{-12}\Delta(L)$.'
+    why: 'The number $\beta = (C_0 T)^{12}/\Delta(\Lambda)^{\mathrm{wt}}$ and the period $\Omega$ with $\Omega^{12} = \Delta(\Lambda)$ of [the CM divisibility chapter](/proof/cm-divisibility/) are built from it.'
+  - concept: Elliptic curve
+    math2: 427N6S6QQW
+    says: 'An elliptic curve over $K$ is a smooth projective curve of genus $1$ with a point $O \in E(K)$.'
+    why: 'The statement `CMCurveGoodOutsidePrimeSt` of [the CM divisibility chapter](/proof/cm-divisibility/) asks for an elliptic curve over $\mathbb{Q}(j(L))$.'
+    steps: [published-results-eigen]
+  - concept: Weierstrass equation
+    math2: Z3C8B6QTS6
+    says: 'In characteristic not $2$ or $3$ an elliptic curve has an equation $y^2 = x^3 + ax + b$ with $\Delta = -16(4a^3 + 27b^2) \neq 0$.'
+    why: 'The Lean statement `CMCurveGoodOutsidePrimeSt` is about a `WeierstrassCurve` over a number field ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: j-invariant
+    math2: 9538W1K1EX
+    says: 'The $j$-invariant of $y^2 = x^3 + ax + b$ is $1728 \cdot 4a^3/(4a^3 + 27b^2)$, and $j(L) = 1728\, g_2(L)^3/\Delta(L)$.'
+    why: 'The CM curve of [the CM divisibility chapter](/proof/cm-divisibility/) has $j(A) = j(L)$ and is defined over $F = \mathbb{Q}(j(L))$.'
+  - concept: Minimal discriminant
+    text: 'Silverman, The Arithmetic of Elliptic Curves, VII.1 and VIII.8'
+    says: 'The minimal discriminant of $E$ over a number field is $\prod_v \mathfrak{p}_v^{v(\Delta_v)}$, with $\Delta_v$ the discriminant of a Weierstrass model at $v$ with integral coefficients and least $v(\Delta)$.'
+    why: '`HasMinimalDiscriminant A (-p^3)` asks for a minimal model with discriminant a unit times $(-p)^3$ at each prime ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: Good reduction
+    text: 'Silverman, The Arithmetic of Elliptic Curves, VII.5'
+    says: '$E$ has good reduction at $v$ when a minimal model at $v$ reduces to a smooth curve, that is, $v(\Delta_v) = 0$.'
+    why: 'The CM curve of [the CM divisibility chapter](/proof/cm-divisibility/) has good reduction at each prime not dividing $p$.'
+  - concept: Néron model
+    math2: K0EQTBRPE3
+    says: 'The Néron model of $E$ over $\mathcal{O}_K$ is the smooth group scheme extending $E$ with the universal property for maps from smooth schemes.'
+    why: 'Semistable reduction of Néron models gives the semi-abelian schemes of the slope bound in [the Weil bound](/proof/weil-bound/).'
+  - concept: Quadratic twist
+    text: 'Silverman, The Arithmetic of Elliptic Curves, X.5'
+    says: 'The quadratic twist of $y^2 = x^3 + ax + b$ by $d$ is $y^2 = x^3 + ad^2x + bd^3$; it has the same $j$ and discriminant $d^6\Delta$.'
+    why: 'The proof of `CMCurveGoodOutsidePrimeSt` twists by $d_F = 1$ or $d_F = -p$ according to $p \bmod 8$ ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: Period lattice
+    text: 'Silverman, The Arithmetic of Elliptic Curves, VI.5'
+    says: 'The period lattice of $(E, \omega)$ is $\{\int_\gamma \omega : \gamma \in H_1(E(\mathbb{C}), \mathbb{Z})\}$, and $E \cong \mathbb{C}/L$ for this lattice.'
+    why: 'The statement `JetInt` divides derivatives by period powers $a_i$ with $a_i/\Omega$ of known $l$-adic size ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: Complex multiplication
+    math2: D3HEJTVY7G
+    says: '$E = \mathbb{C}/L$ has complex multiplication when $\mathrm{End}(E) = \{\alpha : \alpha L \subset L\}$ is an order in an imaginary quadratic field.'
+    why: 'The curve of `CMCurveGoodOutsidePrimeSt` has CM by the host field ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: Hilbert class field
+    math2: WWCJ7CR2R3
+    says: 'For $K$ imaginary quadratic, $K(j(\mathfrak{a}))$ is the Hilbert class field of $K$, $j(\mathfrak{a})$ is an algebraic integer of degree $h_K$, and $\sigma_{\mathfrak{b}}(j(\mathfrak{a})) = j(\mathfrak{b}^{-1}\mathfrak{a})$.'
+    why: 'It is the literature input `HilbertClassFieldJ` of the record in [CM and abelian inputs](/step/cm-abelian-inputs-from-literature/).'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Main theorem of complex multiplication
+    text: 'Silverman, Advanced Topics in the Arithmetic of Elliptic Curves, II.8'
+    says: 'For $\mathrm{End}(E) = \mathcal{O}_K$, $f : \mathbb{C}/\mathfrak{a} \cong E$ and an idele $s$ with Artin symbol $\sigma$, there is $f'' : \mathbb{C}/s^{-1}\mathfrak{a} \cong E^\sigma$ with $f(x)^\sigma = f''(s^{-1}x)$ on $K/\mathfrak{a}$.'
+    why: 'It is the literature input `EllipticMainTheoremCM` of [CM and abelian inputs](/step/cm-abelian-inputs-from-literature/), used in [the window bound](/proof/vwin/).'
+    steps: [cm-abelian-inputs-from-literature, v-window-of-depth-zero-residual-bc-cm]
+  - concept: Modular function
+    math2: 63TX60RTRQ
+    says: 'A modular function of level $N$ is a meromorphic function on $\mathbb{H}$, invariant under $\Gamma(N)$ and meromorphic at the cusps, such as $j(\tau)$.'
+    why: 'Shimura reciprocity, used in `Transport` of [the CM divisibility chapter](/proof/cm-divisibility/), is about values of modular functions at CM points.'
+  - concept: Shimura reciprocity
+    text: 'Shimura, Introduction to the Arithmetic Theory of Automorphic Functions, Theorem 6.31'
+    says: 'For $\tau \in \mathbb{H} \cap K$ and a modular function $f$ over $\mathbb{Q}^{\mathrm{ab}}$, $f(\tau)^{[s^{-1}, K]} = f^{q_\tau(s)}(\tau)$ for each $s \in \mathbb{A}_{K,f}^\times$.'
+    why: 'The statement `Transport` writes each Galois conjugate of $\beta$ as a value of the same shape ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: Chowla-Selberg
+    text: 'Chowla and Selberg, On Epstein''s zeta-function, J. reine angew. Math. 227 (1967)'
+    says: 'For $K$ of discriminant $-d$, $d > 4$, the mean over classes of $\log(N(\mathfrak{a}_c)^6|\Delta(L_c)|)$ is $12\log 2\pi - 6\log d + 6\gamma - 6L''(1,\chi)/L(1,\chi)$.'
+    why: '`BetaArch` uses it to bound the norm of $\beta$ ([the CM divisibility chapter](/proof/cm-divisibility/)), and the volume theorem of [the Weil bound](/proof/weil-bound/) uses it for its $L''/L(1, \chi_d)$ term.'
+  - concept: Kronecker limit formula
+    math2: PD750J2XV9
+    says: 'For $E(\tau, s) = \sum_{(m,n) \neq 0} \operatorname{Im}(\tau)^s/|m\tau + n|^{2s}$ the constant term at $s = 1$ is $2\pi(\gamma - \log 2) - \pi\log(\operatorname{Im}\tau\,|\eta(\tau)|^4)$.'
+    why: 'The code proves the Chowla-Selberg formula of [the CM divisibility chapter](/proof/cm-divisibility/) from it.'
+  - concept: Gross's curves
+    text: 'Gross, Arithmetic on Elliptic Curves with Complex Multiplication, Lecture Notes in Math. 776 (1980)'
+    says: 'For a prime $p > 3$ with $p \equiv 3 \bmod 4$ there is $A$ over $\mathbb{Q}(j(\mathcal{O}_K))$, $K = \mathbb{Q}(\sqrt{-p})$, with $j(A) = j(\mathcal{O}_K)$, good reduction away from $p$ and minimal discriminant $(-p)^3$.'
+    why: 'This is `CMCurveGoodOutsidePrimeSt`, used by `baseCond_KPx` with $p = d$ ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+    steps: [published-results-eigen, unitary-group-third-place-hypotheses-def]
+  - concept: CM type
+    text: 'Shimura, Abelian Varieties with Complex Multiplication and Modular Functions, Chapter II'
+    says: 'A CM type of a CM field $E$ is a set $\varphi$ of embeddings $E \to \mathbb{C}$ with one from each pair of complex conjugate embeddings.'
+    why: 'The data of `JetInt` include a CM field $E$ and a CM type $\varphi$ ([the CM divisibility chapter](/proof/cm-divisibility/)).'
+  - concept: Abelian variety
+    math2: R7W03TXRS9
+    says: 'An abelian variety over $k$ is a connected smooth proper group scheme over $k$; it is commutative and projective.'
+    why: 'The record of [CM and abelian inputs](/step/cm-abelian-inputs-from-literature/) holds results on abelian varieties with CM.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Dual abelian variety
+    math2: HZXSESHC8P
+    says: 'The dual of $A$ is $A^\vee = \mathrm{Pic}^0_{A/k}$, and a line bundle $\mathcal{L}$ gives $\varphi_{\mathcal{L}} : x \mapsto t_x^*\mathcal{L} \otimes \mathcal{L}^{-1}$.'
+    why: 'The field `AbelianDualCrystal` of [CM and abelian inputs](/step/cm-abelian-inputs-from-literature/) is about the dual.'
+  - concept: Polarization
+    text: 'Mumford, Abelian Varieties, Chapter II'
+    says: 'A polarization is a homomorphism $\lambda : A \to A^\vee$ equal to $\varphi_{\mathcal{L}}$ over $\bar k$ for an ample $\mathcal{L}$; it is principal if it is an isomorphism.'
+    why: 'The slope bound of [the Weil bound](/proof/weil-bound/) is for semi-abelian schemes with principal generic fibre.'
+  - concept: Abelian scheme
+    math2: JDDXZ89N33
+    says: 'An abelian scheme over $S$ is a smooth proper group scheme over $S$ with geometrically connected fibres.'
+    why: 'The Siegel moduli spaces and Zarhin''s trick of [the literature chapter](/proof/literature/) are about abelian schemes.'
+  - concept: Semi-abelian scheme
+    text: 'Faltings and Chai, Degeneration of Abelian Varieties, I.2'
+    says: 'A semi-abelian scheme is a smooth separated commutative group scheme whose fibres are extensions of abelian varieties by tori.'
+    why: 'The statement `SlopeBoundSt` of [the Weil bound](/proof/weil-bound/) bounds the slopes of the Lie algebra of a semi-abelian scheme.'
+  - concept: Serre and Tate
+    text: 'Serre and Tate, Good reduction of abelian varieties, Ann. of Math. 88 (1968)'
+    says: 'For $\ell$ prime to the residue characteristic, $A$ has good reduction at $v$ exactly when inertia at $v$ acts trivially on $T_\ell(A)$.'
+    why: 'It is the field `SerreTateGoodReductionSt`, the largest part of [CM and abelian inputs](/step/cm-abelian-inputs-from-literature/).'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Semistable reduction
+    math2: FZ25BQTKNT
+    says: 'An abelian variety over a number field acquires semistable reduction over a finite extension: its Néron model has semi-abelian identity components.'
+    why: 'It is the field `SemistableReductionSt` of [the bundle of published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]

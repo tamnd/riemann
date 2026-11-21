@@ -1,0 +1,92 @@
+id: determinants
+title: Block determinants and theta Parseval
+for: [determinants]
+needs: [algebra, number-fields, analysis, complex-analysis, groups, representations, automorphic-forms, theta]
+lead: 'To read this chapter you need theta lifts between unitary groups, the doubling method and the Rallis inner product formula, and the leading minors of a matrix.'
+items:
+  - concept: Determinant
+    math2: 00KDZRW4C0
+    says: 'The determinant of $A \in M_n(R)$ is $\sum_{\sigma \in S_n} \operatorname{sgn}(\sigma) \prod_i a_{i,\sigma(i)}$; it is multiplicative, and $A$ is invertible if and only if $\det A$ is a unit.'
+    why: 'In [the determinants chapter](/proof/determinants/) determinants of matrices appear only in the test vector at infinity of Step 3.'
+  - concept: Leading principal minor
+    math2: 0BT9BYWVRY
+    says: 'The leading principal minor $\Delta_s(A)$ is the determinant of the top left $s \times s$ block; $\Delta_s(xb) = \Delta_s(x) b_{11} \cdots b_{ss}$ for upper triangular $b$.'
+    why: 'The highest weight vector `hw` of Step 3 is $\prod_s \Delta_s^{\nu_s - \nu_{s+1}}$, a product of powers of the leading minors `lpMinor`.'
+  - concept: Polynomial ring
+    math2: 0SDC934R52
+    says: 'The polynomial ring $R[X]$ is the ring of finite sums $\sum_i a_i X^i$ with $a_i \in R$.'
+    why: '`joint` puts the highest weight vector into the Fock space `PP n d` of polynomials in $n \times d$ variables (Step 3).'
+  - concept: Zorn's lemma
+    math2: 04RXTQA5ZA
+    says: 'A nonempty partially ordered set in which each chain has an upper bound has a maximal element.'
+    why: '`projEx` uses Zorn''s lemma to get an irreducible $U''$ and a projection that does not kill the lift (Step 6).'
+  - concept: Hermitian form
+    math2: 8NJ7XY6F1S
+    says: 'A Hermitian form is a sesquilinear form $h$ with $h(y, x) = \sigma(h(x, y))$.'
+    why: 'In [TLiftK](/step/tlift-k-def/) the space $X$ of dimension $n$ is definite Hermitian.'
+    steps: [tlift-k-def]
+  - concept: Skew-Hermitian form
+    text: 'Scharlau, Quadratic and Hermitian Forms, 7.1'
+    says: 'A skew-Hermitian form is a sesquilinear form $h$ with $h(y, x) = -\sigma(h(x, y))$.'
+    why: 'In [TLiftK](/step/tlift-k-def/) the space $W$ of dimension $d \ge d_0$ is skew-Hermitian, and $U''$ lives on $U(W)$.'
+    steps: [tlift-k-def]
+  - concept: CM field
+    text: 'Washington, Introduction to Cyclotomic Fields, 2nd ed. (1997)'
+    says: 'A CM field is a totally complex quadratic extension $E$ of a totally real number field $E^+$, the maximal real subfield of $E$.'
+    why: '[TLiftK](/step/tlift-k-def/) starts with a CM field $E$ over $F = E^+$.'
+    steps: [tlift-k-def]
+  - concept: Integrable
+    math2: X7GTF3D98F
+    says: 'A measurable $f$ is integrable if $\int |f| \, d\mu < \infty$.'
+    why: '`Rallis_k` first says that the product of the two matrix coefficients is integrable, from the bound by $a(g,1)^{d/2}$ with $t_0 < d/2$ (Step 4).'
+  - concept: Analytic continuation
+    math2: 0M3YQJ81NB
+    says: 'Let $U \subseteq V$ be open subsets of $\mathbb{C}$, with $U$ nonempty and $V$ connected, and let $f$ be holomorphic on $U$. An analytic continuation of $f$ to $V$ is a holomorphic function $F$ on $V$ with $F(z) = f(z)$ for each $z \in U$. By the identity theorem, $f$ has at most one analytic continuation to $V$.'
+    why: 'The lemma `zero_of_half_pk` carries the doubling identity from large $\mathrm{Re}\, z$ to $z = s_0$ (Step 4).'
+  - concept: Matrix coefficient
+    math2: J85Q7QGGHS
+    says: 'A matrix coefficient of a unitary representation $\pi$ is a function $g \mapsto \langle \pi(g)u, v \rangle$.'
+    why: '`Rallis_k` integrates the Weil matrix coefficient against the matrix coefficient of $\varphi$ (Step 4), and `SchurStep_k` integrates a product of them over the compact $G_\infty$ (Step 5).'
+    steps: [t-lift-k]
+  - concept: Highest weight
+    math2: C5W8BE1DRY
+    says: 'The irreducible representations of $\mathrm{U}(n)$ are in bijection with the dominant weights $\lambda_1 \ge \dots \ge \lambda_n$ in $\mathbb{Z}^n$, the weight of a highest weight vector, which is unique up to a scalar.'
+    why: 'The test vector $\mathrm{hw}_\nu$ of Step 3 is the classical highest weight vector of weight $\nu$ for $\mathrm{GL}_n$, a product of powers of leading minors.'
+    steps: [t-lift-k]
+  - concept: Petersson inner product
+    math2: EMZTGD63V3
+    says: 'The Petersson inner product of $f, g$ of weight $k$, one of them cuspidal, is $\int_{\Gamma \backslash \mathbb{H}} f \bar g\, y^k\, dx\, dy / y^2$.'
+    why: 'The matrix coefficient `mc M φ g` is the Petersson product of $y \mapsto \varphi(yg)$ with $\varphi$, and `projEx` uses this product (Steps 2 and 6).'
+  - concept: Automorphic form
+    math2: 68SJQEC11F
+    says: 'An automorphic form is a smooth, $K_\infty$-finite, $\mathcal{Z}$-finite function of moderate growth on $G(F) \backslash G(\mathbb{A}_F)$.'
+    why: '`LiftAut_k` shows that the theta lift of $\varphi$ is an automorphic form on $U(W)$ (Step 6).'
+  - concept: Automorphic representation
+    text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979), 4.6'
+    says: 'An automorphic representation is an irreducible $(\mathfrak{g}, K_\infty) \times G(\mathbb{A}_{F,f})$-module that is a subquotient of the space of automorphic forms.'
+    why: '[TLiftK](/step/tlift-k-def/) takes an automorphic representation $U$ of $U(X)$ and gives one, $U''$, of $U(W)$.'
+    steps: [tlift-k-def, t-lift-k]
+  - concept: Siegel Eisenstein series
+    text: 'Tan, Poles of Siegel Eisenstein series on U(n,n), Canad. J. Math. 51 (1999)'
+    says: 'The Siegel Eisenstein series on $\mathrm{U}(n, n)$ is $\sum_{P(F) \backslash G(F)} f_s(\gamma g)$ for a section with $f_s(n(b)m(a)g) = \chi(\det a)|\det a|_E^{s + n/2} f_s(g)$.'
+    why: '`rallis_k` pairs the Siegel Eisenstein series $\hat E(z)$ of `swFull` on the doubled group with $\varphi$ (Step 4).'
+  - concept: Fock model
+    text: 'Folland, Harmonic Analysis in Phase Space (1989), 1.6 and 4.4'
+    says: 'The Fock model is the Weil representation of $\mathrm{Mp}_{2n}(\mathbb{R})$ on holomorphic $f$ with $\int|f|^2 e^{-\pi|z|^2} < \infty$, whose $\tilde K$-finite vectors are the polynomials.'
+    why: 'The test vector $f_0$ of `realPair_k` is a polynomial in the Fock space `PP n d` (Step 3).'
+  - concept: Theta lift
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 2'
+    says: 'The theta lift of a cusp form $f$ is $\theta(\varphi, f)(g) = \int_{[G'']} \theta(g, h; \varphi)\overline{f(h)}\, dh$, an automorphic form on $G$.'
+    why: 'The chapter proves that the theta lift $\theta(\Phi, \varphi)$, the Lean `lift M om Φ φ`, is not zero for some test data (Step 5).'
+  - concept: Doubling method
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A'
+    says: 'The doubling method integrates a Siegel Eisenstein series on $\mathrm{U}(W^\square)$ against $\varphi_1 \otimes \bar\varphi_2$ on $\mathrm{U}(W) \times \mathrm{U}(W)$ and unfolds it to $\int f_s(\delta\iota(g, 1))\langle\pi(g)\varphi_1, \varphi_2\rangle\, dg$.'
+    why: 'The tool `dbl` unfolds the pairing of $\hat E(z)$ with $\varphi$ to an integral of $a(g,1)^{z - s_0}$ against the two matrix coefficients (Step 4).'
+  - concept: Siegel-Weil formula
+    text: 'Ichino, On the Siegel-Weil formula for unitary groups, Math. Z. 255 (2007)'
+    says: 'For anisotropic $V$ of dimension $m$, the Siegel Eisenstein series of $f_\Phi$ at $s_0 = (m - n)/2$ equals $\kappa$ times the theta integral $\int_{[\mathrm{U}(V)]} \theta(g, h; \Phi)\, dh$, with $\kappa = 1$ for $m > n$ and $2$ for $m \le n$.'
+    why: 'At $z = s_0$ the statement `swFull` writes the Eisenstein side as an integral of two theta functions, which is zero if the lift is zero (Step 4).'
+  - concept: Rallis inner product formula
+    text: 'Kudla and Rallis, A regularized Siegel-Weil formula: the first term identity, Ann. of Math. 140 (1994)'
+    says: 'The Petersson product of two theta lifts of $\pi$ equals $\kappa L^S(s_0 + \frac12, \pi \times \chi)/d^S(s_0)$ times a finite product of local zeta integrals.'
+    why: '`Rallis_k` is one direction of it: if the lift is zero, the integral of the Weil coefficient against the coefficient of $\varphi$ is zero (Step 4).'

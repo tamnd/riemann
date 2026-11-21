@@ -1,0 +1,86 @@
+id: bessel-seesaw
+title: Bessel periods, seesaw and separation of functionals
+for: [bessel-seesaw]
+needs: [algebra, analysis, number-fields, class-field-theory, groups, representations, automorphic-forms, theta, periods]
+lead: 'To read this chapter you need the global theta lift, Bessel and Fourier-Jacobi periods, and local multiplicity one for Bessel functionals.'
+items:
+  - concept: Hermitian form
+    math2: 8NJ7XY6F1S
+    says: 'A Hermitian form is a sesquilinear form $h$ with $h(y, x) = \sigma(h(x, y))$.'
+    why: 'Each node of the grid in [the Bessel seesaw chapter](/proof/bessel-seesaw/) is a Hermitian space $V_{i,j}$ over $E$, and each rung needs an orthogonal decomposition.'
+  - concept: Fundamental domain
+    math2: WEGEXJBX26
+    says: 'A fundamental domain for a discrete subgroup $\Gamma$ of $G$ is a measurable set that meets each coset $\Gamma g$ in one point.'
+    why: 'Each automorphic integral of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is an integral over a set `M.fd X` in place of $[U(V_X)]$.'
+  - concept: Rapid decay of cusp forms
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2.18'
+    says: 'A cusp form $\varphi$ satisfies $|\varphi(g)| \le C_r\|g\|^{-r}$ on a Siegel set for each $r > 0$.'
+    why: 'The proof `periodNe_of_eigen` of $P_0 \ne 0$ uses the field `CuspRapidDecay`, and `Ascent` asks for rapidly decreasing forms.'
+  - concept: Weil representation
+    math2: H3Q2703KKV
+    says: 'The Weil representation $\omega_\psi$ is the genuine representation of $\mathrm{Mp}(W)$ that intertwines the Stone-von Neumann representation $\rho_\psi$ with its twists by $\mathrm{Sp}(W)$.'
+    why: 'Each step $\theta_i$ of `thetaChi` uses the Weil datum on one edge of the grid.'
+  - concept: Splitting characters of the Weil representation
+    text: 'Harris, Kudla and Sweet, Theta dichotomy for unitary groups, J. Amer. Math. Soc. 9 (1996), Section 1'
+    says: 'A character $\chi$ of $\mathbb{A}_E^\times / E^\times$ with $\chi|_{\mathbb{A}_F^\times} = \eta^{\dim V}$ splits the metaplectic cover over $\mathrm{U}(V'')$, and a pair of such characters splits it over $\mathrm{U}(V) \times \mathrm{U}(V'')$.'
+    why: 'The rungs `UpBF`, `UpFB` and `UpLast` hold for all splitting characters with a product relation such as $\chi_V = \chi_A \chi_z$.'
+  - concept: Fock model
+    text: 'Folland, Harmonic Analysis in Phase Space (1989), 1.6 and 4.4'
+    says: 'The Fock model is the Weil representation of $\mathrm{Mp}_{2n}(\mathbb{R})$ on holomorphic $f$ with $\int|f|^2 e^{-\pi|z|^2} < \infty$, whose $\tilde K$-finite vectors are the polynomials.'
+    why: '`PairEx` gives a map $I : \mathrm{Pol} \to \mathrm{Hom}(M'', M)$ on the polynomial space `PolF`.'
+  - concept: Vacuum vector
+    text: 'Kudla, Notes on the local theta correspondence (1996), II.5'
+    says: 'The vacuum vector is the characteristic function of $L^n$ for a self-dual lattice $L$ at a $p$-adic place, and the Gaussian $e^{-\pi\operatorname{tr}(x, x)}$ at a real place.'
+    why: 'The rungs share one fact: a tame functional that kills the translates of one nonzero vacuum vector kills all vacuum vectors.'
+  - concept: Theta kernel
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 1'
+    says: 'The theta kernel is $\theta(g, h; \varphi) = \sum_{\xi \in V(F)^n} (\omega(g, h)\varphi)(\xi)$, a function of moderate growth on $[G] \times [G'']$.'
+    why: 'One lift step `liftA` is the integral of a theta kernel against the input form over the fundamental set of the source.'
+  - concept: Theta lift
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 2'
+    says: 'The theta lift of a cusp form $f$ is $\theta(\varphi, f)(g) = \int_{[G'']} \theta(g, h; \varphi)\overline{f(h)}\, dh$, an automorphic form on $G$.'
+    why: '`thetaChi` is the iterated theta lift $\theta_{m-1} \circ \dots \circ \theta_0(u)$ along a row of the grid.'
+  - concept: Seesaw pair
+    text: 'Kudla, Seesaw dual reductive pairs, in Automorphic Forms of Several Variables (1984)'
+    says: 'A seesaw pair is two dual pairs $(G, G'')$ and $(H, H'')$ in one $\mathrm{Sp}(W)$ with $H \subseteq G$ and $G'' \subseteq H''$; exchanging two integrals gives the seesaw identity.'
+    why: 'In `UpLast` the proof writes both sides as one double integral and changes the order of integration. This is the seesaw identity of the chapter.'
+  - concept: Generic character
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 12'
+    says: 'A character of $N(\mathbb{A}_F)$, trivial on $N(F)$, is generic if it is nontrivial on each simple root subgroup; for $\mathrm{GL}_n$ it is $\psi(u_{12} + \dots + u_{n-1,n})$.'
+    why: '`Bplus` integrates against the generic character `besChar` of the unipotent radical of a flag.'
+  - concept: Bessel period
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 23'
+    says: 'The Bessel period of $\varphi \in \pi$ and $f \in \sigma$ is $\int_{[\mathrm{U}(W)]} \int_{[N]} \varphi(nh) \overline{f(h)}\, \overline{\lambda(n)}\, dn\, dh$ for a generic character $\lambda$ fixed by $\mathrm{U}(W)$.'
+    why: 'The lemma `Bplus_eq` says that `Bplus` is the Bessel period `Per.besPer` of the pair.'
+  - concept: Gross-Prasad period
+    text: 'Gross and Prasad, On the decomposition of a representation of SO_n when restricted to SO_{n-1}, Canad. J. Math. 44 (1992)'
+    says: 'For $\dim V = \dim W + 1$, the Gross-Prasad period is $\int_{[\mathrm{U}(W)]} \varphi(h) \overline{f(h)}\, dh$.'
+    why: 'The bottom period `per0`, $P_0(F, u) = \int F(\iota_0(h))\, u(h)\, dh$, is a period of this type for the smallest pair of the tower.'
+  - concept: Fourier-Jacobi period
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 23'
+    says: 'The Fourier-Jacobi period is $\int_{[\mathrm{U}(W)]} \int_{[N]} \varphi(nh) \overline{f(h)}\, \overline{\theta(nh, \phi)}\, dn\, dh$, with a theta function of the Weil representation of $H$.'
+    why: 'The rungs `Rung0`, `RungB` and `RungJ` pass from $P_0$ to a Fourier-Jacobi period, then between Fourier-Jacobi and Bessel periods.'
+  - concept: Descent of Ginzburg, Rallis and Soudry
+    text: 'Ginzburg, Rallis and Soudry, The Descent Map from Automorphic Representations of GL(n) to Classical Groups (2011)'
+    says: 'The descent builds a generic cuspidal $\sigma$ on a unitary group with base change $\Pi$ from Bessel or Fourier-Jacobi coefficients of a residual Eisenstein series.'
+    why: 'The chapter says that `Ascent`, one rung at a time, is the method of Ginzburg, Rallis and Soudry for the descent.'
+  - concept: Bessel functional
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 12'
+    says: 'A Bessel functional is an element of $\mathrm{Hom}_H(\pi \otimes \bar\sigma \otimes \bar\lambda, \mathbb{C})$ for $H = \mathrm{U}(W) \ltimes N$.'
+    why: '`BurGapPos` says that the space `besselForms` of real Bessel functionals has rank at most $1$.'
+  - concept: Local multiplicity one
+    text: 'Aizenbud, Gourevitch, Rallis and Schiffmann, Multiplicity one theorems, Ann. of Math. 172 (2010)'
+    says: 'For irreducible $\pi$ and $\sigma$, $\dim \mathrm{Hom}_H(\pi \otimes \bar\sigma \otimes \bar\nu, \mathbb{C}) \le 1$.'
+    why: '`BurGapPos` is real local multiplicity one for Bessel models with a large gap, proved in Lean. It turns `WeakSep` into `FunctionalsSeparate`.'
+  - concept: Interlaced
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 20'
+    says: 'Two decreasing sequences $a_1 > \dots > a_n$ and $b_1 > \dots > b_{n-1}$ are interlaced if $a_1 > b_1 > a_2 > \dots > b_{n-1} > a_n$.'
+    why: 'The predicate `Interlaced` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is a signed form of interlacing for Harish-Chandra parameters, used in `RealInputE`.'
+  - concept: Branching law for discrete series
+    text: 'He, On the Gan-Gross-Prasad conjecture for U(p,q), Invent. Math. 209 (2017)'
+    says: 'For discrete series $\pi$ of $\mathrm{U}(V)$ and $\sigma$ of $\mathrm{U}(W)$ in codimension one, $\mathrm{Hom}_{\mathrm{U}(W)}(\pi \otimes \bar\sigma, \mathbb{C}) \ne 0$ exactly when their signed Harish-Chandra parameters satisfy an explicit combinatorial condition.'
+    why: 'The chapter calls `Interlaced` the sign form of the branching law for discrete series.'
+  - concept: Local Gan-Gross-Prasad conjecture
+    math2: 458AXP8QBB
+    says: 'In a tempered Vogan L-packet of pairs $(\pi, \sigma)$ on relevant pure inner forms, exactly one pair has a nonzero Bessel or Fourier-Jacobi functional, and local root numbers determine it.'
+    why: '`BesselPeriodGGP` is the local statement at the real place in the interlacing case. The main theorem does not reach it.'

@@ -1,0 +1,82 @@
+id: formal-groups
+title: Formal groups and p-divisible groups
+order: 13
+needs: [galois-representations]
+lead: 'Formal group laws, p-divisible groups and their Dieudonné modules, up to prismatic Dieudonné theory over $A_{\mathrm{inf}}$ and Grothendieck-Messing deformation theory. The proof uses them in its prismatic Dieudonné statement and as named literature inputs.'
+items:
+  - concept: Formal group law
+    text: 'Silverman, The Arithmetic of Elliptic Curves, 2nd ed. (2009), ch. IV'
+    says: 'A commutative formal group law of dimension $n$ over $R$ is an $n$-tuple of power series $F(X, Y)$ with $F(X, 0) = X$, $F(0, Y) = Y$, associativity and commutativity. Examples are $X + Y$ and $X + Y + XY$.'
+    why: 'In [CM divisibility](/proof/cm-divisibility/) the series $\mu$ is a lift of a formal group law that charts a $p$-divisible group.'
+  - concept: Lubin-Tate formal group laws
+    math2: 77QT4B80V8
+    says: 'For a local field $K$ with uniformizer $\pi$ and a series $f \equiv \pi X$ modulo degree 2 with $f \equiv X^q \bmod \pi$, there is a unique formal group law $F_f$ over $\mathcal{O}_K$ with $f \in \mathrm{End}(F_f)$, and $\mathcal{O}_K$ acts on it.'
+    why: 'They are the basic examples of formal groups of finite height, and they give local class field theory.'
+  - concept: Invariant derivation
+    text: 'Hazewinkel, Formal Groups and Applications (1978), ch. I'
+    says: 'For a formal group law $F$ and $u \in R^n$, $D_u g(X) = \sum_i u_i \,\partial/\partial Y_i\, g(F(X, Y))|_{Y=0}$. It commutes with translations, and the $D_u$ form the Lie algebra of $F$.'
+    why: 'The theorem `constantCoeff_pIterate_invariantDerivation_coord` of [CM divisibility](/proof/cm-divisibility/) computes the constant term of $D_u^p(X_j)$.'
+  - concept: Logarithm
+    text: 'Silverman, The Arithmetic of Elliptic Curves, 2nd ed. (2009), ch. IV, sec. 5'
+    says: 'Over a $\mathbb{Q}$-algebra a formal group law $F$ has a unique logarithm $\log_F(X) \equiv X$ modulo degree 2 with $\log_F(F(X, Y)) = \log_F(X) + \log_F(Y)$, an isomorphism to $\hat{\mathbb{G}}_a^n$.'
+    why: 'The constants $c_i$ in the formula for $D_u^p$ in [CM divisibility](/proof/cm-divisibility/) are coefficients of a quasi-logarithm.'
+  - concept: Height
+    text: 'Silverman, The Arithmetic of Elliptic Curves, 2nd ed. (2009), ch. IV, sec. 7'
+    says: 'Over a field of characteristic $p$, the height of a one-dimensional formal group law $F$ is the $h$ with $[p]_F(X) = g(X^{p^h})$ and $g''(0) \neq 0$. $\hat{\mathbb{G}}_m$ has height 1.'
+    why: 'In `PrismaticDieudonneHodge` the rank of the $A_{\mathrm{inf}}$-module is the height of the $p$-divisible group.'
+  - concept: p-divisible group
+    text: 'Tate, p-divisible groups, Proc. Conf. Local Fields (1967)'
+    says: 'A $p$-divisible group of height $h$ over $R$ is a system of finite flat commutative group schemes $G_n$ of order $p^{nh}$ with $G_n = G_{n+1}[p^n]$. Examples are $\mu_{p^\infty}$, $\mathbb{Q}_p/\mathbb{Z}_p$ and $A[p^\infty]$.'
+    why: 'The theorem `isNil_dual_frobenius` of [CM divisibility](/proof/cm-divisibility/) is about a $p$-divisible group over $\mathcal{O}_C$.'
+  - concept: Group scheme
+    math2: TJ04VQP4NB
+    says: 'A group scheme over $R$ is a scheme $G$ over $R$ with morphisms of multiplication, unit and inverse that satisfy the group axioms.'
+    why: 'The levels $G_n$ of a $p$-divisible group are finite flat commutative group schemes.'
+  - concept: Connected
+    text: 'Tate, p-divisible groups, Proc. Conf. Local Fields (1967), sec. 2'
+    says: 'Over a complete noetherian local ring with residue characteristic $p$, a $p$-divisible group $G$ sits in $0 \to G^0 \to G \to G^{\mathrm{et}} \to 0$, and connected $p$-divisible groups correspond to formal group laws of finite height.'
+    why: 'The theorem `isNil_dual_frobenius` assumes that the dual $G^\vee$ is connected and concludes that the dual Frobenius is nilpotent.'
+  - concept: Dual
+    text: 'Tate, p-divisible groups, Proc. Conf. Local Fields (1967), sec. 2'
+    says: 'The dual $G^\vee$ of a $p$-divisible group is the system of Cartier duals $\mathrm{Hom}(G_n, \mathbb{G}_m)$. It has the same height, and $\dim G + \dim G^\vee = h$.'
+    why: 'The Hodge filtration of `PrismaticDieudonneHodge` has the quotient $\mathrm{Lie}(G^\vee)$.'
+  - concept: Tate module
+    math2: NC4B8KC479
+    says: 'The Tate module of a $p$-divisible group $G$ over $\mathcal{O}_C$ is $T_p G = \varprojlim_n G_n(\mathcal{O}_C)$, a free $\mathbb{Z}_p$-module of rank equal to the height.'
+    why: 'The Hodge-Tate sequence behind `FarguesExact` in [the Weil bound](/proof/weil-bound/) starts from $T_p G$.'
+  - concept: Weil pairing
+    text: 'Tate, p-divisible groups, Proc. Conf. Local Fields (1967), sec. 2'
+    says: 'Cartier duality gives a perfect pairing $T_p G \times T_p G^\vee \to \mathbb{Z}_p(1)$, the Weil pairing for $G = A[p^\infty]$.'
+    why: 'The names with Weil in [the Weil bound](/proof/weil-bound/) refer to Weil pairings, and `FarguesExact` is an orthogonality statement under such a pairing.'
+  - concept: Dieudonné module
+    text: 'Demazure, Lectures on p-divisible Groups, LNM 302 (1972), ch. III'
+    says: 'A Dieudonné module over a perfect field $k$ is a free $W(k)$-module with a $\sigma$-linear $F$ and a $\sigma^{-1}$-linear $V$ with $FV = VF = p$. They classify $p$-divisible groups over $k$.'
+    why: 'The window matrices behind `prismaticDieudonneHodge` in [CM divisibility](/proof/cm-divisibility/) are Frobenius matrices of Dieudonné-type modules.'
+  - concept: Dieudonné-Manin classification
+    math2: TKAB3ZDEZD
+    says: 'Over an algebraically closed field, an isocrystal is a direct sum of simple isocrystals of rational slopes, and the slopes classify $p$-divisible groups up to isogeny.'
+    why: 'The slopes describe the Frobenius of a Dieudonné module, the object that `PrismaticDieudonneHodge` lifts to $A_{\mathrm{inf}}$.'
+  - concept: Hodge filtration
+    text: 'Messing, The Crystals Associated to Barsotti-Tate Groups, LNM 264 (1972), ch. IV'
+    says: 'The Dieudonné module of $G$ modulo $p$ has the filtration $0 \to \omega_G \to \mathbb{D}(G)/p \to \mathrm{Lie}(G^\vee) \to 0$.'
+    why: 'The statement `PrismaticDieudonneHodge` asks for this filtration on its $A_{\mathrm{inf}}$-modules.'
+  - concept: Hodge-Tate sequence
+    text: 'Scholze and Weinstein, Moduli of p-divisible groups, Cambridge J. Math. 1 (2013), sec. 4'
+    says: 'For $G$ over $\mathcal{O}_C$, the sequence $0 \to \mathrm{Lie}(G) \otimes C(1) \to T_p G \otimes C \to \omega_{G^\vee} \otimes C \to 0$ is exact.'
+    why: 'The input `FarguesExact` of [the Weil bound](/proof/weil-bound/) is the exactness of this sequence.'
+  - concept: Prismatic Dieudonné theory
+    text: 'Anschütz and Le Bras, Prismatic Dieudonné theory, Forum Math. Pi 11 (2023)'
+    says: 'For quasi-syntomic rings, $p$-divisible groups are equivalent to admissible prismatic Dieudonné crystals. Over $\mathcal{O}_C$ this gives free $A_{\mathrm{inf}}$-modules of rank equal to the height, with Frobenius and Hodge filtration.'
+    why: 'The statement `PrismaticDieudonneHodge` is proved as `UpperTheory.Lit.prismaticDieudonneHodge`, and it is the only user of the formula for $D_u^p$.'
+    steps: [published-results-arithmetic]
+  - concept: Crystalline lattices
+    text: 'Bhatt and Scholze, Prismatic F-crystals and crystalline Galois representations, Cambridge J. Math. 11 (2023)'
+    says: 'For a finite extension $K$ of $\mathbb{Q}_p$, prismatic F-crystals on $\mathcal{O}_K$ are equivalent to $G_K$-stable lattices in crystalline representations.'
+    why: 'The record [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) has the field `bhattScholzeCrystallineLattices`.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Grothendieck-Messing deformation theory
+    math2: H8AAQJ1SZW
+    says: 'For a nilpotent divided power thickening $R \to R_0$ with $p$ nilpotent, lifts of a $p$-divisible group $G_0$ to $R$ correspond to lifts of its Hodge filtration in the Dieudonné crystal evaluated at $R$.'
+    text: 'Messing, The Crystals Associated to Barsotti-Tate Groups, LNM 264 (1972), ch. V'
+    why: 'The field `q1` of [published-results-arithmetic](/step/published-results-arithmetic/) has the type `GrothendieckMessing`, from `GrothendieckDeformation`.'
+    steps: [published-results-arithmetic, cm-abelian-inputs-from-literature]

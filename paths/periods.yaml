@@ -1,0 +1,58 @@
+id: periods
+title: Periods
+order: 17
+needs: [theta]
+lead: 'The Bessel and Fourier-Jacobi periods of unitary groups, local multiplicity one, the Gan-Gross-Prasad conjectures, descent, interlacing and orbit integrals. The Bessel seesaw chapter of the proof is built on them.'
+items:
+  - concept: Generic character
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 12'
+    says: 'A character of $N(\mathbb{A}_F)$, trivial on $N(F)$, is generic if it is nontrivial on each simple root subgroup; for $\mathrm{GL}_n$ it is $\psi(u_{12} + \dots + u_{n-1,n})$.'
+    why: 'The Bessel period `Bplus` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) uses the generic character `besChar`.'
+  - concept: Bessel period
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 23'
+    says: 'The Bessel period of $\varphi \in \pi$ and $f \in \sigma$ is $\int_{[\mathrm{U}(W)]} \int_{[N]} \varphi(nh) \overline{f(h)}\, \overline{\lambda(n)}\, dn\, dh$ for a generic character $\lambda$ fixed by $\mathrm{U}(W)$.'
+    why: 'The functional `Bplus` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is a global Bessel period.'
+  - concept: Gross-Prasad period
+    text: 'Gross and Prasad, On the decomposition of a representation of SO_n when restricted to SO_{n-1}, Canad. J. Math. 44 (1992)'
+    says: 'For $\dim V = \dim W + 1$, the Gross-Prasad period is $\int_{[\mathrm{U}(W)]} \varphi(h) \overline{f(h)}\, dh$.'
+    why: 'The bottom period $P_0(F, u)$ of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is a Gross-Prasad period.'
+  - concept: Fourier-Jacobi period
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 23'
+    says: 'The Fourier-Jacobi period is $\int_{[\mathrm{U}(W)]} \int_{[N]} \varphi(nh) \overline{f(h)}\, \overline{\theta(nh, \phi)}\, dn\, dh$, with a theta function of the Weil representation of $H$.'
+    why: 'The rung `RungJ` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) passes through Fourier-Jacobi periods.'
+  - concept: Bessel functional
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 12'
+    says: 'A Bessel functional is an element of $\mathrm{Hom}_H(\pi \otimes \bar\sigma \otimes \bar\lambda, \mathbb{C})$ for $H = \mathrm{U}(W) \ltimes N$.'
+    why: 'The condition `BurGapPos` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is about Bessel functionals at the real place.'
+  - concept: Local multiplicity one
+    text: 'Aizenbud, Gourevitch, Rallis and Schiffmann, Multiplicity one theorems, Ann. of Math. 172 (2010)'
+    says: 'For irreducible $\pi$ and $\sigma$, $\dim \mathrm{Hom}_H(\pi \otimes \bar\sigma \otimes \bar\nu, \mathbb{C}) \le 1$.'
+    why: 'The condition `BurGapPos` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is real local multiplicity one for Bessel functionals.'
+  - concept: Local Gan-Gross-Prasad conjecture
+    math2: 458AXP8QBB
+    says: 'In a tempered Vogan L-packet of pairs $(\pi, \sigma)$ on relevant pure inner forms, exactly one pair has a nonzero Bessel or Fourier-Jacobi functional, and local root numbers determine it.'
+    why: 'The statement `BesselPeriodGGP` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is local GGP at the real place.'
+  - concept: Global Gan-Gross-Prasad conjecture
+    math2: NMNX13N4CD
+    says: 'For cuspidal $\pi$ and $\sigma$ on $\mathrm{U}(V) \times \mathrm{U}(W)$ in codimension one, $L(\frac12, \Pi \times \Sigma) \ne 0$ if and only if a Gross-Prasad period is nonzero on some inner form.'
+    why: 'The Bessel periods of [the Bessel seesaw chapter](/proof/bessel-seesaw/) are the periods of this conjecture, reached by theta lifts instead of a trace formula.'
+  - concept: Interlaced
+    text: 'Gan, Gross and Prasad, Astérisque 346 (2012), Section 20'
+    says: 'Two decreasing sequences $a_1 > \dots > a_n$ and $b_1 > \dots > b_{n-1}$ are interlaced if $a_1 > b_1 > a_2 > \dots > b_{n-1} > a_n$.'
+    why: 'The predicate `Interlaced` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is a signed form of interlacing for Harish-Chandra parameters.'
+  - concept: Branching law for discrete series
+    text: 'He, On the Gan-Gross-Prasad conjecture for U(p,q), Invent. Math. 209 (2017)'
+    says: 'For discrete series $\pi$ of $\mathrm{U}(V)$ and $\sigma$ of $\mathrm{U}(W)$ in codimension one, $\mathrm{Hom}_{\mathrm{U}(W)}(\pi \otimes \bar\sigma, \mathbb{C}) \ne 0$ exactly when their signed Harish-Chandra parameters satisfy an explicit combinatorial condition.'
+    why: 'The predicate `Interlaced` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is this condition in sign form.'
+  - concept: Descent of Ginzburg, Rallis and Soudry
+    text: 'Ginzburg, Rallis and Soudry, The Descent Map from Automorphic Representations of GL(n) to Classical Groups (2011)'
+    says: 'The descent builds a generic cuspidal $\sigma$ on a unitary group with base change $\Pi$ from Bessel or Fourier-Jacobi coefficients of a residual Eisenstein series.'
+    why: 'The ascent `Rung0`, `RungB`, `RungJ` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) runs this method in the other direction.'
+  - concept: Orbit integral
+    text: 'Jacquet and Rallis, On the Gross-Prasad conjecture for unitary groups, Clay Math. Proc. 13 (2011)'
+    says: 'The orbit integral of $\Phi$ at $x$ is $\int_{H_x(\mathbb{A}_F) \backslash H(\mathbb{A}_F)} \Phi(h^{-1}x)\, dh$.'
+    why: 'The function `orb_T` of [the Siegel-Weil chapter](/proof/siegel-weil/) is an orbit integral over the vectors with Gram matrix $-2T$.'
+  - concept: Relative trace formula
+    text: 'Jacquet, Automorphic spectrum of symmetric spaces, Proc. Sympos. Pure Math. 61 (1997)'
+    says: 'The relative trace formula expands $\int_{[H_1]} \int_{[H_2]} K_f(h_1, h_2)$ spectrally into products of periods and geometrically into relative orbit integrals.'
+    why: 'The proof does not use it; [the Bessel seesaw chapter](/proof/bessel-seesaw/) reaches periods by theta lifts and seesaw identities.'

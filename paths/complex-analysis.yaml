@@ -1,8 +1,8 @@
 id: complex-analysis
-title: Complex analysis for the zeta function
-for: []
-needs: []
-lead: 'This path gives the complex analysis under the zeta function. At its end, a reader can follow the functional equation and the role of $\Gamma$ in the overview.'
+title: Complex analysis
+order: 3
+needs: [analysis]
+lead: 'Holomorphic and meromorphic functions, zeros and poles, analytic continuation, the logarithmic derivative, the zeros of the cosine, the Gamma function, Poisson summation, theta functions and the Mellin transform: what the last step of the proof and the continuation of Eisenstein series need.'
 items:
   - concept: Complex numbers
     math2: 0CBAB9QQ9X
@@ -12,38 +12,90 @@ items:
   - concept: Holomorphic function
     math2: 0DG0Z72CQD
     says: 'Let $U \subseteq \mathbb{C}$ be an open set. A function $f: U \to \mathbb{C}$ is holomorphic on $U$ when the limit $f''(z_0) = \lim_{z \to z_0} (f(z) - f(z_0))/(z - z_0)$ exists for each $z_0 \in U$.'
-    why: 'The zeta function and the Dirichlet L-functions are holomorphic away from $s = 1$, and the proof works with their values there.'
+    why: 'The Dirichlet L-functions of [EveryCharacter](/step/every-character-def/) are holomorphic, and $\zeta$ is holomorphic away from $s = 1$.'
+    steps: [every-character-def]
   - concept: Analytic continuation
     math2: 0M3YQJ81NB
     says: 'Let $U \subseteq V$ be open subsets of $\mathbb{C}$, with $U$ nonempty and $V$ connected, and let $f$ be holomorphic on $U$. An analytic continuation of $f$ to $V$ is a holomorphic function $F$ on $V$ with $F(z) = f(z)$ for each $z \in U$. By the identity theorem, $f$ has at most one analytic continuation to $V$.'
-    why: 'The zeros in the critical strip are zeros of the continued function, not of the Dirichlet series.'
+    why: 'The L-function of [EveryCharacter](/step/every-character-def/) is the Dirichlet series continued to all of $\mathbb{C}$.'
+    steps: [every-character-def]
   - concept: Meromorphic function
     math2: 0NSD1TPHR0
     says: 'Let $U \subseteq \mathbb{C}$ be open. A function $f$ is meromorphic on $U$ when there is a set $P \subseteq U$ with no accumulation point in $U$ such that $f$ is holomorphic on $U \setminus P$ and each point of $P$ is a pole of $f$. A point $a$ is a pole of $f$ when $|f(z)| \to \infty$ as $z \to a$.'
-    why: 'The zeta function is meromorphic on $\mathbb{C}$ with one simple pole at $s = 1$, so the statement excludes $s = 1$.'
+    why: 'The statement `EisValueAt` of [the Siegel-Weil chapter](/proof/siegel-weil/) asks for a meromorphic function equal to an Eisenstein series for large $\operatorname{Re}(s)$.'
   - concept: Gamma function
     math2: 0V3FZMVB4K
     says: 'For $\operatorname{Re}(s) > 0$, the gamma function is $\Gamma(s) = \int_0^\infty t^{s-1} e^{-t}\,dt$. It satisfies $\Gamma(s+1) = s\,\Gamma(s)$, and it extends to a meromorphic function on $\mathbb{C}$ whose poles are simple poles at $0, -1, -2, \dots$.'
-    why: 'The functional equation in [rh-of-right](/step/rh-of-right/) has the factor $\Gamma(u)$.'
+    why: 'The functional equation in [RhOfRight](/step/rh-of-right/) has the factor $\Gamma(u)$.'
     steps: [rh-of-right]
   - concept: Euler reflection formula
     math2: WF7KQAQTS2
     says: 'Let $\Gamma$ be the gamma function on $\mathbb{C}$. For every $z \in \mathbb{C} \setminus \mathbb{Z}$, $\Gamma(z)\,\Gamma(1 - z) = \pi / \sin(\pi z)$.'
-    why: 'The reflection formula links $\Gamma(u)$ and $\Gamma(1-u)$, and it explains the cosine factor in the Mathlib form of the functional equation.'
+    why: 'It shows that $\Gamma$ has no zeros, and it links the cosine form of the functional equation in [RhOfRight](/step/rh-of-right/) with the symmetric form.'
+    steps: [rh-of-right]
   - concept: The Gamma function has no zeros
     math2: WBS4NM1TFC
     says: 'Let $\Gamma$ be the gamma function on $\mathbb{C}$. For every $z \in \mathbb{C} \setminus \{0, -1, -2, \dots\}$, $\Gamma(z) \neq 0$.'
-    why: 'The step [rh-of-right](/step/rh-of-right/) uses $\Gamma(u) \neq 0$ for $\operatorname{Re}(u) > 0$ to move a zero across the functional equation.'
+    why: 'The step [RhOfRight](/step/rh-of-right/) uses $\Gamma(u) \neq 0$ for $\operatorname{Re}(u) > 0$ to move a zero across the functional equation.'
     steps: [rh-of-right]
   - concept: Poisson summation formula
     math2: GARGJYSGFG
     says: 'Let $f: \mathbb{R} \to \mathbb{C}$ be a Schwartz function and let $\hat{f}(\xi) = \int_{\mathbb{R}} f(x) e^{-2\pi i x \xi}\,dx$ be its Fourier transform. Then $\sum_{n \in \mathbb{Z}} f(n) = \sum_{k \in \mathbb{Z}} \hat{f}(k)$, and both series converge absolutely.'
-    why: 'Poisson summation proves the functional equation of theta series, and theta series are the start of the theta integrals in the [theta chapter](/proof/theta-matching/).'
+    why: 'The proof `siegelWeilStd_pre` of [the Siegel-Weil chapter](/proof/siegel-weil/) gets the properties of the Schrödinger model from a Poisson summation theorem.'
   - concept: Mellin transform
     math2: KPZ1S446MN
     says: 'Let $f: (0, \infty) \to \mathbb{C}$ be measurable and let $s \in \mathbb{C}$ be such that $x \mapsto x^{s-1} f(x)$ is integrable on $(0, \infty)$. The Mellin transform of $f$ at $s$ is $\mathcal{M}f(s) = \int_0^\infty x^{s-1} f(x)\,dx$.'
-    why: 'The Mellin transform turns a theta function into a completed zeta function, and this is the classical proof of the functional equation.'
+    why: 'It turns $\theta(t)$ into the completed zeta function $\Lambda(s)$, the classical proof of the functional equation used in [RhOfRight](/step/rh-of-right/).'
   - concept: Theta function
     math2: 2F5CYQJVAF
     says: 'For $z \in \mathbb{C}$ and $\tau$ with $\operatorname{Im}(\tau) > 0$, the Jacobi theta function is $\vartheta(z, \tau) = \sum_{n \in \mathbb{Z}} e^{\pi i n^2 \tau + 2\pi i n z}$. The series converges absolutely and locally uniformly, so $\vartheta$ is holomorphic in both variables. For $t > 0$ its value $\vartheta(0, it) = \sum_{n \in \mathbb{Z}} e^{-\pi n^2 t}$ is the theta function in the classical proof of the functional equation of $\zeta$.'
-    why: 'The theta kernel $\theta(g,h;\Phi)$ of the [theta chapter](/proof/theta-matching/) is a sum over lattice points, as the classical theta function is.'
+    why: 'The theta function $\theta(g,h;\Phi)$ of [the theta matching](/proof/theta-matching/) is a sum of a Schwartz function over rational points, as the classical theta function is.'
+  - concept: Complex conjugate
+    math2: 0FTH2E9TAS
+    says: 'The complex conjugate of $s = \sigma + it$ is $\overline{s} = \sigma - it$; $|s|^2 = s \overline{s}$.'
+    why: 'The Rallis integrand of Step 4 of [block determinants](/proof/determinants/) has a conjugated matrix coefficient.'
+  - concept: Holomorphic family
+    text: 'Stein and Shakarchi, Complex Analysis, II.5'
+    says: 'If $F(x, s)$ is holomorphic in $s$ for each $x$ and dominated by an integrable function locally uniformly in $s$, then $\int F(x, s) \, d\mu(x)$ is holomorphic in $s$.'
+    why: 'The section $f_s = a^{s - s_0} f$ of [the Siegel-Weil chapter](/proof/siegel-weil/) and the integral of Step 4 of [block determinants](/proof/determinants/) are holomorphic in $s$.'
+  - concept: Order of a zero
+    math2: 0QX19C7K1C
+    says: 'A zero $z_0$ of a holomorphic $f \not\equiv 0$ has order $m$ if $f(z) = (z - z_0)^m g(z)$ with $g(z_0) \ne 0$.'
+    why: 'The sum $Z(\chi)$ in `LogDerOne` of [the literature](/proof/literature/) runs over zeros counted with multiplicity.'
+  - concept: Pole
+    math2: 066E7PJCYE
+    says: 'A pole of order $m$ of $f$ at $z_0$ means $f(z) = (z - z_0)^{-m} g(z)$ with $g$ holomorphic and $g(z_0) \ne 0$.'
+    why: 'The statement `HolLead` of [the Siegel-Weil chapter](/proof/siegel-weil/) says that an Eisenstein series has no pole at $s_0$; the Riemann hypothesis excludes the pole of $\zeta$ at $1$.'
+    steps: [riemann-hypothesis]
+  - concept: Residue
+    math2: 0PHN07KVQT
+    says: 'The residue of $f$ at a pole $z_0$ is the coefficient of $(z - z_0)^{-1}$ in its Laurent series.'
+    why: 'The residue of $f''/f$ at a zero is its order, which is how the zeros enter `LogDerOne` in [the literature](/proof/literature/).'
+  - concept: Identity theorem
+    math2: 0YBVKMYX0W
+    says: 'Two holomorphic functions on a connected open set that agree on a set with a limit point agree everywhere.'
+    why: 'The lemma `zero_of_half_pk` of [block determinants](/proof/determinants/) extends an identity to $z = s_0$ by analytic continuation.'
+  - concept: Logarithmic derivative
+    text: 'Ahlfors, Complex Analysis, 5.3'
+    says: 'The logarithmic derivative of $f$ is $f''/f$; it has a simple pole of residue $m$ at a zero of order $m$.'
+    why: 'The bound `LogDerOne` of [the literature](/proof/literature/) is about $L''(1, \chi)/L(1, \chi)$.'
+  - concept: Zeros of the cosine
+    math2: 00NZKRSWNX
+    says: '$\cos z = 0$ if and only if $z = (2k + 1)\pi/2$ with $k \in \mathbb{Z}$.'
+    why: 'In [RhOfRight](/step/rh-of-right/), $\cos(\pi u/2) = 0$ forces $s = -2k$, a trivial zero or $0$.'
+    steps: [rh-of-right]
+  - concept: Legendre duplication formula
+    math2: CND4E1PY9V
+    says: '$\Gamma(s) \Gamma(s + \tfrac12) = 2^{1 - 2s} \sqrt{\pi} \, \Gamma(2s)$.'
+    why: 'With the reflection formula it turns the Mathlib functional equation of [RhOfRight](/step/rh-of-right/) into $\Lambda(s) = \Lambda(1 - s)$.'
+    steps: [rh-of-right]
+  - concept: Riemann zeta function
+    math2: TXB2F07CC6
+    says: 'The Riemann zeta function is $\zeta(s) = \sum_{n \ge 1} n^{-s}$ for $\operatorname{Re}(s) > 1$, continued to a meromorphic function on $\mathbb{C}$ with one simple pole at $s = 1$.'
+    why: 'The statement [RiemannHypothesis](/step/riemann-hypothesis/) is about its zeros.'
+    steps: [riemann-hypothesis]
+  - concept: Functional equation
+    math2: NFXKNDJX9C
+    says: '$\zeta(1 - u) = 2 (2\pi)^{-u} \Gamma(u) \cos(\pi u/2) \zeta(u)$ for $u \notin \{1, 0, -1, \dots\}$.'
+    why: 'The last step [RhOfRight](/step/rh-of-right/) moves a zero with $\operatorname{Re}(s) < \tfrac12$ across this equation.'
+    steps: [rh-of-right]

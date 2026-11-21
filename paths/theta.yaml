@@ -1,0 +1,96 @@
+id: theta
+title: The Weil representation and theta lifts
+order: 16
+needs: [automorphic-forms]
+lead: 'The Weil representation of a reductive dual pair, the local and global theta correspondence, and the Siegel-Weil and Rallis inner product formulas. The theta matching and Siegel-Weil chapters of the proof use them.'
+items:
+  - concept: Reductive dual pair
+    text: 'Kudla, Notes on the local theta correspondence (1996), I.1'
+    says: 'A reductive dual pair in $\mathrm{Sp}(W)$ is a pair of reductive subgroups, each the centralizer of the other, for example $(\mathrm{U}(V), \mathrm{U}(V''))$ on $W = V \otimes_E V''$.'
+    why: 'The record `IsTriple` of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) fixes the unitary dual pairs $(\mathrm{U}(V), \mathrm{U}(W))$ and $(\mathrm{U}(V''), \mathrm{U}(W))$.'
+    steps: [theta-integrals-agree-def]
+  - concept: Stone-von Neumann theorem
+    text: 'Moeglin, Vignéras and Waldspurger, Correspondances de Howe sur un corps p-adique, LNM 1291 (1987), 2.I'
+    says: 'The Heisenberg group $H(W)$ has, up to isomorphism, exactly one irreducible smooth representation with a given nontrivial central character $\psi$.'
+    why: 'It is the field `stoneVonNeumann` of [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Weil representation
+    math2: H3Q2703KKV
+    says: 'The Weil representation $\omega_\psi$ is the genuine representation of $\mathrm{Mp}(W)$ that intertwines the Stone-von Neumann representation $\rho_\psi$ with its twists by $\mathrm{Sp}(W)$.'
+    why: 'The fields `weilRepresentationExists` and `metaplecticRepresentation` of [ThetaLocalInputs](/step/theta-local-inputs-def/) give it.'
+    steps: [theta-local-inputs-def]
+  - concept: Schrödinger model
+    text: 'Kudla, Notes on the local theta correspondence (1996), II.4'
+    says: 'The Schrödinger model realizes $\omega_\psi$ on $S(V^n)$ with $\omega(m(a))\varphi(x) = \chi_V(\det a)|\det a|^{m/2}\varphi(xa)$, $\omega(n(b))\varphi(x) = \psi(\frac12\operatorname{tr}(b(x, x)))\varphi(x)$ and $\omega(w)$ a Fourier transform.'
+    why: 'The formulas `TPar` and `TWeyl` of [the Siegel-Weil chapter](/proof/siegel-weil/) are this model.'
+  - concept: Vacuum vector
+    text: 'Kudla, Notes on the local theta correspondence (1996), II.5'
+    says: 'The vacuum vector is the characteristic function of $L^n$ for a self-dual lattice $L$ at a $p$-adic place, and the Gaussian $e^{-\pi\operatorname{tr}(x, x)}$ at a real place.'
+    why: 'The statement [LocalMatching](/step/local-matching-def/) matches vacuum vectors outside a finite set $T$.'
+    steps: [local-matching-def]
+  - concept: Fock model
+    text: 'Folland, Harmonic Analysis in Phase Space (1989), 1.6 and 4.4'
+    says: 'The Fock model is the Weil representation of $\mathrm{Mp}_{2n}(\mathbb{R})$ on holomorphic $f$ with $\int|f|^2 e^{-\pi|z|^2} < \infty$, whose $\tilde K$-finite vectors are the polynomials.'
+    why: 'The statement [LocalMatching](/step/local-matching-def/) puts the real Lie algebra and $K_\infty$ actions on the polynomial Fock space `Pol`.'
+    steps: [local-matching-def]
+  - concept: Splitting characters of the Weil representation
+    text: 'Harris, Kudla and Sweet, Theta dichotomy for unitary groups, J. Amer. Math. Soc. 9 (1996), Section 1'
+    says: 'A character $\chi$ of $\mathbb{A}_E^\times / E^\times$ with $\chi|_{\mathbb{A}_F^\times} = \eta^{\dim V}$ splits the metaplectic cover over $\mathrm{U}(V'')$, and a pair of such characters splits it over $\mathrm{U}(V) \times \mathrm{U}(V'')$.'
+    why: 'In [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) the Weil representations `om` and `om''` have splitting characters $(\beta, \beta/\alpha)$ and $(\alpha, \alpha/\beta)$.'
+    steps: [theta-integrals-agree-def, tlift-k-def]
+  - concept: Theta kernel
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 1'
+    says: 'The theta kernel is $\theta(g, h; \varphi) = \sum_{\xi \in V(F)^n} (\omega(g, h)\varphi)(\xi)$, a function of moderate growth on $[G] \times [G'']$.'
+    why: 'It is the function `thetaSum` of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/).'
+    steps: [theta-integrals-agree-def]
+  - concept: Theta correspondence
+    math2: 6WB6TKE70H
+    says: 'The local theta correspondence sends an irreducible $\pi$ of $G$ with $\Theta(\pi) \ne 0$ to the unique irreducible quotient $\theta(\pi)$ of its big theta lift.'
+    why: 'The statement [LocalMatching](/step/local-matching-def/) asks that two local theta lifts have a common irreducible quotient $\Pi_v$.'
+    steps: [local-matching-def]
+  - concept: Howe duality
+    text: 'Gan and Takeda, A proof of the Howe duality conjecture, J. Amer. Math. Soc. 29 (2016)'
+    says: 'If $\Theta(\pi) \ne 0$ then it has a unique irreducible quotient $\theta(\pi)$, and $\theta(\pi_1) \cong \theta(\pi_2) \ne 0$ implies $\pi_1 \cong \pi_2$.'
+    why: 'The fields `gLHoweDuality` and `howeDualityReal` of [ThetaLocalInputs](/step/theta-local-inputs-def/) are Howe duality.'
+    steps: [theta-local-inputs-def]
+  - concept: Theta tower
+    text: 'Kudla, On the local theta correspondence, Invent. Math. 83 (1986)'
+    says: 'The theta tower of $\pi$ is the sequence of lifts to the groups $\mathrm{U}(V_0 \oplus \mathbb{H}^r)$ of a Witt tower; once nonzero, the lifts stay nonzero.'
+    why: 'The steps `StepAlpha` and `StepBeta` of [the theta matching chapter](/proof/theta-matching/) move up a Witt tower by a hyperbolic plane.'
+  - concept: Theta lift
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 2'
+    says: 'The theta lift of a cusp form $f$ is $\theta(\varphi, f)(g) = \int_{[G'']} \theta(g, h; \varphi)\overline{f(h)}\, dh$, an automorphic form on $G$.'
+    why: 'The statement [TLiftK](/step/tlift-k-def/) lifts a definite automorphic representation of $\mathrm{U}_n$ to $\mathrm{U}_d$.'
+    steps: [tlift-k-def, theta-integrals-agree-def]
+  - concept: Seesaw pair
+    text: 'Kudla, Seesaw dual reductive pairs, in Automorphic Forms of Several Variables (1984)'
+    says: 'A seesaw pair is two dual pairs $(G, G'')$ and $(H, H'')$ in one $\mathrm{Sp}(W)$ with $H \subseteq G$ and $G'' \subseteq H''$; exchanging two integrals gives the seesaw identity.'
+    why: 'The step `upLast` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is the seesaw identity.'
+  - concept: Siegel-Weil formula
+    text: 'Ichino, On the Siegel-Weil formula for unitary groups, Math. Z. 255 (2007)'
+    says: 'For anisotropic $V$ of dimension $m$, the Siegel Eisenstein series of $f_\Phi$ at $s_0 = (m - n)/2$ equals $\kappa$ times the theta integral $\int_{[\mathrm{U}(V)]} \theta(g, h; \Phi)\, dh$, with $\kappa = 1$ for $m > n$ and $2$ for $m \le n$.'
+    why: 'It is `SiegelWeilStd` of [the Siegel-Weil chapter](/proof/siegel-weil/).'
+    steps: [theta-local-inputs-def, unitary-group-third-place-hypotheses-def]
+  - concept: Regularized Siegel-Weil formula
+    text: 'Gan, Qiu and Takeda, The regularized Siegel-Weil formula (second term identity) and the Rallis inner product formula, Invent. Math. 198 (2014)'
+    says: 'The regularized Siegel-Weil formula expresses the leading Laurent coefficients of the Siegel Eisenstein series at $s_0$ by regularized theta integrals when the theta integral diverges.'
+    why: 'The proof stays in the convergent range of [the Siegel-Weil chapter](/proof/siegel-weil/), and this formula is the general form of `SiegelWeilStd`.'
+  - concept: Doubled group
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 2'
+    says: 'The doubled group of $\mathrm{U}(W)$ is $\mathrm{U}(W \oplus -W) \cong \mathrm{U}(n, n)$, which contains $\mathrm{U}(W) \times \mathrm{U}(W)$ and the Siegel parabolic of the diagonal.'
+    why: 'The statement `SiegelWeilStd` of [the Siegel-Weil chapter](/proof/siegel-weil/) lives on $G_2 = \mathrm{U}(Y \oplus -Y)$.'
+  - concept: Doubling method
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A'
+    says: 'The doubling method integrates a Siegel Eisenstein series on $\mathrm{U}(W^\square)$ against $\varphi_1 \otimes \bar\varphi_2$ on $\mathrm{U}(W) \times \mathrm{U}(W)$ and unfolds it to $\int f_s(\delta\iota(g, 1))\langle\pi(g)\varphi_1, \varphi_2\rangle\, dg$.'
+    why: 'It is the field `doublingMethod` of [ThetaLocalInputs](/step/theta-local-inputs-def/) and the tool `dbl` of [the determinants chapter](/proof/determinants/).'
+    steps: [theta-local-inputs-def, unitary-group-third-place-hypotheses-def]
+  - concept: Local zeta integral
+    text: 'Li, Some results on the unramified principal series of p-adic groups, Math. Ann. 292 (1992)'
+    says: 'The local doubling zeta integral is $Z_v(s) = \int_{G(F_v)} f_{s,v}(\delta\iota(g, 1))\xi_v(g)\, dg$, equal to $L(s + \frac12, \pi_v \times \chi_v)/d_v(s)$ for unramified data.'
+    why: 'The field `unramifiedDoublingGL` of [ThetaLocalInputs](/step/theta-local-inputs-def/) computes the unramified local zeta integrals.'
+    steps: [theta-local-inputs-def]
+  - concept: Rallis inner product formula
+    text: 'Kudla and Rallis, A regularized Siegel-Weil formula: the first term identity, Ann. of Math. 140 (1994)'
+    says: 'The Petersson product of two theta lifts of $\pi$ equals $\kappa L^S(s_0 + \frac12, \pi \times \chi)/d^S(s_0)$ times a finite product of local zeta integrals.'
+    why: 'The lemma `rallis_of_dm` of [the Bessel seesaw chapter](/proof/bessel-seesaw/) and `Rallis_k` of [the determinants chapter](/proof/determinants/) use it.'
+    steps: [theta-local-inputs-def]

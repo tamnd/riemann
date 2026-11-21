@@ -1,84 +1,96 @@
 id: unitary-hypotheses
 title: The unitary group hypotheses
 for: [unitary-hypotheses]
-needs: [theta-matching]
-lead: 'This path covers the arithmetic of hermitian forms and the harmonic analysis behind `UnitaryGroupThirdPlaceHypotheses` and `HypsAlt`. At its end, a reader can follow the nine facts of [nonempty-hyps](/step/nonempty-hyps/).'
+needs: [analysis, number-fields, class-field-theory, l-functions, groups, representations, automorphic-forms, galois-representations, theta]
+lead: 'To read this chapter you need places of number fields, the local Langlands correspondence for $\mathrm{GL}_n$, cusp forms, and the names of the Howe duality, Siegel-Weil and doubling theorems.'
 items:
-  - concept: Signature of a form
-    math2: 07EZA80NEH
-    says: 'Let $V$ be a finite-dimensional complex vector space with a nondegenerate hermitian form $h$, or a real vector space with a nondegenerate symmetric bilinear form $h$. The signature of $h$ is the pair $(p, q)$, where $p$ and $q$ are the numbers of positive and negative diagonal entries of the matrix of $h$ in a basis in which this matrix is diagonal. By Sylvester''s law of inertia, $(p, q)$ does not depend on the basis, and $p + q = \dim V$.'
-    why: 'In `IsGood`, the hermitian spaces $V$ and $V''$ have signatures $(a-p, p)$ and $(q, a''-q)$.'
-  - concept: Hermitian lattice
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/373
-    says: 'A hermitian lattice is a finitely generated projective module over the ring of integers of a CM extension with a hermitian form.'
-    text: 'Jacobowitz, Hermitian forms over local fields, Amer. J. Math. 84 (1962)'
-    why: 'The record `HypsAlt` has the condition `StandardLattice.ClassNumberFormula₂` and genus mass conditions, which concern lattices.'
-  - concept: Class number formula
-    math2: 55XX5A7XZV
-    says: 'Let $K$ be a number field with $r_1$ real embeddings, $r_2$ pairs of complex embeddings, class number $h_K$, regulator $R_K$, discriminant $d_K$, and $w_K$ roots of unity. The class number formula says that the Dedekind zeta function $\zeta_K(s)$ has a simple pole at $s = 1$ with residue $\frac{2^{r_1} (2\pi)^{r_2} h_K R_K}{w_K \sqrt{|d_K|}}$.'
-    why: 'The record `HypsAlt` of 46 fields has a class number formula at the datum among its properties.'
-  - concept: Siegel mass formula
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/374
-    says: 'The Siegel mass formula expresses the weighted count of classes in a genus of lattices as a product of local densities.'
-    text: 'Siegel, Uber die analytische Theorie der quadratischen Formen, Ann. of Math. 36 (1935)'
-    why: 'The record `HypsAlt` has genus mass conditions, and the Siegel mass formula is the classical source of such conditions.'
-  - concept: Strong approximation
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/375
-    says: 'Strong approximation says that for a simply connected group $G$ and a place $v$ with $G(F_v)$ noncompact, $G(F)$ is dense in the adelic points away from $v$.'
-    text: 'Platonov and Rapinchuk, Algebraic Groups and Number Theory (1994), ch. 7'
-    why: 'Branch 3 gets its multiplicity condition from fourteen named hypotheses, and strong approximation is one of them.'
-  - concept: Doubling method
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/389
-    says: 'The doubling method of Piatetski-Shapiro and Rallis writes the standard L-function of a classical group as a zeta integral of a matrix coefficient against a Siegel Eisenstein series on a doubled group.'
-    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, Lecture Notes in Math. 1254 (1987)'
-    why: 'The unitary hypotheses have a field `doublingMethod`, and branch 2 also uses unramified doubling for $\mathrm{GL}$.'
-  - concept: Formal degree
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/382
-    says: 'The formal degree of a discrete series representation is the constant $d_\pi$ with $\int_G |\langle \pi(g)v, w\rangle|^2 dg = \|v\|^2\|w\|^2/d_\pi$.'
-    text: 'Hiraga, Ichino and Ikeda, Formal degrees and adjoint gamma factors, J. Amer. Math. Soc. 21 (2008)'
-    why: 'The theorem `lamLow_of_hypotheses_alt_alt` proves `LambdaLowerBound₂` from seven named hypotheses, and formal degrees is one of them.'
-    steps: [nonempty-hyps]
-  - concept: Plancherel measure
-    math2: 6JGAG0KN98
-    says: 'Let $G$ be a second countable unimodular locally compact group of type I with Haar measure $dg$, and let $\widehat{G}$ be its unitary dual. The Plancherel measure of $G$ is the unique positive Borel measure $\mu$ on $\widehat{G}$ with $\int_G |f(g)|^2 \, dg = \int_{\widehat{G}} \|\hat{f}(\pi)\|_{\mathrm{HS}}^2 \, d\mu(\pi)$ for all $f \in L^1(G) \cap L^2(G)$. Here $\hat{f}(\pi) = \int_G f(g) \pi(g) \, dg$, and $\|\cdot\|_{\mathrm{HS}}$ is the Hilbert-Schmidt norm.'
-    why: 'The formal degree of a discrete series representation is its mass for the Plancherel measure.'
-  - concept: Rapid decay of cusp forms
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/388
-    says: 'A cusp form on $G(F) \backslash G(\mathbb{A})$ decays faster than any power of the height function on a Siegel domain.'
-    text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979)'
-    why: 'The functional row in [nonempty-hyps](/step/nonempty-hyps/) uses the field `cuspRapidDecay` of the unitary hypotheses.'
-    steps: [nonempty-hyps]
-  - concept: Harish-Chandra module
-    math2: 2MKHH636C3
-    says: 'Let $G$ be a real reductive group with maximal compact subgroup $K$ and complexified Lie algebra $\mathfrak{g}$. A $(\mathfrak{g}, K)$-module is a complex vector space $V$ with actions of $\mathfrak{g}$ and $K$ such that every vector lies in a finite-dimensional $K$-stable subspace on which $K$ acts continuously, $k(Xv) = (\operatorname{Ad}(k)X)(kv)$ for $k \in K$ and $X \in \mathfrak{g}$, and the derivative of the $K$-action is the action of the Lie algebra of $K$ inside $\mathfrak{g}$. A Harish-Chandra module is a $(\mathfrak{g}, K)$-module that is finitely generated over the universal enveloping algebra of $\mathfrak{g}$ and in which each irreducible representation of $K$ occurs with finite multiplicity.'
-    why: 'The functional row also uses the fields `harishChandraModules` and `casselmanWallach`.'
-    steps: [nonempty-hyps]
-  - concept: Siegel-Weil formula
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/392
-    says: 'The Siegel-Weil formula identifies the integral of a theta function over a classical group with a value of a Siegel Eisenstein series.'
-    text: 'Kudla and Rallis, On the Weil-Siegel formula, J. Reine Angew. Math. 387 (1988)'
-    why: 'The first fact of [nonempty-hyps](/step/nonempty-hyps/) uses the field `siegelWeilUnitaryConvergent` to separate functionals.'
-    steps: [nonempty-hyps]
-  - concept: Howe duality
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/391
-    says: 'For a dual pair $(G, G'')$, the Howe duality theorem says that the theta correspondence gives a bijection between irreducible quotients of the Weil representation on each side.'
-    text: 'Howe, Transcending classical invariant theory, J. Amer. Math. Soc. 2 (1989)'
-    why: 'The proof of [nonempty-hyps](/step/nonempty-hyps/) uses `howeUnram_holds` and the field `howeDualityReal`.'
-    steps: [nonempty-hyps]
+  - concept: For all large
+    math2: 0TGV80E6A4
+    says: 'A statement holds for all large $x$ if it holds for each $x \ge x_0$ for some $x_0$; $f = O(g)$ means $|f| \le C g$ for all large $x$.'
+    why: 'The predicate [Closed](/step/closed-def/) and most rows of [HypsAlt](/step/hyps-alt-def/) hold for all large constants or eventually in $x$.'
+    steps: [closed-def, hyps-alt-def]
+  - concept: Place
+    math2: BT5V3TSNY6
+    says: 'A place of a number field $K$ is an equivalence class of nontrivial absolute values on $K$. The finite places are the nonzero primes of $\mathcal{O}_K$, and the infinite places are the real embeddings and the pairs of complex embeddings.'
+    why: '[RecTExists](/step/rect-exists-def/) asks for a map at each finite place $w$ of each number field $E$.'
+    steps: [rect-exists-def]
+  - concept: Valuation ring
+    math2: QSX12D8RQM
+    says: 'A valuation ring of a field $\Omega$ is a subring $A$ with $x \in A$ or $x^{-1} \in A$ for each $x \in \Omega^\times$. It lies over the finite place $\mathfrak p$ of $K$ if $A \cap K = (\mathcal{O}_K)_{\mathfrak p}$.'
+    why: '[RecTExists](/step/rect-exists-def/) fixes a valuation subring $A$ of an algebraic closure of $E$ that lies over $w$.'
+    steps: [rect-exists-def]
+  - concept: Ramification
+    math2: E7WHZXQ0WF
+    says: 'If $\mathfrak p\mathcal{O}_L = \mathfrak P_1^{e_1} \cdots \mathfrak P_g^{e_g}$, then $e_i$ is the ramification index of $\mathfrak P_i$, and $\mathfrak p$ is ramified in $L$ when some $e_i > 1$. It splits completely if $g = [L:K]$ and is inert if $\mathfrak p\mathcal{O}_L$ is prime.'
+    why: 'The bound `LinkN` of the field `nRest` of [HypsAlt](/step/hyps-alt-def/) weights each twisted place $w$ by its ramification index $e_w$.'
+    steps: [hyps-alt-def]
+  - concept: Local class field theory
+    math2: SHEN158T3M
+    says: 'For a finite extension $K/\mathbb{Q}_p$ there is a unique local Artin map $K^\times \to \mathrm{Gal}(K^{ab}/K)$ sending uniformizers to Frobenius and with kernel $N(L^\times)$ on each finite abelian $L/K$; it induces $W_K^{ab} \cong K^\times$.'
+    why: 'One law of [IsRecT](/step/is-rect-def/) asks that the map agrees with local class field theory for $n = 1$.'
+    steps: [is-rect-def, rect-exists-def]
   - concept: Artin reciprocity
     math2: 7938EKMMVR
-    says: 'Let $L/K$ be a finite abelian extension of number fields with Galois group $G$, and let $\mathfrak{m}$ be a modulus of $K$ divisible by all primes and real places of $K$ that ramify in $L$. Let $I_K^{\mathfrak{m}}$ be the group of fractional ideals of $K$ prime to $\mathfrak{m}$, and let the Artin map $I_K^{\mathfrak{m}} \to G$ send each prime $\mathfrak{p}$ prime to $\mathfrak{m}$ to its Frobenius element $\mathrm{Frob}_{\mathfrak{p}}$. Artin reciprocity says that this map is surjective, and that for $\mathfrak{m}$ divisible by high enough powers of the ramified primes its kernel is $P_K^{\mathfrak{m}} N_{L/K}(I_L^{\mathfrak{m}})$, where $P_K^{\mathfrak{m}}$ is the group of principal ideals $(\alpha)$ with $\alpha \equiv 1 \bmod^\times \mathfrak{m}$.'
-    why: 'In branch 1, the part `hServ_of_linkR` proves the service row from global Artin reciprocity.'
+    says: 'For a finite abelian $L/K$ and a modulus $\mathfrak m$ divisible by the ramified places, the Artin map $I_K^{\mathfrak m} \to \mathrm{Gal}(L/K)$, $\mathfrak p \mapsto \mathrm{Frob}_{\mathfrak p}$, is surjective with kernel $P_K^{\mathfrak m} N_{L/K}(I_L^{\mathfrak m})$ when $\mathfrak m$ is large enough.'
+    why: 'In branch 1 of [nonempty-hyps](/step/nonempty-hyps/), the part `hServ_of_linkR` proves the service row from global Artin reciprocity.'
+    steps: [nonempty-hyps]
+  - concept: Class number formula
+    math2: 55XX5A7XZV
+    says: '$\operatorname{Res}_{s=1} \zeta_K(s) = 2^{r_1}(2\pi)^{r_2} h_K R_K/(w_K \sqrt{|d_K|})$; for an imaginary quadratic field of discriminant $-d$ with $d > 4$, $L(1, \chi_{-d}) = \pi h/\sqrt d$.'
+    why: 'The record [HypsAlt](/step/hyps-alt-def/) has a field `StandardLattice.ClassNumberFormula₂`, a class number formula at the datum.'
+    steps: [hyps-alt-def]
+  - concept: Strong approximation
+    text: 'Platonov and Rapinchuk, Algebraic Groups and Number Theory, 7.4'
+    says: 'For $G$ simply connected and absolutely almost simple over $F$ and $S$ a finite set of places with $\prod_{v \in S} G(F_v)$ not compact, $G(F)$ is dense in $G(\mathbb{A}_F^S)$.'
+    why: 'The multiplicity row of branch 3 in [nonempty-hyps](/step/nonempty-hyps/) takes strong approximation as one of its fourteen named hypotheses.'
+    steps: [nonempty-hyps]
+  - concept: Bernstein-Zelevinsky finiteness
+    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS 10 (1977)'
+    says: 'Parabolic induction and Jacquet modules preserve finite length, and $\dim \pi^J$ is bounded by a constant $c(J)$ over all smooth irreducible $\pi$.'
+    why: 'Branch 2 of [nonempty-hyps](/step/nonempty-hyps/) proves `LambdaLowerBound₂` from seven hypotheses, one of them Bernstein-Zelevinsky finiteness.'
+    steps: [nonempty-hyps]
+  - concept: Formal degree
+    text: 'Harish-Chandra, Discrete series for semisimple Lie groups II, Acta Math. 116 (1966)'
+    says: 'The formal degree $d(\pi)$ of a discrete series is the constant with $\int_G |\langle \pi(g)u, v \rangle|^2 dg = d(\pi)^{-1}\|u\|^2\|v\|^2$; for real groups it is the Weyl dimension of the compact dual, up to the Haar measure.'
+    why: 'The same seven hypotheses of branch 2 in [nonempty-hyps](/step/nonempty-hyps/) include one on formal degrees.'
+    steps: [nonempty-hyps]
+  - concept: Cusp form
+    math2: A50Y012RBP
+    says: 'A cusp form is a modular form that tends to $0$ at each cusp; on an adelic group it is an automorphic form whose constant terms along all proper parabolics vanish.'
+    why: 'Several fields of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) are statements on cusp forms of unitary groups.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Rapid decay of cusp forms
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2.18'
+    says: 'A cusp form $\varphi$ satisfies $|\varphi(g)| \le C_r\|g\|^{-r}$ on a Siegel set for each $r > 0$.'
+    why: 'The field `cuspRapidDecay` is the one hypothesis that the chapter unfolds, and branches 2 and 3 of [nonempty-hyps](/step/nonempty-hyps/) use it.'
+    steps: [unitary-group-third-place-hypotheses-def, nonempty-hyps]
+  - concept: Weil group
+    math2: TH24PGYAM5
+    says: 'Let $F$ be a nonarchimedean local field with residue field of size $q$, and let $I_F$ be the inertia subgroup of $G_F = \operatorname{Gal}(\overline{F}/F)$. The Weil group $W_F$ is the subgroup of elements of $G_F$ that act on the algebraic closure of the residue field as $x \mapsto x^{q^n}$ for some integer $n$. Its topology makes $I_F$ an open subgroup with its profinite topology.'
+    why: 'The values of the map of [RecTExists](/step/rect-exists-def/) are Weil-Deligne representations, so representations of the Weil group with a monodromy operator.'
+    steps: [rect-exists-def]
+  - concept: Weil-Deligne representation
+    text: 'Tate, Number theoretic background, Proc. Sympos. Pure Math. 33 (1979), sec. 4'
+    says: 'A Weil-Deligne representation of a local field is a representation $r$ of the Weil group with a nilpotent operator $N$ such that $r(w)Nr(w)^{-1} = |w| N$.'
+    why: '[RecTExists](/step/rect-exists-def/) sends each irreducible representation of $\mathrm{GL}_n(E_w)$ to a Weil-Deligne representation.'
+    steps: [rect-exists-def]
   - concept: Local Langlands correspondence
     math2: 9E45NBX1G0
-    says: 'Let $G$ be a connected reductive group over a local field $F$, with L-group ${}^L G$ and Weil-Deligne group $W''_F$. The local Langlands correspondence is a map with finite fibers from the irreducible smooth representations of $G(F)$ to the $\hat{G}$-conjugacy classes of L-parameters $W''_F \to {}^L G$. For $G = \mathrm{GL}_n$ over a non-archimedean $F$, it is a bijection onto the $n$-dimensional Frobenius-semisimple Weil-Deligne representations of $F$ that preserves the L-factors and epsilon factors of pairs, and for $n = 1$ it comes from the local Artin map.'
-    why: 'The input $h_L$ of [nonempty-hyps](/step/nonempty-hyps/) is [RecTExists](/step/rect-exists-def/), a local map of local Langlands type.'
+    says: 'For a finite extension $F$ of $\mathbb{Q}_p$, there is a unique family of bijections $\mathrm{rec}_F$ from irreducible smooth representations of $\mathrm{GL}_n(F)$ to $n$-dimensional Frobenius-semisimple Weil-Deligne representations, which is class field theory for $n = 1$ and matches L-factors and epsilon factors of pairs.'
+    why: 'The input $h_L$ of [nonempty-hyps](/step/nonempty-hyps/) is [RecTExists](/step/rect-exists-def/), the existence half of a local Langlands correspondence for $\mathrm{GL}_n$.'
     steps: [nonempty-hyps, rect-exists-def]
+  - concept: Howe duality
+    text: 'Gan and Takeda, A proof of the Howe duality conjecture, J. Amer. Math. Soc. 29 (2016)'
+    says: 'If $\Theta(\pi) \ne 0$ then it has a unique irreducible quotient $\theta(\pi)$, and $\theta(\pi_1) \cong \theta(\pi_2) \ne 0$ implies $\pi_1 \cong \pi_2$.'
+    why: 'The top node of [nonempty-hyps](/step/nonempty-hyps/) gets `FunctionalsSeparate` from `howeUnram_holds`, and its proof of `twisted_local_factors_match` uses the field `howeDualityReal`.'
+    steps: [nonempty-hyps]
+  - concept: Siegel-Weil formula
+    text: 'Ichino, On the Siegel-Weil formula for unitary groups, Math. Z. 255 (2007)'
+    says: 'For anisotropic $V$ of dimension $m$, the Siegel Eisenstein series of $f_\Phi$ at $s_0 = (m - n)/2$ equals $\kappa$ times the theta integral $\int_{[\mathrm{U}(V)]} \theta(g, h; \Phi)\, dh$, with $\kappa = 1$ for $m > n$ and $2$ for $m \le n$.'
+    why: 'The top node of [nonempty-hyps](/step/nonempty-hyps/) uses the field `siegelWeilUnitaryConvergent`, and each branch has a hypothesis named after the Siegel-Weil formula.'
+    steps: [nonempty-hyps]
+  - concept: Doubling method
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A'
+    says: 'The doubling method integrates a Siegel Eisenstein series on $\mathrm{U}(W^\square)$ against $\varphi_1 \otimes \bar\varphi_2$ on $\mathrm{U}(W) \times \mathrm{U}(W)$ and unfolds it to $\int f_s(\delta\iota(g, 1))\langle\pi(g)\varphi_1, \varphi_2\rangle\, dg$.'
+    why: 'The field `doublingMethod` is one of the seven hypotheses of `LambdaLowerBound₂` in branch 2 of [nonempty-hyps](/step/nonempty-hyps/).'
+    steps: [nonempty-hyps, unitary-group-third-place-hypotheses-def]

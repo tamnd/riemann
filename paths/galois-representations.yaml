@@ -1,8 +1,8 @@
 id: galois-representations
 title: Galois representations
-for: []
-needs: [number-fields]
-lead: 'This path covers Galois and Weil groups and their $\ell$-adic representations. At its end, a reader can parse the output $r$ of the row statement and its local properties.'
+order: 10
+needs: [automorphic-forms, class-field-theory]
+lead: 'Galois representations, Weil-Deligne representations and the local Langlands correspondence, with the p-adic Hodge theory needed at the places above $\ell$. The row statement of the proof asks for such a representation attached to an automorphic representation.'
 items:
   - concept: Absolute Galois group
     math2: PGKWBJDTKX
@@ -19,14 +19,28 @@ items:
     says: 'Let $L/K$ be a Galois extension of number fields and let $\mathfrak{P}$ be a prime of $L$. The decomposition group of $\mathfrak{P}$ is the subgroup $D_{\mathfrak{P}} = \{\sigma \in \operatorname{Gal}(L/K) : \sigma(\mathfrak{P}) = \mathfrak{P}\}$. It is isomorphic to the Galois group of the completion $L_{\mathfrak{P}}$ over the completion of $K$ at the prime below $\mathfrak{P}$.'
     why: 'The local fields `away` and `above` of [Row0b](/step/row0b-def/) restrict $r$ to a decomposition group at a place $w$.'
     steps: [row0b-def]
+  - concept: Inertia group
+    text: 'Serre, Local Fields, ch. I and IV'
+    says: 'The inertia group $I_v$ is the kernel of the map from the decomposition group $G_{K_v}$ onto the Galois group of the residue field. An extension of $K_v$ is unramified exactly when $I_v$ acts trivially on it.'
+    why: 'The condition `ESAt` of [GeoOne](/step/geo-one-def/) asks that $\rho$ is trivial on inertia at $w$.'
+    steps: [geo-one-def]
   - concept: Frobenius element
     math2: H5145REFMW
     says: 'Let $L/K$ be a Galois extension of number fields, let $\mathfrak{P}$ be a prime of $L$ that is unramified over $K$, and let $q$ be the size of the residue field of the prime $\mathfrak{p} = \mathfrak{P} \cap K$. The Frobenius element of $\mathfrak{P}$ is the unique $\sigma$ in the decomposition group $D_{\mathfrak{P}}$ with $\sigma(x) \equiv x^q \pmod{\mathfrak{P}}$ for all integers $x$ of $L$. Its conjugacy class in $\operatorname{Gal}(L/K)$ depends only on $\mathfrak{p}$.'
     why: 'The statement `CoreAll` of the Galois row uses the characteristic polynomials of Frobenius elements.'
+  - concept: Chebotarev density theorem
+    math2: X8VKW5Y1CZ
+    says: 'For a finite set $S$ of places of a number field $K$, the conjugates of the Frobenius elements at the places outside $S$ are dense in $G_S$.'
+    why: 'It shows that the Frobenius characteristic polynomials of `CoreAll` determine a semisimple $r$.'
   - concept: Galois representation
     math2: QW17YJ6ZCT
     says: 'Let $K$ be a field with absolute Galois group $G_K$, let $A$ be a topological commutative ring, and let $n \geq 1$. A Galois representation of $K$ of dimension $n$ over $A$ is a continuous group homomorphism $\rho: G_K \to \mathrm{GL}_n(A)$. For $A = \overline{\mathbb{Q}}_\ell$ or a finite extension of $\mathbb{Q}_\ell$, it is an $\ell$-adic Galois representation.'
     why: 'The output of [Row0b](/step/row0b-def/) is a map $r$ from the Galois group to $\mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$.'
+    steps: [row0b-def]
+  - concept: Unramified representation
+    text: 'Serre, Abelian l-adic Representations and Elliptic Curves, ch. I'
+    says: 'A Galois representation $\rho$ is unramified at $v$ when $\rho(I_v) = 1$. Then $\rho(\mathrm{Frob}_v)$ is defined up to conjugacy, and its eigenvalues are the Frobenius eigenvalues of $\rho$ at $v$.'
+    why: 'The statement `CoreAll` of [the Galois row](/proof/galois-row/) asks that $r$ is unramified with given Frobenius characteristic polynomials at almost all places.'
     steps: [row0b-def]
   - concept: Weil group
     math2: TH24PGYAM5
@@ -40,6 +54,21 @@ items:
     text: 'Tate, Number theoretic background, Proc. Sympos. Pure Math. 33 (1979), sec. 4'
     why: 'The target of the map $rc$ in [IsRecT](/step/is-rect-def/) is the set $\mathrm{WD}(h)$ of Weil-Deligne classes.'
     steps: [is-rect-def]
+  - concept: Monodromy operator
+    text: 'Tate, Number theoretic background, Proc. Sympos. Pure Math. 33 (1979), sec. 4'
+    says: 'The monodromy operator of a Weil-Deligne representation $(r, N)$ is the nilpotent endomorphism $N$, with $r(\sigma) N r(\sigma)^{-1} = |\sigma| N$. The class $\mathrm{Sp}(m)$ has $N$ with one Jordan block of size $m$.'
+    why: 'The law `langlands` of [IsRecT](/step/is-rect-def/) uses the classes $\mathrm{Sp}(m)$, and the clause `tor` of `AwayB` asks for $N = 0$.'
+    steps: [is-rect-def, row0b-def]
+  - concept: Grothendieck monodromy theorem
+    text: 'Serre and Tate, Good reduction of abelian varieties, Ann. of Math. 88 (1968), appendix'
+    says: 'For $\ell \neq p$, each continuous $\ell$-adic representation $\rho$ of $W_F$ gives a Weil-Deligne representation $\mathrm{WD}(\rho)$ with $\rho(\tau) = \exp(t_\ell(\tau) N)$ on an open subgroup of inertia. Its class determines $\rho$.'
+    why: 'It defines the class `wdOf` of $r$ at a place $w \nmid \ell$ in [Row0b](/step/row0b-def/).'
+    steps: [row0b-def]
+  - concept: Local Langlands correspondence
+    math2: 9E45NBX1G0
+    says: 'For a finite extension $F$ of $\mathbb{Q}_p$, there is a unique family of bijections $\mathrm{rec}_F$ from irreducible smooth representations of $\mathrm{GL}_n(F)$ to $n$-dimensional Frobenius-semisimple Weil-Deligne representations, which is class field theory for $n = 1$ and matches L-factors and epsilon factors of pairs.'
+    why: 'The local condition [IsRecT](/step/is-rect-def/) lists laws of this correspondence, and [RecTExists](/step/rect-exists/) gives a map with them.'
+    steps: [is-rect-def, rect-exists, local-langlands-gl-rect-exists-of-literature]
   - concept: Cyclotomic character
     math2: XSGB5K2KEG
     says: 'Let $K$ be a field and let $\ell$ be a prime different from the characteristic of $K$. The $\ell$-adic cyclotomic character is the continuous homomorphism $\chi: G_K \to \mathbb{Z}_\ell^\times$ such that $\sigma(\zeta) = \zeta^{\chi(\sigma) \bmod \ell^n}$ for every $\sigma \in G_K$ and every root of unity $\zeta \in \overline{K}$ of order $\ell^n$. The twist $M(k)$ of a Galois module $M$ is $M$ with the action of $\sigma$ multiplied by $\chi(\sigma)^k$.'
@@ -58,6 +87,10 @@ items:
     math2: K6HW8YWCQJ
     says: 'Let $K$ be a finite extension of $\mathbb{Q}_p$. Fontaine period rings are topological $\mathbb{Q}_p$-algebras $B$ with a continuous action of $G_K$, such as $B_{\mathrm{dR}}$, $B_{\mathrm{st}}$ and $B_{\mathrm{cris}}$, for which $E = B^{G_K}$ is a field. A p-adic representation $V$ of $G_K$ is $B$-admissible when $\dim_E (B \otimes_{\mathbb{Q}_p} V)^{G_K} = \dim_{\mathbb{Q}_p} V$.'
     why: 'The [literature chapter](/proof/literature/) lists a statement on Fontaine $B_{\mathrm{cris}}$ among its inputs.'
+  - concept: Tilt
+    text: 'Scholze, Perfectoid spaces, Publ. Math. IHES 116 (2012), sec. 3'
+    says: 'The tilt of $C$ is $C^\flat = \varprojlim_{x \mapsto x^p} C$, a complete algebraically closed field of characteristic $p$. Fontaine''s ring is $A_{\mathrm{inf}} = W(\mathcal{O}_{C^\flat})$, with the surjection $\theta : A_{\mathrm{inf}} \to \mathcal{O}_C$.'
+    why: 'The prismatic Dieudonné statement of [CM divisibility](/proof/cm-divisibility/) takes values in $A_{\mathrm{inf}}$-modules and uses a frame from the tilt.'
   - concept: Hodge-Tate weights
     math2: null
     proposal: https://github.com/tamnd/math2/issues/394
@@ -72,3 +105,16 @@ items:
     text: 'Fontaine, Representations p-adiques semi-stables, Asterisque 223 (1994)'
     why: 'The field `above` of [Row0b](/step/row0b-def/) asks that $r$ is crystalline, de Rham or potentially semistable at places above $\ell$.'
     steps: [row0b-def]
+  - concept: Local-global compatibility
+    text: 'Barnet-Lamb, Gee, Geraghty and Taylor, Local-global compatibility for l = p, II, Ann. Sci. ENS 47 (2014); Caraiani, Duke Math. J. 161 (2012)'
+    says: 'Local-global compatibility says that the restriction of $r_{\ell,\iota}(\pi)$ to a decomposition group at $v$ has the Weil-Deligne representation $\mathrm{rec}(\pi_v \otimes |\det|_v^{(1-n)/2})$, at $v \nmid \ell$ through Grothendieck and at $v \mid \ell$ through Fontaine.'
+    why: 'The fields `away` and `above` of [Row0b](/step/row0b-def/) are local-global compatibility, proved in [the Galois row holds](/step/galois-row-holds/).'
+    steps: [row0b-def, galois-row-holds]
+  - concept: Modularity lifting
+    math2: VQ8XNV47K9
+    says: 'A modularity lifting theorem says that a Galois representation with an automorphic residual representation of large image, and with suitable local properties at $\ell$, is itself automorphic. Taylor-Wiles patching proves it by an isomorphism $R = \mathbb{T}$.'
+    why: 'In [the window bound](/proof/vwin/) the structure `HypothesesH''` comes from `published_hypotheses_from_patching_alt`, and the cases II, III and V use automorphy of representations of dimensions four and three.'
+  - concept: Taylor-Wiles patching
+    text: 'Barnet-Lamb, Gee, Geraghty and Taylor, Potential automorphy and change of weight, Ann. of Math. 179 (2014), Thm 4.2.1'
+    says: 'Patching combines the deformation rings and Hecke modules at auxiliary sets of Taylor-Wiles primes into one limit, where a dimension count shows that the deformation ring acts faithfully.'
+    why: 'The name `published_hypotheses_from_patching_alt` in [the window bound](/proof/vwin/) refers to this method.'

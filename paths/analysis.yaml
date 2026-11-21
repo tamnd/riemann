@@ -1,0 +1,110 @@
+id: analysis
+title: Analysis
+order: 2
+needs: [algebra]
+lead: 'The analysis that the proof uses: limits, lim sup and $O$ bounds, measures and Fubini, $L^2$ spaces, the Fourier transform and Schwartz functions, Sobolev norms, topological groups and covers, Haar measure, Lie groups and one-parameter subgroups.'
+items:
+  - concept: Limit superior
+    math2: 0T3RZQXDYD
+    says: 'The limit superior of a real sequence is $\limsup_n a_n = \lim_n \sup_{k \ge n} a_k \in [-\infty, \infty]$.'
+    why: 'The volume $\mathrm{vol}(P, \Lambda)$ in [the Weil bound](/proof/weil-bound/) is a lim sup of normalized logarithms of counts.'
+  - concept: For all large
+    math2: 0TGV80E6A4
+    says: 'A statement holds for all large $x$ if it holds for each $x \ge x_0$ for some $x_0$; $f = O(g)$ means $|f| \le C g$ for all large $x$.'
+    why: 'The hypotheses of [HypsAlt](/step/hyps-alt-def/) hold for each large $x$, and [the literature](/proof/literature/) bounds $L''/L(1, \chi) - Z(\chi)$ by $C \log(3q)$.'
+    steps: [hyps-alt-def]
+  - concept: Continuous
+    math2: 0X3WGX95FE
+    says: 'A map of topological spaces is continuous if the preimage of each open set is open.'
+    why: 'The Galois representation $r$ of [the trunk](/proof/trunk/) is continuous.'
+  - concept: Smooth
+    math2: 0V33BNKZ9S
+    says: 'A function on an open subset of $\mathbb{R}^n$ is smooth if all its partial derivatives exist and are continuous.'
+    why: '[The Galois row](/proof/galois-row/) works with spaces of smooth functions on $\mathrm{GL}_a(\mathbb{A}_E)$.'
+  - concept: Measure
+    math2: PR11BZQQPG
+    says: 'A measure on a σ-algebra $\mathcal{M}$ is a countably additive map $\mu : \mathcal{M} \to [0, \infty]$ with $\mu(\emptyset) = 0$.'
+    why: 'The theta integrals of [the theta matching](/proof/theta-matching/) are integrals for a measure on an adelic group.'
+  - concept: Integrable
+    math2: X7GTF3D98F
+    says: 'A measurable $f$ is integrable if $\int |f| \, d\mu < \infty$.'
+    why: 'Step 4 of [block determinants](/proof/determinants/) proves that a product of two matrix coefficients is integrable on $U(X)(\mathbb{A})$.'
+  - concept: Fubini
+    math2: 0R0T1VWH5X
+    says: 'If $f$ is integrable on $X \times Y$ for $\mu \times \nu$, then $\int_{X \times Y} f$ equals both iterated integrals.'
+    why: 'The seesaw identity of [the Bessel seesaw](/proof/bessel-seesaw/) is a change of the order of integration in `upLast`.'
+  - concept: Hilbert space
+    math2: HM2HHE3J51
+    says: 'A Hilbert space is a complex inner product space that is complete for its norm; $L^2(X, \mu)$ is one.'
+    why: 'The metaplectic representation of [the Siegel-Weil chapter](/proof/siegel-weil/) is unitary on an $L^2$ space.'
+  - concept: Cauchy-Schwarz inequality
+    math2: 0RFWW56Y22
+    says: 'In an inner product space, $|\langle f, g \rangle| \le \|f\| \, \|g\|$.'
+    why: 'It bounds the matrix coefficients in the integrals of Step 4 of [block determinants](/proof/determinants/).'
+  - concept: Fourier transform
+    math2: DPVM34ADZV
+    says: 'The Fourier transform of an integrable $f$ on $\mathbb{R}^n$ is $\hat f(\xi) = \int f(x) e^{-2\pi i x \cdot \xi} \, dx$.'
+    why: 'In Step 2 of [the Siegel-Weil chapter](/proof/siegel-weil/) the Weyl element acts by a Fourier transform.'
+  - concept: Gaussian
+    math2: 0DFT1GP1JP
+    says: 'The Gaussian $e^{-\pi x \cdot x}$ has integral $1$ and is its own Fourier transform.'
+    why: 'The metaplectic statement of [the Siegel-Weil chapter](/proof/siegel-weil/) fixes the Weil representation on the Gaussian.'
+  - concept: Schwartz space
+    math2: GE020MY43M
+    says: 'The Schwartz space is the space of smooth $f$ on $\mathbb{R}^n$ with $\sup |x^\alpha \partial^\beta f| < \infty$ for all $\alpha, \beta$.'
+    why: 'The test functions of [the theta matching](/proof/theta-matching/) are Schwartz functions.'
+  - concept: Plancherel
+    math2: HPZHRZ0502
+    says: 'The Fourier transform preserves the $L^2$ inner product on Schwartz functions and extends to a unitary map of $L^2(\mathbb{R}^n)$.'
+    why: 'It makes the Weil representation of [the Siegel-Weil chapter](/proof/siegel-weil/) unitary.'
+  - concept: Sobolev norm
+    math2: M4CEZ5K9HP
+    says: 'The Sobolev norm of order $d$ of a smooth $\varphi$ on a Lie group is $\sum_{|\alpha| \le d} \|X^\alpha \varphi\|_{L^2}$ for a basis of the Lie algebra.'
+    why: 'The bound `CuspDecaySobolev` of [the Siegel-Weil chapter](/proof/siegel-weil/) controls the decay of cusp forms by a Sobolev norm.'
+  - concept: Topological group
+    math2: 92700QAB5Y
+    says: 'A topological group is a group with a topology for which multiplication and inversion are continuous.'
+    why: 'The statement `MetaplecticRepresentation` of [the Siegel-Weil chapter](/proof/siegel-weil/) asks for a topological group that covers $\mathrm{Sp}(\mathbb{R})$.'
+  - concept: Locally compact group
+    math2: 20YERDAS5W
+    says: 'A locally compact group is a topological group whose topology is locally compact and Hausdorff.'
+    why: 'The adelic unitary groups of [the theta matching](/proof/theta-matching/) are locally compact, so they have Haar measures.'
+  - concept: Covering map
+    math2: 3XZRRE165N
+    says: 'A covering map is a continuous surjection such that each point has a neighbourhood whose preimage is a disjoint union of open sets mapped homeomorphically onto it.'
+    why: 'The metaplectic group of [the Siegel-Weil chapter](/proof/siegel-weil/) is a covering of $\mathrm{Sp}(\mathbb{R})$ with a kernel of two elements.'
+  - concept: Metaplectic group
+    math2: 8B0JM2YDE2
+    says: 'The metaplectic group $\mathrm{Mp}_{2n}(\mathbb{R})$ is the connected double cover of $\mathrm{Sp}_{2n}(\mathbb{R})$.'
+    why: 'The Weil representation of [the Siegel-Weil chapter](/proof/siegel-weil/) is a representation of this cover.'
+  - concept: Haar measure
+    math2: CE0V9686M8
+    says: 'A Haar measure on a locally compact group is a nonzero regular left invariant Borel measure; it exists and is unique up to a positive factor.'
+    why: 'The predicate `Model.IsGood` of [the theta matching](/proof/theta-matching/) asks for a Haar measure and a fundamental domain.'
+  - concept: Unimodular
+    math2: CXG6JZGMCK
+    says: 'A locally compact group is unimodular if its left Haar measures are also right invariant.'
+    why: 'The unitary groups of [the Siegel-Weil chapter](/proof/siegel-weil/) are unimodular, so their quotients carry invariant measures.'
+  - concept: Fundamental domain
+    math2: WEGEXJBX26
+    says: 'A fundamental domain for a discrete subgroup $\Gamma$ of $G$ is a measurable set that meets each coset $\Gamma g$ in one point.'
+    why: 'Step 9 of [the Siegel-Weil chapter](/proof/siegel-weil/) proves that the fundamental domain of $U_J(F)$ has finite volume.'
+  - concept: Lie group
+    math2: 7JBRGCVJRB
+    says: 'A Lie group is a group that is a smooth manifold with smooth multiplication and inverse.'
+    why: 'The groups at the infinite places in [LocalMatching](/step/local-matching-def/) are real Lie groups.'
+    steps: [local-matching-def]
+  - concept: Lie algebra
+    math2: 5JJYBJ6A8K
+    says: 'The Lie algebra of a closed subgroup $G$ of $\mathrm{GL}_n(\mathbb{R})$ is the set of $X$ with $\exp(tX) \in G$ for each $t$, with bracket $XY - YX$.'
+    why: 'The condition `IsRealMaps` of [LocalMatching](/step/local-matching-def/) uses the Lie algebra action at the infinite places.'
+    steps: [local-matching-def]
+  - concept: Matrix exponential
+    math2: 020M04FN1H
+    says: 'The matrix exponential is $\exp(X) = \sum_{k \ge 0} X^k / k!$.'
+    why: 'The statement `RealMetaplecticRepresentation` of [the Siegel-Weil chapter](/proof/siegel-weil/) lifts the curves $t \mapsto \exp(tX)$ to the cover.'
+  - concept: One-parameter subgroup
+    math2: YHA64AP1HN
+    says: 'A one-parameter subgroup is a continuous homomorphism $\mathbb{R} \to G$; in a matrix group it is $t \mapsto \exp(tX)$.'
+    why: 'In [the Siegel-Weil chapter](/proof/siegel-weil/) each $X \in \mathfrak{sp}$ gives a one-parameter subgroup of the metaplectic cover.'
+    steps: [local-matching-def]
