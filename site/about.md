@@ -15,15 +15,17 @@ The text is in [tamnd/riemann](https://github.com/tamnd/riemann). The tool `rh` 
 
 ## The plan
 
-| Milestone | Goal |
-|---|---|
-| M0 | the source and the site |
-| M1 | the map of the Lean proof |
-| M2 | the trust report |
-| M3 | the top of the proof in words |
-| M4 | learning paths and links to Math 2.0 |
-| M5 | drafting at scale |
-| M6 | the chapters |
+| Milestone | Goal | State |
+|---|---|---|
+| M0 | the source and the site | done, v0.1.0 |
+| M1 | the map of the Lean proof | done, v0.2.0 |
+| M2 | the trust report: build, axioms, second check | next |
+| M3 | the top of the proof in words | in progress |
+| M4 | learning paths and links to Math 2.0 | started |
+| M5 | drafting at scale | not started |
+| M6 | the chapters, reviewed | not started |
+
+The issues of each milestone are in [tamnd/riemann-agent](https://github.com/tamnd/riemann-agent/milestones).
 
 ## How to help
 
