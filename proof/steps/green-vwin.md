@@ -5,10 +5,10 @@ decl: UpperTheory.Top.every_character_of_green_v_win
 chapter: theta-matching
 status: drafted
 drafted_by: writer@claude-opus-5-5
-uses: [every-character-def, vwin-def]
+uses: [every-character-def, vwin-def, zero-free-all-of-green-v-win, imprimitive, green-def, closed-def, definite-side-condition-def, hyps-alt-def]
 concepts: [DNKA4WBKDS, 24GAZHVTGB, JR4QSEFXWF, 0C3PN4075R, 9AZ164C298]
 routine: []
-open: [UpperTheory.Top.zero_free_all_of_green_v_win, UpperTheory.Top.imprimitive, GlobalTheory.GLq.Green, GlobalTheory.Fc.HypsAlt, GlobalTheory.Fc.DefiniteSideCondition, Formalism.MainNotions.Closed, Formalism.MainNotions.LinkN]
+open: [Formalism.MainNotions.LinkN]
 ---
 ## Statement
 

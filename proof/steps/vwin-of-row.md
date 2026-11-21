@@ -5,10 +5,10 @@ decl: UpperTheory.One.vwin_of_row
 chapter: vwin
 status: drafted
 drafted_by: writer@claude-opus-5-5
-uses: [vwin-def, row0b-def, is-rect-def]
+uses: [vwin-def, row0b-def, is-rect-def, automorphic-window-of-inputs, base-change-n, open-image-condition-def]
 concepts: [QW17YJ6ZCT, BK9WBMF56G, JR4QSEFXWF]
-routine: [UpperTheory.LiteratureTheorems.OpenImageCondition]
-open: [UpperTheory.One.Join.automorphic_window_of_inputs, UpperTheory.BaseChangeIdentities.baseChangeN]
+routine: []
+open: []
 ---
 ## Statement
 

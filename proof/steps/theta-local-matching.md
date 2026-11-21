@@ -5,10 +5,10 @@ decl: UpperTheory.Lit.every_character_of_theta_integrals_local_matching
 chapter: theta-matching
 status: drafted
 drafted_by: writer@claude-opus-5-5
-uses: [green-vwin, nonempty-hyps, every-character-def, vwin-def, rect-exists-def]
+uses: [green-vwin, nonempty-hyps, every-character-def, vwin-def, rect-exists-def, theta-integrals-agree-def, local-matching-def, green-of-regular, unitary-group-third-place-hypotheses-def, theta-local-inputs-def, covolume-bound-of-x-def]
 concepts: [DNKA4WBKDS, 24GAZHVTGB, 6WB6TKE70H, H3Q2703KKV, 0R9R0Y1HDK, 9E45NBX1G0]
 routine: [GlobalTheory.Mem.Top.Bl.parametersOfDependence]
-open: [GlobalTheory.Fc.S0.UnitaryGroupThirdPlaceHypotheses, GlobalTheory.FunPr.ThetaLocalInputs, GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.ThetaIntegralsAgree, GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.LocalMatching, GlobalTheory.CovTop.CovolumeBoundOfX, GlobalTheory.GreenBridge.green_of_regular, UpperTheory.N.boundAtTwoThree_linked_of_recT]
+open: [UpperTheory.N.boundAtTwoThree_linked_of_recT]
 ---
 ## Statement
 

@@ -49,7 +49,7 @@ next:
   - text: Theta integrals and local matching
     path: proof/theta-matching/
     sub: the main output of this page
-steps: [open-literature-statements-def, every-character-of-literature]
+steps: [open-literature-statements-def, row-def, every-character-of-literature, published-results-eigen, published-results-first, theta-integrals-agree-and-local-matching-of-literature, local-langlands-gl-rect-exists-of-literature, published-results-arithmetic]
 ---
 ## Result
 

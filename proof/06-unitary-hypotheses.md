@@ -53,7 +53,7 @@ next:
   - text: The trunk
     path: proof/trunk/
     sub: the map of the proof
-steps: [nonempty-hyps]
+steps: [nonempty-hyps, hyps-alt-def, closed-def, definite-side-condition-def, unitary-group-third-place-hypotheses-def, theta-local-inputs-def, covolume-bound-of-x-def]
 ---
 ## Result
 

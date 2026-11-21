@@ -59,7 +59,7 @@ next:
   - text: The theta matching
     path: proof/theta-matching/
     sub: the next large branch
-steps: [row0b-def, is-rect-def, rect-exists-def, rect-exists, galois-row-holds]
+steps: [row0b-def, is-rect-def, rect-exists-def, rect-exists, galois-row-holds, galois-representations-of-theta-lift, galois-local-global-strong-of-geometry-lift, geo-one-holds, geo-one-def, t-lift-k, tlift-k-def]
 ---
 ## Result
 

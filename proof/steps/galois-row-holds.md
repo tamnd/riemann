@@ -5,10 +5,10 @@ decl: UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter
 chapter: galois-row
 status: drafted
 drafted_by: writer@claude-opus-5-5
-uses: [row0b-def, is-rect-def]
+uses: [row0b-def, is-rect-def, galois-representations-of-theta-lift, t-lift-k]
 concepts: [QW17YJ6ZCT, 9AZ164C298, 6WB6TKE70H, 0R9R0Y1HDK, 9E45NBX1G0]
 routine: [UpperTheory.Gal.Int.recT]
-open: [UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift, UpperTheory.TP.K.tLiftK]
+open: []
 ---
 ## Statement
 
