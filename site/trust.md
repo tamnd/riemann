@@ -18,11 +18,15 @@ Lean checks a proof with a small program, the kernel. When the kernel accepts a 
 
 ### Q0. Is the source the same as the release?
 
-The author published the source as 14 parts of one archive, `lean.tar.gz`, with a SHA-256 hash for each part. The repository [tamnd/riemann-lean](https://github.com/tamnd/riemann-lean) has the same files with no change. The command `rh fetch -compare` downloads the parts, checks each hash, joins the parts, checks the hash of the archive, and compares each file with the manifest of riemann-lean. It found the same 175,190 files. The row shows yes when this result is in `records/trust.json`.
+The author published the source as 14 parts of one archive, `lean.tar.gz`, with a SHA-256 hash for each part. The repository [tamnd/riemann-lean](https://github.com/tamnd/riemann-lean) has the same files with no change. The command `rh fetch -compare` downloads the parts, checks each hash, joins the parts, checks the hash of the archive, and compares each file with the manifest of riemann-lean. It found the same 175,190 files. The workflow `source` of riemann-lean does the same check on GitHub. On 2026-11-21 it downloaded the parts from alpo.ge again and found that each hash and each file matched ([run 44912930359](https://github.com/tamnd/riemann-lean/actions/runs/44912930359)). So the row shows yes.
 
 ### Q1. Does the project build?
 
-The project pins Lean `v4.33.1` and Mathlib commit `0df444a3`. The build is large: about 17.4 million lines in 175,187 files. It cannot run on the standard GitHub runners. Milestone M2 runs it first on one small library to measure the time and the memory, and then on all of it. The site does not rent a machine for the build without the approval of the owner.
+The project pins Lean `v4.33.1` and Mathlib commit `0df444a3`. The build is large: about 17.4 million lines in 175,187 files. It cannot run on the standard GitHub runners.
+
+A trial on 2026-11-21 built 299 modules of a random sample, 50,441 lines, with no errors. Each module takes a fixed time of about 30 to 45 seconds to load its imports, plus up to 80 milliseconds for each line. Most of the fixed time is the read of the Mathlib files from the disk, so a machine with more memory is faster. For all 175,187 modules, the estimate is 350 to 2,300 hours of worker time, and 85 to 140 GB of output. The longest chain of imports takes about 2.7 hours, so no number of workers can make the build faster than that. With 64 workers the build takes about 6 to 36 hours. The details are in [issue 4](https://github.com/tamnd/riemann-agent/issues/4) of riemann-agent.
+
+The build server of this project has 8 cores and other jobs, so the build needs a rented machine. The site does not rent a machine without the approval of the owner.
 
 ### Q2. Which axioms does the proof use?
 
@@ -35,6 +39,8 @@ Meta code runs while Lean reads a file, and it can add declarations to the envir
 ### Q4. Do the Lean statements say what the standard statements say?
 
 The five theorems of `Main.lean` use the definitions of Mathlib: `RiemannHypothesis`, `riemannZeta` and `DirichletCharacter.LFunction`. The definition `RiemannHypothesis` says: if $\zeta(s) = 0$, $s$ is not one of $-2, -4, -6, \dots$ and $s \neq 1$, then $\operatorname{Re}(s) = \tfrac12$. That is the standard statement. The value of `riemannZeta` at $s = 1$ is a convention, and the hypothesis $s \neq 1$ makes it harmless. A person who knows analytic number theory must read each statement and sign the review. The review names the person.
+
+The draft of the review is [reviews/fidelity.md](https://github.com/tamnd/riemann/blob/main/reviews/fidelity.md). It gives each statement, the Mathlib definitions that it uses, and the points that a reviewer must confirm: the value of $\zeta$ at the pole, the extra zeros of the characters that are not primitive, and the strict inequality $0 < \operatorname{Re}(s)$ that excludes them. The draft finds that the five statements say RH and GRH for Dirichlet L-functions. No person has signed it yet, so the row shows open.
 
 ### Q5. How much of the proof is written in words?
 
@@ -55,6 +61,7 @@ Some facts do not need a build. A text scan of the 175,187 files of riemann-lean
 | new commands and tactics with `elab` | 4, in 3 files |
 | `macro` | 22 |
 | `set_option allowUnsafeReducibility` | 37 |
+| `notation`, `infix`, `prefix` and `postfix` that are not `local` or `scoped` | none |
 
 The five `run_cmd` lines add a name space, for example `UpperTheory`, to the deny list of the library search tool. That tool only suggests lemmas to the person who writes the proof. It does not change what the kernel accepts.
 
@@ -65,5 +72,7 @@ The `elab` code needs more attention, so here it is in full.
 - [Imports.lean](lean:Formalism/LocalToGlobal/IndefiniteReal/HeckeNonvanishing/Imports.lean#L5) defines the tactic `kexactB`. It puts a term into the goal without the usual check of the type by the elaborator. 50 files use it. The kernel still checks the full declaration at the end, so a wrong term makes the file fail. The tactic moves the check from the elaborator to the kernel. It does not remove the check.
 
 The option `allowUnsafeReducibility` lets a file change how Lean unfolds a definition during elaboration. It does not change the kernel. The options `maxHeartbeats` and `maxRecDepth` give Lean more time and more depth. They do not weaken any check.
+
+All 1,790 notation lines are `local` or `scoped`, and `Main.lean` opens no namespace. So no notation of the release can change the meaning of a name in `Main.lean`.
 
 None of this is a problem by itself. All of it is in the list that question Q3 checks again with `lean4checker` after the build.
