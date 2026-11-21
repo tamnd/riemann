@@ -2,7 +2,7 @@
 
 All changes that a reader can see are in this file. The versions follow the milestones: milestone Mn closes with `v0.(n+1).0`.
 
-## Unreleased
+## v0.2.1 (2026-11-21)
 
 ### Added
 
