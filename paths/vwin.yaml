@@ -1,0 +1,86 @@
+id: vwin
+title: The window bound VWin
+for: [vwin]
+needs: [trunk]
+lead: 'This path covers the Galois cohomology and Iwasawa theory behind the window bound. At its end, a reader can state VWin and follow the counting argument of `vwin_of_counts`.'
+items:
+  - concept: Galois cohomology
+    math2: 9MPCZ3EAJM
+    says: 'Let $K$ be a field and let $M$ be an abelian group with a continuous action of $G_K$, where $M$ has the discrete topology. The Galois cohomology group $H^i(K, M)$ is the $i$-th cohomology of the complex of continuous cochains $G_K^i \to M$ with the standard group cohomology differential. Equivalently, it is the direct limit of $H^i(\operatorname{Gal}(L/K), M^{G_L})$ over finite Galois extensions $L/K$.'
+    why: 'The group of [VWin](/step/vwin-def/) is a subgroup of a first Galois cohomology group $H^1$ with twisted coefficients $\mathbb{Q}_l/\mathbb{Z}_l$.'
+    steps: [vwin-def]
+  - concept: Length of a module
+    math2: CZSCNZH8VY
+    says: 'Let $R$ be a ring and let $M$ be an $R$-module. The length of $M$ is the largest $n$ such that there is a chain of submodules $M_0 \subsetneq M_1 \subsetneq \cdots \subsetneq M_n$, or $\infty$ if no largest $n$ exists. A finite $\mathbb{Z}_\ell$-module $M$ has length $n$ exactly when $|M| = \ell^n$.'
+    why: 'The bound [VWin](/step/vwin-def/) adds up the lengths of the groups as $\mathbb{Z}_l$-modules.'
+    steps: [vwin-def]
+  - concept: Tate-Shafarevich group
+    math2: BK9WBMF56G
+    says: 'Let $K$ be a number field and let $M$ be a Galois module over $K$, such as the points of an elliptic curve $E$. The Tate-Shafarevich group is $\text{Ш}(K, M) = \ker\big(H^1(K, M) \to \prod_v H^1(K_v, M)\big)$, where $v$ runs over all places of $K$. For $M = E$ its elements are the classes of genus one curves over $K$ that are twists of $E$ and have a point over every $K_v$.'
+    why: 'The window bound [VWin](/step/vwin-def/) is a bound on weighted lengths of Tate-Shafarevich groups $Ш(D_\ell, e)$.'
+    steps: [vwin-def]
+  - concept: Jacobi symbol
+    math2: 0ADTQBXRMC
+    says: 'Let $a$ be an integer and let $n = p_1^{e_1} \cdots p_k^{e_k}$ be an odd positive integer with primes $p_i$. The Jacobi symbol is $\left(\frac{a}{n}\right) = \prod_{i} \left(\frac{a}{p_i}\right)^{e_i}$, where each factor is a Legendre symbol, and $\left(\frac{a}{1}\right) = 1$.'
+    why: 'The condition `IsChiField` in [VWin](/step/vwin-def/) cuts out subfields of $\mathbb{Q}(\zeta_N)$ with Jacobi symbols.'
+    steps: [vwin-def]
+  - concept: Selmer group
+    math2: 36YNSTESMQ
+    says: 'Let $\phi: E \to E''$ be an isogeny of elliptic curves over a number field $K$. The $\phi$-Selmer group is $\mathrm{Sel}^{\phi}(E/K) = \ker\big(H^1(K, E[\phi]) \to \prod_v H^1(K_v, E)\big)$, where $v$ runs over all places of $K$. It is finite and sits in an exact sequence $0 \to E''(K)/\phi(E(K)) \to \mathrm{Sel}^{\phi}(E/K) \to \text{Ш}(E/K)[\phi] \to 0$.'
+    why: 'The count `CountZ` bounds a Selmer-type length polynomially in $l$, the modulus and $e$.'
+  - concept: Poitou-Tate duality
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/397
+    says: 'Poitou-Tate duality is a nine-term exact sequence that links the global Galois cohomology of a finite module $M$ and of its dual $M^\vee(1)$.'
+    text: 'Neukirch, Schmidt and Wingberg, Cohomology of Number Fields, 2nd ed. (2008), ch. VIII'
+    why: 'The theorem `vwin_of_counts` takes `PoitouTateDuality` as a hypothesis.'
+  - concept: Local Tate duality
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/398
+    says: 'For a finite Galois module $M$ over a p-adic field, the cup product gives a perfect pairing $H^i(K, M) \times H^{2-i}(K, M^\vee(1)) \to \mathbb{Q}/\mathbb{Z}$.'
+    text: 'Neukirch, Schmidt and Wingberg, Cohomology of Number Fields, 2nd ed. (2008), ch. VII'
+    why: 'The theorem `vwin_of_counts` takes `LocalTateDualityK` as a hypothesis.'
+  - concept: Tate global Euler characteristic formula
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/399
+    says: 'The Tate formula expresses the alternating product of the orders of $H^i(G_S, M)$ for a finite module $M$ by local terms at the infinite places.'
+    text: 'Milne, Arithmetic Duality Theorems, 2nd ed. (2006), ch. I'
+    why: 'The bundle `coh : LitCoh` has 12 statements on Galois cohomology, and Euler characteristics are among them.'
+  - concept: Bloch-Kato Selmer group
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/400
+    says: 'The Bloch-Kato Selmer group of a p-adic representation is the subgroup of $H^1$ of classes that are unramified away from $p$ and crystalline in the sense of $H^1_f$ at $p$.'
+    text: 'Bloch and Kato, L-functions and Tamagawa numbers of motives, in The Grothendieck Festschrift I (1990)'
+    why: 'The statement `KatoTwoW` concludes that Bloch-Kato Selmer groups of two twists of $W$ vanish, for $W$ attached to a newform of weight $2e+1$.'
+  - concept: Kato Euler system
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/401
+    says: 'Kato constructs an Euler system of Beilinson elements in the K-theory of modular curves, and it bounds Selmer groups of modular forms.'
+    text: 'Kato, p-adic Hodge theory and values of zeta functions of modular forms, Asterisque 295 (2004)'
+    why: 'The count of case I uses a Kato-type vanishing for two-dimensional representations, the statement `KatoTwoW`.'
+  - concept: Iwasawa theory
+    math2: Y2SPPSQ5D4
+    says: 'Let $p$ be a prime and let $K_\infty / K$ be a Galois extension of number fields with $\operatorname{Gal}(K_\infty/K) \cong \mathbb{Z}_p$, with layers $K_n$ of degree $p^n$ over $K$. Iwasawa theory studies limits along such towers, such as the inverse limit $X$ of the $p$-parts $A_n$ of the class groups of $K_n$, as modules over $\Lambda = \mathbb{Z}_p[[T]]$. Iwasawa proved that $|A_n| = p^{\mu p^n + \lambda n + \nu}$ for all large $n$, with integers $\mu, \lambda \geq 0$ and $\nu$.'
+    why: 'The count `ThmBab` uses a statement `ferreroWashington` from Iwasawa theory of cyclotomic fields.'
+  - concept: Ferrero-Washington theorem
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/372
+    says: 'The Ferrero-Washington theorem says that the Iwasawa $\mu$-invariant of the cyclotomic $\mathbb{Z}_p$-extension of an abelian number field is zero.'
+    text: 'Ferrero and Washington, The Iwasawa invariant mu_p vanishes for abelian number fields, Ann. of Math. 109 (1979)'
+    why: 'The theorem `ThmBab K 401` comes from Lemma K, Poitou-Tate, local Tate duality and `ferreroWashington`.'
+  - concept: Hida theory
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/402
+    says: 'Hida theory puts ordinary cuspidal Hecke eigenforms of varying weight into p-adic analytic families over an Iwasawa algebra.'
+    text: 'Hida, Elementary Theory of L-functions and Eisenstein Series (1993)'
+    why: 'The counts use a Hida-theory threshold statement, and `core_alt_bis` works with a universal ordinary determinant ring.'
+  - concept: Base change of automorphic representations
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/405
+    says: 'Let $E/F$ be a finite cyclic extension of number fields. Base change sends an automorphic representation $\pi$ of $\mathrm{GL}_n(\mathbb{A}_F)$ to an automorphic representation $\Pi$ of $\mathrm{GL}_n(\mathbb{A}_E)$ such that, for almost all places $w$ of $E$ over a place $v$ of $F$, the L-parameter of $\Pi_w$ is the restriction to the Weil group $W_{E_w}$ of the L-parameter of $\pi_v$. Arthur and Clozel proved that such a $\Pi$ exists, and $\Pi$ is isobaric.'
+    why: 'The step [vwin-of-row](/step/vwin-of-row/) puts the row in `OpenImageCondition` and uses `baseChangeN`, named as an isobaric base change.'
+    steps: [vwin-of-row]
+  - concept: Modularity lifting
+    math2: VQ8XNV47K9
+    says: 'Let $F$ be a number field and let $\rho: G_F \to \mathrm{GL}_n(\overline{\mathbb{Q}}_\ell)$ be a continuous representation that is unramified at almost all places. A modularity lifting theorem says that if the reduction $\overline{\rho}$ comes from an automorphic representation and satisfies conditions such as large image, and $\rho$ satisfies suitable conditions at the places above $\ell$, then $\rho$ also comes from an automorphic representation. The Taylor-Wiles patching method proves such theorems by showing that a Galois deformation ring equals a Hecke algebra.'
+    why: 'The theorem `published_hypotheses_from_patching_alt` has a name from the patching method of modularity lifting.'

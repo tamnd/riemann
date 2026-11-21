@@ -1,0 +1,49 @@
+id: complex-analysis
+title: Complex analysis for the zeta function
+for: []
+needs: []
+lead: 'This path gives the complex analysis under the zeta function. At its end, a reader can follow the functional equation and the role of $\Gamma$ in the overview.'
+items:
+  - concept: Complex numbers
+    math2: 0CBAB9QQ9X
+    says: 'The field $\mathbb{C}$ of complex numbers is the set $\mathbb{R}^2$ with addition $(a,b) + (c,d) = (a+c, b+d)$ and multiplication $(a,b)(c,d) = (ac - bd, ad + bc)$. With $i = (0,1)$ and $a = (a,0)$, each complex number is $a + bi$ with $a, b \in \mathbb{R}$, and its real part is $\operatorname{Re}(a + bi) = a$.'
+    why: 'The statement of [the Riemann Hypothesis](/step/riemann-hypothesis/) is about zeros $s \in \mathbb{C}$ and their real parts.'
+    steps: [riemann-hypothesis]
+  - concept: Holomorphic function
+    math2: 0DG0Z72CQD
+    says: 'Let $U \subseteq \mathbb{C}$ be an open set. A function $f: U \to \mathbb{C}$ is holomorphic on $U$ when the limit $f''(z_0) = \lim_{z \to z_0} (f(z) - f(z_0))/(z - z_0)$ exists for each $z_0 \in U$.'
+    why: 'The zeta function and the Dirichlet L-functions are holomorphic away from $s = 1$, and the proof works with their values there.'
+  - concept: Analytic continuation
+    math2: 0M3YQJ81NB
+    says: 'Let $U \subseteq V$ be open subsets of $\mathbb{C}$, with $U$ nonempty and $V$ connected, and let $f$ be holomorphic on $U$. An analytic continuation of $f$ to $V$ is a holomorphic function $F$ on $V$ with $F(z) = f(z)$ for each $z \in U$. By the identity theorem, $f$ has at most one analytic continuation to $V$.'
+    why: 'The zeros in the critical strip are zeros of the continued function, not of the Dirichlet series.'
+  - concept: Meromorphic function
+    math2: 0NSD1TPHR0
+    says: 'Let $U \subseteq \mathbb{C}$ be open. A function $f$ is meromorphic on $U$ when there is a set $P \subseteq U$ with no accumulation point in $U$ such that $f$ is holomorphic on $U \setminus P$ and each point of $P$ is a pole of $f$. A point $a$ is a pole of $f$ when $|f(z)| \to \infty$ as $z \to a$.'
+    why: 'The zeta function is meromorphic on $\mathbb{C}$ with one simple pole at $s = 1$, so the statement excludes $s = 1$.'
+  - concept: Gamma function
+    math2: 0V3FZMVB4K
+    says: 'For $\operatorname{Re}(s) > 0$, the gamma function is $\Gamma(s) = \int_0^\infty t^{s-1} e^{-t}\,dt$. It satisfies $\Gamma(s+1) = s\,\Gamma(s)$, and it extends to a meromorphic function on $\mathbb{C}$ whose poles are simple poles at $0, -1, -2, \dots$.'
+    why: 'The functional equation in [rh-of-right](/step/rh-of-right/) has the factor $\Gamma(u)$.'
+    steps: [rh-of-right]
+  - concept: Euler reflection formula
+    math2: WF7KQAQTS2
+    says: 'Let $\Gamma$ be the gamma function on $\mathbb{C}$. For every $z \in \mathbb{C} \setminus \mathbb{Z}$, $\Gamma(z)\,\Gamma(1 - z) = \pi / \sin(\pi z)$.'
+    why: 'The reflection formula links $\Gamma(u)$ and $\Gamma(1-u)$, and it explains the cosine factor in the Mathlib form of the functional equation.'
+  - concept: The Gamma function has no zeros
+    math2: WBS4NM1TFC
+    says: 'Let $\Gamma$ be the gamma function on $\mathbb{C}$. For every $z \in \mathbb{C} \setminus \{0, -1, -2, \dots\}$, $\Gamma(z) \neq 0$.'
+    why: 'The step [rh-of-right](/step/rh-of-right/) uses $\Gamma(u) \neq 0$ for $\operatorname{Re}(u) > 0$ to move a zero across the functional equation.'
+    steps: [rh-of-right]
+  - concept: Poisson summation formula
+    math2: GARGJYSGFG
+    says: 'Let $f: \mathbb{R} \to \mathbb{C}$ be a Schwartz function and let $\hat{f}(\xi) = \int_{\mathbb{R}} f(x) e^{-2\pi i x \xi}\,dx$ be its Fourier transform. Then $\sum_{n \in \mathbb{Z}} f(n) = \sum_{k \in \mathbb{Z}} \hat{f}(k)$, and both series converge absolutely.'
+    why: 'Poisson summation proves the functional equation of theta series, and theta series are the start of the theta integrals in the [theta chapter](/proof/theta-matching/).'
+  - concept: Mellin transform
+    math2: KPZ1S446MN
+    says: 'Let $f: (0, \infty) \to \mathbb{C}$ be measurable and let $s \in \mathbb{C}$ be such that $x \mapsto x^{s-1} f(x)$ is integrable on $(0, \infty)$. The Mellin transform of $f$ at $s$ is $\mathcal{M}f(s) = \int_0^\infty x^{s-1} f(x)\,dx$.'
+    why: 'The Mellin transform turns a theta function into a completed zeta function, and this is the classical proof of the functional equation.'
+  - concept: Theta function
+    math2: 2F5CYQJVAF
+    says: 'For $z \in \mathbb{C}$ and $\tau$ with $\operatorname{Im}(\tau) > 0$, the Jacobi theta function is $\vartheta(z, \tau) = \sum_{n \in \mathbb{Z}} e^{\pi i n^2 \tau + 2\pi i n z}$. The series converges absolutely and locally uniformly, so $\vartheta$ is holomorphic in both variables. For $t > 0$ its value $\vartheta(0, it) = \sum_{n \in \mathbb{Z}} e^{-\pi n^2 t}$ is the theta function in the classical proof of the functional equation of $\zeta$.'
+    why: 'The theta kernel $\theta(g,h;\Phi)$ of the [theta chapter](/proof/theta-matching/) is a sum over lattice points, as the classical theta function is.'

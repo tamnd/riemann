@@ -1,0 +1,738 @@
+- name: 'CompanionTheory'
+  kind: namespace
+  says: 'The declarations on real reductive groups, their discrete series and their Harish-Chandra modules.'
+  math2: 'B33WNK1SVN'
+- name: 'CrystallineSemistableComparison'
+  kind: namespace
+  says: 'The declarations that compare crystalline and semistable representations in p-adic Hodge theory.'
+  math2: '6YDZNXR19H'
+- name: 'DiscreteGroups'
+  kind: namespace
+  says: 'Declarations from the DiscreteGroups part of the library, on representations of groups over local and finite fields.'
+- name: 'DiscreteGroups.sglob'
+  kind: namespace
+  says: 'Declarations from GlobalIrreducibility. The short name does not say its role.'
+  status: open
+- name: 'DiscreteGroups.sglob.DzLc'
+  kind: namespace
+  says: 'Lemmas on cuspidality of depth-zero representations, for example isCuspidal_of_inflates. The short name does not say its role.'
+  status: open
+- name: 'DiscreteGroups.sglob.DzLc.isCuspidal_of_inflates'
+  kind: theorem
+  says: 'If a representation of $GL_n(k)$, with $k\cong\mathbb Q_g$, is inflated from a cuspidal representation of $GL_n(\mathbb F_g)$, then it is cuspidal.'
+  math2: '9AZ164C298'
+- name: 'Formalism'
+  kind: namespace
+  says: 'The definitions layer of the library. It is the second largest namespace.'
+- name: 'Formalism.ConjugateSelfDual'
+  kind: namespace
+  says: 'Basic notions for the Galois statements: the Galois group G, Qbar, IsPlaceOver and conjugate self-dual notions.'
+- name: 'Formalism.ConjugateSelfDual.G'
+  kind: abbrev
+  says: 'The Galois group of $\Omega$ over $F$, written as the $F$-algebra automorphisms of $\Omega$.'
+- name: 'Formalism.ConjugateSelfDual.IsPlaceOver'
+  kind: def
+  says: 'The statement that the valuation subring $A$ of $\Omega$ lies over the finite place $v$ of $F$. It says that an integer $x$ of $F$ has valuation less than 1 for $A$ exactly when $x$ is in the prime ideal of $v$.'
+- name: 'Formalism.ConjugateSelfDual.Qbar'
+  kind: abbrev
+  says: 'An algebraic closure of $\mathbb Q_l$.'
+  math: '$\overline{\mathbb Q}_l$'
+- name: 'Formalism.HC'
+  kind: namespace
+  says: 'Notions for characters and hosts, for example PChar and ZeroFreeAll. The short name does not say its role.'
+  status: open
+- name: 'Formalism.HC.PChar'
+  kind: structure
+  says: 'A primitive Dirichlet character, with its modulus $N\ne0$.'
+  math2: 'JR4QSEFXWF'
+- name: 'Formalism.L2'
+  kind: namespace
+  says: 'A large namespace of lattice and counting notions. The short name does not say its role.'
+  status: open
+- name: 'Formalism.L2.Host'
+  kind: namespace
+  says: 'Notions on unitary norms and Hecke characters, for example HChar.'
+- name: 'Formalism.L2.Host.HChar'
+  kind: abbrev
+  says: 'The type of Hecke characters of a field, as a subtype.'
+  math2: 'KPYFGB342X'
+- name: 'Formalism.MainNotions'
+  kind: namespace
+  says: 'Main notions on families and bounds, for example Closed and LinkN.'
+- name: 'Formalism.MainNotions.Closed'
+  kind: def
+  says: 'The statement that $P$ holds for all small $\varepsilon$, for each family in the class whose constants are large enough. This is the "closed" of "closed bound".'
+  math: '$\exists\varepsilon_1>0\ \forall\varepsilon\in(0,\varepsilon_1]\ \exists K\ \forall F\in\mathcal C,\ F \text{ large for } K \Rightarrow P(F)$'
+- name: 'Formalism.MainNotions.LinkN'
+  kind: def
+  says: 'A bound on the sums etaSum for a family. There are $C$ and $x_0$ such that, for each $x\ge x_0$ and each index with ShaFinOdd, each lift $j$ obeys LinkN_at with the constant $C$.'
+- name: 'Formalism.VW'
+  kind: namespace
+  says: 'Four declarations on the step from zeta to the Riemann hypothesis: critLine, rh_of_every, rh_of_right and gammaFactor_ne_zero. The short name does not say its role.'
+  status: open
+- name: 'Formalism.VW.rh_of_every'
+  kind: theorem
+  says: 'Shows that UpperTheory.EveryCharacter implies the Riemann hypothesis. It uses the trivial character of modulus 1, whose L-function is $\zeta$, and then applies rh_of_right.'
+  math2: 'VCGF9YR36X'
+  step: 'rh-of-every'
+- name: 'Formalism.VW.rh_of_right'
+  kind: theorem
+  says: 'If $\zeta(s)\ne0$ for all $s\ne1$ with $\operatorname{Re}s>\tfrac12$, then the Riemann hypothesis holds. The proof uses the functional equation to move zeros from the left half of the strip to the right half.'
+  math2: 'NFXKNDJX9C'
+  step: 'rh-of-right'
+- name: 'GlobalTheory'
+  kind: namespace
+  says: 'The largest namespace, with more than 540,000 declarations. Most come from AbelianVarietyTheory and AutomorphicSpectrum.'
+- name: 'GlobalTheory.BigTop'
+  kind: namespace
+  says: 'Declarations on families, points and bounds for divisors. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.BigTop.Fun'
+  kind: namespace
+  says: 'Declarations on function conditions and grid fits, for example ConstantFunctionFits and Fld.'
+- name: 'GlobalTheory.BigTop.Fun.Close'
+  kind: namespace
+  says: 'Lemmas on closeness of fitted functions, for example fourier_coefficient_fit_of_join_alt.'
+- name: 'GlobalTheory.BigTop.Fun.Close.fourier_coefficient_fit_of_join_alt'
+  kind: theorem
+  says: 'Gets ConstantFunctionFits for Fld from seven inputs, among them ThetaLocalInputs, JoinOut, FunctionalsSeparate and LambdaLowerBound₂.'
+- name: 'GlobalTheory.BigTop.Fun.ConstantFunctionFits'
+  kind: def
+  says: 'The statement that there is $C_{F0}$ such that, for each $C_F\ge C_{F0}$, a Closed statement on families holds. It says that, eventually at points with a grid for $C_F$, the function condition holds for each $C$.'
+- name: 'GlobalTheory.BigTop.Fun.Fld'
+  kind: def
+  says: 'The function condition that ConstantFunctionFits uses. It says that there are $n$ and a choice $a$ of slope test data with a.OK.'
+- name: 'GlobalTheory.ContraPair'
+  kind: namespace
+  says: 'Declarations on polarized pairs and the relation DualIsConjBy.'
+- name: 'GlobalTheory.ContraPair.PolarizedPair'
+  kind: structure
+  says: 'The statement that $(\pi,\chi)$ is a polarized pair. The sign of $\chi$ at each infinite place is $(-1)^a$. Also, $\pi$ twisted by the inverse of $\chi$ composed with the norm has a nondegenerate invariant pairing with the complex conjugate of $\pi$ (DualIsConjBy).'
+- name: 'GlobalTheory.CovTop'
+  kind: namespace
+  says: 'Declarations on covolume bounds, for example CovolumeBoundOfX. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.CovTop.CovolumeBoundOfX'
+  kind: def
+  says: 'A covolume bound for families. It is Closed of a statement that, for some $C_0\ge0$, a third-place bound holds eventually at all points for each $C\ge C_0$.'
+- name: 'GlobalTheory.CuspRep'
+  kind: namespace
+  says: 'Declarations on cuspidal automorphic representations, for example CuspSub.'
+  math2: 'SV5EEBF861'
+- name: 'GlobalTheory.CuspRep.CG.mk'
+  kind: def
+  says: 'The class of a CuspSub in the quotient by isomorphism.'
+- name: 'GlobalTheory.CuspRep.CuspSub'
+  kind: structure
+  says: 'A nonzero irreducible stable subspace of cusp forms on $GL_a$ over $E$. It stands for a cuspidal automorphic representation.'
+  math2: 'SV5EEBF861'
+- name: 'GlobalTheory.Fc'
+  kind: namespace
+  says: 'Declarations on the third-place series, for example HypsAlt and DefiniteSideCondition. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Fc.DefiniteSideCondition'
+  kind: def
+  says: 'A predicate on data $D$, $O$, $c$, a bundle $b$ and two constants $C$ and $C_H$, given as one long implication that ends in RowsU. It is the "definite side" of the theorem names.'
+- name: 'GlobalTheory.Fc.HypsAlt'
+  kind: structure
+  says: 'A record of forty-six fields in Type 1. It holds a family class, a selection and many bounds and conditions on them. The trunk ends in one existence statement for this record.'
+- name: 'GlobalTheory.Fc.R1'
+  kind: namespace
+  says: 'Declarations on row statements, for example SlotNormCondition. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Fc.R1.SlotNormCondition'
+  kind: def
+  says: 'A row statement that applies a predicate N to the class D3 3 of each admissible selection.'
+- name: 'GlobalTheory.Fc.RL'
+  kind: namespace
+  says: 'Declarations on linkage of rows, for example LinkedAt. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Fc.RL.LinkedAt'
+  kind: def
+  says: 'The statement that a row predicate holds for the bundle linkage of parameters p, with a large base condition.'
+- name: 'GlobalTheory.Fc.S0'
+  kind: namespace
+  says: 'Declarations for the hypotheses node, for example NL, UnitaryGroupThirdPlaceHypotheses and OpenParameterStatements. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Fc.S0.NL'
+  kind: def
+  says: 'The predicate on family classes that HypsAlt uses: Closed of LinkN.'
+- name: 'GlobalTheory.Fc.S0.OpenParameterStatements'
+  kind: structure
+  says: 'A record of twelve LinkedAt statements. The name says open, but the trunk proves them.'
+- name: 'GlobalTheory.Fc.S0.RowRat'
+  kind: def
+  says: 'A StepW statement from Start. At each step, it says that the row test RowTest holds when a list of conditions on the data holds.'
+- name: 'GlobalTheory.Fc.S0.StageU'
+  kind: namespace
+  says: 'Two declarations for the final assembly of HypsAlt. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt'
+  kind: theorem
+  says: 'Shows that HypsAlt for NL and DefiniteSideCondition is nonempty. Its inputs are UnitaryGroupThirdPlaceHypotheses, RowRat, an EvLgG property and three LinkedAt statements.'
+- name: 'GlobalTheory.Fc.S0.UnitaryGroupThirdPlaceHypotheses'
+  kind: structure
+  says: 'A record of sixty Prop fields, each named after a published result on unitary groups and automorphic forms.'
+  math2: '0R9R0Y1HDK'
+- name: 'GlobalTheory.Fc.S0.ontoX_and_lamLow_of_unitaryGroupHypotheses'''
+  kind: theorem
+  says: 'Gets SurjectiveOntoX and LambdaLowerBound₂ from UnitaryGroupThirdPlaceHypotheses.'
+- name: 'GlobalTheory.Fc.StageOne'
+  kind: namespace
+  says: 'Two declarations for the first stage of the HypsAlt assembly.'
+- name: 'GlobalTheory.Fc.StageOne.rowFun_at_gridA_alt'
+  kind: theorem
+  says: 'Gets LinkedAt FunctionalCondition from five published inputs, ConstantFunctionFits and OpenParameterStatements.'
+- name: 'GlobalTheory.FunPr'
+  kind: namespace
+  says: 'Two declarations, among them the record ThetaLocalInputs. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.FunPr.ThetaLocalInputs'
+  kind: structure
+  says: 'A record of fifty-three Prop fields with names of published results, for example greenSeriesSt and linnik.'
+- name: 'GlobalTheory.GLq'
+  kind: namespace
+  says: 'Declarations on $GL_n$ over finite fields, for example Green.'
+- name: 'GlobalTheory.GLq.Green'
+  kind: def
+  says: 'A Green-type parametrization of cuspidal characters of $GL_d(\mathbb F_g)$. For each prime $g$ and $d>0$, it gives a bijection from monic irreducible polynomials of degree $d$ with nonzero constant term to the cuspidal characters, with the expected degree.'
+  math: '$\tau_P(1)=\prod_{i=1}^{d-1}(g^i-1)$'
+- name: 'GlobalTheory.Glob'
+  kind: namespace
+  says: 'Declarations on global linkage of bundles. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Glob.CovolRow'
+  kind: namespace
+  says: 'Two declarations that link covolume bounds to rows.'
+- name: 'GlobalTheory.Glob.CovolRow.linked_bundles_l3_of_open_alt'
+  kind: theorem
+  says: 'Gets LinkedAt for the third-place covolume series from CovolumeBoundOfX and OpenParameterStatements.'
+- name: 'GlobalTheory.Glob.open_and_linked_of_stronger_extension_alt'
+  kind: theorem
+  says: 'Moves LinkedAt and OpenParameterStatements from an extension N to a stronger extension N''.'
+- name: 'GlobalTheory.GreenBridge'
+  kind: namespace
+  says: 'Declarations that connect published statements on regular characters to Green.'
+- name: 'GlobalTheory.GreenBridge.green_of_regular'
+  kind: theorem
+  says: 'Gets Green from the published statement GreenRegularCharacters.'
+- name: 'GlobalTheory.HeightCounting'
+  kind: namespace
+  says: 'Declarations on height counting.'
+- name: 'GlobalTheory.HeightCounting.Up'
+  kind: namespace
+  says: 'Declarations on extensions of parameters, for example extensionWithList. The short name Up does not say its role.'
+  status: open
+- name: 'GlobalTheory.HeightCounting.Up.extensionWithList'
+  kind: def
+  says: 'The extension extensionWithLaw with an extra ListPin datum.'
+- name: 'GlobalTheory.HeightCounting.Up.extensionWithOrigin'
+  kind: def
+  says: 'The extension extensionWithList with an extra OriginData datum.'
+- name: 'GlobalTheory.Hk3'
+  kind: namespace
+  says: 'Declarations on Howe duality, for example howeUnram_holds. The short name does not say its role.'
+  math2: '6WB6TKE70H'
+  status: open
+- name: 'GlobalTheory.Hk3.howeUnram_holds'
+  kind: theorem
+  says: 'Proves HoweUnram, an unramified Howe duality statement.'
+  math2: '6WB6TKE70H'
+- name: 'GlobalTheory.IndefiniteRowSideFullHecke'
+  kind: namespace
+  says: 'A large namespace for the indefinite side of the theta argument with the full Hecke algebra.'
+- name: 'GlobalTheory.IndefiniteRowSideFullHecke.LevelPlusSubgroup'
+  kind: namespace
+  says: 'Declarations on separation of functionals, for example FunctionalsSeparate.'
+- name: 'GlobalTheory.IndefiniteRowSideFullHecke.LevelPlusSubgroup.FunctionalsSeparate'
+  kind: def
+  says: 'A separation statement. For each $C_F\ge6510$ there is $x_0$ such that, for the data at $x\ge x_0$, each nonzero vector $w$ has a vector $\rho$ and a functional $\xi$ with Separates.'
+- name: 'GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels'
+  kind: namespace
+  says: 'Declarations on tensor models of the Weil representation, for example ThetaIntegralsAgree and LocalMatching.'
+  math2: 'H3Q2703KKV'
+- name: 'GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.LocalMatching'
+  kind: def
+  says: 'The statement that each triple has matched local data.'
+  math2: '6WB6TKE70H'
+- name: 'GlobalTheory.IndefiniteRowSideFullHecke.WeilTensorModels.ThetaIntegralsAgree'
+  kind: def
+  says: 'A statement on theta integrals for each triple. It asks for decay and, for matched data, a constant and a coinvariant law, plus two recursion laws.'
+  math2: '6WB6TKE70H'
+- name: 'GlobalTheory.LocGL'
+  kind: namespace
+  says: 'Declarations on smooth representations of $GL_n$ over local fields, for example IrrGL.'
+- name: 'GlobalTheory.LocGL.IrrGL'
+  kind: abbrev
+  says: 'The type of isomorphism classes of irreducible smooth representations of $GL_n(k)$, for all $n$ together.'
+- name: 'GlobalTheory.LocGL.IrrGL.isCusp_of'
+  kind: theorem
+  says: 'The class of $\pi$ is cuspidal if and only if $n>0$ and $\pi$ is cuspidal.'
+  math2: '9AZ164C298'
+- name: 'GlobalTheory.LocGL.IrrGL.isCusp_ofChar'
+  kind: theorem
+  says: 'The class of a character of $GL_1$ is cuspidal.'
+- name: 'GlobalTheory.LocLanglands'
+  kind: namespace
+  says: 'Declarations on local Langlands for $GL_n$, for example segSum and exists_isLExt.'
+  math2: '9E45NBX1G0'
+- name: 'GlobalTheory.LocLanglands.exists_isLExt'
+  kind: theorem
+  says: 'From Langlands exhaustion and uniqueness of multisegments, extends each map r on cuspidal classes to a map rc on all irreducible classes. Each such extension agrees with r on cuspidal classes.'
+- name: 'GlobalTheory.LocLanglands.segSum'
+  kind: def
+  says: 'The Langlands sum over a multisegment. For each segment $\Delta$ it takes rc of the first cuspidal of $\Delta$, twists it by $(\operatorname{len}-1)/2$, and tensors it with the special representation $\mathrm{Sp}(\operatorname{len})$.'
+  math: '$\bigoplus_{\Delta} \mathrm{rc}(\Delta_0)\,|\cdot|^{(\ell_\Delta-1)/2}\otimes \mathrm{Sp}(\ell_\Delta)$'
+- name: 'GlobalTheory.Mem'
+  kind: namespace
+  says: 'A large namespace of membership and parameter statements. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Mem.LiteralAutomorphy'
+  kind: namespace
+  says: 'Declarations on grids and extensions for the literal automorphy branch.'
+- name: 'GlobalTheory.Mem.LiteralAutomorphy.GridA'
+  kind: def
+  says: 'The grid condition GridAt at each stage tuple.'
+- name: 'GlobalTheory.Mem.LiteralAutomorphy.evaluation_grid_of_join'
+  kind: theorem
+  says: 'Gets, from ten inputs, a constant $C_{F0}$ such that EvLgG holds for GridA at each $C_F\ge C_{F0}$.'
+- name: 'GlobalTheory.Mem.LiteralAutomorphy.extensionWithAtProperty'
+  kind: def
+  says: 'An extension N with an extra proof of a property at the data.'
+- name: 'GlobalTheory.Mem.LiteralAutomorphy.rowRatW_of_rowTest'
+  kind: theorem
+  says: 'Gets RowRatW from AtDat of RowTest.'
+- name: 'GlobalTheory.Mem.Top'
+  kind: namespace
+  says: 'Declarations on evaluation conditions, for example EvLgG. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Mem.Top.Bl'
+  kind: namespace
+  says: 'Declarations on parameters of dependence and geometry classes. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.Mem.Top.Bl.SExt.none'
+  kind: def
+  says: 'The trivial extension datum. It is the constant type PUnit.'
+- name: 'GlobalTheory.Mem.Top.Bl.anyGeometry'
+  kind: def
+  says: 'The geometry predicate that is always true.'
+- name: 'GlobalTheory.Mem.Top.Bl.geoCl'
+  kind: def
+  says: 'The geometry class GeoCl of a predicate $\Gamma$.'
+- name: 'GlobalTheory.Mem.Top.Bl.parametersOfDependence'
+  kind: def
+  says: 'The parameters of dependence. They come from extensionWithList with SExt.none and the geometry class of anyGeometry.'
+- name: 'GlobalTheory.Mem.Top.EvLgG'
+  kind: def
+  says: 'The evaluation condition EvG for the large₂ property of the parameters.'
+- name: 'GlobalTheory.NLink'
+  kind: namespace
+  says: 'Declarations on linkage bounds, for example BoundAtTwoThreeFamilyFonAlt. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.NLink.BoundAtTwoThreeFamilyFonAlt'
+  kind: def
+  says: 'The statement that, for some $C$ and $x_0$, BoundAtTwoThree holds for all $x\ge x_0$ and all data that satisfy SetupAlt.'
+- name: 'GlobalTheory.Published'
+  kind: namespace
+  says: 'Named statements of published results. The proof takes them as fields of hypothesis records or proves them.'
+- name: 'GlobalTheory.SmGL'
+  kind: namespace
+  says: 'Declarations on smooth representations of $GL_n$, for example twist.'
+- name: 'GlobalTheory.SmGL.twist'
+  kind: def
+  says: 'The twist of a representation $\rho$ by a character $\chi$. It sends $g$ to $\chi(g)\rho(g)$.'
+- name: 'GlobalTheory.T'
+  kind: namespace
+  says: 'A flat bucket of about 48,000 theorems. The short name does not say its role.'
+  status: open
+- name: 'GlobalTheory.T.open0_of_unitary_group_hypotheses'
+  kind: theorem
+  says: 'Gets OpenParameterStatements at the parameters of dependence from UnitaryGroupThirdPlaceHypotheses, for each RecTExists input and each $c_{\mathrm{Dep}}$.'
+- name: 'GlobalTheory.T.test_vector_assembly_holds'
+  kind: theorem
+  says: 'Gets AtDat of RowTest from nine inputs.'
+- name: 'GlobalTheory.T.twisted_local_factors_match'
+  kind: theorem
+  says: 'Gets SquareSt.LocalMatching, the twisted version of LocalMatching, from HoweDualityReal, ThetaLocalInputs, ThetaIntegralsAgree and LocalMatching.'
+  math2: '6WB6TKE70H'
+- name: 'GlobalTheory.T.twisted_square_theta_integrals_eq'
+  kind: theorem
+  says: 'Gets SquareSt.ThetaIntegralsAgree, the twisted version of ThetaIntegralsAgree, from ThetaLocalInputs, ThetaIntegralsAgree and LocalMatching.'
+  math2: '6WB6TKE70H'
+- name: 'GlobalTheory.WeilConv'
+  kind: namespace
+  says: 'Three declarations on convergence of the Weil representation.'
+  math2: 'H3Q2703KKV'
+- name: 'GlobalTheory.WeilConv.twisted_weil_representation_convergence'
+  kind: theorem
+  says: 'Gets WeilConvergence from SiegelSetUnitary. It takes ThetaLocalInputs as a second input but does not use it.'
+  math2: 'H3Q2703KKV'
+- name: 'GlobalTheory.WeilDeligne'
+  kind: namespace
+  says: 'Declarations on Weil-Deligne representations, for example WD.'
+  math2: 'TH24PGYAM5'
+- name: 'GlobalTheory.WeilDeligne.WD'
+  kind: def
+  says: 'The type of isomorphism classes of Weil-Deligne representations. It is a quotient by isomorphism.'
+  math2: 'TH24PGYAM5'
+- name: 'PositivityTheory'
+  kind: namespace
+  says: 'Declarations from WeilBound on positivity and arithmetic intersection.'
+- name: 'PositivityTheory.Pf1'
+  kind: namespace
+  says: 'Declarations with proofs of positivity statements. The short name does not say its role.'
+  status: open
+- name: 'PositivityTheory.Pf1.HilbertSamuelMoriwaki'
+  kind: namespace
+  says: 'Six declarations on the Hilbert-Samuel and Moriwaki statements.'
+- name: 'PositivityTheory.Pf1.HilbertSamuelMoriwaki.hsUse_outright'
+  kind: theorem
+  says: 'Proves HSUse, a Hilbert-Samuel statement, without hypotheses.'
+- name: 'PositivityTheory.Pf1.HilbertSamuelMoriwaki.moriwakiBig_outright'
+  kind: theorem
+  says: 'Proves MoriwakiBigStatement, a statement of Moriwaki on big arithmetic line bundles, without hypotheses.'
+- name: 'SelfIntersectionVolumeEstimates'
+  kind: namespace
+  says: 'Twenty declarations on self-intersection and volume bounds, for example topCovolSlim2_use_alt_alt.'
+- name: 'SelfIntersectionVolumeEstimates.topCovolSlim2_use_alt_alt'
+  kind: theorem
+  says: 'Gets CovolumeBoundOfX from fifteen named hypotheses. It depends on about 52,000 declarations.'
+- name: 'UpperTheory'
+  kind: namespace
+  says: 'The upper layer of the proof, from AutomorphicArithmetic. It holds EveryCharacter and the main branches.'
+- name: 'UpperTheory.BaseChangeIdentities'
+  kind: namespace
+  says: 'Declarations on base change from unitary groups to $GL_n$, for example baseChangeN.'
+- name: 'UpperTheory.BaseChangeIdentities.baseChangeN'
+  kind: theorem
+  says: 'Proves BaseChangeIsobaricN, isobaric base change from unitary groups to $GL_n$.'
+  math2: '0R9R0Y1HDK'
+- name: 'UpperTheory.EveryCharacter'
+  kind: def
+  says: 'The statement that no Dirichlet L-function has a zero with real part above $\tfrac12$. The only exception is the pole of the trivial character at $s=1$. This is GRH for Dirichlet characters in half-plane form.'
+  math: '$\operatorname{Re}s>\tfrac12,\ (\chi\ne1 \lor s\ne1) \Rightarrow L(\chi,s)\ne0$'
+  math2: 'DNKA4WBKDS'
+  step: 'every-character-def'
+- name: 'UpperTheory.FinalTheorems'
+  kind: namespace
+  says: 'Three declarations at the top of the proof, for example everyCharacter.'
+- name: 'UpperTheory.FinalTheorems.everyCharacter'
+  kind: theorem
+  says: 'Proves UpperTheory.EveryCharacter. It applies everyCharacter_of_row to the Galois row galoisLocalGlobalStrong_recParameter.'
+  math2: 'DNKA4WBKDS'
+  step: 'every-character'
+- name: 'UpperTheory.FinalTheorems.everyCharacter_of_row'
+  kind: theorem
+  says: 'Gets UpperTheory.EveryCharacter from the Galois row Row0b for IsRecT. It builds an OpenLiteratureStatements record from the row and recTExists, gets VWin from vwin_of_row, and then calls every_character_of_literature_of_vWin.'
+  math2: 'DNKA4WBKDS'
+  step: 'every-character-of-row'
+- name: 'UpperTheory.Gal'
+  kind: namespace
+  says: 'Declarations on Galois representations attached to automorphic representations.'
+  math2: 'QW17YJ6ZCT'
+- name: 'UpperTheory.Gal.Int'
+  kind: namespace
+  says: 'Declarations that give the Galois row, for example recT and galoisLocalGlobalStrong_recParameter. The short name Int does not say its role.'
+  status: open
+- name: 'UpperTheory.Gal.Int.Geo'
+  kind: namespace
+  says: 'Declarations on the geometric input GeoOne.'
+- name: 'UpperTheory.Gal.Int.Geo.geoOne_holds'
+  kind: theorem
+  says: 'Proves GeoOne. GeoOne gives Galois representations for automorphic representations of definite unitary groups, with Frobenius, crystalline and Hodge-Tate conditions. The proof uses a holomorphic Lefschetz formula and depends on about 43,000 declarations.'
+  math2: 'QW17YJ6ZCT'
+- name: 'UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter'
+  kind: theorem
+  says: 'Proves the Galois row Row0b for recT from the theta lift statement tLiftK. The name is misleading: it says Strong, but the conclusion is the weaker Row0b, not Row0.'
+  math2: 'QW17YJ6ZCT'
+  step: 'galois-row-holds'
+- name: 'UpperTheory.Gal.Int.galoisLocalGlobal_of_geometry_lift'
+  kind: theorem
+  says: 'Gets the stronger row Row0 for recT from GeoOne and TLiftK.'
+  math2: 'QW17YJ6ZCT'
+- name: 'UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift'
+  kind: theorem
+  says: 'Gets Row0b for recT from TLiftK. It uses geoOne_holds.'
+  math2: 'QW17YJ6ZCT'
+- name: 'UpperTheory.Gal.Int.recT'
+  kind: def
+  says: 'The reciprocity notion that Row0b uses in the trunk. It is IsRecT.'
+- name: 'UpperTheory.GalStar'
+  kind: namespace
+  says: 'Declarations for the Galois row statements, for example Row0, Row0b and PropsB.'
+  math2: 'QW17YJ6ZCT'
+- name: 'UpperTheory.GalStar.PropsB'
+  kind: structure
+  says: 'The list of properties that Row0b asks of a Galois representation $r$. They are continuity, semisimplicity, local matching through Rc away from $l$, Hodge-Tate weights from the infinitesimal character, a conjugate weight law, and a condition at the places above $l$.'
+  math2: 'QW17YJ6ZCT'
+- name: 'UpperTheory.GalStar.Row0b'
+  kind: def
+  says: 'The Galois row statement for a notion Rc of local reciprocity map. For each CM field $E$, prime $l$, isomorphism $\iota:\overline{\mathbb Q}_l\cong\mathbb C$ and regular algebraic cuspidal $\pi$ with a polarizing Hecke character, it gives a Galois representation $r$ with the properties PropsB.'
+  math2: 'QW17YJ6ZCT'
+  step: 'row0b-def'
+- name: 'UpperTheory.Lit'
+  kind: namespace
+  says: 'Results in the style of the literature, for example every_character_of_theta_integrals_local_matching.'
+- name: 'UpperTheory.Lit.every_character_of_theta_integrals_local_matching'
+  kind: theorem
+  says: 'Gets UpperTheory.EveryCharacter from seven inputs, among them ThetaIntegralsAgree (hA), LocalMatching (hM), RecTExists and VWin. The name is misleading: hA and hM go only into the HypsAlt record, not into the final argument.'
+  math2: 'DNKA4WBKDS'
+  step: 'theta-local-matching'
+- name: 'UpperTheory.Lit.functionalsSeparate_of_howeUnram_of_siegelWeil'
+  kind: theorem
+  says: 'Gets FunctionalsSeparate from ThetaLocalInputs, HoweUnram and SiegelWeilUnitaryConvergent.'
+- name: 'UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound'
+  kind: theorem
+  says: 'Gets an element of HypsAlt for NL and DefiniteSideCondition from seven inputs. The seventh input is a closed bound: Closed applied to BoundAtTwoThreeFamilyFonAlt along the parameters of dependence.'
+  step: 'nonempty-hyps'
+- name: 'UpperTheory.LiteratureTheorems'
+  kind: namespace
+  says: 'Named results, for example OpenLiteratureStatements and the theorems that take it.'
+- name: 'UpperTheory.LiteratureTheorems.OpenImageCondition'
+  kind: structure
+  says: 'A record with one field, the Galois row RowT. The name is misleading: it is not an open image condition. The proof never reads the field.'
+- name: 'UpperTheory.LiteratureTheorems.OpenLiteratureStatements'
+  kind: structure
+  says: 'A record with three fields: two copies of the Galois row Row and one RecTExists. The name is misleading: the statements are not open, because the trunk proves all three fields.'
+  step: 'open-literature-statements-def'
+- name: 'UpperTheory.LiteratureTheorems.ar_degree_of_literature'
+  kind: theorem
+  says: 'Proves ArDegree, an arithmetic degree statement. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.every_character_of_literature_of_vWin'
+  kind: theorem
+  says: 'Gets UpperTheory.EveryCharacter from an OpenLiteratureStatements record O and VWin. It collects seven inputs and passes them to every_character_of_theta_integrals_local_matching.'
+  math2: 'DNKA4WBKDS'
+  step: 'every-character-of-literature'
+- name: 'UpperTheory.LiteratureTheorems.fargues_exact_of_literature'
+  kind: theorem
+  says: 'Proves FarguesExact, through UpperTheory.Lit.farguesExact. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.grothendieck_deformation_of_literature'
+  kind: theorem
+  says: 'Proves GrothendieckDeformation. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.local_langlands_gl_recT_exists_of_literature'
+  kind: theorem
+  says: 'Gives RecTExists. The name is misleading: it does not use the literature. It passes twelve inputs to llOf_alt, which returns the first input, O.localLanglandsExists, and ignores the other eleven.'
+  math2: '9E45NBX1G0'
+- name: 'UpperTheory.LiteratureTheorems.nef_rr_of_literature'
+  kind: theorem
+  says: 'Proves NefRR, a Riemann-Roch statement for nef bundles. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.poincare_lelong_inv_of_literature'
+  kind: theorem
+  says: 'Proves PoincareLelongInv, a Poincare-Lelong statement. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.point_separation_pair_of_literature'
+  kind: theorem
+  says: 'Proves PointSeparationPair. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.principalisation_char_zero_of_literature'
+  kind: theorem
+  says: 'Proves PrincipalisationCharZero, principalisation of ideals in characteristic zero. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.published_results_arithmetic'
+  kind: theorem
+  says: 'Builds the record PublishedHodgeBundleTheorems with its twenty-eight fields. It does not read O.'
+- name: 'UpperTheory.LiteratureTheorems.published_results_eigen'
+  kind: theorem
+  says: 'Builds the record UnitaryGroupThirdPlaceHypotheses with its sixty fields. It reads O.'
+  math2: '0R9R0Y1HDK'
+- name: 'UpperTheory.LiteratureTheorems.published_results_first'
+  kind: theorem
+  says: 'Builds the record ThetaLocalInputs with its fifty-three fields. It does not read O.'
+- name: 'UpperTheory.LiteratureTheorems.resolution_char_zero_of_literature'
+  kind: theorem
+  says: 'Proves ResolutionCharZero, resolution of singularities in characteristic zero. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.semi_abelian_lie_seminegative_of_literature'
+  kind: theorem
+  says: 'Proves SemiAbelianLieSeminegative. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.siegel_toroidal_integral_of_literature'
+  kind: theorem
+  says: 'Proves SiegelToroidalIntegral. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.theta_integrals_agree_and_local_matching_of_literature'
+  kind: theorem
+  says: 'Proves ThetaIntegralsAgree and LocalMatching through theoremK_head2. It does not read O.'
+  math2: '6WB6TKE70H'
+- name: 'UpperTheory.LiteratureTheorems.toroidal_for_fan_ks_of_literature'
+  kind: theorem
+  says: 'Proves ToroidalForFanKS, a toroidal compactification statement. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.LiteratureTheorems.zarhin_statement'
+  kind: theorem
+  says: 'Proves ZarhinStatement, a statement of Zarhin type on Galois representations. It takes O but does not read it, because the proof is elsewhere.'
+- name: 'UpperTheory.N'
+  kind: namespace
+  says: 'Declarations on linkage bounds from local Langlands, for example boundAtTwoThree_linked_of_recT. The short name does not say its role.'
+  status: open
+- name: 'UpperTheory.N.boundAtTwoThree_linked_of_recT'
+  kind: theorem
+  says: 'Gets, for each parameter p, LinkedAt of the closed bound Closed BoundAtTwoThreeFamilyFonAlt. It uses the NLink hypotheses.'
+- name: 'UpperTheory.One'
+  kind: namespace
+  says: 'Declarations that join the Galois row to the window, for example vwin_of_row. The short name does not say its role.'
+  status: open
+- name: 'UpperTheory.One.Join'
+  kind: namespace
+  says: 'Five declarations that join inputs into VWin.'
+- name: 'UpperTheory.One.Join.automorphic_window_of_inputs'
+  kind: theorem
+  says: 'Gets VWin from an OpenImageCondition, isobaric base change BaseChangeIsobaricN and the row RowT.'
+  math2: 'BK9WBMF56G'
+- name: 'UpperTheory.One.M'
+  kind: namespace
+  says: 'Declarations on rows, for example Row. The short name does not say its role.'
+  status: open
+- name: 'UpperTheory.One.M.Row'
+  kind: def
+  says: 'A short name for Row0b with the reciprocity notion IsRecT.'
+  math2: 'QW17YJ6ZCT'
+- name: 'UpperTheory.One.vwin_of_row'
+  kind: theorem
+  says: 'Gets VWin from the Galois row Row0b for IsRecT. It applies automorphic_window_of_inputs to the row, baseChangeN and the row again.'
+  math2: 'BK9WBMF56G'
+  step: 'vwin-of-row'
+- name: 'UpperTheory.TP'
+  kind: namespace
+  says: 'Declarations on theta lifts between unitary groups, for example TLiftK.'
+  math2: '6WB6TKE70H'
+- name: 'UpperTheory.TP.K'
+  kind: namespace
+  says: 'Five declarations, for example tLiftK. The short name does not say its role.'
+  status: open
+- name: 'UpperTheory.TP.K.tLiftK'
+  kind: theorem
+  says: 'Proves TLiftK. It is tLift_holds_k.'
+  math2: '6WB6TKE70H'
+- name: 'UpperTheory.TP.TLiftK'
+  kind: def
+  says: 'A theta lift statement between definite unitary groups. For a hermitian space $X$ of rank $n$, a skew-hermitian space $W$ of large rank and an automorphic $U$ with given weights, it gives a lift $U''$.'
+  math2: '6WB6TKE70H'
+- name: 'UpperTheory.Top'
+  kind: namespace
+  says: 'Declarations at the top of the L-function argument, for example VWin and imprimitive.'
+- name: 'UpperTheory.Top.VWin'
+  kind: def
+  says: 'The window statement VWinAt with constant 401, for every primitive Dirichlet character $\psi$. It bounds weighted lengths of Tate-Shafarevich groups over the fields IsChiField.'
+  math2: 'BK9WBMF56G'
+  step: 'vwin-def'
+- name: 'UpperTheory.Top.VWinAt'
+  kind: def
+  says: 'The window statement for one character $\psi$. It applies for small $\varepsilon<1/52$, and to $x$ with $Y\le x\le Y^2$.'
+  math2: 'BK9WBMF56G'
+- name: 'UpperTheory.Top.every_character_of_green_v_win'
+  kind: theorem
+  says: 'Gets UpperTheory.EveryCharacter from Green, VWin and an element of HypsAlt. It applies imprimitive to zero_free_all_of_green_v_win.'
+  math2: 'DNKA4WBKDS'
+  step: 'green-vwin'
+- name: 'UpperTheory.Top.imprimitive'
+  kind: theorem
+  says: 'Gets the statement for all Dirichlet characters from ZeroFreeAll, which is about primitive characters only. It uses that an imprimitive L-function differs from the primitive one by finitely many Euler factors.'
+  math2: '0C3PN4075R'
+- name: 'UpperTheory.Top.zeroFreeAll_of_topG'
+  kind: theorem
+  says: 'Gets ZeroFreeAll from TopG, a number $\lambda>1$, and a host for each character. The proof bounds a weighted sum $G_m$ of von Mangoldt sums on windows and then uses FormB to exclude zeros.'
+  math2: '24GAZHVTGB'
+- name: 'UpperTheory.Top.zero_free_all_of_green_v_win'
+  kind: theorem
+  says: 'Gets ZeroFreeAll from Green, VWin and an element of HypsAlt.'
+- name: 'UpperTheory.V'
+  kind: namespace
+  says: 'A large namespace for the window statement VWin.'
+  status: open
+- name: 'UpperTheory.V.HV'
+  kind: namespace
+  says: 'Declarations on heights and vanishing for VWin. The short name does not say its role.'
+  status: open
+- name: 'UpperTheory.V.HV.Core'
+  kind: namespace
+  says: 'Three declarations, for example of_four_alt.'
+- name: 'UpperTheory.V.HV.Core.of_four_alt'
+  kind: theorem
+  says: 'Gets VWin from the rank-n literature input, LemmaK and four count statements.'
+- name: 'UpperTheory.V.HV.DescentVanishingReductions'
+  kind: namespace
+  says: 'Ten declarations on descent and vanishing, for example vwin_of_hypotheses_H_E_alt.'
+- name: 'UpperTheory.V.HV.DescentVanishingReductions.vwin_of_hypotheses_H_E_alt'
+  kind: theorem
+  says: 'Gets VWin from HypothesesH''. It is the main fork of the window branch and depends on about 48,000 declarations.'
+- name: 'UpperTheory.V.HV.vwin_of_counts'
+  kind: theorem
+  says: 'Gets VWin from Poitou-Tate duality, local finiteness, local Tate duality, LemmaK, ThmBab, ThmBcFree and five count statements.'
+- name: 'UpperTheory.V.v_window_of_literal_automorphy_n'
+  kind: theorem
+  says: 'Gets VWin from LiteratureRankNHypothesis.'
+- name: 'UpperTheory.Zero'
+  kind: namespace
+  says: 'Declarations that lead to local Langlands. The short name does not say its role.'
+  status: open
+- name: 'UpperTheory.Zero.LLC'
+  kind: namespace
+  says: 'Declarations on local Langlands for $GL_n$, for example IsRecT, LawsT and recTExists.'
+  math2: '9E45NBX1G0'
+- name: 'UpperTheory.Zero.LLC.IsRecT'
+  kind: def
+  says: 'The statement that rc is a local reciprocity map of the kind the proof needs. It says that there is a local Artin map $a$ such that rc obeys the laws LawsT for $a$.'
+  math2: '9E45NBX1G0'
+  step: 'is-rect-def'
+- name: 'UpperTheory.Zero.LLC.LawsT'
+  kind: structure
+  says: 'Twelve laws for a map rc from irreducible representations of $GL_n$ to Weil-Deligne classes. They include dimension, the Langlands sum over segments, twists, central character, duals, injectivity, depth and type, and some apply only to Good classes. The laws do not fix the local Langlands map uniquely and do not mention L-factors or $\varepsilon$-factors.'
+  math2: '9E45NBX1G0'
+- name: 'UpperTheory.Zero.LLC.Pr'
+  kind: namespace
+  says: 'Eight theorems that prove published statements on representations of $GL_n$ over local fields, for example exh and multi.'
+- name: 'UpperTheory.Zero.LLC.Pr.exh'
+  kind: theorem
+  says: 'Proves LanglandsExhaustionGL: each irreducible representation of $GL_n$ comes from a multisegment. It uses PositivityTheory.Exh.langlandsExhaustionGL_holds.'
+  math2: '9E45NBX1G0'
+- name: 'UpperTheory.Zero.LLC.Pr.multi'
+  kind: theorem
+  says: 'Proves LanglandsMultisegments: the multisegment of a representation is unique, with a statement about subquotients.'
+- name: 'UpperTheory.Zero.LLC.RecTExists'
+  kind: def
+  says: 'The statement that each finite place of each number field has a map rc with IsRecT. It is an existence statement of local Langlands type.'
+  math2: '9E45NBX1G0'
+  step: 'rect-exists-def'
+- name: 'UpperTheory.Zero.LLC.TypeAt'
+  kind: def
+  says: 'The type law at one representation $x$. If $E_w\cong\mathbb Q_g$ and $x$ is inflated from a cuspidal representation of $GL_n(\mathbb F_g)$ named by a regular character $\theta$, then the Weil-Deligne class has the expected monodromy and inertia.'
+- name: 'UpperTheory.Zero.LLC.artEx'
+  kind: theorem
+  says: 'Shows that there is exactly one local Artin map for a place. This is local class field theory in the form the proof needs.'
+- name: 'UpperTheory.Zero.LLC.cuspEx'
+  kind: theorem
+  says: 'Gives a map on cuspidal classes that obeys the cuspidal laws CuspT. On cuspidal classes that are not GoodCusp the map uses placeholder values, so the laws there say little.'
+  math2: '9AZ164C298'
+- name: 'UpperTheory.Zero.LLC.extDepth'
+  kind: theorem
+  says: 'For an extension rc, proves that a Good class of depth zero goes to a tame Weil-Deligne class.'
+- name: 'UpperTheory.Zero.LLC.extDim'
+  kind: theorem
+  says: 'For an extension rc of a cuspidal map, proves the dimension law, the characteristic polynomial from the support, and the absolute determinant law. On Good classes it also proves the determinant equals the central character.'
+- name: 'UpperTheory.Zero.LLC.extDual'
+  kind: theorem
+  says: 'For an extension rc, proves the dual law on Good classes.'
+- name: 'UpperTheory.Zero.LLC.extInj'
+  kind: theorem
+  says: 'For an extension rc, proves injectivity on Good classes.'
+- name: 'UpperTheory.Zero.LLC.extTw'
+  kind: theorem
+  says: 'For an extension rc, proves that rc commutes with twists by $|\det|^s$. On Good classes it also proves that rc commutes with twists by characters.'
+- name: 'UpperTheory.Zero.LLC.recTExists'
+  kind: theorem
+  says: 'Proves RecTExists. It builds rc from the local Artin map, a map on cuspidal classes, and its extension through Langlands multisegments, and then checks each law. On cuspidal classes that are not GoodCusp, the map takes placeholder values.'
+  math2: '9E45NBX1G0'
+  step: 'rect-exists'
+- name: 'UpperTheory.Zero.LLC.typeIff'
+  kind: theorem
+  says: 'Shows that the type law for rc is equivalent to TypeAt at every representation $x$.'
+- name: 'allChi'
+  kind: theorem
+  says: 'States UpperTheory.EveryCharacter. It is a short name for UpperTheory.FinalTheorems.everyCharacter.'
+  math2: 'DNKA4WBKDS'
+  step: 'all-chi'
+- name: 'rhOfAll'
+  kind: theorem
+  says: 'Gets the Riemann hypothesis from the statement for every Dirichlet character. It applies Formalism.VW.rh_of_every to allChi.'
+  math2: 'VCGF9YR36X'
+  step: 'rh-of-all'
+- name: 'riemannHypothesis'
+  kind: theorem
+  says: 'The final theorem of the proof. It states Mathlib''s RiemannHypothesis and is proved as rhOfAll.'
+  math: '$\zeta(s)=0,\ s\notin\{-2,-4,-6,\dots\},\ s\ne1 \Rightarrow \operatorname{Re}s=\tfrac12$'
+  math2: 'VCGF9YR36X'
+  step: 'riemann-hypothesis'

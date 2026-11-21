@@ -1,0 +1,93 @@
+id: galois-row
+title: The Galois row
+for: [galois-row]
+needs: [trunk, representations]
+lead: 'This path covers the local and geometric mathematics of the Galois row. At its end, a reader can read the laws of IsRecT and the inputs of `galoisRepresentations_of_thetaLift`.'
+items:
+  - concept: Weil-Deligne representation
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/393
+    says: 'A Weil-Deligne representation of a local field is a representation $r$ of the Weil group with a nilpotent operator $N$ such that $r(w)Nr(w)^{-1} = |w| N$.'
+    text: 'Tate, Number theoretic background, Proc. Sympos. Pure Math. 33 (1979), sec. 4'
+    why: 'The map $rc$ of [IsRecT](/step/is-rect-def/) sends irreducible representations of $\mathrm{GL}_n(E_w)$ to Weil-Deligne classes.'
+    steps: [is-rect-def]
+  - concept: Supercuspidal support
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/376
+    says: 'The supercuspidal support of an irreducible smooth representation of $\mathrm{GL}_n$ is the multiset of supercuspidal representations from which it is a subquotient of the induced representation.'
+    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS (1977)'
+    why: 'The class `Good` of [IsRecT](/step/is-rect-def/) is defined from the supercuspidal support of a representation.'
+    steps: [is-rect-def]
+  - concept: Zelevinsky segments
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/377
+    says: 'A segment is a list $\rho, \rho|\det|, \dots, \rho|\det|^{m-1}$ of cuspidal representations, and multisets of segments classify the irreducible representations of $\mathrm{GL}_n$.'
+    text: 'Zelevinsky, Induced representations of reductive p-adic groups II, Ann. Sci. ENS (1980)'
+    why: 'The law `langlands` of [IsRecT](/step/is-rect-def/) sums $rc(\Delta_0)$ twisted and tensored with $\mathrm{Sp}(\ell(\Delta))$ over the segments $\Delta$.'
+    steps: [is-rect-def]
+  - concept: Langlands classification
+    math2: YHFP9HGBTT
+    says: 'Let $G$ be a connected reductive group over a local field. Every irreducible admissible representation of $G$ is the unique irreducible quotient of a representation parabolically induced from $\sigma \otimes \chi_\nu$, where $P = MN$ is a parabolic subgroup, $\sigma$ is an irreducible tempered representation of $M$, and $\chi_\nu$ is an unramified character of $M$ with exponent $\nu$ strictly positive for $P$. The triple $(P, \sigma, \nu)$ is unique up to conjugacy.'
+    why: 'The proof of [RecTExists](/step/rect-exists/) defines $rc$ on cuspidal classes and extends it to all classes by the Langlands classification.'
+    steps: [rect-exists]
+  - concept: Depth zero representation
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/379
+    says: 'A smooth representation of a p-adic group has depth zero when it has nonzero vectors fixed by the pro-unipotent radical of some parahoric subgroup.'
+    text: 'Moy and Prasad, Unrefined minimal K-types for p-adic groups, Invent. Math. 116 (1994)'
+    why: 'The law `depth` of [IsRecT](/step/is-rect-def/) sends a `Good` class with a vector fixed by `KOne` to a tame class.'
+    steps: [is-rect-def]
+  - concept: Deligne-Lusztig theory
+    math2: ZH21D5B62C
+    says: 'Let $G$ be a connected reductive group over $\mathbb{F}_q$ with Frobenius $F$, let $T$ be an $F$-stable maximal torus, and let $\theta$ be a character of $T^F$. Deligne-Lusztig theory defines a virtual character $R_T^\theta$ of the finite group $G^F$ from the $\ell$-adic cohomology with compact support of a variety with actions of $G^F$ and $T^F$. Every irreducible character of $G^F$ occurs in some $R_T^\theta$, and for $T$ elliptic and $\theta$ in general position, $\pm R_T^\theta$ is an irreducible cuspidal character.'
+    why: 'The law `type` of [IsRecT](/step/is-rect-def/) uses cuspidal representations of a finite $\mathrm{GL}_n$ built from a regular character $\theta$.'
+    steps: [is-rect-def]
+  - concept: Local Langlands correspondence
+    math2: 9E45NBX1G0
+    says: 'Let $F$ be a nonarchimedean local field. The local Langlands correspondence for $\mathrm{GL}_n$ is the unique family of bijections $\pi \mapsto \operatorname{rec}(\pi)$, for all $n \geq 1$, from irreducible smooth representations of $\mathrm{GL}_n(F)$ to $n$-dimensional Frobenius-semisimple Weil-Deligne representations of $W_F$. It agrees with local class field theory for $n = 1$, sends central characters to determinants, is compatible with twists by characters, and preserves the L-factors and epsilon factors of pairs.'
+    why: 'The theorem [recTExists](/step/rect-exists/) gives, at each finite place, a map $rc$ that satisfies [IsRecT](/step/is-rect-def/).'
+    steps: [rect-exists-def, rect-exists]
+  - concept: Satake parameters
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/384
+    says: 'The Satake parameters of an unramified representation are the conjugacy class in the dual group that its spherical Hecke eigencharacter gives under the Satake isomorphism.'
+    text: 'Cartier, Representations of p-adic groups, a survey, Proc. Sympos. Pure Math. 33 (1979)'
+    why: 'The statement `CoreAll` asks for matching Frobenius characteristic polynomials at places where $\pi_w$ has Satake parameters.'
+  - concept: Local-global compatibility
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/396
+    says: 'Local-global compatibility says that the restriction of the Galois representation of an automorphic representation $\pi$ to a decomposition group at $v$ corresponds to $\pi_v$ under the local Langlands correspondence.'
+    text: 'Taylor and Yoshida, Compatibility of local and global Langlands correspondences, J. Amer. Math. Soc. 20 (2007)'
+    why: 'The Galois row uses `CoreAll`, `R1` and `LocalGlobalCompatAtIwahoriFixedPlaces`, three local-global compatibility statements.'
+  - concept: Hodge-Tate weights
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/394
+    says: 'The Hodge-Tate weights of a p-adic representation are the integers $i$ with $(V \otimes \mathbb{C}_p(i))^{G_K} \neq 0$, counted with multiplicity.'
+    text: 'Berger, An introduction to the theory of p-adic representations, in Geometric Aspects of Dwork Theory (2004)'
+    why: 'The row [Row0b](/step/row0b-def/) gives Hodge-Tate jumps $HT$, and the field `above` checks them at places above $\ell$.'
+    steps: [row0b-def]
+  - concept: Crystalline, de Rham and potentially semistable representations
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/395
+    says: 'A p-adic representation $V$ is crystalline, semistable or de Rham when $V$ is admissible for the period ring $B_{\mathrm{cris}}$, $B_{\mathrm{st}}$ or $B_{\mathrm{dR}}$, and potentially semistable when it is semistable over a finite extension.'
+    text: 'Fontaine, Representations p-adiques semi-stables, Asterisque 223 (1994)'
+    why: 'The structure `AboveB` of [Row0b](/step/row0b-def/) states crystalline, de Rham and potentially semistable conditions.'
+    steps: [row0b-def]
+  - concept: Atiyah-Bott fixed-point theorem
+    math2: PKS8JE1PW1
+    says: 'Let $X$ be a compact smooth manifold with an elliptic complex $\Gamma(E_0) \to \cdots \to \Gamma(E_n)$ with cohomology $H^i$, let $f: X \to X$ be smooth with $\det(1 - df_x) \neq 0$ at each fixed point $x$, and let bundle maps $\varphi_i: f^* E_i \to E_i$ give an endomorphism $T$ of the complex. Then $\sum_i (-1)^i \operatorname{tr}(T \mid H^i) = \sum_{f(x) = x} \sum_i (-1)^i \operatorname{tr}(\varphi_{i,x}) / |\det(1 - df_x)|$.'
+    why: 'The statement `GeoOne` comes from `HolomorphicLefschetzFormula`, a holomorphic Lefschetz formula for finite etale correspondences.'
+    steps: [galois-row-holds]
+  - concept: Dolbeault cohomology
+    math2: 6GWRCGBGWC
+    says: 'Let $X$ be a complex manifold and let $\mathcal{A}^{p,q}(X)$ be the space of smooth $(p,q)$-forms on $X$. The Dolbeault cohomology group of bidegree $(p,q)$ is $H^{p,q}(X) = \ker(\bar\partial: \mathcal{A}^{p,q} \to \mathcal{A}^{p,q+1}) / \operatorname{im}(\bar\partial: \mathcal{A}^{p,q-1} \to \mathcal{A}^{p,q})$. By the Dolbeault theorem it is isomorphic to the sheaf cohomology $H^q(X, \Omega^p_X)$.'
+    why: 'The holomorphic Lefschetz formula of the Galois row is a trace formula on the Hodge cohomology spaces $H^{a,b}$.'
+  - concept: Kodaira-Spencer map
+    math2: EWZ1G10MAY
+    says: 'Let $\pi: \mathcal{X} \to B$ be a holomorphic family of compact complex manifolds and let $X_t = \pi^{-1}(t)$, with holomorphic tangent sheaf $\Theta_{X_t}$. The Kodaira-Spencer map at $t$ is the linear map $T_t B \to H^1(X_t, \Theta_{X_t})$ given by the connecting map of the exact sequence $0 \to \Theta_{X_t} \to \Theta_{\mathcal{X}}|_{X_t} \to \mathcal{O}_{X_t} \otimes T_t B \to 0$.'
+    why: 'The proof of `GeoOne` uses `KSAll`, a structure of six Kodaira-Spencer statements.'
+  - concept: Theta correspondence
+    math2: ZBGT50BW0Z
+    says: 'Let $(G, G'')$ be a reductive dual pair in a symplectic group over a local field, and let $\omega$ be the Weil representation of the metaplectic group restricted to the covers of $G \times G''$. The theta correspondence relates an irreducible representation $\pi$ of $G$ to an irreducible representation $\pi''$ of $G''$ when $\pi \otimes \pi''$ is a quotient of $\omega$. Globally, the theta lift sends an automorphic form on $G$ to the forms on $G''$ given by integrals of theta functions against it.'
+    why: 'The theorem [galois-row-holds](/step/galois-row-holds/) is `galoisRepresentations_of_thetaLift`, with one hypothesis `TLiftK` on theta lifts between definite unitary groups.'
+    steps: [galois-row-holds]

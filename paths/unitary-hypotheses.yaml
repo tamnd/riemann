@@ -1,0 +1,84 @@
+id: unitary-hypotheses
+title: The unitary group hypotheses
+for: [unitary-hypotheses]
+needs: [theta-matching]
+lead: 'This path covers the arithmetic of hermitian forms and the harmonic analysis behind `UnitaryGroupThirdPlaceHypotheses` and `HypsAlt`. At its end, a reader can follow the nine facts of [nonempty-hyps](/step/nonempty-hyps/).'
+items:
+  - concept: Signature of a form
+    math2: 07EZA80NEH
+    says: 'Let $V$ be a finite-dimensional complex vector space with a nondegenerate hermitian form $h$, or a real vector space with a nondegenerate symmetric bilinear form $h$. The signature of $h$ is the pair $(p, q)$, where $p$ and $q$ are the numbers of positive and negative diagonal entries of the matrix of $h$ in a basis in which this matrix is diagonal. By Sylvester''s law of inertia, $(p, q)$ does not depend on the basis, and $p + q = \dim V$.'
+    why: 'In `IsGood`, the hermitian spaces $V$ and $V''$ have signatures $(a-p, p)$ and $(q, a''-q)$.'
+  - concept: Hermitian lattice
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/373
+    says: 'A hermitian lattice is a finitely generated projective module over the ring of integers of a CM extension with a hermitian form.'
+    text: 'Jacobowitz, Hermitian forms over local fields, Amer. J. Math. 84 (1962)'
+    why: 'The record `HypsAlt` has the condition `StandardLattice.ClassNumberFormula₂` and genus mass conditions, which concern lattices.'
+  - concept: Class number formula
+    math2: 55XX5A7XZV
+    says: 'Let $K$ be a number field with $r_1$ real embeddings, $r_2$ pairs of complex embeddings, class number $h_K$, regulator $R_K$, discriminant $d_K$, and $w_K$ roots of unity. The class number formula says that the Dedekind zeta function $\zeta_K(s)$ has a simple pole at $s = 1$ with residue $\frac{2^{r_1} (2\pi)^{r_2} h_K R_K}{w_K \sqrt{|d_K|}}$.'
+    why: 'The record `HypsAlt` of 46 fields has a class number formula at the datum among its properties.'
+  - concept: Siegel mass formula
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/374
+    says: 'The Siegel mass formula expresses the weighted count of classes in a genus of lattices as a product of local densities.'
+    text: 'Siegel, Uber die analytische Theorie der quadratischen Formen, Ann. of Math. 36 (1935)'
+    why: 'The record `HypsAlt` has genus mass conditions, and the Siegel mass formula is the classical source of such conditions.'
+  - concept: Strong approximation
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/375
+    says: 'Strong approximation says that for a simply connected group $G$ and a place $v$ with $G(F_v)$ noncompact, $G(F)$ is dense in the adelic points away from $v$.'
+    text: 'Platonov and Rapinchuk, Algebraic Groups and Number Theory (1994), ch. 7'
+    why: 'Branch 3 gets its multiplicity condition from fourteen named hypotheses, and strong approximation is one of them.'
+  - concept: Doubling method
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/389
+    says: 'The doubling method of Piatetski-Shapiro and Rallis writes the standard L-function of a classical group as a zeta integral of a matrix coefficient against a Siegel Eisenstein series on a doubled group.'
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, Lecture Notes in Math. 1254 (1987)'
+    why: 'The unitary hypotheses have a field `doublingMethod`, and branch 2 also uses unramified doubling for $\mathrm{GL}$.'
+  - concept: Formal degree
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/382
+    says: 'The formal degree of a discrete series representation is the constant $d_\pi$ with $\int_G |\langle \pi(g)v, w\rangle|^2 dg = \|v\|^2\|w\|^2/d_\pi$.'
+    text: 'Hiraga, Ichino and Ikeda, Formal degrees and adjoint gamma factors, J. Amer. Math. Soc. 21 (2008)'
+    why: 'The theorem `lamLow_of_hypotheses_alt_alt` proves `LambdaLowerBound₂` from seven named hypotheses, and formal degrees is one of them.'
+    steps: [nonempty-hyps]
+  - concept: Plancherel measure
+    math2: 6JGAG0KN98
+    says: 'Let $G$ be a second countable unimodular locally compact group of type I with Haar measure $dg$, and let $\widehat{G}$ be its unitary dual. The Plancherel measure of $G$ is the unique positive Borel measure $\mu$ on $\widehat{G}$ with $\int_G |f(g)|^2 \, dg = \int_{\widehat{G}} \|\hat{f}(\pi)\|_{\mathrm{HS}}^2 \, d\mu(\pi)$ for all $f \in L^1(G) \cap L^2(G)$. Here $\hat{f}(\pi) = \int_G f(g) \pi(g) \, dg$, and $\|\cdot\|_{\mathrm{HS}}$ is the Hilbert-Schmidt norm.'
+    why: 'The formal degree of a discrete series representation is its mass for the Plancherel measure.'
+  - concept: Rapid decay of cusp forms
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/388
+    says: 'A cusp form on $G(F) \backslash G(\mathbb{A})$ decays faster than any power of the height function on a Siegel domain.'
+    text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979)'
+    why: 'The functional row in [nonempty-hyps](/step/nonempty-hyps/) uses the field `cuspRapidDecay` of the unitary hypotheses.'
+    steps: [nonempty-hyps]
+  - concept: Harish-Chandra module
+    math2: 2MKHH636C3
+    says: 'Let $G$ be a real reductive group with maximal compact subgroup $K$ and complexified Lie algebra $\mathfrak{g}$. A $(\mathfrak{g}, K)$-module is a complex vector space $V$ with actions of $\mathfrak{g}$ and $K$ such that every vector lies in a finite-dimensional $K$-stable subspace on which $K$ acts continuously, $k(Xv) = (\operatorname{Ad}(k)X)(kv)$ for $k \in K$ and $X \in \mathfrak{g}$, and the derivative of the $K$-action is the action of the Lie algebra of $K$ inside $\mathfrak{g}$. A Harish-Chandra module is a $(\mathfrak{g}, K)$-module that is finitely generated over the universal enveloping algebra of $\mathfrak{g}$ and in which each irreducible representation of $K$ occurs with finite multiplicity.'
+    why: 'The functional row also uses the fields `harishChandraModules` and `casselmanWallach`.'
+    steps: [nonempty-hyps]
+  - concept: Siegel-Weil formula
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/392
+    says: 'The Siegel-Weil formula identifies the integral of a theta function over a classical group with a value of a Siegel Eisenstein series.'
+    text: 'Kudla and Rallis, On the Weil-Siegel formula, J. Reine Angew. Math. 387 (1988)'
+    why: 'The first fact of [nonempty-hyps](/step/nonempty-hyps/) uses the field `siegelWeilUnitaryConvergent` to separate functionals.'
+    steps: [nonempty-hyps]
+  - concept: Howe duality
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/391
+    says: 'For a dual pair $(G, G'')$, the Howe duality theorem says that the theta correspondence gives a bijection between irreducible quotients of the Weil representation on each side.'
+    text: 'Howe, Transcending classical invariant theory, J. Amer. Math. Soc. 2 (1989)'
+    why: 'The proof of [nonempty-hyps](/step/nonempty-hyps/) uses `howeUnram_holds` and the field `howeDualityReal`.'
+    steps: [nonempty-hyps]
+  - concept: Artin reciprocity
+    math2: 7938EKMMVR
+    says: 'Let $L/K$ be a finite abelian extension of number fields with Galois group $G$, and let $\mathfrak{m}$ be a modulus of $K$ divisible by all primes and real places of $K$ that ramify in $L$. Let $I_K^{\mathfrak{m}}$ be the group of fractional ideals of $K$ prime to $\mathfrak{m}$, and let the Artin map $I_K^{\mathfrak{m}} \to G$ send each prime $\mathfrak{p}$ prime to $\mathfrak{m}$ to its Frobenius element $\mathrm{Frob}_{\mathfrak{p}}$. Artin reciprocity says that this map is surjective, and that for $\mathfrak{m}$ divisible by high enough powers of the ramified primes its kernel is $P_K^{\mathfrak{m}} N_{L/K}(I_L^{\mathfrak{m}})$, where $P_K^{\mathfrak{m}}$ is the group of principal ideals $(\alpha)$ with $\alpha \equiv 1 \bmod^\times \mathfrak{m}$.'
+    why: 'In branch 1, the part `hServ_of_linkR` proves the service row from global Artin reciprocity.'
+  - concept: Local Langlands correspondence
+    math2: 9E45NBX1G0
+    says: 'Let $G$ be a connected reductive group over a local field $F$, with L-group ${}^L G$ and Weil-Deligne group $W''_F$. The local Langlands correspondence is a map with finite fibers from the irreducible smooth representations of $G(F)$ to the $\hat{G}$-conjugacy classes of L-parameters $W''_F \to {}^L G$. For $G = \mathrm{GL}_n$ over a non-archimedean $F$, it is a bijection onto the $n$-dimensional Frobenius-semisimple Weil-Deligne representations of $F$ that preserves the L-factors and epsilon factors of pairs, and for $n = 1$ it comes from the local Artin map.'
+    why: 'The input $h_L$ of [nonempty-hyps](/step/nonempty-hyps/) is [RecTExists](/step/rect-exists-def/), a local map of local Langlands type.'
+    steps: [nonempty-hyps, rect-exists-def]
