@@ -1,0 +1,78 @@
+id: number-fields
+title: Number fields, adeles and class field theory
+for: []
+needs: []
+lead: 'This path covers algebraic number theory up to class field theory. At its end, a reader can read the CM fields, Hecke characters and places in the row statements.'
+items:
+  - concept: Number field
+    math2: MWBDFS2KJ5
+    says: 'A number field is a field extension $K$ of $\mathbb{Q}$ of finite degree $[K:\mathbb{Q}]$. Its ring of integers $\mathcal{O}_K$ is the set of elements of $K$ that are roots of a monic polynomial with coefficients in $\mathbb{Z}$.'
+    why: 'The row statement [Row0b](/step/row0b-def/) starts from a number field $E$ and its places.'
+    steps: [row0b-def]
+  - concept: Dedekind domain
+    math2: 7NPY2CN5KB
+    says: 'A Dedekind domain is an integral domain in which every nonzero proper ideal is a product of nonzero prime ideals. This product is unique up to the order of the factors.'
+    why: 'The ring of integers of a number field is a Dedekind domain, so primes and ramification make sense.'
+  - concept: Ramification
+    math2: E7WHZXQ0WF
+    says: 'Let $L/K$ be a finite extension of number fields and let $\mathfrak{p}$ be a nonzero prime ideal of $\mathcal{O}_K$. Write $\mathfrak{p}\mathcal{O}_L = \mathfrak{P}_1^{e_1} \cdots \mathfrak{P}_g^{e_g}$ with distinct prime ideals $\mathfrak{P}_i$ of $\mathcal{O}_L$. The exponent $e_i$ is the ramification index of $\mathfrak{P}_i$ over $\mathfrak{p}$, and $\mathfrak{p}$ ramifies in $L$ when some $e_i > 1$.'
+    why: 'The `depth` law of [IsRecT](/step/is-rect-def/) asks for a tame Weil-Deligne class when a vector is fixed by the first congruence subgroup.'
+    steps: [is-rect-def]
+  - concept: Place of a number field
+    math2: BT5V3TSNY6
+    says: 'A place of a number field $K$ is an equivalence class of nontrivial absolute values on $K$, where two absolute values are equivalent when they define the same topology. The finite places correspond to the nonzero prime ideals of $\mathcal{O}_K$. The infinite places correspond to the real embeddings of $K$ and to the pairs of complex conjugate embeddings of $K$.'
+    why: 'The local map of [RecTExists](/step/rect-exists-def/) is given at each finite place of each number field.'
+    steps: [rect-exists-def]
+  - concept: p-adic numbers
+    math2: BT6T702C28
+    says: 'Let $p$ be a prime. The $p$-adic absolute value on $\mathbb{Q}$ is $|p^k a/b|_p = p^{-k}$ for $k \in \mathbb{Z}$ and nonzero integers $a, b$ prime to $p$, with $|0|_p = 0$. The field $\mathbb{Q}_p$ of $p$-adic numbers is the completion of $\mathbb{Q}$ for this absolute value.'
+    why: 'The Galois representations of the row take values in $\mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$.'
+  - concept: Local field
+    math2: J85FZEQG38
+    says: 'A local field is a field $F$ with a nontrivial absolute value for which $F$ is locally compact. Each local field is $\mathbb{R}$, $\mathbb{C}$, a finite extension of some $\mathbb{Q}_p$, or a field $\mathbb{F}_q((t))$ of Laurent series over a finite field.'
+    why: 'The condition [IsRecT](/step/is-rect-def/) is a statement over the completion $E_w$ of a number field at a finite place.'
+    steps: [is-rect-def]
+  - concept: Cyclotomic field
+    math2: NN77VYSGXR
+    says: 'Let $N \geq 1$ and let $\zeta_N$ be a primitive $N$-th root of unity. The $N$-th cyclotomic field is $\mathbb{Q}(\zeta_N)$. It is a Galois extension of $\mathbb{Q}$ of degree $\varphi(N)$, and its Galois group is isomorphic to $(\mathbb{Z}/N\mathbb{Z})^\times$.'
+    why: 'The fields of [VWin](/step/vwin-def/) are subfields of a cyclotomic field $\mathbb{Q}(\zeta_N)$.'
+    steps: [vwin-def]
+  - concept: Jacobi symbol
+    math2: 0ADTQBXRMC
+    says: 'For an odd prime $p$ and an integer $a$, the Legendre symbol $\left(\frac{a}{p}\right)$ is $0$ if $p \mid a$, $1$ if $a$ is a nonzero square modulo $p$, and $-1$ otherwise. Let $n$ be an odd positive integer with prime factorization $n = p_1 p_2 \cdots p_k$, where the primes can repeat. The Jacobi symbol is $\left(\frac{a}{n}\right) = \prod_{i=1}^{k} \left(\frac{a}{p_i}\right)$.'
+    why: 'The condition `IsChiField` in [VWin](/step/vwin-def/) cuts out its fields with Jacobi symbols.'
+    steps: [vwin-def]
+  - concept: CM field
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/370
+    says: 'A CM field is a totally imaginary quadratic extension $E$ of a totally real number field $E^+$.'
+    text: 'Washington, Introduction to Cyclotomic Fields, 2nd ed. (1997)'
+    why: 'The row statement [Row0b](/step/row0b-def/) fixes a CM field $E$ with maximal totally real subfield $E^+$.'
+    steps: [row0b-def]
+  - concept: Adele ring
+    math2: NYJFYZ0B4M
+    says: 'Let $K$ be a number field, let $K_v$ be the completion of $K$ at a place $v$, and let $\mathcal{O}_v$ be the valuation ring of $K_v$ for a finite place $v$. The adele ring $\mathbb{A}_K$ is the set of families $(x_v) \in \prod_v K_v$ with $x_v \in \mathcal{O}_v$ for all but finitely many $v$. It has componentwise addition and multiplication and the restricted product topology.'
+    why: 'The theta integrals of the [theta chapter](/proof/theta-matching/) are integrals over adelic points of unitary groups.'
+  - concept: Idele class group
+    math2: 9GHD9MXNYV
+    says: 'Let $K$ be a number field. The idele group $\mathbb{A}_K^\times$ is the group of units of the adele ring $\mathbb{A}_K$, with the restricted product topology for the subgroups $\mathcal{O}_v^\times$. The idele class group is the quotient $C_K = \mathbb{A}_K^\times / K^\times$, where $K^\times$ sits diagonally in $\mathbb{A}_K^\times$.'
+    why: 'A Hecke character is a character of the idele class group, and the row uses Hecke characters of $E^+$.'
+  - concept: Hecke character
+    math2: KPYFGB342X
+    says: 'Let $K$ be a number field. A Hecke character of $K$ is a continuous homomorphism $\chi: \mathbb{A}_K^\times \to \mathbb{C}^\times$ with $\chi(a) = 1$ for every $a \in K^\times$. Equivalently, it is a continuous homomorphism from the idele class group $C_K$ to $\mathbb{C}^\times$.'
+    why: 'The row statement [Row0b](/step/row0b-def/) takes a Hecke character $\chi$ of $E^+$ with the representation $\pi$.'
+    steps: [row0b-def]
+  - concept: Tate thesis
+    math2: QYW79XKJTP
+    says: 'Let $K$ be a number field and let $\chi$ be a Hecke character of $K$ with completed L-function $\Lambda(s,\chi) = \prod_v L(s,\chi_v)$ over all places $v$. Tate''s thesis proves that $\Lambda(s,\chi)$ extends to a meromorphic function on $\mathbb{C}$ and that $\Lambda(s,\chi) = \varepsilon(s,\chi)\Lambda(1-s,\chi^{-1})$, with $\varepsilon(s,\chi) = a b^{-s}$ for constants $a \in \mathbb{C}^\times$ and $b > 0$. The proof writes $\Lambda(s,\chi)$ as an integral over $\mathbb{A}_K^\times$ and uses Poisson summation for $K \subset \mathbb{A}_K$.'
+    why: 'The functional equation of Hecke L-functions is one of the published results that the [literature chapter](/proof/literature/) lists.'
+  - concept: Class field theory
+    math2: AA943HVK6Z
+    says: 'Let $K$ be a number field with idele class group $C_K$ and maximal abelian extension $K^{ab}$. Global class field theory gives a continuous surjective homomorphism $C_K \to \operatorname{Gal}(K^{ab}/K)$, the Artin map, and the map $L \mapsto N_{L/K}(C_L)$ is a bijection from the finite abelian extensions $L$ of $K$ to the open subgroups of finite index in $C_K$, with $C_K / N_{L/K}(C_L) \cong \operatorname{Gal}(L/K)$. Local class field theory gives in the same way, for each local field $F$, a local Artin map $F^\times \to \operatorname{Gal}(F^{ab}/F)$.'
+    why: 'In [IsRecT](/step/is-rect-def/) the map $a$ plays the role of the local Artin map, and the law `one` is the case of $\mathrm{GL}_1$.'
+    steps: [is-rect-def]
+  - concept: Artin reciprocity
+    math2: 7938EKMMVR
+    says: 'Let $L/K$ be a finite abelian extension of number fields, and let $\mathfrak{m}$ be a modulus of $K$ that is divisible by every finite prime and every real place of $K$ that ramifies in $L$. The Artin map is the homomorphism from the group $I_K^{\mathfrak{m}}$ of fractional ideals prime to $\mathfrak{m}$ to $\operatorname{Gal}(L/K)$ that sends each prime $\mathfrak{p}$ to its Frobenius element. Artin reciprocity states that this map is surjective, and that for $\mathfrak{m}$ divisible by high enough powers of the ramified primes its kernel is $P_K^{\mathfrak{m}} N_{L/K}(I_L^{\mathfrak{m}})$, where $P_K^{\mathfrak{m}}$ is the group of principal ideals $(\alpha)$ with $\alpha \equiv 1 \bmod^\times \mathfrak{m}$.'
+    why: 'The field `glob` of `IsLocalArtin` in [IsRecT](/step/is-rect-def/) asks that $a$ is compatible with every global Artin map of $E$.'
+    steps: [is-rect-def]

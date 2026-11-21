@@ -1,0 +1,62 @@
+id: trunk
+title: The trunk of the proof
+for: [trunk]
+needs: [l-functions, automorphic-forms, galois-representations]
+lead: 'This path follows the trunk from the row statement to `EveryCharacter`. At its end, a reader can name each input of `every_character_of_theta_integrals_local_matching` and say where it comes from.'
+items:
+  - concept: Generalized Riemann Hypothesis
+    math2: DNKA4WBKDS
+    says: 'Let $\chi$ be a Dirichlet character and let $L(s, \chi)$ be its Dirichlet L-function, continued meromorphically to $\mathbb{C}$. The generalized Riemann hypothesis says that every zero $s$ of $L(s, \chi)$ with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$.'
+    why: 'The trunk ends in [EveryCharacter](/step/every-character-def/), which is GRH for Dirichlet L-functions in the half-plane $\operatorname{Re}(s) > 1/2$.'
+    steps: [every-character-def, every-character]
+  - concept: CM field
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/370
+    says: 'A CM field is a totally imaginary quadratic extension $E$ of a totally real number field $E^+$.'
+    text: 'Washington, Introduction to Cyclotomic Fields, 2nd ed. (1997)'
+    why: 'The row [Row0b](/step/row0b-def/) is a statement for each CM field $E$ and each prime $\ell$.'
+    steps: [row0b-def]
+  - concept: Cuspidal automorphic representation
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/383
+    says: 'A cuspidal automorphic representation is an irreducible constituent of the space of cusp forms on $G(F) \backslash G(\mathbb{A}_F)$.'
+    text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979)'
+    why: 'The input $\pi$ of [Row0b](/step/row0b-def/) is a regular algebraic cuspidal representation of $\mathrm{GL}_a$ over $E$ with a polarization.'
+    steps: [row0b-def]
+  - concept: Galois representation
+    math2: QW17YJ6ZCT
+    says: 'Let $K$ be a field with absolute Galois group $G_K = \operatorname{Gal}(K^{\mathrm{sep}}/K)$ and its profinite topology, and let $A$ be a topological ring such as $\mathbb{C}$, $\mathbb{Z}_\ell$ or $\overline{\mathbb{Q}}_\ell$. A Galois representation of $K$ of dimension $n$ over $A$ is a continuous group homomorphism $\rho: G_K \to \mathrm{GL}_n(A)$.'
+    why: 'The output of [Row0b](/step/row0b-def/) is a Galois representation $r$ that matches $\pi$ at each place.'
+    steps: [row0b-def, every-character-of-row]
+  - concept: Local Langlands correspondence
+    math2: 9E45NBX1G0
+    says: 'Let $G$ be a connected reductive group over a local field $F$, with L-group ${}^L G$ and Weil-Deligne group $W''_F$. The local Langlands correspondence is a map with finite fibers from the irreducible smooth representations of $G(F)$ to the $\hat{G}$-conjugacy classes of L-parameters $W''_F \to {}^L G$. For $G = \mathrm{GL}_n$ over a non-archimedean $F$, it is a bijection onto the $n$-dimensional Frobenius-semisimple Weil-Deligne representations of $F$ that preserves the L-factors and epsilon factors of pairs, and for $n = 1$ it comes from the local Artin map.'
+    why: 'The local match of the row satisfies [IsRecT](/step/is-rect-def/), a list of laws of local Langlands type.'
+    steps: [is-rect-def, rect-exists-def]
+  - concept: Local class field theory
+    math2: SHEN158T3M
+    says: 'Let $K$ be a non-archimedean local field with maximal abelian extension $K^{ab}$. Local class field theory gives a homomorphism $\operatorname{rec}_K: K^\times \to \operatorname{Gal}(K^{ab}/K)$, the local Artin map, that induces an isomorphism $K^\times / N_{L/K}(L^\times) \cong \operatorname{Gal}(L/K)$ for each finite abelian extension $L/K$. With the arithmetic normalization, $\operatorname{rec}_K$ sends each uniformizer to an element that acts as the Frobenius on the maximal unramified extension of $K$.'
+    why: 'The map $a$ in [IsRecT](/step/is-rect-def/) plays the role of the local Artin map of local class field theory.'
+    steps: [is-rect-def]
+  - concept: Tate-Shafarevich group
+    math2: BK9WBMF56G
+    says: 'Let $E$ be an elliptic curve, or more generally an abelian variety, over a number field $K$. Its Tate-Shafarevich group is $\text{Ш}(E/K) = \ker\left(H^1(K, E) \to \prod_v H^1(K_v, E)\right)$, where $v$ runs over all places of $K$ and $H^1$ is Galois cohomology. Its elements are the classes of torsors under $E$ that have a point over every completion $K_v$.'
+    why: 'The window bound [VWin](/step/vwin-def/) bounds a weighted sum of lengths of Tate-Shafarevich groups, and [vwin-of-row](/step/vwin-of-row/) proves it from the row.'
+    steps: [vwin-def, vwin-of-row]
+  - concept: Theta correspondence
+    math2: ZBGT50BW0Z
+    says: 'Let $(G, G'')$ be a reductive dual pair in a symplectic group $\mathrm{Sp}(W)$ over a local field, and let $\omega$ be the Weil representation, restricted to the inverse images $\tilde{G} \times \tilde{G}''$ of $G \times G''$ in the metaplectic group. The theta correspondence pairs an irreducible admissible representation $\pi$ of $\tilde{G}$ with an irreducible admissible representation $\pi''$ of $\tilde{G}''$ when $\pi \otimes \pi''$ is a quotient of $\omega$. By Howe duality, this relation is a bijection between the irreducible representations of $\tilde{G}$ and of $\tilde{G}''$ that occur as quotients of $\omega$.'
+    why: 'The step [theta-local-matching](/step/theta-local-matching/) takes theta integrals that agree and local matching of Weil representations as inputs.'
+    steps: [theta-local-matching]
+  - concept: Cuspidal characters of finite general linear groups
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/380
+    says: 'The cuspidal irreducible characters of $\mathrm{GL}_n(\mathbb{F}_q)$ correspond to Frobenius orbits of regular characters of $\mathbb{F}_{q^n}^\times$, and they have degree $\prod_{i=1}^{n-1}(q^i - 1)$.'
+    text: 'Green, The characters of the finite general linear groups, Trans. Amer. Math. Soc. 80 (1955)'
+    why: 'The step [green-vwin](/step/green-vwin/) takes the statement `Green` on cuspidal characters of $\mathrm{GL}_d(\mathbb{F}_g)$ as an input.'
+    steps: [green-vwin]
+  - concept: Euler product
+    math2: 0C3PN4075R
+    says: 'For $s \in \mathbb{C}$ with $\operatorname{Re}(s) > 1$, the Euler product formula says $\zeta(s) = \sum_{n \ge 1} n^{-s} = \prod_p (1 - p^{-s})^{-1}$, where $p$ runs over the primes and the product converges absolutely. In the same way, $L(s, \chi) = \sum_{n \ge 1} \chi(n) n^{-s} = \prod_p (1 - \chi(p) p^{-s})^{-1}$ for each Dirichlet character $\chi$ and $\operatorname{Re}(s) > 1$.'
+    why: 'The last step `imprimitive` removes the condition primitive with the finite Euler factor $\prod (1 - \chi^*(p)p^{-s})$.'
+    steps: [green-vwin]

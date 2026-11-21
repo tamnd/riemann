@@ -1,0 +1,76 @@
+id: representations
+title: Representations of local groups
+for: []
+needs: []
+lead: 'This path covers the representation theory of $\mathrm{GL}_n$ over local and finite fields. At its end, a reader can read the twelve laws of `LawsT` in IsRecT.'
+items:
+  - concept: Group representation
+    math2: WYGRXCG2RN
+    says: 'Let $G$ be a group and let $V$ be a vector space over a field $F$. A representation of $G$ on $V$ is a group homomorphism $\rho: G \to \mathrm{GL}(V)$, where $\mathrm{GL}(V)$ is the group of invertible linear maps $V \to V$.'
+    why: 'All objects of the row are representations, either of $\mathrm{GL}_n(E_w)$ or of a Weil or Galois group.'
+  - concept: Irreducible representation
+    math2: FX3NEFYFFN
+    says: 'A representation $\rho: G \to \mathrm{GL}(V)$ is irreducible when $V \neq 0$ and the only subspaces $W \subseteq V$ with $\rho(g)W \subseteq W$ for all $g \in G$ are $0$ and $V$.'
+    why: 'The domain of the map $rc$ in [IsRecT](/step/is-rect-def/) is the set of classes of irreducible smooth representations of $\mathrm{GL}_n(E_w)$.'
+    steps: [is-rect-def]
+  - concept: Schur lemma
+    math2: X4M2FFKQJ6
+    says: 'Let $M$ and $N$ be simple modules over a ring $R$. Then every module homomorphism $f: M \to N$ is either $0$ or an isomorphism. For an irreducible smooth complex representation $V$ of $\mathrm{GL}_n(F)$, with $F$ a nonarchimedean local field, each linear map $V \to V$ that commutes with the group action is a scalar, so the center of $\mathrm{GL}_n(F)$ acts on $V$ by a character $\omega$, the central character.'
+    why: 'The Schur lemma gives the central character $\omega$ of an irreducible representation, which the laws `central` and `absCentral` use.'
+    steps: [is-rect-def]
+  - concept: Haar measure
+    math2: CE0V9686M8
+    says: 'Let $G$ be a locally compact Hausdorff group. A left Haar measure on $G$ is a nonzero Radon measure $\mu$ on the Borel sets of $G$ with $\mu(gA) = \mu(A)$ for every $g \in G$ and every Borel set $A$. A left Haar measure exists, and it is unique up to a positive scalar.'
+    why: 'The theta integral $I_M(\Phi)$ of the [theta chapter](/proof/theta-matching/) is an integral for a Haar measure on a unitary group.'
+  - concept: Reductive group
+    math2: 2XS84PWE3S
+    says: 'Let $k$ be a field with algebraic closure $\bar{k}$. A linear algebraic group $G$ over $k$ is reductive when it is smooth and connected and $G_{\bar{k}}$ has no nontrivial connected normal unipotent subgroup. Examples are $\mathrm{GL}_n$, $\mathrm{SL}_n$, the symplectic groups, and the unitary groups.'
+    why: 'The groups $\mathrm{GL}_n$ and the unitary groups $U_X$ of the proof are reductive groups.'
+  - concept: Admissible representation
+    math2: E15H5E8FP4
+    says: 'Let $G$ be a reductive group over a nonarchimedean local field, for example $\mathrm{GL}_n(F)$. A complex representation $(\pi, V)$ of $G$ is smooth when the stabilizer of each $v \in V$ is open in $G$. It is admissible when it is smooth and, for each compact open subgroup $K \subseteq G$, the space $V^K$ of $K$-fixed vectors has finite dimension.'
+    why: 'Smooth irreducible representations of $\mathrm{GL}_n(E_w)$ are admissible, and this is the setting of [IsRecT](/step/is-rect-def/).'
+    steps: [is-rect-def]
+  - concept: Induced representation
+    math2: JJP4JFH3C6
+    says: 'Let $H$ be a subgroup of a group $G$ and let $(\sigma, W)$ be a representation of $H$. The induced representation $\operatorname{Ind}_H^G \sigma$ is the space of functions $f: G \to W$ with $f(hg) = \sigma(h) f(g)$ for all $h \in H$ and $g \in G$, where $G$ acts by $(g \cdot f)(x) = f(xg)$. For a parabolic subgroup $P = MN$ of $\mathrm{GL}_n(F)$ and a smooth representation $\sigma$ of $M$, parabolic induction takes the smooth such functions, with $\sigma$ extended to $P$ trivially on $N$ and usually twisted by $\delta_P^{1/2}$.'
+    why: 'Segments of cuspidal representations come from parabolic induction, and the law `langlands` reads $rc(x)$ off a list of segments.'
+    steps: [is-rect-def]
+  - concept: Cuspidal representation
+    math2: 9AZ164C298
+    says: 'Let $F$ be a nonarchimedean local field. An irreducible smooth representation $\pi$ of $\mathrm{GL}_n(F)$ is cuspidal when its Jacquet module $\pi_N$ is zero for the unipotent radical $N$ of every proper parabolic subgroup. Equivalently, the matrix coefficients of $\pi$ have compact support modulo the center.'
+    why: 'The law `cusp` of [IsRecT](/step/is-rect-def/) says that $rc$ sends a cuspidal class to an irreducible class.'
+    steps: [is-rect-def]
+  - concept: Supercuspidal support
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/376
+    says: 'The supercuspidal support of an irreducible smooth representation of $\mathrm{GL}_n$ is the multiset of supercuspidal representations from which it is a subquotient of the induced representation.'
+    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS (1977)'
+    why: 'A class is `Good` in [IsRecT](/step/is-rect-def/) when each element of its supercuspidal support is `GoodCusp`.'
+    steps: [is-rect-def]
+  - concept: Zelevinsky segments
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/377
+    says: 'A segment is a list $\rho, \rho|\det|, \dots, \rho|\det|^{m-1}$ of cuspidal representations, and multisets of segments classify the irreducible representations of $\mathrm{GL}_n$.'
+    text: 'Zelevinsky, Induced representations of reductive p-adic groups II, Ann. Sci. ENS (1980)'
+    why: 'The law `langlands` of [IsRecT](/step/is-rect-def/) writes $rc(x)$ as a sum over the segments $\Delta$ of $x$.'
+    steps: [is-rect-def]
+  - concept: Langlands classification
+    math2: YHFP9HGBTT
+    says: 'Let $G$ be a real or $p$-adic reductive group. Each irreducible admissible representation of $G$ is the unique irreducible quotient of an induced representation $\operatorname{Ind}_P^G(\sigma \otimes \nu)$, where $P = MN$ is a parabolic subgroup, $\sigma$ is an irreducible tempered representation of $M$, and $\nu$ is a positive real unramified character of $M$ in the open positive chamber for $P$. The triple $(P, \sigma, \nu)$ is unique up to conjugation in $G$.'
+    why: 'The proof of [RecTExists](/step/rect-exists/) uses the Langlands classification of irreducible representations of $\mathrm{GL}_n$.'
+    steps: [rect-exists]
+  - concept: Unitary representation
+    math2: 74BPYJNZTM
+    says: 'Let $G$ be a topological group and let $H$ be a complex Hilbert space. A unitary representation of $G$ on $H$ is a homomorphism $\pi$ from $G$ to the group of unitary operators on $H$ such that $g \mapsto \pi(g)v$ is continuous for every $v \in H$.'
+    why: 'The Weil representation of the theta chapter is a unitary representation, and its local quotients give the matching.'
+  - concept: Harish-Chandra module
+    math2: 2MKHH636C3
+    says: 'Let $G$ be a real reductive group with maximal compact subgroup $K$ and complexified Lie algebra $\mathfrak{g}$. A $(\mathfrak{g}, K)$-module is a complex vector space $V$ with an action of $\mathfrak{g}$ and an action of $K$, in which each vector lies in a finite-dimensional $K$-stable subspace, the derivative of the $K$-action is the action of $\operatorname{Lie}(K)$, and $k(Xv) = (\operatorname{Ad}(k)X)(kv)$. A Harish-Chandra module is a $(\mathfrak{g}, K)$-module that is finitely generated over $U(\mathfrak{g})$ and in which each irreducible representation of $K$ occurs with finite multiplicity.'
+    why: 'The functional row in [nonempty-hyps](/step/nonempty-hyps/) uses the field `harishChandraModules` of the unitary hypotheses.'
+    steps: [nonempty-hyps]
+  - concept: Discrete series
+    math2: 2CKZETC3QA
+    says: 'Let $G$ be a unimodular locally compact group with a Haar measure. An irreducible unitary representation $\pi$ of $G$ is a discrete series representation when it is unitarily equivalent to a subrepresentation of the left regular representation of $G$ on $L^2(G)$. Equivalently, some nonzero matrix coefficient $g \mapsto \langle \pi(g)u, v \rangle$ is square-integrable on $G$.'
+    why: 'The functional row in [nonempty-hyps](/step/nonempty-hyps/) also uses the field `discreteSeriesCover`.'
+    steps: [nonempty-hyps]

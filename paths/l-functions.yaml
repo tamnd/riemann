@@ -1,0 +1,51 @@
+id: l-functions
+title: Zeta and Dirichlet L-functions
+for: [overview]
+needs: [complex-analysis]
+lead: 'This path covers the zeta function, Dirichlet characters and their L-functions. At its end, a reader can follow the [overview](/proof/) from `EveryCharacter` to the Riemann Hypothesis.'
+items:
+  - concept: Riemann zeta function
+    math2: TXB2F07CC6
+    says: 'For $\operatorname{Re}(s) > 1$, let $\zeta(s) = \sum_{n=1}^{\infty} n^{-s}$, a series that converges absolutely. The Riemann zeta function is the unique analytic continuation of this function to a meromorphic function on $\mathbb{C}$. Its only pole is a simple pole at $s = 1$.'
+    why: 'The final theorem [riemannHypothesis](/step/riemann-hypothesis/) is a statement about the nontrivial zeros of $\zeta$.'
+    steps: [riemann-hypothesis]
+  - concept: Euler product
+    math2: 0C3PN4075R
+    says: 'For $\operatorname{Re}(s) > 1$, $\zeta(s) = \prod_p (1 - p^{-s})^{-1}$, where $p$ runs over the primes and the product converges absolutely. In the same way, $L(s, \chi) = \prod_p (1 - \chi(p) p^{-s})^{-1}$ for each Dirichlet character $\chi$ and each $s$ with $\operatorname{Re}(s) > 1$.'
+    why: 'The Euler product gives the factor $\prod (1 - \chi^*(p)p^{-s})$ that relates an imprimitive L-function to a primitive one.'
+  - concept: Functional equation of the zeta function
+    math2: NFXKNDJX9C
+    says: 'Let $\xi(s) = \pi^{-s/2}\,\Gamma(s/2)\,\zeta(s)$. Then $\xi(s) = \xi(1 - s)$ for every $s \in \mathbb{C} \setminus \{0, 1\}$. Equivalently, $\zeta(s) = 2^s \pi^{s-1} \sin(\pi s/2)\,\Gamma(1 - s)\,\zeta(1 - s)$ as meromorphic functions on $\mathbb{C}$.'
+    why: 'The step [rh-of-right](/step/rh-of-right/) uses the functional equation to move a zero with real part below $1/2$ to the right half of the strip.'
+    steps: [rh-of-right]
+  - concept: Riemann Hypothesis
+    math2: VCGF9YR36X
+    says: 'The Riemann Hypothesis states that every zero $s$ of the Riemann zeta function with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$. The zeros of $\zeta$ outside this strip are the trivial zeros $-2, -4, -6, \dots$.'
+    why: 'The theorem [riemannHypothesis](/step/riemann-hypothesis/) is `rhOfAll`, and it states RH in the Mathlib form.'
+    steps: [riemann-hypothesis, rh-of-all]
+  - concept: Dirichlet character
+    math2: JR4QSEFXWF
+    says: 'Let $q \geq 1$ be an integer. A Dirichlet character modulo $q$ is a function $\chi: \mathbb{Z} \to \mathbb{C}$ with $\chi(n + q) = \chi(n)$ and $\chi(mn) = \chi(m)\chi(n)$ for all $m, n \in \mathbb{Z}$, such that $\chi(n) = 0$ when $\gcd(n, q) > 1$ and $\chi(n) \neq 0$ when $\gcd(n, q) = 1$. Equivalently, it is a group homomorphism $(\mathbb{Z}/q\mathbb{Z})^\times \to \mathbb{C}^\times$, extended by $0$ to the integers not prime to $q$.'
+    why: 'The statement [EveryCharacter](/step/every-character-def/) quantifies over each Dirichlet character $\chi$ modulo each $N \geq 1$.'
+    steps: [every-character-def]
+  - concept: Primitive Dirichlet character and conductor
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/369
+    says: 'A Dirichlet character is primitive when it is not induced from a character of smaller modulus, and its conductor is the least such modulus.'
+    text: 'Davenport, Multiplicative Number Theory, 3rd ed. (2000), ch. 5'
+    why: 'The window bound [VWin](/step/vwin-def/) quantifies over primitive characters `PChar` with conductor $N_\psi$.'
+    steps: [vwin-def]
+  - concept: Dirichlet L-function
+    math2: 24GAZHVTGB
+    says: 'Let $\chi$ be a Dirichlet character modulo $q$. For $\operatorname{Re}(s) > 1$, the series $L(s, \chi) = \sum_{n=1}^{\infty} \chi(n) n^{-s}$ converges absolutely. The Dirichlet L-function of $\chi$ is the analytic continuation of this function to a meromorphic function on $\mathbb{C}$. It is entire when $\chi$ is not principal, and for the principal character its only pole is a simple pole at $s = 1$.'
+    why: 'The statement [EveryCharacter](/step/every-character-def/) says that $L(s,\chi) \neq 0$ for $\operatorname{Re}(s) > 1/2$.'
+    steps: [every-character-def]
+  - concept: Gauss sum
+    math2: EQ6A3ZN48K
+    says: 'Let $\mathbb{F}$ be a finite field, let $\chi$ be a character of the group $\mathbb{F}^\times$, and let $\psi$ be a character of the additive group of $\mathbb{F}$. The Gauss sum is $g(\chi, \psi) = \sum_{a \in \mathbb{F}^\times} \chi(a)\psi(a)$. For a Dirichlet character $\chi$ modulo $N$, the Gauss sum is $\tau(\chi) = \sum_{a=1}^{N} \chi(a) e^{2\pi i a/N}$.'
+    why: 'The recursion laws of the theta constants in the [theta chapter](/proof/theta-matching/) contain a Gauss sum and an epsilon factor.'
+  - concept: Generalized Riemann Hypothesis
+    math2: DNKA4WBKDS
+    says: 'The Generalized Riemann Hypothesis for Dirichlet L-functions states that, for every Dirichlet character $\chi$, every zero $s$ of $L(s, \chi)$ with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$.'
+    why: 'The step [rh-of-every](/step/rh-of-every/) takes GRH for Dirichlet L-functions and keeps the case of the trivial character.'
+    steps: [rh-of-every, all-chi]

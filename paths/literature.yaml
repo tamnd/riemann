@@ -1,0 +1,80 @@
+id: literature
+title: The published results the proof assumes
+for: [literature]
+needs: [trunk]
+lead: 'This path tours the areas of the results that `OpenLiteratureStatements` and its bundles name. At its end, a reader can place each named statement in its field of mathematics.'
+items:
+  - concept: Tate thesis
+    math2: QYW79XKJTP
+    says: 'Let $K$ be a number field and let $\chi$ be a Hecke character of $\mathbb{A}_K^\times / K^\times$ with completed L-function $\Lambda(s, \chi)$. Then $\Lambda(s, \chi)$ has a meromorphic continuation to $\mathbb{C}$, and $\Lambda(s, \chi) = \varepsilon(s, \chi) \Lambda(1 - s, \overline{\chi})$ with $\varepsilon(s, \chi) = W(\chi) (|d_K| N\mathfrak{f}_\chi)^{1/2 - s}$ and $|W(\chi)| = 1$. Tate thesis proves this with zeta integrals over the ideles and Poisson summation on $\mathbb{A}_K / K$.'
+    why: 'The theorem `heckeTateFunctionalEquation''` states a functional equation $\Lambda(s) = \varepsilon_\infty \varepsilon_f \Lambda''(1-s)$ for Hecke characters of a CM type.'
+  - concept: Deligne-Ribet congruences
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/371
+    says: 'The Deligne-Ribet theorem gives congruences between values of partial zeta functions of a totally real field at negative integers, and so constructs p-adic L-functions.'
+    text: 'Deligne and Ribet, Values of abelian L-functions at negative integers over totally real fields, Invent. Math. 59 (1980)'
+    why: 'The statement `DeligneRibet` is a congruence for a totally real field $F$ and a ray function modulo $\ell^n$.'
+  - concept: Chebotarev density theorem
+    math2: X8VKW5Y1CZ
+    says: 'Let $L/K$ be a finite Galois extension of number fields with Galois group $G$, and let $C \subseteq G$ be a conjugacy class. Then the set of primes $\mathfrak{p}$ of $K$ that are unramified in $L$ and have Frobenius class $C$ has natural density $|C| / |G|$ among all primes of $K$.'
+    why: 'The area of L-functions and class field theory has a statement named `ChebotarevDegreeOne`.'
+  - concept: Dirichlet theorem on primes in arithmetic progressions
+    math2: 0GNVN3CA2P
+    says: 'Let $a$ and $d$ be coprime positive integers. Then there are infinitely many primes $p$ with $p \equiv a \pmod{d}$.'
+    why: 'The same area has a statement named `Linnik`, and Linnik theorem bounds the least prime in an arithmetic progression.'
+  - concept: Casselman-Wallach globalization
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/381
+    says: 'The Casselman-Wallach theorem gives an equivalence between Harish-Chandra modules and smooth Frechet representations of moderate growth.'
+    text: 'Wallach, Real Reductive Groups II (1992), ch. 11'
+    why: 'The area of real groups has a statement `CasselmanWallach`, and [nonempty-hyps](/step/nonempty-hyps/) uses the field `casselmanWallach`.'
+    steps: [nonempty-hyps]
+  - concept: Stone-von Neumann theorem
+    math2: Z877XDBMQ3
+    says: 'Let $U$ and $V$ be strongly continuous unitary representations of $\mathbb{R}^n$ on a Hilbert space $H$ with $U(s) V(t) = e^{i s \cdot t} V(t) U(s)$ for all $s, t$. Then $H$ is an orthogonal direct sum of closed invariant subspaces, and on each of them $(U, V)$ is unitarily equivalent to the pair on $L^2(\mathbb{R}^n)$ given by $(U_0(s)\psi)(x) = \psi(x + s)$ and $(V_0(t)\psi)(x) = e^{i t \cdot x} \psi(x)$.'
+    why: 'The area of the Weil representation and theta has the statements `WeilRepresentationExists` and `StoneVonNeumann`.'
+  - concept: Siegel-Weil formula
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/392
+    says: 'The Siegel-Weil formula identifies the integral of a theta function over a classical group with a value of a Siegel Eisenstein series.'
+    text: 'Kudla and Rallis, On the Weil-Siegel formula, J. Reine Angew. Math. 387 (1988)'
+    why: 'The theta branch applies `theoremK_head2` to the leaf results `EisBL` and `SiegelWeilStd`.'
+    steps: [every-character-of-literature]
+  - concept: Howe duality
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/391
+    says: 'For a dual pair $(G, G'')$, the Howe duality theorem says that the theta correspondence gives a bijection between irreducible quotients of the Weil representation on each side.'
+    text: 'Howe, Transcending classical invariant theory, J. Amer. Math. Soc. 2 (1989)'
+    why: 'The step [nonempty-hyps](/step/nonempty-hyps/) uses the field `howeDualityReal` of `ThetaLocalInputs`.'
+    steps: [nonempty-hyps]
+  - concept: Fontaine period rings
+    math2: K6HW8YWCQJ
+    says: 'Let $K$ be a finite extension of $\mathbb{Q}_p$. Fontaine period rings are topological $\mathbb{Q}_p$-algebras $B$ with a continuous action of $G_K$, such as $B_{\mathrm{dR}}$, $B_{\mathrm{st}}$ and $B_{\mathrm{cris}}$, for which $E = B^{G_K}$ is a field. A p-adic representation $V$ of $G_K$ is $B$-admissible when $\dim_E (B \otimes_{\mathbb{Q}_p} V)^{G_K} = \dim_{\mathbb{Q}_p} V$.'
+    why: 'The area of Galois cohomology and p-adic Hodge theory has a statement named `FontaineBcris`.'
+  - concept: Toroidal compactification
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/403
+    says: 'A toroidal compactification of a locally symmetric variety is a smooth compactification built from a choice of admissible rational polyhedral cone decompositions.'
+    text: 'Ash, Mumford, Rapoport and Tai, Smooth Compactification of Locally Symmetric Varieties (1975)'
+    why: 'The area of arithmetic geometry has `ToroidalCompactification`, and the main file uses `siegel_toroidal_integral_of_literature`.'
+    steps: [every-character-of-literature]
+  - concept: Kawamata-Viehweg vanishing
+    math2: TAMCTW7SA0
+    says: 'Let $X$ be a smooth projective variety of dimension $n$ over a field of characteristic $0$, with canonical bundle $\omega_X$. Let $L$ be a nef line bundle on $X$ with $(L^n) > 0$. Then $H^i(X, \omega_X \otimes L) = 0$ for all $i > 0$.'
+    why: 'The area of arithmetic geometry has the statements `KawamataViehweg` and `NadelVanishingAndNonKltDivisor`.'
+  - concept: Resolution of singularities
+    math2: MB52NDA6WN
+    says: 'Let $X$ be an integral algebraic variety over a field $k$ of characteristic $0$. Then there is a nonsingular variety $\tilde{X}$ over $k$ and a proper birational morphism $\pi: \tilde{X} \to X$ that is an isomorphism over the nonsingular points of $X$.'
+    why: 'The theorem `resolution_char_zero_of_literature` is one of the thirteen theorems that use the hypothesis $O$.'
+    steps: [every-character-of-literature]
+  - concept: Height function
+    math2: F1FF505PWH
+    says: 'Let $K$ be a number field and, for each place $v$ of $K$, let $|\cdot|_v$ extend a standard absolute value of $\mathbb{Q}$ and let $d_v = [K_v : \mathbb{Q}_v]$. The Weil height of $P = [x_0 : \cdots : x_n] \in \mathbb{P}^n(K)$ is $H(P) = \prod_v \max_i |x_i|_v^{d_v / [K:\mathbb{Q}]}$, and it does not depend on the choice of coordinates or of $K$. A height function on a projective variety $X$ with a morphism $\phi: X \to \mathbb{P}^n$ is $P \mapsto H(\phi(P))$ or its logarithm.'
+    why: 'The area of arithmetic geometry has the statements `CycleHeights` and `ArithHilbertSamuel` from Arakelov geometry.'
+  - concept: Bernstein-Zelevinsky finiteness
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/378
+    says: 'Parabolic induction and the Jacquet functor preserve finite length, so induced representations of $\mathrm{GL}_n$ have finite composition series.'
+    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS (1977)'
+    why: 'The theorem `llOf_alt` takes `BernsteinZelevinskyFiniteness` and the field `localLanglandsExists` of [OpenLiteratureStatements](/step/open-literature-statements-def/), and returns the latter.'
+    steps: [open-literature-statements-def, every-character-of-literature]

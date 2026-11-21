@@ -1,0 +1,74 @@
+id: galois-representations
+title: Galois representations
+for: []
+needs: [number-fields]
+lead: 'This path covers Galois and Weil groups and their $\ell$-adic representations. At its end, a reader can parse the output $r$ of the row statement and its local properties.'
+items:
+  - concept: Absolute Galois group
+    math2: PGKWBJDTKX
+    says: 'Let $K$ be a field with separable closure $K^{\mathrm{sep}}$. The absolute Galois group of $K$ is the group $G_K = \operatorname{Gal}(K^{\mathrm{sep}}/K)$ of all field automorphisms of $K^{\mathrm{sep}}$ that fix $K$ pointwise. With the Krull topology it is a profinite group.'
+    why: 'The row statement [Row0b](/step/row0b-def/) produces a representation $r$ of the Galois group of $E$.'
+    steps: [row0b-def]
+  - concept: Profinite group
+    math2: KA0YDB6QXE
+    says: 'A profinite group is a topological group that is isomorphic to an inverse limit of finite groups, each with the discrete topology. Equivalently, it is a topological group that is compact, Hausdorff and totally disconnected.'
+    why: 'Galois groups are profinite, and the field `cont` of [Row0b](/step/row0b-def/) asks that $r$ is continuous.'
+    steps: [row0b-def]
+  - concept: Decomposition group
+    math2: 7X92G8CQ33
+    says: 'Let $L/K$ be a Galois extension of number fields and let $\mathfrak{P}$ be a prime of $L$. The decomposition group of $\mathfrak{P}$ is the subgroup $D_{\mathfrak{P}} = \{\sigma \in \operatorname{Gal}(L/K) : \sigma(\mathfrak{P}) = \mathfrak{P}\}$. It is isomorphic to the Galois group of the completion $L_{\mathfrak{P}}$ over the completion of $K$ at the prime below $\mathfrak{P}$.'
+    why: 'The local fields `away` and `above` of [Row0b](/step/row0b-def/) restrict $r$ to a decomposition group at a place $w$.'
+    steps: [row0b-def]
+  - concept: Frobenius element
+    math2: H5145REFMW
+    says: 'Let $L/K$ be a Galois extension of number fields, let $\mathfrak{P}$ be a prime of $L$ that is unramified over $K$, and let $q$ be the size of the residue field of the prime $\mathfrak{p} = \mathfrak{P} \cap K$. The Frobenius element of $\mathfrak{P}$ is the unique $\sigma$ in the decomposition group $D_{\mathfrak{P}}$ with $\sigma(x) \equiv x^q \pmod{\mathfrak{P}}$ for all integers $x$ of $L$. Its conjugacy class in $\operatorname{Gal}(L/K)$ depends only on $\mathfrak{p}$.'
+    why: 'The statement `CoreAll` of the Galois row uses the characteristic polynomials of Frobenius elements.'
+  - concept: Galois representation
+    math2: QW17YJ6ZCT
+    says: 'Let $K$ be a field with absolute Galois group $G_K$, let $A$ be a topological commutative ring, and let $n \geq 1$. A Galois representation of $K$ of dimension $n$ over $A$ is a continuous group homomorphism $\rho: G_K \to \mathrm{GL}_n(A)$. For $A = \overline{\mathbb{Q}}_\ell$ or a finite extension of $\mathbb{Q}_\ell$, it is an $\ell$-adic Galois representation.'
+    why: 'The output of [Row0b](/step/row0b-def/) is a map $r$ from the Galois group to $\mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$.'
+    steps: [row0b-def]
+  - concept: Weil group
+    math2: TH24PGYAM5
+    says: 'Let $F$ be a nonarchimedean local field with residue field of size $q$, and let $I_F$ be the inertia subgroup of $G_F = \operatorname{Gal}(\overline{F}/F)$. The Weil group $W_F$ is the subgroup of elements of $G_F$ that act on the algebraic closure of the residue field as $x \mapsto x^{q^n}$ for some integer $n$. Its topology makes $I_F$ an open subgroup with its profinite topology.'
+    why: 'The local Artin map $a$ of [IsRecT](/step/is-rect-def/) is a homomorphism from the Weil group $W_h$ to $E_w^\times$.'
+    steps: [is-rect-def]
+  - concept: Weil-Deligne representation
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/393
+    says: 'A Weil-Deligne representation of a local field is a representation $r$ of the Weil group with a nilpotent operator $N$ such that $r(w)Nr(w)^{-1} = |w| N$.'
+    text: 'Tate, Number theoretic background, Proc. Sympos. Pure Math. 33 (1979), sec. 4'
+    why: 'The target of the map $rc$ in [IsRecT](/step/is-rect-def/) is the set $\mathrm{WD}(h)$ of Weil-Deligne classes.'
+    steps: [is-rect-def]
+  - concept: Cyclotomic character
+    math2: XSGB5K2KEG
+    says: 'Let $K$ be a field and let $\ell$ be a prime different from the characteristic of $K$. The $\ell$-adic cyclotomic character is the continuous homomorphism $\chi: G_K \to \mathbb{Z}_\ell^\times$ such that $\sigma(\zeta) = \zeta^{\chi(\sigma) \bmod \ell^n}$ for every $\sigma \in G_K$ and every root of unity $\zeta \in \overline{K}$ of order $\ell^n$. The twist $M(k)$ of a Galois module $M$ is $M$ with the action of $\sigma$ multiplied by $\chi(\sigma)^k$.'
+    why: 'The group of [VWin](/step/vwin-def/) sits in a cohomology group of $\mathbb{Q}_l/\mathbb{Z}_l$ twisted by a power of the cyclotomic character.'
+    steps: [vwin-def]
+  - concept: Tate module
+    math2: 4CSMQFTGD8
+    says: 'Let $\ell$ be a prime and let $A$ be an abelian variety of dimension $g$ over a field $k$ of characteristic different from $\ell$. The $\ell$-adic Tate module of $A$ is $T_\ell A = \varprojlim_n A[\ell^n](\overline{k})$, where the maps are multiplication by $\ell$. It is a free $\mathbb{Z}_\ell$-module of rank $2g$ with a continuous action of $G_k$.'
+    why: 'Tate modules of abelian varieties are the first examples of $\ell$-adic Galois representations, and the vwin chain has a bundle `cm_abelian_inputs`.'
+  - concept: p-adic Hodge theory
+    math2: 6YDZNXR19H
+    says: 'Let $K$ be a finite extension of $\mathbb{Q}_p$. p-adic Hodge theory is the study of p-adic representations of $K$, that is, continuous representations of $G_K$ on finite-dimensional $\mathbb{Q}_p$-vector spaces, by means of period rings such as $B_{\mathrm{dR}}$, $B_{\mathrm{st}}$ and $B_{\mathrm{cris}}$. It also compares the p-adic etale cohomology of varieties over $K$ with their de Rham and crystalline cohomology.'
+    why: 'The field `above` of [Row0b](/step/row0b-def/) states conditions of p-adic Hodge theory at the places above $\ell$.'
+    steps: [row0b-def]
+  - concept: Fontaine period rings
+    math2: K6HW8YWCQJ
+    says: 'Let $K$ be a finite extension of $\mathbb{Q}_p$. Fontaine period rings are topological $\mathbb{Q}_p$-algebras $B$ with a continuous action of $G_K$, such as $B_{\mathrm{dR}}$, $B_{\mathrm{st}}$ and $B_{\mathrm{cris}}$, for which $E = B^{G_K}$ is a field. A p-adic representation $V$ of $G_K$ is $B$-admissible when $\dim_E (B \otimes_{\mathbb{Q}_p} V)^{G_K} = \dim_{\mathbb{Q}_p} V$.'
+    why: 'The [literature chapter](/proof/literature/) lists a statement on Fontaine $B_{\mathrm{cris}}$ among its inputs.'
+  - concept: Hodge-Tate weights
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/394
+    says: 'The Hodge-Tate weights of a p-adic representation are the integers $i$ with $(V \otimes \mathbb{C}_p(i))^{G_K} \neq 0$, counted with multiplicity.'
+    text: 'Berger, An introduction to the theory of p-adic representations, in Geometric Aspects of Dwork Theory (2004)'
+    why: 'The row statement [Row0b](/step/row0b-def/) gives Hodge-Tate jumps $HT$ with the representation $r$.'
+    steps: [row0b-def]
+  - concept: Crystalline, de Rham and potentially semistable representations
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/395
+    says: 'A p-adic representation $V$ is crystalline, semistable or de Rham when $V$ is admissible for the period ring $B_{\mathrm{cris}}$, $B_{\mathrm{st}}$ or $B_{\mathrm{dR}}$, and potentially semistable when it is semistable over a finite extension.'
+    text: 'Fontaine, Representations p-adiques semi-stables, Asterisque 223 (1994)'
+    why: 'The field `above` of [Row0b](/step/row0b-def/) asks that $r$ is crystalline, de Rham or potentially semistable at places above $\ell$.'
+    steps: [row0b-def]

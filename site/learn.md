@@ -65,7 +65,7 @@ Below `EveryCharacter` the Lean code has more than 175,000 files. The [chapters]
 - The [[Langlands program|J9T2M084W5]] and the [[local Langlands conjectures|9E45NBX1G0]].
 - [[Shimura varieties|53HPW59SJC]], [[abelian varieties|37CPGVHTAR]] and [[complex multiplication|D3HEJTVY7G]].
 
-Milestone M4 turns each group into a path with steps and exercises in Math 2.0.
+Each group of this stage is also a learning path, with more concepts, the reason for each one and the steps of the proof that use it. The paths are at the end of this page, in the order to read them. The [concept map](/learn/map/) lists every concept of the paths, and the [glossary](/glossary/) explains the Lean names that the chapters use.
 
 ## For a reader who knows Lean
 
