@@ -24,4 +24,14 @@ doors:
 
 The text has four levels. Level L0 is the proof in one page. Level L1 is a chapter for each part of the argument. Level L2 is a step for each lemma that a mathematician would write down. Level L3 is one Lean declaration. Each page shows its level at the top, and the side panel shows the Lean names and the concepts that the page needs.
 
-The work goes in milestones. Now the site has the overview, the timeline of the note and the trust questions. The map of the Lean code comes next. See [about](/about/) for the plan.
+## Where to start
+
+If you know analytic number theory, read [the proof in one page](/proof/) first. It proves the Riemann Hypothesis from one statement about Dirichlet L-functions, and you can check each step with pen and paper. Then follow the chapters in order. Each chapter page has the list of all chapters in its side panel, and a link to the next chapter at the bottom.
+
+If you want to see the Lean code, open [the code page](/code/). It has the numbers of the release, the trunk of the proof and its largest branches. Each of the 1,061,531 declarations has a page with its statement, a plain reading of the statement, the file and line, and what it uses. The 769,260 declarations that the proof uses also show the chain from `riemannHypothesis` and their parts. So you can walk down the whole proof by links.
+
+If you want to know if the claim holds, read [what is checked](/trust/). Lean accepts a proof only relative to its axioms and its statements, and that page tells which checks ran.
+
+## What is here now
+
+The work goes in milestones. The site has the overview, the chapters of the trunk as drafts, the timeline of the note, the map of the Lean code and the trust questions with a first scan of the source. The build of the full project and the axiom check come next. See [about](/about/) for the plan.

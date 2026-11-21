@@ -2,6 +2,18 @@
 
 All changes that a reader can see are in this file. The versions follow the milestones: milestone Mn closes with `v0.(n+1).0`.
 
+## Unreleased
+
+### Added
+
+- Six chapters of the proof, level L1, as drafts: the map of the trunk (`proof/01-trunk.md`), the Galois row, the window bound VWin, the literature layer, theta integrals and local matching, and the unitary hypotheses node. Each chapter is written from the Lean source. It quotes the Lean statements, says them in standard notation, and lists in its notes each definition that it does not unfold yet.
+- The trust page explains each question and has the results of a text scan of the source: no `axiom` declarations, no `sorry`, no options that turn off kernel checks, and the list of the meta code with what each part does.
+
+### Changed
+
+- The learning page is a path in three stages. Each concept tells where the proof uses it.
+- The main page tells where to start, and the about page shows the state of each milestone.
+
 ## v0.2.0 (2026-11-21)
 
 Milestone M1, the map.
