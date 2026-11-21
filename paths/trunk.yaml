@@ -1,62 +1,106 @@
 id: trunk
-title: The trunk of the proof
-for: [trunk]
-needs: [l-functions, automorphic-forms, galois-representations]
-lead: 'This path follows the trunk from the row statement to `EveryCharacter`. At its end, a reader can name each input of `every_character_of_theta_integrals_local_matching` and say where it comes from.'
+title: From the row statement to every character
+for: [overview, trunk]
+needs: [algebra, complex-analysis, number-fields, class-field-theory, l-functions, representations, automorphic-forms, galois-representations, galois-cohomology]
+lead: 'To read the overview and the trunk, you need the zeta and Dirichlet L-functions, and the language of the hypothesis Row0b: CM fields, polarized cuspidal representations, Galois representations and local Langlands.'
 items:
+  - concept: Riemann Hypothesis
+    math2: VCGF9YR36X
+    says: 'Each zero $s$ of $\zeta$ with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$. Mathlib states it as: for each $s$ with $\zeta(s) = 0$, $s \neq -2(n+1)$ for all $n \in \mathbb{N}$ and $s \neq 1$, $\operatorname{Re}(s) = 1/2$; the two forms are equivalent.'
+    why: 'The top theorem proves [the Riemann Hypothesis](/step/riemann-hypothesis/) in the form of Mathlib.'
+    steps: [riemann-hypothesis]
+  - concept: Functional equation of the zeta function
+    math2: NFXKNDJX9C
+    says: 'With $\xi(s) = \pi^{-s/2}\Gamma(s/2)\zeta(s)$, $\xi(s) = \xi(1 - s)$; in Mathlib, $\zeta(1-u) = 2(2\pi)^{-u}\Gamma(u)\cos(\pi u/2)\zeta(u)$ for $u \notin \{0, -1, -2, \dots\}$, $u \neq 1$.'
+    why: '[rh_of_right](/step/rh-of-right/) reads the functional equation at $1 - s$ to treat zeros with $\operatorname{Re}(s) < \tfrac12$.'
+    steps: [rh-of-right]
+  - concept: The Gamma function has no zeros
+    math2: WBS4NM1TFC
+    says: 'Let $\Gamma$ be the gamma function on $\mathbb{C}$. For every $z \in \mathbb{C} \setminus \{0, -1, -2, \dots\}$, $\Gamma(z) \neq 0$.'
+    why: '[rh_of_right](/step/rh-of-right/) needs $\Gamma(1 - s) \neq 0$.'
+    steps: [rh-of-right]
+  - concept: Zeros of the cosine
+    math2: 00NZKRSWNX
+    says: '$\cos z = 0$ if and only if $z = (2k + 1)\pi/2$ with $k \in \mathbb{Z}$.'
+    why: '[rh_of_right](/step/rh-of-right/) shows that the cosine factor vanishes only at trivial zeros or at $s = 0$.'
+    steps: [rh-of-right]
+  - concept: Dirichlet character
+    math2: JR4QSEFXWF
+    says: 'A Dirichlet character modulo $N$ is a group homomorphism $(\mathbb{Z}/N\mathbb{Z})^\times \to \mathbb{C}^\times$, extended by $0$ to the integers not prime to $N$; it is even or odd as $\chi(-1) = 1$ or $-1$.'
+    why: '[EveryCharacter](/step/every-character-def/) is a statement for each Dirichlet character of each modulus.'
+    steps: [every-character-def]
+  - concept: Dirichlet L-function
+    math2: 24GAZHVTGB
+    says: 'For $\operatorname{Re}(s) > 1$, $L(s, \chi) = \sum_{n \ge 1} \chi(n) n^{-s}$; it extends to $\mathbb{C}$, entire for $\chi \ne 1$, with a simple pole at $s = 1$ for trivial $\chi$.'
+    why: '[EveryCharacter](/step/every-character-def/) says that $L(s, \chi) \neq 0$ for $\operatorname{Re}(s) > \tfrac12$.'
+    steps: [every-character-def]
   - concept: Generalized Riemann Hypothesis
     math2: DNKA4WBKDS
-    says: 'Let $\chi$ be a Dirichlet character and let $L(s, \chi)$ be its Dirichlet L-function, continued meromorphically to $\mathbb{C}$. The generalized Riemann hypothesis says that every zero $s$ of $L(s, \chi)$ with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$.'
-    why: 'The trunk ends in [EveryCharacter](/step/every-character-def/), which is GRH for Dirichlet L-functions in the half-plane $\operatorname{Re}(s) > 1/2$.'
+    says: 'For each $N \ge 1$, each Dirichlet character $\chi$ modulo $N$ and each $s$ with $0 < \operatorname{Re}(s) < 1$ and $L(s, \chi) = 0$, $\operatorname{Re}(s) = 1/2$. The proof states it also as: $L(s, \chi) \ne 0$ for $\operatorname{Re}(s) > 1/2$ when $\chi \ne 1$ or $s \ne 1$.'
+    why: '[EveryCharacter](/step/every-character-def/) is GRH for Dirichlet L-functions in the half-plane $\operatorname{Re}(s) > \tfrac12$.'
     steps: [every-character-def, every-character]
+  - concept: Imprimitive characters
+    text: 'Davenport, Multiplicative Number Theory, ch. 5'
+    says: 'If $\chi$ modulo $N$ is induced from the primitive $\chi^*$, then $L(s, \chi) = L(s, \chi^*) \prod_{p \mid N} (1 - \chi^*(p) p^{-s})$, and the extra factors vanish only on $\operatorname{Re}(s) = 0$.'
+    why: '[imprimitive](/step/imprimitive/) passes from primitive characters to all characters through the extra Euler factors.'
+    steps: [imprimitive]
   - concept: CM field
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/370
-    says: 'A CM field is a totally imaginary quadratic extension $E$ of a totally real number field $E^+$.'
     text: 'Washington, Introduction to Cyclotomic Fields, 2nd ed. (1997)'
-    why: 'The row [Row0b](/step/row0b-def/) is a statement for each CM field $E$ and each prime $\ell$.'
+    says: 'A CM field is a totally complex quadratic extension $E$ of a totally real number field $E^+$, the maximal real subfield of $E$.'
+    why: '[Row0b](/step/row0b-def/) is a statement for each CM field $E$.'
     steps: [row0b-def]
+  - concept: Hecke character
+    math2: KPYFGB342X
+    says: 'A Hecke character of a number field $K$ is a continuous homomorphism $\chi : \mathbb{A}_K^\times \to \mathbb{C}^\times$ with $\chi(K^\times) = 1$, that is a character of the idele class group $C_K$.'
+    why: 'The input $\chi$ of [Row0b](/step/row0b-def/) is a Hecke character of $E^+$.'
+    steps: [row0b-def]
+  - concept: Langlands classification
+    math2: YHFP9HGBTT
+    says: 'For $\mathrm{GL}_n(F)$, each irreducible representation is the unique irreducible quotient $L(\mathfrak{a})$ of $L(\Delta_1) \times \dots \times L(\Delta_k)$ for exactly one multisegment $\mathfrak{a}$, in an order where no $\Delta_i$ precedes a later $\Delta_j$.'
+    why: 'The law `langlands` of [IsRecT](/step/is-rect-def/) asks that the local map be compatible with the Langlands classification by segments.'
+    steps: [is-rect-def]
   - concept: Cuspidal automorphic representation
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/383
-    says: 'A cuspidal automorphic representation is an irreducible constituent of the space of cusp forms on $G(F) \backslash G(\mathbb{A}_F)$.'
     text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979)'
-    why: 'The input $\pi$ of [Row0b](/step/row0b-def/) is a regular algebraic cuspidal representation of $\mathrm{GL}_a$ over $E$ with a polarization.'
+    says: 'A cuspidal automorphic representation is an irreducible submodule of the space of cusp forms on $G(F) \backslash G(\mathbb{A}_F)$.'
+    why: 'The input $\pi$ of [Row0b](/step/row0b-def/) is an irreducible space of cusp forms on $\mathrm{GL}_a$ over $E$.'
+    steps: [row0b-def]
+  - concept: Regular algebraic automorphic representation
+    text: 'Clozel, Motifs et formes automorphes, in Automorphic Forms, Shimura Varieties and L-functions I (1990)'
+    says: 'An automorphic representation of $\mathrm{GL}_n(\mathbb{A}_E)$ is regular algebraic when its infinitesimal character at each embedding has $n$ distinct entries in $\frac{n-1}{2} + \mathbb{Z}$.'
+    why: '[Row0b](/step/row0b-def/) asks that $\pi$ be regular algebraic (`IsRegAlg`).'
+    steps: [row0b-def]
+  - concept: Polarized automorphic representation
+    text: 'Clozel, Harris and Taylor, Automorphy for some l-adic lifts of automorphic mod l Galois representations, Publ. IHES (2008)'
+    says: 'A polarized pair $(\pi, \chi)$ has $\pi^c \cong \pi^\vee \otimes (\chi \circ N_{E/E^+})$ and $\chi_v(-1) = (-1)^n$ at each real place $v$.'
+    why: '[Row0b](/step/row0b-def/) asks that $(\pi, \chi)$ be a polarized pair (`PolarizedPair`).'
     steps: [row0b-def]
   - concept: Galois representation
     math2: QW17YJ6ZCT
-    says: 'Let $K$ be a field with absolute Galois group $G_K = \operatorname{Gal}(K^{\mathrm{sep}}/K)$ and its profinite topology, and let $A$ be a topological ring such as $\mathbb{C}$, $\mathbb{Z}_\ell$ or $\overline{\mathbb{Q}}_\ell$. A Galois representation of $K$ of dimension $n$ over $A$ is a continuous group homomorphism $\rho: G_K \to \mathrm{GL}_n(A)$.'
-    why: 'The output of [Row0b](/step/row0b-def/) is a Galois representation $r$ that matches $\pi$ at each place.'
+    says: 'Let $K$ be a field with absolute Galois group $G_K$, let $A$ be a topological commutative ring, and let $n \geq 1$. A Galois representation of $K$ of dimension $n$ over $A$ is a continuous group homomorphism $\rho: G_K \to \mathrm{GL}_n(A)$. For $A = \overline{\mathbb{Q}}_\ell$ or a finite extension of $\mathbb{Q}_\ell$, it is an $\ell$-adic Galois representation.'
+    why: '[Row0b](/step/row0b-def/) gives a continuous semisimple $r : \mathrm{Gal}(\Omega/E) \to \mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$.'
     steps: [row0b-def, every-character-of-row]
-  - concept: Local Langlands correspondence
-    math2: 9E45NBX1G0
-    says: 'Let $G$ be a connected reductive group over a local field $F$, with L-group ${}^L G$ and Weil-Deligne group $W''_F$. The local Langlands correspondence is a map with finite fibers from the irreducible smooth representations of $G(F)$ to the $\hat{G}$-conjugacy classes of L-parameters $W''_F \to {}^L G$. For $G = \mathrm{GL}_n$ over a non-archimedean $F$, it is a bijection onto the $n$-dimensional Frobenius-semisimple Weil-Deligne representations of $F$ that preserves the L-factors and epsilon factors of pairs, and for $n = 1$ it comes from the local Artin map.'
-    why: 'The local match of the row satisfies [IsRecT](/step/is-rect-def/), a list of laws of local Langlands type.'
-    steps: [is-rect-def, rect-exists-def]
   - concept: Local class field theory
     math2: SHEN158T3M
-    says: 'Let $K$ be a non-archimedean local field with maximal abelian extension $K^{ab}$. Local class field theory gives a homomorphism $\operatorname{rec}_K: K^\times \to \operatorname{Gal}(K^{ab}/K)$, the local Artin map, that induces an isomorphism $K^\times / N_{L/K}(L^\times) \cong \operatorname{Gal}(L/K)$ for each finite abelian extension $L/K$. With the arithmetic normalization, $\operatorname{rec}_K$ sends each uniformizer to an element that acts as the Frobenius on the maximal unramified extension of $K$.'
-    why: 'The map $a$ in [IsRecT](/step/is-rect-def/) plays the role of the local Artin map of local class field theory.'
+    says: 'For a finite extension $K/\mathbb{Q}_p$ there is a unique local Artin map $K^\times \to \mathrm{Gal}(K^{ab}/K)$ sending uniformizers to Frobenius and with kernel $N(L^\times)$ on each finite abelian $L/K$; it induces $W_K^{ab} \cong K^\times$.'
+    why: '[IsRecT](/step/is-rect-def/) asks for a local Artin map $a$ and sends a character $\chi$ of $E_w^\times$ to $\chi \circ a$.'
     steps: [is-rect-def]
+  - concept: Weil-Deligne representation
+    text: 'Tate, Number theoretic background, Proc. Sympos. Pure Math. 33 (1979), sec. 4'
+    says: 'A Weil-Deligne representation of a local field is a representation $r$ of the Weil group with a nilpotent operator $N$ such that $r(w)Nr(w)^{-1} = |w| N$.'
+    why: '[IsRecT](/step/is-rect-def/) is a law for maps to Weil-Deligne classes.'
+    steps: [is-rect-def]
+  - concept: Local Langlands correspondence
+    math2: 9E45NBX1G0
+    says: 'For a finite extension $F$ of $\mathbb{Q}_p$, there is a unique family of bijections $\mathrm{rec}_F$ from irreducible smooth representations of $\mathrm{GL}_n(F)$ to $n$-dimensional Frobenius-semisimple Weil-Deligne representations, which is class field theory for $n = 1$ and matches L-factors and epsilon factors of pairs.'
+    why: '[IsRecT](/step/is-rect-def/) lists properties of the local Langlands map, and [RecTExists](/step/rect-exists-def/) says that such a map exists.'
+    steps: [is-rect-def, rect-exists-def, rect-exists]
   - concept: Tate-Shafarevich group
     math2: BK9WBMF56G
-    says: 'Let $E$ be an elliptic curve, or more generally an abelian variety, over a number field $K$. Its Tate-Shafarevich group is $\text{Ш}(E/K) = \ker\left(H^1(K, E) \to \prod_v H^1(K_v, E)\right)$, where $v$ runs over all places of $K$ and $H^1$ is Galois cohomology. Its elements are the classes of torsors under $E$ that have a point over every completion $K_v$.'
-    why: 'The window bound [VWin](/step/vwin-def/) bounds a weighted sum of lengths of Tate-Shafarevich groups, and [vwin-of-row](/step/vwin-of-row/) proves it from the row.'
-    steps: [vwin-def, vwin-of-row]
-  - concept: Theta correspondence
-    math2: ZBGT50BW0Z
-    says: 'Let $(G, G'')$ be a reductive dual pair in a symplectic group $\mathrm{Sp}(W)$ over a local field, and let $\omega$ be the Weil representation, restricted to the inverse images $\tilde{G} \times \tilde{G}''$ of $G \times G''$ in the metaplectic group. The theta correspondence pairs an irreducible admissible representation $\pi$ of $\tilde{G}$ with an irreducible admissible representation $\pi''$ of $\tilde{G}''$ when $\pi \otimes \pi''$ is a quotient of $\omega$. By Howe duality, this relation is a bijection between the irreducible representations of $\tilde{G}$ and of $\tilde{G}''$ that occur as quotients of $\omega$.'
-    why: 'The step [theta-local-matching](/step/theta-local-matching/) takes theta integrals that agree and local matching of Weil representations as inputs.'
-    steps: [theta-local-matching]
-  - concept: Cuspidal characters of finite general linear groups
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/380
-    says: 'The cuspidal irreducible characters of $\mathrm{GL}_n(\mathbb{F}_q)$ correspond to Frobenius orbits of regular characters of $\mathbb{F}_{q^n}^\times$, and they have degree $\prod_{i=1}^{n-1}(q^i - 1)$.'
-    text: 'Green, The characters of the finite general linear groups, Trans. Amer. Math. Soc. 80 (1955)'
-    why: 'The step [green-vwin](/step/green-vwin/) takes the statement `Green` on cuspidal characters of $\mathrm{GL}_d(\mathbb{F}_g)$ as an input.'
-    steps: [green-vwin]
-  - concept: Euler product
-    math2: 0C3PN4075R
-    says: 'For $s \in \mathbb{C}$ with $\operatorname{Re}(s) > 1$, the Euler product formula says $\zeta(s) = \sum_{n \ge 1} n^{-s} = \prod_p (1 - p^{-s})^{-1}$, where $p$ runs over the primes and the product converges absolutely. In the same way, $L(s, \chi) = \sum_{n \ge 1} \chi(n) n^{-s} = \prod_p (1 - \chi(p) p^{-s})^{-1}$ for each Dirichlet character $\chi$ and $\operatorname{Re}(s) > 1$.'
-    why: 'The last step `imprimitive` removes the condition primitive with the finite Euler factor $\prod (1 - \chi^*(p)p^{-s})$.'
-    steps: [green-vwin]
+    says: 'Let $K$ be a number field and let $M$ be a discrete $G_K$-module. The Tate-Shafarevich group is $\text{Ш}(K, M) = \ker\big(H^1(K, M) \to \prod_v H^1(K_v, M)\big)$, where $v$ runs over all places of $K$.'
+    why: '[VWin](/step/vwin-def/) bounds lengths of Tate-Shafarevich groups of $\mathbb{Q}_\ell/\mathbb{Z}_\ell(-e)$.'
+    steps: [vwin-def]
+  - concept: Length of a module
+    math2: CZSCNZH8VY
+    says: 'The length $\operatorname{len}_R M$ is the number of steps of a composition series of $M$, or $\infty$ if there is none; for a finite $\mathbb{Z}_\ell$-module, $\#M = \ell^{\operatorname{len} M}$.'
+    why: '[VWin](/step/vwin-def/) measures each Tate-Shafarevich group by its length as a $\mathbb{Z}_\ell$-module.'
+    steps: [vwin-def]

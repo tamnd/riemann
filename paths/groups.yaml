@@ -1,0 +1,137 @@
+id: groups
+title: Classical groups
+order: 7
+needs: [algebra, analysis, number-fields, l-functions]
+lead: 'The general linear, symplectic and unitary groups, their parabolic, Levi and compact subgroups, their adelic points and the quotients of finite volume, Hermitian lattices and the Siegel mass formula, and the Heisenberg and metaplectic groups.'
+items:
+  - concept: General linear group
+    math2: 0FCHE902D7
+    says: 'The general linear group $\mathrm{GL}_n(k)$ is the group of invertible $n \times n$ matrices with entries in the field $k$.'
+    why: 'The domain of the local Langlands map in [IsRecT](/step/is-rect-def/) is the set of irreducible representations of $\mathrm{GL}_n(E_w)$.'
+    steps: [is-rect-def]
+  - concept: Symplectic space
+    math2: PQ7JJY0VPH
+    says: 'A symplectic space over $k$ is a finite-dimensional vector space $W$ with a nondegenerate alternating bilinear form $\langle \cdot, \cdot \rangle$.'
+    why: 'The [theta chapter](/proof/theta-matching/) works with the symplectic space $X \otimes W$ made from a Hermitian and a skew-Hermitian space.'
+  - concept: Darboux coordinates
+    text: 'Lang, Algebra, XV.8'
+    says: 'A Darboux basis $e_1, \dots, e_n, f_1, \dots, f_n$ of a symplectic space has $\langle e_i, e_j \rangle = \langle f_i, f_j \rangle = 0$ and $\langle e_i, f_j \rangle = \delta_{ij}$.'
+    why: 'Each Weil model of the [theta chapter](/proof/theta-matching/) fixes Darboux coordinates for the symplectic form on $X \otimes W$.'
+  - concept: Symplectic group
+    math2: X12FS2JAP0
+    says: 'In a Darboux basis, $\mathrm{Sp}_{2n}(k) = \{ g \in \mathrm{GL}_{2n}(k) : g^{T} J g = J \}$ with $J = \begin{pmatrix} 0 & 1_n \\ -1_n & 0 \end{pmatrix}$.'
+    why: 'The [Siegel-Weil chapter](/proof/siegel-weil/) proves the metaplectic representation of the double cover of $\mathrm{Sp}_{2n}(\mathbb{R})$.'
+  - concept: Unitary group
+    math2: 0R9R0Y1HDK
+    says: 'For a Hermitian form $h(x, y) = x^{T} J c(y)$ on $E^n$, the unitary group is $\mathrm{U}_J = \{ g \in \mathrm{GL}_n(E) : g^{T} J \, c(g) = J \}$.'
+    why: 'The group `UA σ J` of the [theta chapter](/proof/theta-matching/) is the adelic unitary group $U_J(\mathbb{A})$.'
+  - concept: Signature
+    text: 'Knapp, Lie Groups Beyond an Introduction, I.17'
+    says: 'At a real place $v$ the Hermitian form has a signature $(p_v, q_v)$, and $\mathrm{U}(V)(F_v) \cong \mathrm{U}(p_v, q_v)$, the unitary group of $\mathbb{C}^n$ for $J = \mathrm{diag}(1_{p_v}, -1_{q_v})$.'
+    why: 'The [Bessel periods](/proof/bessel-seesaw/) use Harish-Chandra modules and discrete series of $U(p,q)$ at the real place.'
+  - concept: Definite unitary group
+    text: 'Gross, Algebraic modular forms, Israel J. Math. 113 (1999)'
+    says: 'The Hermitian space $V$ over a CM field is definite if $q_v = 0$ at each real place $v$, and then $\mathrm{U}(V)(F \otimes_{\mathbb{Q}} \mathbb{R}) = \prod_v \mathrm{U}(n)$ is compact.'
+    why: 'The statement [GeoOne](/step/geo-one-def/) is about a definite unitary group in an odd number of variables.'
+    steps: [geo-one-def]
+  - concept: Parabolic subgroup
+    math2: Z2FEBW5MQM
+    says: 'The stabilizer $P$ in $\mathrm{GL}(V)$ of a flag $0 = V_0 \subsetneq V_1 \subsetneq \cdots \subsetneq V_r = V$ is a parabolic subgroup, the group of block upper triangular matrices in an adapted basis.'
+    why: 'The [Siegel-Weil chapter](/proof/siegel-weil/) uses Eisenstein series induced from a Siegel parabolic.'
+  - concept: Borel subgroup
+    math2: 5JSYA1JNCC
+    says: 'A full flag gives the Borel subgroup $B$ of upper triangular matrices in $\mathrm{GL}_n$.'
+    why: 'The Iwahori subgroup is the inverse image of $B(\mathbb{F}_q)$, and the [Galois row](/proof/galois-row/) proves local-global compatibility at places with Iwahori fixed vectors.'
+  - concept: Levi subgroup
+    text: 'Borel, Linear Algebraic Groups, V.20.5'
+    says: 'For the stabilizer $P$ of a flag, the Levi subgroup $M \cong \mathrm{GL}_{n_1} \times \cdots \times \mathrm{GL}_{n_r}$ is the group of block diagonal matrices, and $P = M \ltimes N$.'
+    why: 'The [determinants chapter](/proof/determinants/) uses characters of Levi determinants.'
+  - concept: Unipotent radical
+    text: 'Borel, Linear Algebraic Groups, IV.11.21'
+    says: 'The unipotent radical $N$ of the stabilizer of a flag is the group of block upper triangular matrices with identity blocks on the diagonal, the largest normal unipotent subgroup of $P$.'
+    why: 'The [Siegel-Weil chapter](/proof/siegel-weil/) compares Fourier coefficients along the unipotent radical of the Siegel parabolic, and the [Bessel periods](/proof/bessel-seesaw/) integrate over the unipotent radical of a flag.'
+  - concept: Weyl group
+    math2: YT1ZJ2S4EE
+    says: 'The Weyl group is $N_G(T)/T$ for the diagonal torus $T$, and a Weyl element is an element of $N_G(T)$ that represents an element of it.'
+    why: 'In `TWeyl` of the [Siegel-Weil chapter](/proof/siegel-weil/) the Weyl element acts on the Weil representation by a Fourier transform.'
+  - concept: Siegel parabolic
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-Functions, LNM 1254, Part A'
+    says: 'The Siegel parabolic $P = MN$ of $\mathrm{U}(W)$ is the stabilizer of the maximal isotropic subspace $X$, with $M = \{ m(a) \}$, $a \in \mathrm{GL}_n(E)$, and $N = \{ n(\beta) : \beta^{T} = c(\beta) \}$.'
+    why: 'The Siegel-Weil chapter writes the action of $m(a)$, $n(\beta)$ and $w$ on the Weil representation in [`TPar` and `TWeyl`](/proof/siegel-weil/).'
+  - concept: Reductive
+    math2: 2XS84PWE3S
+    says: 'A linear algebraic group $G$ over $k$ is reductive if it is smooth and connected and $G_{\bar{k}}$ has no nontrivial connected normal unipotent subgroup.'
+    why: 'The finite volume of $\mathrm{U}(F)\backslash \mathrm{U}(\mathbb{A})$ in the [Siegel-Weil chapter](/proof/siegel-weil/) is the Borel and Harish-Chandra theorem for the reductive group $\mathrm{U}$.'
+  - concept: Maximal compact subgroup
+    math2: T2EB8R9HEV
+    says: 'A maximal compact subgroup of a locally compact group $G$ is a compact subgroup $K$ that is contained in no larger compact subgroup.'
+    why: 'The [local matching](/step/local-matching-def/) fixes the maximal compact subgroup `KInf`, and the [Siegel-Weil chapter](/proof/siegel-weil/) the standard maximal compact $K$.'
+    steps: [local-matching-def]
+  - concept: Cartan involution
+    text: 'Knapp, Lie Groups Beyond an Introduction, VI.2'
+    says: 'For a real reductive group $G \subset \mathrm{GL}_n(\mathbb{C})$ stable under $g \mapsto \bar{g}^{T}$, the Cartan involution is $\theta(g) = (\bar{g}^{T})^{-1}$, with fixed points $K = G \cap \mathrm{U}(n)$.'
+    why: 'The statement [TLiftK](/step/tlift-k-def/) asks that the matrix $\theta_w$ at each infinite place be a Cartan involution for $J$.'
+    steps: [tlift-k-def]
+  - concept: Adelic points
+    math2: M07YRPQPX4
+    says: 'The group $G(\mathbb{A}_F)$ is the restricted product of the groups $G(F_v)$ with respect to the subgroups $G(\mathcal{O}_v)$, and $G(F)$ is a discrete subgroup of it.'
+    why: 'The [theta chapter](/proof/theta-matching/) works with the adelic unitary group $U_J(\mathbb{A})$ with entries in $\mathbb{A}_F \otimes_F E$.'
+  - concept: First congruence subgroup
+    text: 'Bushnell and Henniart, The Local Langlands Conjecture for GL(2), Ch. 2'
+    says: 'The first congruence subgroup $K_1 = 1_n + \varpi M_n(\mathcal{O}_v)$ is the kernel of reduction $\mathrm{GL}_n(\mathcal{O}_v) \to \mathrm{GL}_n(\mathbb{F}_q)$.'
+    why: 'The law `depth` of [IsRecT](/step/is-rect-def/) is about representations with a nonzero vector fixed by the first congruence subgroup `KOne`.'
+    steps: [is-rect-def]
+  - concept: Iwahori subgroup
+    text: 'Iwahori and Matsumoto, Publ. Math. IHES 25 (1965)'
+    says: 'The Iwahori subgroup $I \subset \mathrm{GL}_n(\mathcal{O}_v)$ is the inverse image of the upper triangular matrices $B(\mathbb{F}_q)$ under reduction modulo $\varpi$.'
+    why: 'The [Galois row](/proof/galois-row/) proves local-global compatibility at places with Iwahori fixed vectors in `localGlobalCompatAtIwahoriFixed_of_unlinked`.'
+    steps: [galois-row-holds]
+  - concept: Strong approximation
+    text: 'Platonov and Rapinchuk, Algebraic Groups and Number Theory, 7.4'
+    says: 'For $G$ simply connected and absolutely almost simple over $F$ and $S$ a finite set of places with $\prod_{v \in S} G(F_v)$ not compact, $G(F)$ is dense in $G(\mathbb{A}_F^S)$.'
+    why: 'The literature records for theta lifting carry strong approximation for $\mathrm{SU}$ as the field `strongApproxSU` of [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Fundamental domain
+    math2: KNJA2NEZ9F
+    says: 'A fundamental domain for $G(F)$ in $G(\mathbb{A}_F)$ is a measurable set $D$ whose translates $\gamma D$, $\gamma \in G(F)$, cover $G(\mathbb{A}_F)$ and meet only in sets of measure zero.'
+    why: 'The [Siegel-Weil chapter](/proof/siegel-weil/) fixes a Haar measure and a fundamental domain $D$ for $U_A(F)$ in $U_A(\mathbb{A})$.'
+  - concept: Siegel set
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2'
+    says: 'A Siegel set is $\mathfrak{S} = \omega \, A_0(t) \, K$ with $A_0(t) = \{ a \in A_0 : \alpha(a) > t \text{ for each } \alpha \in \Delta_0 \}$ and $\omega$ compact, and $G(\mathbb{A}_F) = G(F) \, \mathfrak{S}$ for suitable $\omega$ and $t$.'
+    why: '[HypsAlt is nonempty](/step/nonempty-hyps/) uses Siegel sets through the field `siegelSetUnitary`.'
+    steps: [nonempty-hyps]
+  - concept: Finite volume
+    math2: 3B451RD8AJ
+    says: 'For a reductive group $G$ over $F$ with no nontrivial character $G \to \mathbb{G}_m$ over $F$, the quotient $G(F)\backslash G(\mathbb{A}_F)$ has finite volume (Borel and Harish-Chandra).'
+    why: 'The condition `SiegelWeilUnitaryConvergent` of the [Siegel-Weil chapter](/proof/siegel-weil/) uses the finite volume of $\mathrm{U}(F)\backslash \mathrm{U}(\mathbb{A})$.'
+  - concept: Height
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2'
+    says: 'For the Siegel parabolic of $\mathrm{U}(W)$, the height of $g = n(\beta) m(a) k$ is $a(g) = |\det a|_{\mathbb{A}_E}$, with $a(pk) = a(p)$ and $a(\gamma g) = a(g)$ for $\gamma \in P(F)$.'
+    why: 'The [Siegel-Weil chapter](/proof/siegel-weil/) fixes a height $a$ with $a(pk) = |\det t|$, and the [determinants chapter](/proof/determinants/) proves that powers $a(g, 1)^t$ are integrable.'
+  - concept: Hermitian lattice
+    text: 'Jacobowitz, Hermitian forms over local fields, Amer. J. Math. 84 (1962)'
+    says: 'A Hermitian lattice in $V$ is a finitely generated $\mathcal{O}_E$-submodule $L$ that spans $V$, and it is self-dual if $L^\# = L$.'
+    why: 'The statement [TLiftK](/step/tlift-k-def/) asks that each space carry a lattice $L$ that is its own dual for the form $x^{T} J c(y)$.'
+    steps: [tlift-k-def]
+  - concept: Genus
+    text: 'Shimura, Arithmetic of unitary groups, Ann. of Math. 79 (1964)'
+    says: 'Two lattices $L, L''$ are in the same genus if $L''_v = g_v L_v$ with $g_v \in \mathrm{U}(V)(F_v)$ at each finite place $v$, and the classes in the genus are in bijection with $\mathrm{U}(V)(F)\backslash \mathrm{U}(V)(\mathbb{A}_{F,f}) / K_L$.'
+    why: 'The condition `GenusMassAt` in [HypsAlt](/step/hyps-alt-def/) is about the genus and the mass of positive definite Hermitian spaces of rank $2$.'
+    steps: [hyps-alt-def]
+  - concept: Siegel mass formula
+    text: 'Gan, Hanke and Yu, On an exact mass formula of Shimura, Duke Math. J. 107 (2001)'
+    says: 'The mass $\operatorname{mass}(L) = \sum_{[L'']} 1/|\mathrm{U}(L'')|$ of the genus of $L$ is an explicit constant times the product of the factors $\alpha_v(S, S)^{-1}$ over the finite places.'
+    why: 'The condition `GenusMassAt` in [HypsAlt](/step/hyps-alt-def/) is the mass of each positive definite Hermitian space of rank $2$.'
+    steps: [hyps-alt-def]
+  - concept: Local density
+    text: 'Siegel, Uber die analytische Theorie der quadratischen Formen, Ann. of Math. 36 (1935)'
+    says: 'The local density is $\alpha_v(S, T) = \lim_{k \to \infty} q_v^{k(n^2 - 2mn)} N_k$, where $N_k$ counts the $X$ modulo $\varpi^k$ with $X^{T} S \, c(X) \equiv T$.'
+    why: 'The statement `SiegelWeilUnitaryConvergent` in the [Siegel-Weil chapter](/proof/siegel-weil/) contains Siegel''s local densities.'
+  - concept: Heisenberg group
+    math2: ZZYCV5EX9J
+    says: 'The Heisenberg group of $W$ is $H(W) = W \times F$ with $(w, t)(w'', t'') = (w + w'', t + t'' + \tfrac{1}{2} \langle w, w'' \rangle)$.'
+    why: 'The [Bessel periods](/proof/bessel-seesaw/) use the Heisenberg group of a symplectic space in `tame_functional_vacuum_irreducibility`.'
+  - concept: Metaplectic group
+    math2: 8B0JM2YDE2
+    says: 'The metaplectic group $\mathrm{Mp}(W)$ is the nonsplit central extension of $\mathrm{Sp}(W)$ by $\{\pm 1\}$ on which the operators $\omega(g)$ form a true representation.'
+    why: 'The [Siegel-Weil chapter](/proof/siegel-weil/) proves the metaplectic representation of the double cover of $\mathrm{Sp}_{2n}(\mathbb{R})$ that intertwines the Heisenberg action.'

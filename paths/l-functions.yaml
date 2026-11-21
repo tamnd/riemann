@@ -1,51 +1,137 @@
 id: l-functions
-title: Zeta and Dirichlet L-functions
-for: [overview]
-needs: [complex-analysis]
-lead: 'This path covers the zeta function, Dirichlet characters and their L-functions. At its end, a reader can follow the [overview](/proof/) from `EveryCharacter` to the Riemann Hypothesis.'
+title: Zeta and L-functions
+order: 6
+needs: [class-field-theory, complex-analysis]
+lead: 'The Riemann zeta function, Dirichlet characters and L-functions, the Riemann Hypothesis and its generalization in the Mathlib forms, the explicit formula and theorems on primes, and the zeta functions of number fields.'
 items:
   - concept: Riemann zeta function
     math2: TXB2F07CC6
-    says: 'For $\operatorname{Re}(s) > 1$, let $\zeta(s) = \sum_{n=1}^{\infty} n^{-s}$, a series that converges absolutely. The Riemann zeta function is the unique analytic continuation of this function to a meromorphic function on $\mathbb{C}$. Its only pole is a simple pole at $s = 1$.'
-    why: 'The final theorem [riemannHypothesis](/step/riemann-hypothesis/) is a statement about the nontrivial zeros of $\zeta$.'
+    says: 'For $\operatorname{Re}(s) > 1$, $\zeta(s) = \sum_{n \ge 1} n^{-s}$. It extends to a meromorphic function on $\mathbb{C}$ whose only pole is a simple pole at $s = 1$ with residue $1$.'
+    why: 'The final theorem [riemannHypothesis](/step/riemann-hypothesis/) is a statement about the zeros of $\zeta$.'
     steps: [riemann-hypothesis]
   - concept: Euler product
     math2: 0C3PN4075R
-    says: 'For $\operatorname{Re}(s) > 1$, $\zeta(s) = \prod_p (1 - p^{-s})^{-1}$, where $p$ runs over the primes and the product converges absolutely. In the same way, $L(s, \chi) = \prod_p (1 - \chi(p) p^{-s})^{-1}$ for each Dirichlet character $\chi$ and each $s$ with $\operatorname{Re}(s) > 1$.'
-    why: 'The Euler product gives the factor $\prod (1 - \chi^*(p)p^{-s})$ that relates an imprimitive L-function to a primitive one.'
+    says: 'For $\operatorname{Re}(s) > 1$, $\zeta(s) = \prod_p (1 - p^{-s})^{-1}$ and $L(s, \chi) = \prod_p (1 - \chi(p) p^{-s})^{-1}$, with absolute convergence.'
+    why: 'The Euler product gives the factor $\prod_{p \mid N} (1 - \chi^*(p)p^{-s})$ that the step [imprimitive](/step/imprimitive/) uses.'
+    steps: [imprimitive]
+  - concept: Euler-Mascheroni constant
+    math2: 00C5P9JZBK
+    says: 'Euler''s constant is $\gamma = \lim_{N \to \infty} (\sum_{n \le N} 1/n - \log N)$, and $\zeta(s) = 1/(s-1) + \gamma + O(s-1)$.'
+    why: 'It appears in the value `riemannZeta_one` $= (\gamma - \log 4\pi)/2$ at the pole and in the function $G_z$ of the [theta matching chapter](/proof/theta-matching/).'
   - concept: Functional equation of the zeta function
     math2: NFXKNDJX9C
-    says: 'Let $\xi(s) = \pi^{-s/2}\,\Gamma(s/2)\,\zeta(s)$. Then $\xi(s) = \xi(1 - s)$ for every $s \in \mathbb{C} \setminus \{0, 1\}$. Equivalently, $\zeta(s) = 2^s \pi^{s-1} \sin(\pi s/2)\,\Gamma(1 - s)\,\zeta(1 - s)$ as meromorphic functions on $\mathbb{C}$.'
-    why: 'The step [rh-of-right](/step/rh-of-right/) uses the functional equation to move a zero with real part below $1/2$ to the right half of the strip.'
+    says: 'With $\xi(s) = \pi^{-s/2}\Gamma(s/2)\zeta(s)$, $\xi(s) = \xi(1 - s)$; in Mathlib, $\zeta(1-u) = 2(2\pi)^{-u}\Gamma(u)\cos(\pi u/2)\zeta(u)$ for $u \notin \{0, -1, -2, \dots\}$, $u \neq 1$.'
+    why: 'The step [rh-of-right](/step/rh-of-right/) uses `riemannZeta_one_sub` to move a zero with real part below $1/2$ to the right half of the strip.'
     steps: [rh-of-right]
+  - concept: Trivial zeros
+    text: 'Titchmarsh, The Theory of the Riemann Zeta-Function, 2.12'
+    says: 'The trivial zeros of $\zeta$ are $-2, -4, -6, \dots$, that is $-2(n+1)$ for $n \in \mathbb{N}$; all other zeros lie in the critical strip $0 < \operatorname{Re}(s) < 1$.'
+    why: 'The Mathlib statement `RiemannHypothesis` excludes them by the hypothesis $\neg\exists n : \mathbb{N},\ s = -2(n+1)$, see [riemannHypothesis](/step/riemann-hypothesis/).'
+    steps: [riemann-hypothesis]
+  - concept: Critical strip
+    text: 'Titchmarsh, The Theory of the Riemann Zeta-Function, ch. 2'
+    says: 'The critical strip is $0 < \operatorname{Re}(s) < 1$; the zeros of $\zeta$ in it are the nontrivial zeros, symmetric under $s \mapsto 1 - s$ and $s \mapsto \bar s$.'
+    why: 'The theorem `LFunction_eq_zero_re` of the [overview](/proof/) puts each zero of $L(s, \chi)$ in the critical strip on the line $\operatorname{Re}(s) = 1/2$.'
   - concept: Riemann Hypothesis
     math2: VCGF9YR36X
-    says: 'The Riemann Hypothesis states that every zero $s$ of the Riemann zeta function with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$. The zeros of $\zeta$ outside this strip are the trivial zeros $-2, -4, -6, \dots$.'
-    why: 'The theorem [riemannHypothesis](/step/riemann-hypothesis/) is `rhOfAll`, and it states RH in the Mathlib form.'
+    says: 'Each zero $s$ of $\zeta$ with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$. Mathlib states it as: for each $s$ with $\zeta(s) = 0$, $s \neq -2(n+1)$ for all $n \in \mathbb{N}$ and $s \neq 1$, $\operatorname{Re}(s) = 1/2$; the two forms are equivalent.'
+    why: 'The theorem [riemannHypothesis](/step/riemann-hypothesis/) is `rhOfAll`, and it proves RH in the Mathlib form.'
     steps: [riemann-hypothesis, rh-of-all]
   - concept: Dirichlet character
     math2: JR4QSEFXWF
-    says: 'Let $q \geq 1$ be an integer. A Dirichlet character modulo $q$ is a function $\chi: \mathbb{Z} \to \mathbb{C}$ with $\chi(n + q) = \chi(n)$ and $\chi(mn) = \chi(m)\chi(n)$ for all $m, n \in \mathbb{Z}$, such that $\chi(n) = 0$ when $\gcd(n, q) > 1$ and $\chi(n) \neq 0$ when $\gcd(n, q) = 1$. Equivalently, it is a group homomorphism $(\mathbb{Z}/q\mathbb{Z})^\times \to \mathbb{C}^\times$, extended by $0$ to the integers not prime to $q$.'
+    says: 'A Dirichlet character modulo $N$ is a group homomorphism $(\mathbb{Z}/N\mathbb{Z})^\times \to \mathbb{C}^\times$, extended by $0$ to the integers not prime to $N$; it is even or odd as $\chi(-1) = 1$ or $-1$.'
     why: 'The statement [EveryCharacter](/step/every-character-def/) quantifies over each Dirichlet character $\chi$ modulo each $N \geq 1$.'
     steps: [every-character-def]
-  - concept: Primitive Dirichlet character and conductor
+  - concept: Primitive
     math2: null
     proposal: https://github.com/tamnd/math2/issues/369
-    says: 'A Dirichlet character is primitive when it is not induced from a character of smaller modulus, and its conductor is the least such modulus.'
     text: 'Davenport, Multiplicative Number Theory, 3rd ed. (2000), ch. 5'
-    why: 'The window bound [VWin](/step/vwin-def/) quantifies over primitive characters `PChar` with conductor $N_\psi$.'
-    steps: [vwin-def]
+    says: 'A Dirichlet character modulo $N$ is primitive when its conductor, the least modulus from which it is induced, is $N$.'
+    why: 'The window bound [VWin](/step/vwin-def/) and `ZeroFreeAll` quantify over primitive characters `PChar`.'
+    steps: [vwin-def, zero-free-all-of-green-v-win]
   - concept: Dirichlet L-function
     math2: 24GAZHVTGB
-    says: 'Let $\chi$ be a Dirichlet character modulo $q$. For $\operatorname{Re}(s) > 1$, the series $L(s, \chi) = \sum_{n=1}^{\infty} \chi(n) n^{-s}$ converges absolutely. The Dirichlet L-function of $\chi$ is the analytic continuation of this function to a meromorphic function on $\mathbb{C}$. It is entire when $\chi$ is not principal, and for the principal character its only pole is a simple pole at $s = 1$.'
-    why: 'The statement [EveryCharacter](/step/every-character-def/) says that $L(s,\chi) \neq 0$ for $\operatorname{Re}(s) > 1/2$.'
+    says: 'For $\operatorname{Re}(s) > 1$, $L(s, \chi) = \sum_{n \ge 1} \chi(n) n^{-s}$; it extends to $\mathbb{C}$, entire for $\chi \ne 1$, with a simple pole at $s = 1$ for trivial $\chi$.'
+    why: 'The statement [EveryCharacter](/step/every-character-def/) says that $L(s,\chi) \neq 0$ for $\operatorname{Re}(s) > 1/2$, except at the pole.'
     steps: [every-character-def]
+  - concept: Imprimitive characters
+    text: 'Davenport, Multiplicative Number Theory, ch. 5'
+    says: 'If $\chi$ modulo $N$ is induced from the primitive $\chi^*$, then $L(s, \chi) = L(s, \chi^*) \prod_{p \mid N} (1 - \chi^*(p) p^{-s})$, and the extra factors vanish only on $\operatorname{Re}(s) = 0$.'
+    why: 'The step [imprimitive](/step/imprimitive/) proves this relation with `LFunction_changeLevel` and passes from primitive to all characters.'
+    steps: [imprimitive]
   - concept: Gauss sum
     math2: EQ6A3ZN48K
-    says: 'Let $\mathbb{F}$ be a finite field, let $\chi$ be a character of the group $\mathbb{F}^\times$, and let $\psi$ be a character of the additive group of $\mathbb{F}$. The Gauss sum is $g(\chi, \psi) = \sum_{a \in \mathbb{F}^\times} \chi(a)\psi(a)$. For a Dirichlet character $\chi$ modulo $N$, the Gauss sum is $\tau(\chi) = \sum_{a=1}^{N} \chi(a) e^{2\pi i a/N}$.'
-    why: 'The recursion laws of the theta constants in the [theta chapter](/proof/theta-matching/) contain a Gauss sum and an epsilon factor.'
+    says: 'For a Dirichlet character $\chi$ modulo $N$, $\tau(\chi) = \sum_{a=1}^{N} \chi(a) e^{2\pi i a/N}$, and $|\tau(\chi)| = \sqrt N$ for primitive $\chi$.'
+    why: 'The epsilon factors of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) contain local Gauss sums.'
+    steps: [theta-integrals-agree-def]
+  - concept: Functional equation
+    text: 'Davenport, Multiplicative Number Theory, ch. 9'
+    says: 'For primitive $\chi$ modulo $N$ with $\chi(-1) = (-1)^\kappa$, $\Lambda(s, \chi) = (N/\pi)^{(s+\kappa)/2}\Gamma((s+\kappa)/2)L(s, \chi)$ satisfies $\Lambda(s, \chi) = \tau(\chi) i^{-\kappa} N^{-1/2} \Lambda(1 - s, \bar\chi)$.'
+    why: 'It makes the zeros in the strip symmetric under $s \mapsto 1 - \bar s$, so the right half-plane statement [EveryCharacter](/step/every-character-def/) gives the zeros on the line.'
+    steps: [every-character-def]
+  - concept: Order of a zero
+    math2: 0QX19C7K1C
+    says: 'The order $m_\rho$ of a zero $\rho$ of a holomorphic $f \not\equiv 0$ is the least $m$ with $f^{(m)}(\rho) \ne 0$.'
+    why: 'The field `logDerOne` of [ThetaLocalInputs](/step/theta-local-inputs-def/) sums $m_\rho/(1-\rho)$ over zeros with their orders.'
+    steps: [theta-local-inputs-def]
   - concept: Generalized Riemann Hypothesis
     math2: DNKA4WBKDS
-    says: 'The Generalized Riemann Hypothesis for Dirichlet L-functions states that, for every Dirichlet character $\chi$, every zero $s$ of $L(s, \chi)$ with $0 < \operatorname{Re}(s) < 1$ has $\operatorname{Re}(s) = 1/2$.'
-    why: 'The step [rh-of-every](/step/rh-of-every/) takes GRH for Dirichlet L-functions and keeps the case of the trivial character.'
+    says: 'For each $N \ge 1$, each Dirichlet character $\chi$ modulo $N$ and each $s$ with $0 < \operatorname{Re}(s) < 1$ and $L(s, \chi) = 0$, $\operatorname{Re}(s) = 1/2$. The proof states it also as: $L(s, \chi) \ne 0$ for $\operatorname{Re}(s) > 1/2$ when $\chi \ne 1$ or $s \ne 1$.'
+    why: 'The step [rh-of-every](/step/rh-of-every/) takes EveryCharacter at $N = 1$, and [all-chi](/step/all-chi/) proves it.'
     steps: [rh-of-every, all-chi]
+  - concept: von Mangoldt function
+    math2: 0NK8JTE1NN
+    says: '$\Lambda(n) = \log p$ if $n = p^k$ with $k \ge 1$, and $0$ otherwise; $-\zeta''/\zeta(s) = \sum_n \Lambda(n) n^{-s}$ for $\operatorname{Re}(s) > 1$.'
+    why: 'The function $G_z(y) = \sum_{n \le y} \Lambda(n)(y/n - 1) - y \log y + (1+\gamma) y$ of [ZeroFreeAll](/step/zero-free-all-of-green-v-win/) is a weighted sum of $\Lambda(n)$.'
+    steps: [zero-free-all-of-green-v-win]
+  - concept: Explicit formula
+    math2: 72WNRWJQC1
+    says: 'The explicit formula of von Mangoldt, Guinand and Weil writes a weighted sum of $\Lambda(n)$ as a main term minus a sum over the nontrivial zeros, such as $\psi(x) = x - \sum_\rho x^\rho/\rho - \log 2\pi - \frac12 \log(1 - x^{-2})$.'
+    why: 'The lemma `FormB` of [ZeroFreeAll](/step/zero-free-all-of-green-v-win/) turns a bound $G_m(x) \le x^\theta$ into the absence of zeros with $\operatorname{Re}(s) > \theta$.'
+    steps: [zero-free-all-of-green-v-win]
+  - concept: Dirichlet's theorem
+    math2: 0GNVN3CA2P
+    says: 'For $\gcd(a, q) = 1$ there are infinitely many primes $p \equiv a \bmod q$, with Dirichlet density $1/\varphi(q)$.'
+    why: 'It is the base of Linnik''s theorem, which the field `linnik` of [ThetaLocalInputs](/step/theta-local-inputs-def/) states.'
+  - concept: Linnik
+    text: 'Iwaniec and Kowalski, Analytic Number Theory, ch. 18'
+    says: 'There are absolute $c, L > 0$ such that the least prime $p \equiv a \bmod q$ is at most $c q^L$ for each $q \ge 2$ and each $a$ prime to $q$.'
+    why: 'The field `linnik` of [ThetaLocalInputs](/step/theta-local-inputs-def/) states it.'
+    steps: [theta-local-inputs-def]
+  - concept: Primes in short intervals
+    math2: XS05T5JA7G
+    says: 'For $\theta > 7/12$, the number of primes in $(x, x + x^\theta]$ is asymptotic to $x^\theta/\log x$, and $[x - x^{0.525}, x]$ contains a prime for large $x$.'
+    why: 'The input `hLit : LitThin` of [HypsAlt](/step/hyps-alt-def/) asks for three statements `ShortIntervalPrimes`.'
+    steps: [hyps-alt-def]
+  - concept: Chebotarev
+    math2: X8VKW5Y1CZ
+    says: 'For a finite Galois $L/K$ with group $G$ and a conjugacy class $C$, the primes of $K$ unramified in $L$ with $\mathrm{Frob}_{\mathfrak p} = C$ have natural density $|C|/|G|$, also among the primes of degree one.'
+    why: 'The field `chebotarevDegreeOne` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) is Chebotarev for primes of degree one.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Dedekind zeta function
+    math2: KXS5DQDFYD
+    says: 'The Dedekind zeta function of $K$ is $\zeta_K(s) = \sum_{\mathfrak a} N(\mathfrak a)^{-s} = \prod_{\mathfrak p}(1 - N(\mathfrak p)^{-s})^{-1}$ for $\operatorname{Re}(s) > 1$.'
+    why: 'For an imaginary quadratic field $\zeta_K = \zeta \cdot L(s, \chi_{-d})$, which links the class number to $L(1, \chi)$ in the [CM divisibility chapter](/proof/cm-divisibility/).'
+  - concept: Partial zeta function
+    text: 'Neukirch, Algebraic Number Theory, VII.8'
+    says: 'For a ray class $\mathfrak c$ modulo $\mathfrak f$, $\zeta(s, \mathfrak c) = \sum_{\mathfrak a \in \mathfrak c} N(\mathfrak a)^{-s}$ over integral ideals; it is meromorphic with a simple pole at $s = 1$ and has a functional equation.'
+    why: 'The input `PartialZetaFunctionalEquation` of [the CM inputs](/step/cm-abelian-inputs-from-literature/) is the only one of its four inputs that does work.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Class number formula
+    math2: 55XX5A7XZV
+    says: '$\operatorname{Res}_{s=1} \zeta_K(s) = 2^{r_1}(2\pi)^{r_2} h_K R_K/(w_K \sqrt{|d_K|})$; for an imaginary quadratic field of discriminant $-d$ with $d > 4$, $L(1, \chi_{-d}) = \pi h/\sqrt d$.'
+    why: 'The Chowla-Selberg mean of the [CM divisibility chapter](/proof/cm-divisibility/) uses `LFunction_one_eq_classNumber`.'
+  - concept: Kronecker limit formula
+    math2: PD750J2XV9
+    says: 'For the Eisenstein series $E(\tau, s) = \sum_{(m,n) \ne 0} y^s/|m\tau + n|^{2s}$, $E(\tau, s) = \pi/(s-1) + 2\pi(\gamma - \log 2 - \log(\sqrt y |\eta(\tau)|^2)) + O(s - 1)$.'
+    why: 'The Chowla-Selberg mean of the [CM divisibility chapter](/proof/cm-divisibility/) uses `tendsto_realEisenstein_sub_pole`.'
+  - concept: Siegel-Klingen
+    text: 'Siegel, Über die Fourierschen Koeffizienten von Modulformen, Nachr. Akad. Göttingen (1970)'
+    says: 'For a totally real field $F$ and a ray class $\mathfrak c$, the values $\zeta(1 - k, \mathfrak c)$, $k \ge 1$, are rational.'
+    why: 'The input `SiegelKlingenDeligneRibet` of [the CM inputs](/step/cm-abelian-inputs-from-literature/) states it with Deligne-Ribet.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Deligne-Ribet
+    text: 'Deligne and Ribet, Values of abelian L-functions at negative integers over totally real fields, Invent. Math. 59 (1980)'
+    says: 'The rational values of partial zeta functions of a totally real field at negative integers satisfy $\ell$-adic congruences, such as $r - N(\mathfrak c)^k r'' \in \mathbb{Z}_\ell$.'
+    why: 'The [literature chapter](/proof/literature/) lists the congruence, and [the CM inputs](/step/cm-abelian-inputs-from-literature/) hold it as `SiegelKlingenDeligneRibet`.'
+    steps: [cm-abelian-inputs-from-literature]

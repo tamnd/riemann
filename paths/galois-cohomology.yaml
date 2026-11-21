@@ -1,0 +1,95 @@
+id: galois-cohomology
+title: Galois cohomology
+order: 11
+needs: [galois-representations]
+lead: 'Continuous cohomology of Galois groups, the duality theorems over local and global fields, Selmer groups and Iwasawa theory. The window bound of the proof is a bound on lengths of Tate-Shafarevich groups, and its counting argument uses these tools.'
+items:
+  - concept: Galois cohomology
+    math2: 9MPCZ3EAJM
+    says: 'Let $K$ be a field and let $M$ be a discrete $G_K$-module. The Galois cohomology group $H^n(K, M)$ is the cohomology of the complex of continuous cochains $G_K^n \to M$. It is the direct limit of $H^n(\operatorname{Gal}(L/K), M^{G_L})$ over finite Galois extensions $L/K$.'
+    why: 'The group of [VWin](/step/vwin-def/) is a subgroup of $H^1(G_S, \mathbb{Q}_l/\mathbb{Z}_l(-e))$.'
+    steps: [vwin-def]
+  - concept: Kummer theory
+    math2: 6RXEC9CT6M
+    says: 'For $n$ prime to the characteristic of $K$, Hilbert 90 gives $H^1(K, \mu_n) \cong K^\times / K^{\times n}$.'
+    why: 'It is the basic example of $H^1$ with twisted coefficients, the kind of group that [VWin](/step/vwin-def/) measures.'
+  - concept: Unramified classes
+    text: 'Neukirch, Schmidt and Wingberg, Cohomology of Number Fields, 2nd ed. (2008), ch. VII, sec. 2'
+    says: 'For a local field $K$, $H^1_{\mathrm{ur}}(K, M)$ is the kernel of restriction to inertia. For unramified $M$ of order prime to $p$, $H^1_{\mathrm{ur}}(K, M)$ and $H^1_{\mathrm{ur}}(K, M^\vee)$ are exact annihilators.'
+    why: 'Selmer structures use unramified classes at almost all places, and the Greenberg-Wiles statement of `LitCoh` depends on this.'
+  - concept: Local finiteness
+    text: 'Neukirch, Schmidt and Wingberg, Cohomology of Number Fields, 2nd ed. (2008), ch. VII, sec. 2'
+    says: 'For a finite extension $K$ of $\mathbb{Q}_p$ and a finite $G_K$-module $M$, the groups $H^n(K, M)$ are finite, and they vanish for $n \geq 3$.'
+    why: 'The theorem `vwin_of_counts` takes `LocalFinitenessK` as a hypothesis.'
+  - concept: Local Tate duality
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/398
+    says: 'For a finite Galois module $M$ over a p-adic field, the cup product gives a perfect pairing $H^n(K, M) \times H^{2-n}(K, M^\vee) \to \mathbb{Q}/\mathbb{Z}$, with $M^\vee = \mathrm{Hom}(M, \mu)$.'
+    text: 'Neukirch, Schmidt and Wingberg, Cohomology of Number Fields, 2nd ed. (2008), ch. VII'
+    why: 'The theorem `vwin_of_counts` takes `LocalTateDualityK` as a hypothesis.'
+  - concept: Local Euler characteristic formula
+    text: 'Milne, Arithmetic Duality Theorems, 2nd ed. (2006), ch. I, sec. 2'
+    says: 'For a finite $G_K$-module $M$ of order $m$ over a finite extension $K$ of $\mathbb{Q}_p$, $\#H^0 \#H^2 / \#H^1 = p^{-v_p(m)[K:\mathbb{Q}_p]}$.'
+    why: 'The bundle `LitCoh` of [the window bound](/proof/vwin/) has a statement on the local Euler characteristic.'
+  - concept: Tate global Euler characteristic formula
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/399
+    says: 'The Tate formula expresses $\#H^0(G_S, M) \#H^2(G_S, M) / \#H^1(G_S, M)$ for a finite module $M$ as a product of local terms at the infinite places.'
+    text: 'Milne, Arithmetic Duality Theorems, 2nd ed. (2006), ch. I'
+    why: 'The bundle `coh : LitCoh` has 12 statements on Galois cohomology, and Euler characteristics are among them.'
+  - concept: Poitou-Tate duality
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/397
+    says: 'Poitou-Tate duality is a nine-term exact sequence that links the global Galois cohomology of a finite module $M$ and of its dual $M^\vee$, and it gives a perfect pairing between $\text{Ш}^1_S(M)$ and $\text{Ш}^2_S(M^\vee)$.'
+    text: 'Neukirch, Schmidt and Wingberg, Cohomology of Number Fields, 2nd ed. (2008), ch. VIII'
+    why: 'The theorem `vwin_of_counts` takes `PoitouTateDuality` as a hypothesis, and `ThmBab` uses it with `LemmaK`.'
+  - concept: Tate-Shafarevich group
+    math2: BK9WBMF56G
+    says: 'Let $K$ be a number field and let $M$ be a discrete $G_K$-module. The Tate-Shafarevich group is $\text{Ш}(K, M) = \ker\big(H^1(K, M) \to \prod_v H^1(K_v, M)\big)$, where $v$ runs over all places of $K$.'
+    why: 'The window bound [VWin](/step/vwin-def/) bounds weighted lengths of Tate-Shafarevich groups.'
+    steps: [vwin-def]
+  - concept: Selmer group
+    math2: 36YNSTESMQ
+    says: 'Given subgroups $L_v \subset H^1(K_v, M)$, equal to the unramified classes for almost all $v$, the Selmer group is the set of classes in $H^1(K, M)$ whose restriction to each $K_v$ lies in $L_v$. For an elliptic curve it sits in $0 \to A(K)/n \to \mathrm{Sel}^n(A/K) \to \text{Ш}(A/K)[n] \to 0$.'
+    why: 'The counts `CountI` to `CountZ` of [the window bound](/proof/vwin/) bound Selmer-type lengths polynomially in $l$, the modulus and $e$.'
+  - concept: Greenberg-Wiles formula
+    text: 'Darmon, Diamond and Taylor, Fermat''s Last Theorem (1997), Thm 2.19; Wiles, Ann. of Math. 141 (1995)'
+    says: 'For a finite module $M$ and a Selmer structure $\mathcal{L}$, the ratio of $\#H^1_{\mathcal{L}}(K, M)$ to $\#H^1_{\mathcal{L}^*}(K, M^\vee)$ equals $\#H^0(K, M)/\#H^0(K, M^\vee)$ times $\prod_v \#L_v / \#H^0(K_v, M)$.'
+    why: 'The bundle `LitCoh` of [the window bound](/proof/vwin/) has a statement named after the Greenberg-Wiles formula.'
+  - concept: Bloch-Kato Selmer group
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/400
+    says: 'The Bloch-Kato Selmer group of a p-adic representation is the subgroup of $H^1$ of classes that are unramified away from $p$ and crystalline in the sense of $H^1_f$ at $p$.'
+    text: 'Bloch and Kato, L-functions and Tamagawa numbers of motives, in The Grothendieck Festschrift I (1990)'
+    why: 'The statement `KatoTwoW` concludes that Bloch-Kato Selmer groups of two twists of $W$ vanish, for $W$ attached to a newform of weight $2e+1$.'
+  - concept: Plus and minus parts
+    text: 'Washington, Introduction to Cyclotomic Fields, 2nd ed. (1997), ch. 6'
+    says: 'For a $\mathbb{Z}_l$-module $X$ with an involution $c$ and $l$ odd, $X = X^+ \oplus X^-$ with $X^\pm = \frac{1 \pm c}{2} X$, and lengths add.'
+    why: 'The theorem `shaLen_eq_add` of [the window bound](/proof/vwin/) splits the length into the part at $l = 2$ and two eigenspaces of complex conjugation.'
+  - concept: Iwasawa theory
+    math2: Y2SPPSQ5D4
+    says: 'Let $p$ be a prime and let $K_\infty / K$ be a Galois extension of number fields with $\operatorname{Gal}(K_\infty/K) \cong \mathbb{Z}_p$, with layers $K_n$ of degree $p^n$ over $K$. Iwasawa theory studies limits along such towers as modules over $\Lambda = \mathbb{Z}_p[[T]]$. Iwasawa proved that the $p$-part of the class group of $K_n$ has order $p^{\mu p^n + \lambda n + \nu}$ for all large $n$.'
+    why: 'The bound `ThmBab` controls the parts of the length over cyclotomic layers (`BbAt`).'
+  - concept: Ferrero-Washington theorem
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/372
+    says: 'The Ferrero-Washington theorem says that the Iwasawa $\mu$-invariant of the cyclotomic $\mathbb{Z}_p$-extension of an abelian number field is zero.'
+    text: 'Ferrero and Washington, The Iwasawa invariant mu_p vanishes for abelian number fields, Ann. of Math. 109 (1979)'
+    why: 'The theorem `ThmBab K 401` comes from Lemma K, Poitou-Tate, local finiteness, local Tate duality and `ferreroWashington`.'
+  - concept: Euler system
+    text: 'Rubin, Euler Systems, Annals of Math. Studies 147 (2000), ch. 2'
+    says: 'An Euler system for $T$ is a family of classes $c_F \in H^1(F, T)$ over abelian extensions $F$ of $K$ whose corestrictions satisfy norm relations with Euler factors. A non-torsion class $c_K$ bounds the Selmer group of $T^\vee(1)$.'
+    why: 'The proof of `KatoTwoW` in [the window bound](/proof/vwin/) goes through an Euler system argument.'
+  - concept: Kato Euler system
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/401
+    says: 'Kato constructs an Euler system of Beilinson elements in the K-theory of modular curves, and it bounds Selmer groups of modular forms.'
+    text: 'Kato, p-adic Hodge theory and values of zeta functions of modular forms, Asterisque 295 (2004)'
+    why: 'The count of case I uses a Kato-type vanishing for two-dimensional representations, the statement `KatoTwoW`, and its part `Kato.Final.zetaUr` is named after Kato.'
+  - concept: Hida theory
+    math2: null
+    proposal: https://github.com/tamnd/math2/issues/402
+    says: 'Hida theory puts ordinary cuspidal Hecke eigenforms of varying weight into p-adic analytic families over an Iwasawa algebra.'
+    text: 'Hida, Elementary Theory of L-functions and Eisenstein Series (1993)'
+    why: 'The theorem `core_alt_bis` proves `DenseThresholdMainCase`, a statement on a universal ordinary determinant ring in a Hida setting.'
+    steps: [hyps-alt-def]

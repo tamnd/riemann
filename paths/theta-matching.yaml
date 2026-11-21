@@ -1,74 +1,106 @@
 id: theta-matching
 title: Theta integrals and local matching
 for: [theta-matching]
-needs: [automorphic-forms, trunk]
-lead: 'This path covers hermitian spaces, the Weil representation and theta integrals, and the zero-free step at the end. At its end, a reader can read `IsTriple`, `ThetaIntegralsAgree` and `LocalMatching`.'
+needs: [algebra, analysis, number-fields, class-field-theory, l-functions, groups, representations, theta]
+lead: 'To read this chapter you need Hermitian forms, Hecke characters, the Weil representation and theta lifts for unitary dual pairs, and a little about Dirichlet L-functions.'
 items:
   - concept: Hermitian form
-    math2: 48P4A1CX85
-    says: 'Let $E/F$ be a field extension of degree 2 with conjugation $x \mapsto \bar{x}$, for example $\mathbb{C}/\mathbb{R}$, and let $V$ be a vector space over $E$. A hermitian form on $V$ is a map $h: V \times V \to E$ that is $E$-linear in the first slot, conjugate-linear in the second slot, and has $h(v, u) = \overline{h(u, v)}$ for all $u, v \in V$.'
-    why: 'A triple of `IsTriple` has two hermitian spaces $V, V''$ and one skew-hermitian space $W$ over a CM extension.'
-  - concept: Unitary group
-    math2: 0R9R0Y1HDK
-    says: 'Let $E/F$ be a field extension of degree 2 with conjugation $x \mapsto \bar{x}$, and let $V$ be a finite-dimensional vector space over $E$ with a nondegenerate hermitian form $h$. The unitary group $U(V)$ is the group of $E$-linear maps $g: V \to V$ with $h(gu, gv) = h(u, v)$ for all $u, v \in V$. For $\mathbb{C}/\mathbb{R}$ and the standard form on $\mathbb{C}^n$, it is the group $U(n)$ of complex $n \times n$ matrices $U$ with $U^* U = I_n$.'
-    why: 'The theta integral $I_M(\Phi)(h)$ is an integral over $U_X(F) \backslash U_X(\mathbb{A})$ for a unitary group $U_X$.'
-  - concept: Symplectic vector space
-    math2: PQ7JJY0VPH
-    says: 'Let $F$ be a field. A symplectic vector space over $F$ is a finite-dimensional vector space $V$ over $F$ with a bilinear form $\omega$ that is alternating, so $\omega(v, v) = 0$ for all $v$, and nondegenerate, so $\omega(v, w) = 0$ for all $w$ only when $v = 0$. Then $\dim V = 2m$ is even, and $V$ has a basis $e_1, \dots, e_m, f_1, \dots, f_m$ with $\omega(e_i, f_j) = \delta_{ij}$ and $\omega(e_i, e_j) = \omega(f_i, f_j) = 0$.'
-    why: 'A `Model σ X W` fixes Darboux coordinates for the symplectic form on $X \otimes W$.'
-  - concept: Reductive dual pair
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/404
-    says: 'Let $W$ be a symplectic vector space over a field $F$, with symplectic group $\mathrm{Sp}(W)$. A reductive dual pair in $\mathrm{Sp}(W)$ is a pair $(G, G'')$ of reductive subgroups of $\mathrm{Sp}(W)$ such that $G$ is the centralizer of $G''$ in $\mathrm{Sp}(W)$ and $G''$ is the centralizer of $G$ in $\mathrm{Sp}(W)$.'
-    why: 'The groups $U_V$ and $U_W$ form a dual pair in the symplectic group of $V \otimes W$, and the Weil representation restricts to $U_V \times U_W$.'
-  - concept: Weil representation
-    math2: CD20HVR9V8
-    says: 'Let $W$ be a symplectic vector space over a local field $F$, let $\psi$ be a nontrivial additive character of $F$, and let $\rho_\psi$ be the Schrödinger representation of the Heisenberg group $W \times F$ with central character $\psi$. The Weil representation $\omega_\psi$ is the unitary representation of the metaplectic group $\mathrm{Mp}(W)$, a two-fold cover of $\mathrm{Sp}(W)$, on the space of $\rho_\psi$ with $\omega_\psi(\tilde{g}) \rho_\psi(w, t) \omega_\psi(\tilde{g})^{-1} = \rho_\psi(gw, t)$, where $g$ is the image of $\tilde{g}$ in $\mathrm{Sp}(W)$. By the Stone-von Neumann theorem, each operator $\omega_\psi(\tilde{g})$ is unique up to a scalar of absolute value 1.'
-    why: 'The fields `weil` and `weil''` of `IsTriple` ask that `om` and `om''` are Weil representations of $U_V \times U_W$ and $U_{V''} \times U_W$.'
-    steps: [theta-local-matching]
-  - concept: Splitting characters of the Weil representation
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/390
-    says: 'A splitting character is a Hecke character of a CM field whose restriction to the base field is the quadratic character of the extension, and it fixes a splitting of the metaplectic cover over a unitary group.'
-    text: 'Harris, Kudla and Sweet, Theta dichotomy for unitary groups, J. Amer. Math. Soc. 9 (1996), sec. 1'
-    why: 'The two Weil representations of a triple have the splitting characters $(\beta, \beta/\alpha)$ and $(\alpha, \alpha/\beta)$.'
-  - concept: Schwartz space
-    math2: CG9JEATW3Q
-    says: 'The Schwartz space $\mathcal{S}(\mathbb{R}^n)$ is the space of smooth functions $f: \mathbb{R}^n \to \mathbb{C}$ such that $x^\alpha \partial^\beta f$ is bounded for all multi-indices $\alpha, \beta$. For a non-archimedean local field $F$ with ring of integers $\mathcal{O}$, $\mathcal{S}(F^n)$ is the space of locally constant functions $F^n \to \mathbb{C}$ with compact support. For a number field, the adelic Schwartz space $\mathcal{S}(\mathbb{A}^n)$ is spanned by the products $\prod_v f_v$ with $f_v \in \mathcal{S}(F_v^n)$ for each place $v$ and $f_v$ equal to the indicator function of $\mathcal{O}_v^n$ for almost all $v$.'
-    why: 'The condition `Decay` asks that $g \mapsto \theta(g,h;\Phi)$ is integrable for each adelic Schwartz function $\Phi$.'
+    math2: 8NJ7XY6F1S
+    says: 'A Hermitian form is a sesquilinear form $h$ with $h(y, x) = \sigma(h(x, y))$.'
+    why: 'A triple of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) has two Hermitian spaces $V$ and $V''$ of given signatures.'
+    steps: [theta-integrals-agree-def]
+  - concept: Skew-Hermitian form
+    text: 'Scharlau, Quadratic and Hermitian Forms, 7.1'
+    says: 'A skew-Hermitian form is a sesquilinear form $h$ with $h(y, x) = -\sigma(h(x, y))$.'
+    why: 'The third space $W$ of a triple is skew-Hermitian of size $a + a''$, and both theta lifts land in $\mathrm{U}(W)$.'
+    steps: [theta-integrals-agree-def]
+  - concept: Coinvariants
+    text: 'Lang, Algebra, XVI'
+    says: 'The coinvariants of a representation $V$ of $G$ are $V_G = V / \operatorname{span}\{gv - v\}$; the invariant linear forms on $V$ are the linear forms on $V_G$.'
+    why: 'The condition `Coinv` of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) says that the kernels of the local maps are the coinvariant spaces `augAt`.'
+    steps: [theta-integrals-agree-def]
+  - concept: Finite field
+    math2: 0ZXZ82FTX2
+    says: 'For each prime power $q$ there is a field $\mathbb{F}_q$ with $q$ elements, unique up to isomorphism, and $\mathbb{F}_q^\times$ is cyclic.'
+    why: 'The input [GreenRegularCharacters](/step/green-of-regular/) is about characters of $\mathbb{F}_{g^d}^\times$ and cuspidal characters of $\mathrm{GL}_d(\mathbb{F}_g)$.'
+    steps: [green-of-regular, green-def]
   - concept: Haar measure
-    math2: VY0HXD3GC4
-    says: 'Let $G$ be a locally compact Hausdorff group. A left Haar measure on $G$ is a nonzero Radon measure $\mu$ on $G$ with $\mu(gB) = \mu(B)$ for all $g \in G$ and all Borel sets $B \subseteq G$. Such a measure exists, and it is unique up to a positive constant factor.'
-    why: 'The condition `IsGood` asks that the measure $\mu$ on $U_X(\mathbb{A})$ is a Haar measure.'
+    math2: CE0V9686M8
+    says: 'A Haar measure on a locally compact group is a nonzero regular left invariant Borel measure; it exists and is unique up to a positive factor.'
+    why: 'The predicate `IsGood` of a model asks that the measure $\mu$ on $\mathrm{U}(X)(\mathbb{A})$ is a Haar measure.'
+    steps: [local-matching-def]
   - concept: Fundamental domain
-    math2: KNJA2NEZ9F
-    says: 'Let a group $\Gamma$ act on a set $X$. A fundamental domain for $\Gamma$ in $X$ is a subset $D \subseteq X$ that contains exactly one point of each $\Gamma$-orbit. In measure theory one often asks this only up to a null set, so the translates $\gamma D$ for $\gamma \in \Gamma$ cover $X$ and two different translates meet only in a set of measure zero.'
-    why: 'The condition `IsGood` asks that `dom` is a fundamental domain for $U_X(F)$ in $U_X(\mathbb{A})$.'
-  - concept: Theta correspondence
-    math2: 6WB6TKE70H
-    says: 'Let $(G, G'')$ be a reductive dual pair in a symplectic group $\mathrm{Sp}(W)$ over a local field, and let $\omega$ be the Weil representation, restricted to the inverse images $\tilde{G} \times \tilde{G}''$ of $G \times G''$ in the metaplectic group. The theta correspondence pairs an irreducible admissible representation $\pi$ of $\tilde{G}$ with an irreducible admissible representation $\pi''$ of $\tilde{G}''$ when $\pi \otimes \pi''$ is a quotient of $\omega$. By Howe duality, this relation is a bijection between the irreducible representations of $\tilde{G}$ and of $\tilde{G}''$ that occur as quotients of $\omega$.'
-    why: 'The step [theta-local-matching](/step/theta-local-matching/) takes `LocalMatching`, quotient maps of two local Weil representations onto one irreducible representation.'
-    steps: [theta-local-matching]
-  - concept: Fock space
-    math2: 1TJ8TNH331
-    says: 'Let $H$ be a complex Hilbert space. The bosonic Fock space over $H$ is the Hilbert space direct sum $\mathcal{F}_+(H) = \widehat{\bigoplus}_{n \ge 0} \operatorname{Sym}^n H$, where $\operatorname{Sym}^n H$ is the closed subspace of symmetric tensors in $H^{\otimes n}$ and $\operatorname{Sym}^0 H = \mathbb{C}$. For $H = \mathbb{C}^m$, it is isomorphic to the space of holomorphic functions $f$ on $\mathbb{C}^m$ with $\int_{\mathbb{C}^m} |f(z)|^2 \pi^{-m} e^{-|z|^2} \, dz < \infty$, and the polynomials form a dense subspace of it.'
-    why: 'The condition `IsRealMaps` uses actions of the Lie algebra and the maximal compact on the polynomial Fock space `Pol`.'
-  - concept: Cuspidal characters of finite general linear groups
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/380
-    says: 'The cuspidal irreducible characters of $\mathrm{GL}_n(\mathbb{F}_q)$ correspond to Frobenius orbits of regular characters of $\mathbb{F}_{q^n}^\times$, and they have degree $\prod_{i=1}^{n-1}(q^i - 1)$.'
-    text: 'Green, The characters of the finite general linear groups, Trans. Amer. Math. Soc. 80 (1955)'
-    why: 'The input `Green` of [green-vwin](/step/green-vwin/) gives cuspidal characters $\tau_P$ of $\mathrm{GL}_d(\mathbb{F}_g)$ with $\tau_P(1) = \prod_{i=1}^{d-1} (g^i - 1)$.'
-    steps: [green-vwin]
+    math2: WEGEXJBX26
+    says: 'A fundamental domain for a discrete subgroup $\Gamma$ of $G$ is a measurable set that meets each coset $\Gamma g$ in one point.'
+    why: 'The theta integral $I_M(\Phi)$ integrates over `dom`, a fundamental domain for $\mathrm{U}(X)(F)$ in $\mathrm{U}(X)(\mathbb{A})$.'
+    steps: [local-matching-def]
+  - concept: Schwartz space
+    math2: GE020MY43M
+    says: 'The Schwartz space is the space of smooth $f$ on $\mathbb{R}^n$ with $\sup |x^\alpha \partial^\beta f| < \infty$ for all $\alpha, \beta$.'
+    why: 'The condition `Decay` of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) asks that $g \mapsto \theta(g, h; \Phi)$ is integrable for each adelic Schwartz function $\Phi$.'
+    steps: [theta-integrals-agree-def]
+  - concept: Adele ring
+    math2: NYJFYZ0B4M
+    says: 'The adele ring $\mathbb{A}_K$ is the set of $(x_v) \in \prod_v K_v$ with $x_v \in \mathcal{O}_v$ for almost all finite $v$, with the restricted product topology. The finite adeles $\mathbb{A}_{K,f}$ omit the infinite places.'
+    why: 'The groups of a triple are adelic unitary groups $\mathrm{U}_J(\mathbb{A})$ with entries in $\mathbb{A}_F \otimes_F E$.'
+    steps: [local-matching-def]
+  - concept: Hecke character
+    math2: KPYFGB342X
+    says: 'A Hecke character of a number field $K$ is a continuous homomorphism $\chi : \mathbb{A}_K^\times \to \mathbb{C}^\times$ with $\chi(K^\times) = 1$, that is a character of the idele class group $C_K$.'
+    why: 'The characters $\alpha$ and $\beta$ of a triple are Hecke characters of $\mathbb{A}_E^\times$, and $\nu = \alpha/\beta$ is ramified at each place of $T$.'
+    steps: [local-matching-def]
+  - concept: Partial L-function
+    text: 'Neukirch, Algebraic Number Theory, VII.8'
+    says: 'For a finite set $S$ of places, $L^S(s, \chi)$ is the Euler product of $L(s, \chi)$ without the factors at $S$.'
+    why: 'The recursion laws `StepAlpha` and `StepBeta` of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) multiply the constant by a partial L-value $L^{S_0}(s, \nu)$.'
+    steps: [theta-integrals-agree-def]
+  - concept: Imprimitive characters
+    text: 'Davenport, Multiplicative Number Theory, ch. 5'
+    says: 'If $\chi$ modulo $N$ is induced from the primitive $\chi^*$, then $L(s, \chi) = L(s, \chi^*) \prod_{p \mid N} (1 - \chi^*(p) p^{-s})$, and the extra factors vanish only on $\operatorname{Re}(s) = 0$.'
+    why: 'The step [imprimitive](/step/imprimitive/) passes from `ZeroFreeAll` to all characters with the extra Euler factors of an imprimitive character.'
+    steps: [imprimitive]
   - concept: von Mangoldt function
     math2: 0NK8JTE1NN
-    says: 'The von Mangoldt function is the function $\Lambda$ on the positive integers with $\Lambda(n) = \log p$ if $n = p^k$ for a prime $p$ and an integer $k \ge 1$, and $\Lambda(n) = 0$ for all other $n$.'
-    why: 'The function $g_{\psi''}(y)$ of the zero-free step is a sum of $\Lambda(n)\psi''(n)(y/n - 1)$ over $n \le y$.'
-  - concept: Euler constant
-    math2: 00C5P9JZBK
-    says: 'The Euler constant is the real number $\gamma = \lim_{n \to \infty} \left(1 + \frac{1}{2} + \cdots + \frac{1}{n} - \log n\right)$. Its value is $\gamma \approx 0.5772$.'
-    why: 'The function $G_m$ of the zero-free step contains the Euler constant $\gamma$.'
-  - concept: Explicit formula
-    math2: 72WNRWJQC1
-    says: 'Let $\psi(x) = \sum_{n \le x} \Lambda(n)$, where $\Lambda$ is the von Mangoldt function, and let $x > 1$ not be a prime power. The explicit formula of Riemann and von Mangoldt says $\psi(x) = x - \lim_{T \to \infty} \sum_{|\operatorname{Im} \rho| < T} \frac{x^\rho}{\rho} - \log(2\pi) - \frac{1}{2} \log(1 - x^{-2})$, where $\rho$ runs over the zeros of $\zeta$ with $0 < \operatorname{Re} \rho < 1$, counted with multiplicity.'
-    why: 'The bound on $G_m$ gives a zero-free half-plane, and explicit formulas are the classical link between such sums and zeros.'
+    says: '$\Lambda(n) = \log p$ if $n = p^k$ with $k \ge 1$, and $0$ otherwise; $-\zeta''/\zeta(s) = \sum_n \Lambda(n) n^{-s}$ for $\operatorname{Re}(s) > 1$.'
+    why: 'The function $G_m$ of [the branch](/step/zero-free-all-of-green-v-win/) is built from sums of $\Lambda(n)\psi''(n)(y/n - 1)$.'
+    steps: [zero-free-all-of-green-v-win]
+  - concept: Reductive dual pair
+    text: 'Kudla, Notes on the local theta correspondence (1996), I.1'
+    says: 'A reductive dual pair in $\mathrm{Sp}(W)$ is a pair of reductive subgroups, each the centralizer of the other, for example $(\mathrm{U}(V), \mathrm{U}(V''))$ on $W = V \otimes_E V''$.'
+    why: 'A triple gives the dual pairs $(\mathrm{U}(V), \mathrm{U}(W))$ and $(\mathrm{U}(V''), \mathrm{U}(W))$ of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/).'
+    steps: [theta-integrals-agree-def]
+  - concept: Weil representation
+    math2: H3Q2703KKV
+    says: 'The Weil representation $\omega_\psi$ is the genuine representation of $\mathrm{Mp}(W)$ that intertwines the Stone-von Neumann representation $\rho_\psi$ with its twists by $\mathrm{Sp}(W)$.'
+    why: 'The fields `weil` and `weil''` of a triple ask that `om` and `om''` are Weil representations of the two dual pairs.'
+    steps: [theta-integrals-agree-def, local-matching-def]
+  - concept: Splitting characters of the Weil representation
+    text: 'Harris, Kudla and Sweet, Theta dichotomy for unitary groups, J. Amer. Math. Soc. 9 (1996), Section 1'
+    says: 'A character $\chi$ of $\mathbb{A}_E^\times / E^\times$ with $\chi|_{\mathbb{A}_F^\times} = \eta^{\dim V}$ splits the metaplectic cover over $\mathrm{U}(V'')$, and a pair of such characters splits it over $\mathrm{U}(V) \times \mathrm{U}(V'')$.'
+    why: 'The two Weil representations of a triple have the splitting characters $(\beta, \beta/\alpha)$ and $(\alpha, \alpha/\beta)$.'
+    steps: [theta-integrals-agree-def]
+  - concept: Vacuum vector
+    text: 'Kudla, Notes on the local theta correspondence (1996), II.5'
+    says: 'The vacuum vector is the characteristic function of $L^n$ for a self-dual lattice $L$ at a $p$-adic place, and the Gaussian $e^{-\pi\operatorname{tr}(x, x)}$ at a real place.'
+    why: '[LocalMatching](/step/local-matching-def/) asks that the two vacuum vectors have the same nonzero image outside the finite set $T$.'
+    steps: [local-matching-def]
+  - concept: Theta kernel
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 1'
+    says: 'The theta kernel is $\theta(g, h; \varphi) = \sum_{\xi \in V(F)^n} (\omega(g, h)\varphi)(\xi)$, a function of moderate growth on $[G] \times [G'']$.'
+    why: 'The function $\theta(g, h; \Phi) = \sum_\xi (\omega(g, h)\Phi)(\xi)$ of Step 1 is a theta kernel.'
+    steps: [theta-integrals-agree-def]
+  - concept: Theta lift
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 2'
+    says: 'The theta lift of a cusp form $f$ is $\theta(\varphi, f)(g) = \int_{[G'']} \theta(g, h; \varphi)\overline{f(h)}\, dh$, an automorphic form on $G$.'
+    why: 'The theta integral $I_M(\Phi)$ is the global theta lift from $\mathrm{U}(X)$ to $\mathrm{U}(W)$, and [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) compares two of them.'
+    steps: [theta-integrals-agree-def]
+  - concept: Theta correspondence
+    math2: 6WB6TKE70H
+    says: 'The local theta correspondence sends an irreducible $\pi$ of $G$ with $\Theta(\pi) \ne 0$ to the unique irreducible quotient $\theta(\pi)$ of its big theta lift.'
+    why: '[LocalMatching](/step/local-matching-def/) gives quotient maps of two local Weil representations onto one irreducible representation of $\mathrm{U}(W)(F_v)$.'
+    steps: [local-matching-def]
+  - concept: Howe duality
+    text: 'Gan and Takeda, A proof of the Howe duality conjecture, J. Amer. Math. Soc. 29 (2016)'
+    says: 'If $\Theta(\pi) \ne 0$ then it has a unique irreducible quotient $\theta(\pi)$, and $\theta(\pi_1) \cong \theta(\pi_2) \ne 0$ implies $\pi_1 \cong \pi_2$.'
+    why: 'The common irreducible quotient $\Pi_v$ of [LocalMatching](/step/local-matching-def/) is the form that Howe duality gives at each place.'
+    steps: [local-matching-def]

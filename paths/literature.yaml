@@ -1,80 +1,106 @@
 id: literature
-title: The published results the proof assumes
+title: The literature layer
 for: [literature]
-needs: [trunk]
-lead: 'This path tours the areas of the results that `OpenLiteratureStatements` and its bundles name. At its end, a reader can place each named statement in its field of mathematics.'
+needs: [complex-analysis, class-field-theory, l-functions, representations, automorphic-forms, galois-representations, galois-cohomology, formal-groups, geometry, arakelov, theta]
+lead: 'To read the literature layer, you need the statements of the published results that its bundles name, from Hecke L-functions to theta lifts and heights, but not their proofs.'
 items:
   - concept: Tate thesis
     math2: QYW79XKJTP
-    says: 'Let $K$ be a number field and let $\chi$ be a Hecke character of $\mathbb{A}_K^\times / K^\times$ with completed L-function $\Lambda(s, \chi)$. Then $\Lambda(s, \chi)$ has a meromorphic continuation to $\mathbb{C}$, and $\Lambda(s, \chi) = \varepsilon(s, \chi) \Lambda(1 - s, \overline{\chi})$ with $\varepsilon(s, \chi) = W(\chi) (|d_K| N\mathfrak{f}_\chi)^{1/2 - s}$ and $|W(\chi)| = 1$. Tate thesis proves this with zeta integrals over the ideles and Poisson summation on $\mathbb{A}_K / K$.'
-    why: 'The theorem `heckeTateFunctionalEquation''` states a functional equation $\Lambda(s) = \varepsilon_\infty \varepsilon_f \Lambda''(1-s)$ for Hecke characters of a CM type.'
-  - concept: Deligne-Ribet congruences
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/371
-    says: 'The Deligne-Ribet theorem gives congruences between values of partial zeta functions of a totally real field at negative integers, and so constructs p-adic L-functions.'
+    says: 'For a unitary Hecke character $\chi$, $\Lambda(s, \chi) = \prod_v L(s, \chi_v)$ extends meromorphically to $\mathbb{C}$ and satisfies $\Lambda(s, \chi) = \varepsilon(s, \chi) \Lambda(1 - s, \chi^{-1})$ with $\varepsilon(s, \chi) = a b^{-s}$, $a \in \mathbb{C}^\times$, $b > 0$.'
+    why: 'The sample `HeckeTateFunctionalEquation` is a functional equation $\Lambda(s) = \varepsilon_\infty \varepsilon_f \Lambda''(1-s)$ for a Hecke character of a CM type, a field of `litN` in [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Deligne-Ribet
     text: 'Deligne and Ribet, Values of abelian L-functions at negative integers over totally real fields, Invent. Math. 59 (1980)'
-    why: 'The statement `DeligneRibet` is a congruence for a totally real field $F$ and a ray function modulo $\ell^n$.'
-  - concept: Chebotarev density theorem
-    math2: X8VKW5Y1CZ
-    says: 'Let $L/K$ be a finite Galois extension of number fields with Galois group $G$, and let $C \subseteq G$ be a conjugacy class. Then the set of primes $\mathfrak{p}$ of $K$ that are unramified in $L$ and have Frobenius class $C$ has natural density $|C| / |G|$ among all primes of $K$.'
-    why: 'The area of L-functions and class field theory has a statement named `ChebotarevDegreeOne`.'
-  - concept: Dirichlet theorem on primes in arithmetic progressions
-    math2: 0GNVN3CA2P
-    says: 'Let $a$ and $d$ be coprime positive integers. Then there are infinitely many primes $p$ with $p \equiv a \pmod{d}$.'
-    why: 'The same area has a statement named `Linnik`, and Linnik theorem bounds the least prime in an arithmetic progression.'
-  - concept: Casselman-Wallach globalization
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/381
-    says: 'The Casselman-Wallach theorem gives an equivalence between Harish-Chandra modules and smooth Frechet representations of moderate growth.'
-    text: 'Wallach, Real Reductive Groups II (1992), ch. 11'
-    why: 'The area of real groups has a statement `CasselmanWallach`, and [nonempty-hyps](/step/nonempty-hyps/) uses the field `casselmanWallach`.'
-    steps: [nonempty-hyps]
-  - concept: Stone-von Neumann theorem
-    math2: Z877XDBMQ3
-    says: 'Let $U$ and $V$ be strongly continuous unitary representations of $\mathbb{R}^n$ on a Hilbert space $H$ with $U(s) V(t) = e^{i s \cdot t} V(t) U(s)$ for all $s, t$. Then $H$ is an orthogonal direct sum of closed invariant subspaces, and on each of them $(U, V)$ is unitarily equivalent to the pair on $L^2(\mathbb{R}^n)$ given by $(U_0(s)\psi)(x) = \psi(x + s)$ and $(V_0(t)\psi)(x) = e^{i t \cdot x} \psi(x)$.'
-    why: 'The area of the Weil representation and theta has the statements `WeilRepresentationExists` and `StoneVonNeumann`.'
-  - concept: Siegel-Weil formula
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/392
-    says: 'The Siegel-Weil formula identifies the integral of a theta function over a classical group with a value of a Siegel Eisenstein series.'
-    text: 'Kudla and Rallis, On the Weil-Siegel formula, J. Reine Angew. Math. 387 (1988)'
-    why: 'The theta branch applies `theoremK_head2` to the leaf results `EisBL` and `SiegelWeilStd`.'
+    says: 'The rational values of partial zeta functions of a totally real field at negative integers satisfy $\ell$-adic congruences, such as $r - N(\mathfrak c)^k r'' \in \mathbb{Z}_\ell$.'
+    why: 'The sample `DeligneRibet` is a congruence for a ray function modulo $\ell^n$ on a totally real field, one of the leaf citations in the file of [the main theorem](/step/every-character-of-literature/).'
     steps: [every-character-of-literature]
+  - concept: Linnik
+    text: 'Iwaniec and Kowalski, Analytic Number Theory, ch. 18'
+    says: 'There are absolute $c, L > 0$ such that the least prime $p \equiv a \bmod q$ is at most $c q^L$ for each $q \ge 2$ and each $a$ prime to $q$.'
+    why: 'The field `linnik` of [ThetaLocalInputs](/step/theta-local-inputs-def/) cites a theorem named `Linnik`.'
+    steps: [theta-local-inputs-def]
+  - concept: Chebotarev
+    math2: X8VKW5Y1CZ
+    says: 'For a finite Galois $L/K$ with group $G$ and a conjugacy class $C$, the primes of $K$ unramified in $L$ with $\mathrm{Frob}_{\mathfrak p} = C$ have natural density $|C|/|G|$, also among the primes of degree one.'
+    why: '[published_results_eigen](/step/published-results-eigen/) fills a field of type `ChebotarevDegreeOne`.'
+    steps: [published-results-eigen]
+  - concept: Local Langlands correspondence
+    math2: 9E45NBX1G0
+    says: 'For a finite extension $F$ of $\mathbb{Q}_p$, there is a unique family of bijections $\mathrm{rec}_F$ from irreducible smooth representations of $\mathrm{GL}_n(F)$ to $n$-dimensional Frobenius-semisimple Weil-Deligne representations, which is class field theory for $n = 1$ and matches L-factors and epsilon factors of pairs.'
+    why: 'The field `localLanglandsExists` of [OpenLiteratureStatements](/step/open-literature-statements-def/) is [RecTExists](/step/rect-exists-def/), a form of the local Langlands correspondence.'
+    steps: [open-literature-statements-def, rect-exists-def]
+  - concept: Rapid decay of cusp forms
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2.18'
+    says: 'A cusp form $\varphi$ satisfies $|\varphi(g)| \le C_r\|g\|^{-r}$ on a Siegel set for each $r > 0$.'
+    why: 'Both large bundles have a field `cuspRapidDecay`; see [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Flath tensor product theorem
+    text: 'Flath, Decomposition of representations into tensor products, Proc. Sympos. Pure Math. 33 (1979)'
+    says: 'An irreducible admissible representation of $G(\mathbb{A}_F)$ is $\bigotimes''_v \pi_v$ for irreducible admissible $\pi_v$, unique up to isomorphism and unramified for almost all $v$.'
+    why: '[published_results_first](/step/published-results-first/) fills the field `flathFactorisation`.'
+    steps: [published-results-first]
+  - concept: Strong multiplicity one
+    text: 'Jacquet and Shalika, On Euler products and the classification of automorphic representations I, Amer. J. Math. (1981)'
+    says: 'Two cuspidal automorphic representations of $\mathrm{GL}_n$ with isomorphic local components at almost all places are equal.'
+    why: '[UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) has a field `JacquetShalika`.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Siegel Eisenstein series
+    text: 'Tan, Poles of Siegel Eisenstein series on U(n,n), Canad. J. Math. 51 (1999)'
+    says: 'The Siegel Eisenstein series on $\mathrm{U}(n, n)$ is $\sum_{P(F) \backslash G(F)} f_s(\gamma g)$ for a section with $f_s(n(b)m(a)g) = \chi(\det a)|\det a|_E^{s + n/2} f_s(g)$.'
+    why: '`EisBL`, one of the two inputs of [the theta branch](/step/theta-integrals-agree-and-local-matching-of-literature/), is about an Eisenstein series on a doubled group.'
+    steps: [theta-integrals-agree-and-local-matching-of-literature]
+  - concept: Stone-von Neumann theorem
+    text: 'Moeglin, Vignéras and Waldspurger, Correspondances de Howe sur un corps p-adique, LNM 1291 (1987), 2.I'
+    says: 'The Heisenberg group $H(W)$ has, up to isomorphism, exactly one irreducible smooth representation with a given nontrivial central character $\psi$.'
+    why: '[ThetaLocalInputs](/step/theta-local-inputs-def/) has fields `StoneVonNeumann` and `WeilRepresentationExists`.'
+    steps: [theta-local-inputs-def]
   - concept: Howe duality
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/391
-    says: 'For a dual pair $(G, G'')$, the Howe duality theorem says that the theta correspondence gives a bijection between irreducible quotients of the Weil representation on each side.'
-    text: 'Howe, Transcending classical invariant theory, J. Amer. Math. Soc. 2 (1989)'
-    why: 'The step [nonempty-hyps](/step/nonempty-hyps/) uses the field `howeDualityReal` of `ThetaLocalInputs`.'
-    steps: [nonempty-hyps]
+    text: 'Gan and Takeda, A proof of the Howe duality conjecture, J. Amer. Math. Soc. 29 (2016)'
+    says: 'If $\Theta(\pi) \ne 0$ then it has a unique irreducible quotient $\theta(\pi)$, and $\theta(\pi_1) \cong \theta(\pi_2) \ne 0$ implies $\pi_1 \cong \pi_2$.'
+    why: '[ThetaLocalInputs](/step/theta-local-inputs-def/) has fields `GLHoweDuality` and `HoweDualityReal`.'
+    steps: [theta-local-inputs-def]
+  - concept: Siegel-Weil formula
+    text: 'Ichino, On the Siegel-Weil formula for unitary groups, Math. Z. 255 (2007)'
+    says: 'For anisotropic $V$ of dimension $m$, the Siegel Eisenstein series of $f_\Phi$ at $s_0 = (m - n)/2$ equals $\kappa$ times the theta integral $\int_{[\mathrm{U}(V)]} \theta(g, h; \Phi)\, dh$, with $\kappa = 1$ for $m > n$ and $2$ for $m \le n$.'
+    why: '`SiegelWeilStd`, the other input of [the theta branch](/step/theta-integrals-agree-and-local-matching-of-literature/), has the shape of a Siegel-Weil formula.'
+    steps: [theta-integrals-agree-and-local-matching-of-literature]
+  - concept: Doubling method
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A'
+    says: 'The doubling method integrates a Siegel Eisenstein series on $\mathrm{U}(W^\square)$ against $\varphi_1 \otimes \bar\varphi_2$ on $\mathrm{U}(W) \times \mathrm{U}(W)$ and unfolds it to $\int f_s(\delta\iota(g, 1))\langle\pi(g)\varphi_1, \varphi_2\rangle\, dg$.'
+    why: '[published_results_first](/step/published-results-first/) fills a field `doublingMethod` of type `DoublingMethodLocalZetaIntegrals`.'
+    steps: [published-results-first]
+  - concept: Local Tate duality
+    text: 'Neukirch, Schmidt and Wingberg, Cohomology of Number Fields, 2nd ed. (2008), ch. VII'
+    says: 'For a finite Galois module $M$ over a p-adic field, the cup product gives a perfect pairing $H^n(K, M) \times H^{2-n}(K, M^\vee) \to \mathbb{Q}/\mathbb{Z}$, with $M^\vee = \mathrm{Hom}(M, \mu)$.'
+    why: 'The bundle `nLink` inside [published_results_eigen](/step/published-results-eigen/) holds local Tate duality, the local Euler characteristic and local finiteness.'
+    steps: [published-results-eigen]
   - concept: Fontaine period rings
     math2: K6HW8YWCQJ
     says: 'Let $K$ be a finite extension of $\mathbb{Q}_p$. Fontaine period rings are topological $\mathbb{Q}_p$-algebras $B$ with a continuous action of $G_K$, such as $B_{\mathrm{dR}}$, $B_{\mathrm{st}}$ and $B_{\mathrm{cris}}$, for which $E = B^{G_K}$ is a field. A p-adic representation $V$ of $G_K$ is $B$-admissible when $\dim_E (B \otimes_{\mathbb{Q}_p} V)^{G_K} = \dim_{\mathbb{Q}_p} V$.'
-    why: 'The area of Galois cohomology and p-adic Hodge theory has a statement named `FontaineBcris`.'
-  - concept: Toroidal compactification
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/403
-    says: 'A toroidal compactification of a locally symmetric variety is a smooth compactification built from a choice of admissible rational polyhedral cone decompositions.'
-    text: 'Ash, Mumford, Rapoport and Tai, Smooth Compactification of Locally Symmetric Varieties (1975)'
-    why: 'The area of arithmetic geometry has `ToroidalCompactification`, and the main file uses `siegel_toroidal_integral_of_literature`.'
-    steps: [every-character-of-literature]
-  - concept: Kawamata-Viehweg vanishing
-    math2: TAMCTW7SA0
-    says: 'Let $X$ be a smooth projective variety of dimension $n$ over a field of characteristic $0$, with canonical bundle $\omega_X$. Let $L$ be a nef line bundle on $X$ with $(L^n) > 0$. Then $H^i(X, \omega_X \otimes L) = 0$ for all $i > 0$.'
-    why: 'The area of arithmetic geometry has the statements `KawamataViehweg` and `NadelVanishingAndNonKltDivisor`.'
+    why: 'The bundle `nLink` inside [published_results_eigen](/step/published-results-eigen/) holds `FontaineBcris`.'
+    steps: [published-results-eigen]
   - concept: Resolution of singularities
     math2: MB52NDA6WN
-    says: 'Let $X$ be an integral algebraic variety over a field $k$ of characteristic $0$. Then there is a nonsingular variety $\tilde{X}$ over $k$ and a proper birational morphism $\pi: \tilde{X} \to X$ that is an isomorphism over the nonsingular points of $X$.'
-    why: 'The theorem `resolution_char_zero_of_literature` is one of the thirteen theorems that use the hypothesis $O$.'
+    says: 'A reduced separated scheme of finite type over a field of characteristic $0$ has a smooth $X'' \to X$, a finite sequence of blow-ups that is an isomorphism over the smooth locus, with snc reduced preimage of the singular locus.'
+    why: '`ResolutionCharZero` is the first input of the volume branch under [the main theorem](/step/every-character-of-literature/).'
     steps: [every-character-of-literature]
-  - concept: Height function
-    math2: F1FF505PWH
-    says: 'Let $K$ be a number field and, for each place $v$ of $K$, let $|\cdot|_v$ extend a standard absolute value of $\mathbb{Q}$ and let $d_v = [K_v : \mathbb{Q}_v]$. The Weil height of $P = [x_0 : \cdots : x_n] \in \mathbb{P}^n(K)$ is $H(P) = \prod_v \max_i |x_i|_v^{d_v / [K:\mathbb{Q}]}$, and it does not depend on the choice of coordinates or of $K$. A height function on a projective variety $X$ with a morphism $\phi: X \to \mathbb{P}^n$ is $P \mapsto H(\phi(P))$ or its logarithm.'
-    why: 'The area of arithmetic geometry has the statements `CycleHeights` and `ArithHilbertSamuel` from Arakelov geometry.'
-  - concept: Bernstein-Zelevinsky finiteness
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/378
-    says: 'Parabolic induction and the Jacquet functor preserve finite length, so induced representations of $\mathrm{GL}_n$ have finite composition series.'
-    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS (1977)'
-    why: 'The theorem `llOf_alt` takes `BernsteinZelevinskyFiniteness` and the field `localLanglandsExists` of [OpenLiteratureStatements](/step/open-literature-statements-def/), and returns the latter.'
-    steps: [open-literature-statements-def, every-character-of-literature]
+  - concept: Toroidal compactification
+    text: 'Ash, Mumford, Rapoport and Tai, Smooth Compactification of Locally Symmetric Varieties (1975)'
+    says: 'A toroidal compactification of $\mathrm{Sh}_K$ is built from admissible rational polyhedral cone decompositions at the cusps, and for suitable smooth projective choices it is smooth projective with snc boundary.'
+    why: '`ToroidalCompactification` is the first field of the bundle built by [published_results_arithmetic](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
+  - concept: Poincaré-Lelong formula
+    math2: B2YBWQQMHA
+    says: 'For a meromorphic section $s$ of $\overline{L}$, $dd^c\log\|s\|^2 = \delta_{\operatorname{div} s} - c_1(\overline{L})$ as currents.'
+    why: '`PoincareLelongInv` is an input of the volume branch under [the main theorem](/step/every-character-of-literature/).'
+    steps: [every-character-of-literature]
+  - concept: Zarhin's trick
+    text: 'Zarhin, A remark on endomorphisms of abelian varieties over function fields of finite characteristic, Math. USSR-Izv. 8 (1974)'
+    says: 'For each abelian variety $A$, $(A \times A^\vee)^4$ has a principal polarization.'
+    why: '`ZarhinStatement` is an input of the volume branch under [the main theorem](/step/every-character-of-literature/).'
+    steps: [every-character-of-literature]
+  - concept: Arithmetic Hilbert-Samuel
+    text: 'Gillet and Soulé, An arithmetic Riemann-Roch theorem, Invent. Math. 110 (1992); Abbes and Bouche, Ann. Inst. Fourier 45 (1995)'
+    says: 'For $L$ ample with positive metric and smooth generic fibre, $\log\#\widehat{H}^0(X, \overline{L}^{\otimes n}) = \overline{L}^{D+1} n^{D+1}/(D+1)! + o(n^{D+1})$.'
+    why: '[published_results_arithmetic](/step/published-results-arithmetic/) fills the field `ArithHilbertSamuel`.'
+    steps: [published-results-arithmetic]

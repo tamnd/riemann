@@ -1,0 +1,86 @@
+id: weil-bound
+title: The Weil bound and arithmetic positivity
+for: [weil-bound]
+needs: [complex-analysis, number-fields, class-field-theory, l-functions, groups, elliptic-curves, formal-groups, geometry, arakelov]
+lead: 'To read this chapter you need Arakelov geometry: Hermitian line bundles, arithmetic intersection numbers and volumes, and the slopes of Hermitian lattices, with a little about CM fields and Shimura varieties.'
+items:
+  - concept: Discriminant
+    math2: 3BCYVS9E17
+    says: 'The discriminant of $K$ is $d_K = \det(\sigma_i(\omega_j))^2$ for an integral basis $(\omega_j)$ and the embeddings $\sigma_i$, and the root discriminant is $\mathrm{rd}(K) = |d_K|^{1/[K:\mathbb{Q}]}$.'
+    why: 'The error term of `DeepStR` in [the Weil bound chapter](/proof/weil-bound/) has $\log \mathrm{rd}(E)$, where $\mathrm{rd}(E) = |\operatorname{disc} E|^{1/[E:\mathbb{Q}]}$.'
+  - concept: CM field
+    text: 'Washington, Introduction to Cyclotomic Fields, 2nd ed. (1997)'
+    says: 'A CM field is a totally complex quadratic extension $E$ of a totally real number field $E^+$, the maximal real subfield of $E$.'
+    why: 'The host of the data of `DeepStR` has a CM field $E$, and `VolumeTheoremX` asks that $E$ is abelian over $\mathbb{Q}$.'
+  - concept: Quadratic character
+    text: 'Neukirch, Algebraic Number Theory, VI.5'
+    says: 'The quadratic character $\eta$ of a quadratic extension $E/F$ is the Hecke character of $F$ that is $1$ on $F^\times N(\mathbb{A}_E^\times)$ and $-1$ elsewhere.'
+    why: 'The error term of `DeepStR` has $|\operatorname{Re} L''/L(1, \chi_d)|$ for the quadratic character $\chi_d$ modulo the prime $d$.'
+  - concept: Chowla-Selberg
+    text: 'Chowla and Selberg, On Epstein''s zeta-function, J. reine angew. Math. 227 (1967)'
+    says: 'For $K$ of discriminant $-d$, $d > 4$, the mean over classes of $\log(N(\mathfrak{a}_c)^6|\Delta(L_c)|)$ is $12\log 2\pi - 6\log d + 6\gamma - 6L''(1,\chi)/L(1,\chi)$.'
+    why: 'In Step 4 of [the Weil bound chapter](/proof/weil-bound/), the Chowla-Selberg formula gives the term $L''/L(1, \chi_d)$ of `VolumeTheoremX`.'
+  - concept: Semi-abelian scheme
+    text: 'Faltings and Chai, Degeneration of Abelian Varieties, I.2'
+    says: 'A semi-abelian scheme is a smooth separated commutative group scheme whose fibres are extensions of abelian varieties by tori.'
+    why: '`SlopeBoundSt` bounds the maximal slope of the Lie algebra of a semi-abelian scheme over $\mathcal{O}_L$.'
+  - concept: Hodge-Tate sequence
+    text: 'Scholze and Weinstein, Moduli of p-divisible groups, Cambridge J. Math. 1 (2013), sec. 4'
+    says: 'For $G$ over $\mathcal{O}_C$, the sequence $0 \to \mathrm{Lie}(G) \otimes C(1) \to T_p G \otimes C \to \omega_{G^\vee} \otimes C \to 0$ is exact.'
+    why: 'The input `FarguesExact` of `deep_slim_use` is the exactness of the Hodge-Tate sequence (Fargues).'
+  - concept: Product of projective spaces
+    text: 'Hartshorne, Algebraic Geometry, II.5 and II.7'
+    says: 'A product of projective spaces is $\mathbb{P}^{n_1}_S \times_S \cdots \times_S \mathbb{P}^{n_r}_S$, with line bundles $\mathcal{O}(a_1, \dots, a_r)$ of multidegree $(a_i)$.'
+    why: '`MoriwakiBigStatement` works with an arithmetic variety inside a product of projective spaces.'
+  - concept: Resolution of singularities
+    math2: MB52NDA6WN
+    says: 'A reduced separated scheme of finite type over a field of characteristic $0$ has a smooth $X'' \to X$, a finite sequence of blow-ups that is an isomorphism over the smooth locus, with snc reduced preimage of the singular locus.'
+    why: 'The input `ResolutionCharZero` of `deep_slim_use` is Hironaka''s resolution of singularities.'
+  - concept: Principalisation
+    text: 'Kollár, Lectures on Resolution of Singularities, Chapter 3'
+    says: 'On $X$ smooth over a field of characteristic $0$, blow-ups in smooth centres make the pullback of an ideal sheaf $I$ an effective Cartier divisor with snc support.'
+    why: 'The input `PrincipalisationCharZero` of `deep_slim_use` is principalisation of ideals in characteristic zero.'
+  - concept: Asymptotic Riemann-Roch
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry I, Corollary 1.4.41'
+    says: 'For nef $L$ on projective $X$ of dimension $n$, $h^0(X, L^{\otimes m}) = (L^n) m^n/n! + O(m^{n-1})$.'
+    why: 'The input `NefRR` of `deep_slim_use` is asymptotic Riemann-Roch for nef divisors, and Step 5 uses it.'
+  - concept: Shimura variety
+    math2: QT4CF7ZKK5
+    says: 'For a Shimura datum $(G, X)$ and compact open $K \subset G(\mathbb{A}_f)$, $\mathrm{Sh}_K = G(\mathbb{Q})\backslash X \times G(\mathbb{A}_f)/K$.'
+    why: '`GoodTowerExistsX` gives a tower of integral models of a unitary Shimura variety, and `VolumeTheoremX` works on it.'
+  - concept: Poincaré-Lelong formula
+    math2: B2YBWQQMHA
+    says: 'For a meromorphic section $s$ of $\overline{L}$, $dd^c\log\|s\|^2 = \delta_{\operatorname{div} s} - c_1(\overline{L})$ as currents.'
+    why: 'The input `PoincareLelongInv` of `deep_slim_use` is the Poincaré-Lelong formula.'
+  - concept: Hermitian line bundle
+    text: 'Soulé, Abramovich, Burnol and Kramer, Lectures on Arakelov Geometry, Chapter IV'
+    says: 'A Hermitian line bundle on an arithmetic variety $X$ is a line bundle with a smooth metric on $L_{\mathbb{C}}$ over $X(\mathbb{C})$, invariant under complex conjugation.'
+    why: '`MoriwakiBigStatement` is about a semipositive Hermitian line bundle $\overline{A}$ that is nef on the fibres and on the generic fibre.'
+  - concept: Arithmetic intersection number
+    math2: 4HV4WTAX9P
+    says: 'The arithmetic intersection number is $\overline{L}_1 \cdots \overline{L}_{D+1} = \widehat{\deg}(\widehat{c}_1(\overline{L}_1) \cdots \widehat{c}_1(\overline{L}_{D+1}))$ in the arithmetic Chow ring of Gillet and Soulé.'
+    why: 'The self-intersection $\overline{A}^{D+1}$ of Step 2 and the slopes of `VolumeTheoremX` are arithmetic intersection numbers, from an abstract `IntersectionSystem`.'
+  - concept: Zhang's successive minima
+    text: 'Zhang, Positive line bundles on arithmetic varieties, J. Amer. Math. Soc. 8 (1995)'
+    says: 'For $L_{\mathbb{Q}}$ ample, $L$ nef on fibres and $c_1(\overline{L}) \geq 0$, $e_1 \geq \overline{L}^{D+1}/((D+1)\deg_L X_{\mathbb{Q}}) \geq \frac{1}{D+1}\sum_i e_i$.'
+    why: 'The proof `hsLinks_of_use` of Step 2 gives both bounds of Zhang''s successive minima, and Step 3 uses the upper one.'
+  - concept: Arithmetic volume
+    text: 'Moriwaki, Continuity of volumes on arithmetic varieties, J. Algebraic Geom. 18 (2009)'
+    says: '$\widehat{\mathrm{vol}}(\overline{L}) = \limsup_n \log\#\widehat{H}^0(X, \overline{L}^{\otimes n})/(n^{D+1}/(D+1)!)$, where $\widehat{H}^0$ is the set of sections of sup norm at most $1$.'
+    why: 'The volume slope of `MeanAll` and the right side of `MoriwakiBigStatement` count sections of small sup norm, as the arithmetic volume does.'
+  - concept: Moriwaki and Yuan
+    text: 'Yuan, Big line bundles over arithmetic varieties, Invent. Math. 173 (2008)'
+    says: 'For nef $\overline{L}, \overline{M}$, $\widehat{\mathrm{vol}}(\overline{L} \otimes \overline{M}^{-1}) \geq \overline{L}^{D+1} - (D+1)\overline{L}^D \cdot \overline{M}$, and $\widehat{\mathrm{vol}}(\overline{L}) = \overline{L}^{D+1}$ for nef $\overline{L}$.'
+    why: '`MoriwakiBigStatement` is the inequality $\overline{A}^{D+1} \le \mathrm{vol}(\overline{A})$ of Moriwaki and Yuan, used in Steps 2 and 5.'
+  - concept: Arithmetic Hilbert-Samuel
+    text: 'Gillet and Soulé, An arithmetic Riemann-Roch theorem, Invent. Math. 110 (1992); Abbes and Bouche, Ann. Inst. Fourier 45 (1995)'
+    says: 'For $L$ ample with positive metric and smooth generic fibre, $\log\#\widehat{H}^0(X, \overline{L}^{\otimes n}) = \overline{L}^{D+1} n^{D+1}/(D+1)! + o(n^{D+1})$.'
+    why: '`HSUse` has the upper bound of arithmetic Hilbert-Samuel: the normalized count of small sections has $\limsup \le \overline{A}^{D+1}$.'
+  - concept: Absolute Siegel lemma
+    text: 'Roy and Thunder, An absolute Siegel''s lemma, J. reine angew. Math. 476 (1996)'
+    says: 'For a Hermitian lattice $F$ of rank $i$ over $\mathcal{O}_K$ and $\varepsilon > 0$ there are $K''$ and $v \neq 0$ with $\mu(F) - \frac12\log i - \varepsilon \leq \widehat{\deg}_{K''}(v)$.'
+    why: '`LineOfLargeDegree.Statement` of Step 3 is an absolute Siegel lemma, and `SlopeBoundSt` is proved from it.'
+  - concept: Bost slope inequality
+    text: 'Bost, Périodes et isogénies des variétés abéliennes sur les corps de nombres, Astérisque 237 (1996), Section 4'
+    says: 'If $\varphi : E \to F$ is injective with $\|\varphi(x)\|_\sigma \leq C\|x\|_\sigma$, then $\mu(\overline{E}) \leq \mu_{\max}(\overline{F}) + \log C$.'
+    why: 'The code proves a slope inequality `Formalism.F.SlopeInequality`, but [the Weil bound chapter](/proof/weil-bound/) notes that this branch does not use it.'

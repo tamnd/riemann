@@ -1,0 +1,110 @@
+id: class-field-theory
+title: Class field theory
+order: 5
+needs: [number-fields]
+lead: 'Additive and Hecke characters, quadratic symbols, local and global class field theory, the Hasse principle for norms and Hermitian forms, and Tate''s thesis with Hecke L-functions and epsilon factors.'
+items:
+  - concept: Additive character
+    math2: 2WMYTJD33F
+    says: 'An additive character of a local field $F_v$ is a nontrivial unitary character of $(F_v, +)$; one of $\mathbb{A}_F$ is a nontrivial unitary character trivial on $F$, such as the standard $\psi_{\mathbb{Q}} \circ \mathrm{Tr}_{F/\mathbb{Q}}$.'
+    why: 'The structure `Base` of [TLiftK](/step/tlift-k-def/) holds a standard additive character of $\mathbb{A}_F$.'
+    steps: [tlift-k-def, local-matching-def]
+  - concept: Hecke character
+    math2: KPYFGB342X
+    says: 'A Hecke character of a number field $K$ is a continuous homomorphism $\chi : \mathbb{A}_K^\times \to \mathbb{C}^\times$ with $\chi(K^\times) = 1$, that is a character of the idele class group $C_K$.'
+    why: 'The row statement [Row0b](/step/row0b-def/) takes a Hecke character $\chi$ of $E^+$ with the representation $\pi$.'
+    steps: [row0b-def]
+  - concept: Conductor
+    text: 'Neukirch, Algebraic Number Theory, VII.6'
+    says: 'The conductor exponent $c(\chi_v)$ of a character of $K_v^\times$ is the least $c \ge 0$ with $\chi_v$ trivial on $U_v^{(c)}$; $\chi_v$ is unramified when $c(\chi_v) = 0$.'
+    why: 'The epsilon factor of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) contains $N(v)^{-c(\nu_v) z}$ and $\nu_v(\varpi)^{c(\nu_v)}$.'
+    steps: [theta-integrals-agree-def]
+  - concept: Infinity type
+    text: 'Schappacher, Periods of Hecke Characters, LNM 1301, ch. 0'
+    says: 'The infinity type of a Hecke character is the family of exponents of its components $\chi_v$ at the infinite places, written as $\mathrm{sgn}^\epsilon|x|^s$ or $z^p \bar z^q$.'
+    why: 'The good triples of the [theta matching chapter](/proof/theta-matching/) use Hecke characters with infinity types $m_\alpha, m_\beta$.'
+    steps: [local-matching-def]
+  - concept: Algebraic Hecke character
+    text: 'Serre, Abelian l-adic Representations and Elliptic Curves, ch. II'
+    says: 'A Hecke character is algebraic (type $A_0$) if $\chi_\infty(x) = \prod_\sigma \sigma(x)^{n_\sigma}$ on the identity component of $K_\infty^\times$ for integers $n_\sigma$. It then has an $\ell$-adic form $\chi_\ell : \mathrm{Gal}(\overline K/K) \to \overline{\mathbb{Q}}_\ell^\times$.'
+    why: 'The fields `heckeLAdicCharacter` and `heckeLAdicCharacterAbove` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) state the $\ell$-adic form.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Jacobi symbol
+    math2: 0ADTQBXRMC
+    says: 'For an odd positive $n = p_1 \cdots p_k$, the Jacobi symbol is $\left(\frac{a}{n}\right) = \prod_i \left(\frac{a}{p_i}\right)$, a product of Legendre symbols.'
+    why: 'The condition `IsChiField` in [VWin](/step/vwin-def/) cuts out its fields with Jacobi symbols.'
+    steps: [vwin-def]
+  - concept: Quadratic reciprocity
+    math2: 0YY06KP3ZQ
+    says: 'For odd coprime $m, n > 0$, $\left(\frac{m}{n}\right)\left(\frac{n}{m}\right) = (-1)^{\frac{m-1}{2}\frac{n-1}{2}}$.'
+    why: 'It turns the Jacobi conditions of [VWin](/step/vwin-def/) into congruence conditions on $a$.'
+    steps: [vwin-def]
+  - concept: Quadratic character
+    text: 'Neukirch, Algebraic Number Theory, VI.5'
+    says: 'The quadratic character $\eta$ of a quadratic extension $E/F$ is the Hecke character of $F$ that is $1$ on $F^\times N(\mathbb{A}_E^\times)$ and $-1$ elsewhere.'
+    why: 'The condition `ResEtaPow` of [TLiftK](/step/tlift-k-def/) asks that a Hecke character restricted to $\mathbb{A}_F^\times$ is $\eta^n$.'
+    steps: [tlift-k-def, theta-local-inputs-def]
+  - concept: Local class field theory
+    math2: SHEN158T3M
+    says: 'For a finite extension $K/\mathbb{Q}_p$ there is a unique local Artin map $K^\times \to \mathrm{Gal}(K^{ab}/K)$ sending uniformizers to Frobenius and with kernel $N(L^\times)$ on each finite abelian $L/K$; it induces $W_K^{ab} \cong K^\times$.'
+    why: 'The structure `IsLocalArtin` of [IsRecT](/step/is-rect-def/) states this map by five laws.'
+    steps: [is-rect-def]
+  - concept: Weil group
+    text: 'Tate, Number theoretic background, Corvallis 1979, section 1'
+    says: 'The Weil group $W_K$ of a local field is the subgroup of $\mathrm{Gal}(\overline K/K)$ of elements acting on $K^{ur}$ by an integer power of Frobenius.'
+    why: 'The local Artin map of [IsRecT](/step/is-rect-def/) is a map $a : W \to E_w^\times$.'
+    steps: [is-rect-def]
+  - concept: Class field theory
+    math2: AA943HVK6Z
+    says: 'Global class field theory gives a continuous surjection $C_K \to \mathrm{Gal}(K^{ab}/K)$, compatible with the local Artin maps, and a bijection $L \mapsto N_{L/K}(C_L)$ from finite abelian extensions to open subgroups of finite index in $C_K$.'
+    why: 'The law `glob` of [IsRecT](/step/is-rect-def/) uses the global Artin map, and [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) states it as `globalArtinReciprocity`.'
+    steps: [is-rect-def, unitary-group-third-place-hypotheses-def]
+  - concept: Artin reciprocity
+    math2: 7938EKMMVR
+    says: 'For a finite abelian $L/K$ and a modulus $\mathfrak m$ divisible by the ramified places, the Artin map $I_K^{\mathfrak m} \to \mathrm{Gal}(L/K)$, $\mathfrak p \mapsto \mathrm{Frob}_{\mathfrak p}$, is surjective with kernel $P_K^{\mathfrak m} N_{L/K}(I_L^{\mathfrak m})$ when $\mathfrak m$ is large enough.'
+    why: 'The field `glob` of `IsLocalArtin` in [IsRecT](/step/is-rect-def/) asks that $a$ is compatible with every global Artin map of $E$.'
+    steps: [is-rect-def]
+  - concept: Ray class field
+    text: 'Neukirch, Algebraic Number Theory, VI.6'
+    says: 'The ray class field $K_{\mathfrak m}$ is the abelian extension unramified outside $\mathfrak m$ with $\mathrm{Gal}(K_{\mathfrak m}/K) \cong I_K^{\mathfrak m}/P_K^{\mathfrak m}$ through the Artin map.'
+    why: 'The statement `RayClassFieldSt` is a field of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) and of [the published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [unitary-group-third-place-hypotheses-def, published-results-arithmetic]
+  - concept: Hilbert class field
+    math2: WWCJ7CR2R3
+    says: 'The Hilbert class field $H_K$ is the maximal abelian extension of $K$ unramified at every place, with $\mathrm{Gal}(H_K/K) \cong \mathrm{Cl}_K$.'
+    why: 'The field `hj` of [the CM inputs](/step/cm-abelian-inputs-from-literature/) states that a $j$-invariant generates the Hilbert class field.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Hasse norm theorem
+    math2: R7DJ6XYZ4F
+    says: 'For a cyclic extension $L/K$ of number fields, $x \in K^\times$ is a norm from $L^\times$ if and only if it is a local norm at every place.'
+    why: 'The statement `HasseNormSt` is one of [the published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
+  - concept: Hasse principle
+    math2: EMAR4X3W8D
+    says: 'A Hasse principle says that a global object or property exists or holds if it does so at every place.'
+    why: 'The field `hermitianHassePrinciple` of [ThetaLocalInputs](/step/theta-local-inputs-def/) is the Hasse principle for Hermitian forms.'
+    steps: [theta-local-inputs-def]
+  - concept: Hermitian form
+    math2: 48P4A1CX85
+    says: 'A Hermitian form over $E/F$ is $h : V \times V \to E$, linear in the first variable, with $h(y, x) = c(h(x, y))$; by Landherr, it is determined by its local forms, and local forms come from a global one if and only if $\prod_v \eta_v(\det h_v) = 1$.'
+    why: 'The statement `LandherrSt` of [the published arithmetic results](/step/published-results-arithmetic/) and `hermitianLocalGlobal` of [ThetaLocalInputs](/step/theta-local-inputs-def/) build the Hermitian spaces of the [theta matching chapter](/proof/theta-matching/).'
+    steps: [published-results-arithmetic, theta-local-inputs-def]
+  - concept: Hecke L-function
+    text: 'Neukirch, Algebraic Number Theory, VII.8'
+    says: 'The Hecke L-function of $\chi$ is $L(s, \chi) = \prod_{v \nmid \infty} L(s, \chi_v)$ with $L(s, \chi_v) = (1 - \chi_v(\varpi_v) q_v^{-s})^{-1}$ at unramified $v$ and $1$ at ramified $v$.'
+    why: 'The fields `heckeLPartialContinuation` and `heckeLEntireAndNonzeroAtOne` of [ThetaLocalInputs](/step/theta-local-inputs-def/) state its continuation and $L(1, \chi) \neq 0$.'
+    steps: [theta-local-inputs-def]
+  - concept: Partial L-function
+    text: 'Neukirch, Algebraic Number Theory, VII.8'
+    says: 'For a finite set $S$ of places, $L^S(s, \chi)$ is the Euler product of $L(s, \chi)$ without the factors at $S$.'
+    why: 'The constants of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) contain the partial L-values $L^{S_0}(s, \nu)$ (`charL`).'
+    steps: [theta-integrals-agree-def]
+  - concept: Epsilon factor
+    math2: B8BM0B4RRW
+    says: 'The local epsilon factor $\varepsilon(s, \chi_v, \psi_v)$ is $1$ for unramified $\chi_v$, and for ramified $\chi_v$ it is $q_v^{-c s}$ times a constant built from a Gauss sum; the global factor is $\prod_v \varepsilon(s, \chi_v, \psi_v) = a b^{-s}$.'
+    why: 'The factor `eps` of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) is $N(v)^{-c(\nu_v) z}\, \mathfrak g(\psi, \nu_v)\, \nu_v(\varpi)^{c(\nu_v)}$.'
+    steps: [theta-integrals-agree-def]
+  - concept: Tate thesis
+    math2: QYW79XKJTP
+    says: 'For a unitary Hecke character $\chi$, $\Lambda(s, \chi) = \prod_v L(s, \chi_v)$ extends meromorphically to $\mathbb{C}$ and satisfies $\Lambda(s, \chi) = \varepsilon(s, \chi) \Lambda(1 - s, \chi^{-1})$ with $\varepsilon(s, \chi) = a b^{-s}$, $a \in \mathbb{C}^\times$, $b > 0$.'
+    why: 'The functional equation of Hecke L-functions is one of the published results that the [literature chapter](/proof/literature/) samples.'

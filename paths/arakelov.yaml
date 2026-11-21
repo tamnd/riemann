@@ -1,0 +1,129 @@
+id: arakelov
+title: Arakelov geometry and heights
+order: 15
+needs: [geometry]
+lead: 'Hermitian line bundles, arithmetic intersection numbers and heights, the arithmetic volume with the theorems of Hilbert-Samuel, Moriwaki and Yuan, Hermitian lattices and their slopes, and the Hodge bundle of an abelian scheme. The volume branch of the Weil bound uses them.'
+items:
+  - concept: Hermitian metric
+    math2: Q6X6W2N29G
+    says: 'A Hermitian metric on a holomorphic line bundle $L$ is a family of Hermitian norms on the fibres that depends smoothly on the point.'
+    why: 'The `HermLine` of `MoriwakiBigStatement` in [the Weil bound](/proof/weil-bound/) is a line bundle with such a metric.'
+  - concept: Chern form
+    text: 'Griffiths and Harris, Principles of Algebraic Geometry, Chapter 0, Section 5'
+    says: 'The Chern form of $\overline{L}$ is $c_1(\overline{L}) = -dd^c\log\|e\|^2$ for a local frame $e$; it is closed and represents $c_1(L)$.'
+    why: 'The input `ArDegree` of [the literature chapter](/proof/literature/) contains `ChernDegree`: the integral of the top power of the Chern form is the degree.'
+  - concept: Semipositive
+    math2: FF2P7ER3QT
+    says: 'A metric is semipositive if $c_1(\overline{L}) \geq 0$, that is, if $-\log\|e\|^2$ is plurisubharmonic for each local frame $e$.'
+    why: '`MoriwakiBigStatement` of [the Weil bound](/proof/weil-bound/) assumes a semipositive Hermitian line bundle.'
+  - concept: Poincaré-Lelong formula
+    math2: B2YBWQQMHA
+    says: 'For a meromorphic section $s$ of $\overline{L}$, $dd^c\log\|s\|^2 = \delta_{\operatorname{div} s} - c_1(\overline{L})$ as currents.'
+    why: 'Its integrated form `PoincareLelongInv` is an input of `deep_slim_use` in [the Weil bound](/proof/weil-bound/).'
+    steps: [every-character-of-literature]
+  - concept: Arithmetic variety
+    math2: YXWGV80Z2V
+    says: 'An arithmetic variety of dimension $D + 1$ is an integral scheme, flat and projective over $\mathbb{Z}$, with generic fibre of dimension $D$.'
+    why: 'The statements `MoriwakiBigStatement` and `HSUse` of [the Weil bound](/proof/weil-bound/) are about arithmetic subvarieties of a product of projective spaces.'
+  - concept: Hermitian line bundle
+    text: 'Soulé, Abramovich, Burnol and Kramer, Lectures on Arakelov Geometry, Chapter IV'
+    says: 'A Hermitian line bundle on an arithmetic variety $X$ is a line bundle with a smooth metric on $L_{\mathbb{C}}$ over $X(\mathbb{C})$, invariant under complex conjugation.'
+    why: 'The volume theorem of [the Weil bound](/proof/weil-bound/) works with Hodge line bundles twisted by a weight, with Hermitian metrics.'
+  - concept: Arithmetic degree
+    text: 'Bost, Gillet and Soulé, Heights of projective varieties and positive Green forms, J. Amer. Math. Soc. 7 (1994)'
+    says: 'For a Hermitian line bundle on $\mathrm{Spec}\,\mathcal{O}_K$, $\widehat{\deg}(\overline{L}) = \log\#(L/\mathcal{O}_K s) - \sum_\sigma \log\|s\|_\sigma$ for any $s \neq 0$.'
+    why: 'Zhang''s bounds and the Kleiman criterion of [the Weil bound](/proof/weil-bound/) are about heights of arithmetic curves, which are such degrees.'
+  - concept: Arithmetic intersection number
+    math2: 4HV4WTAX9P
+    says: 'The arithmetic intersection number is $\overline{L}_1 \cdots \overline{L}_{D+1} = \widehat{\deg}(\widehat{c}_1(\overline{L}_1) \cdots \widehat{c}_1(\overline{L}_{D+1}))$ in the arithmetic Chow ring of Gillet and Soulé.'
+    why: 'The volume theorem of [the Weil bound](/proof/weil-bound/) computes self-intersections of Hodge line bundles; in Lean they come from an abstract `IntersectionSystem`.'
+  - concept: Projection formula
+    text: 'Gillet and Soulé, Arithmetic intersection theory, Publ. Math. IHÉS 72 (1990)'
+    says: 'For $f : Y \to X$ generically finite, $f^*\overline{L}_1 \cdots f^*\overline{L}_{D+1} = \deg(f)\, \overline{L}_1 \cdots \overline{L}_{D+1}$.'
+    why: 'Its birational case `ArBirational` is part of the input `ArDegree` of [the literature chapter](/proof/literature/).'
+  - concept: Height function
+    math2: F1FF505PWH
+    says: 'The Weil height of $P \in \mathbb{P}^n(K)$ is $H(P) = \prod_v \max_i |x_i|_v^{d_v/[K:\mathbb{Q}]}$, independent of coordinates and of $K$; a map $\varphi : X \to \mathbb{P}^n$ gives a height on $X$.'
+    why: 'The fields `CycleHeights` and `ArithHilbertSamuel` of [the published arithmetic results](/step/published-results-arithmetic/) are about heights, and [the Weil bound](/proof/weil-bound/) bounds heights of curves.'
+    steps: [published-results-arithmetic]
+  - concept: Northcott
+    text: 'Bombieri and Gubler, Heights in Diophantine Geometry, Chapter 1'
+    says: 'There are only finitely many points of $\mathbb{P}^n(\overline{\mathbb{Q}})$ of bounded height and bounded degree.'
+    why: 'It is the basic finiteness property of the heights that [the Weil bound](/proof/weil-bound/) uses.'
+  - concept: Height of a cycle
+    text: 'Bost, Gillet and Soulé, Heights of projective varieties and positive Green forms, J. Amer. Math. Soc. 7 (1994), Section 3'
+    says: 'The height of an integral cycle $Z$ of dimension $r + 1$ is $\overline{L}^{r+1} \cdot Z$, and its normalized height divides by $(r+1)\deg_L(Z_{\mathbb{Q}})$.'
+    why: 'It is the statement `CycleHeights` of [the published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
+  - concept: Zhang's successive minima
+    text: 'Zhang, Positive line bundles on arithmetic varieties, J. Amer. Math. Soc. 8 (1995)'
+    says: 'For $L_{\mathbb{Q}}$ ample, $L$ nef on fibres and $c_1(\overline{L}) \geq 0$, $e_1 \geq \overline{L}^{D+1}/((D+1)\deg_L X_{\mathbb{Q}}) \geq \frac{1}{D+1}\sum_i e_i$.'
+    why: 'The proof derives two bounds of this shape, and the upper one gives the Siegel lemma of [the Weil bound](/proof/weil-bound/).'
+  - concept: Arithmetic volume
+    text: 'Moriwaki, Continuity of volumes on arithmetic varieties, J. Algebraic Geom. 18 (2009)'
+    says: '$\widehat{\mathrm{vol}}(\overline{L}) = \limsup_n \log\#\widehat{H}^0(X, \overline{L}^{\otimes n})/(n^{D+1}/(D+1)!)$, where $\widehat{H}^0$ is the set of sections of sup norm at most $1$.'
+    why: 'The volume slope of [the Weil bound](/proof/weil-bound/) counts lattice sections of small sup norm in this way.'
+  - concept: Big
+    text: 'Moriwaki, Continuity of volumes on arithmetic varieties, J. Algebraic Geom. 18 (2009)'
+    says: 'A Hermitian line bundle is big if its arithmetic volume is positive.'
+    why: '`MoriwakiBigStatement` of [the Weil bound](/proof/weil-bound/) gives bigness from a positive self-intersection.'
+  - concept: Nef
+    text: 'Zhang, Positive line bundles on arithmetic varieties, J. Amer. Math. Soc. 8 (1995)'
+    says: '$\overline{L}$ is nef if $c_1(\overline{L}) \geq 0$ and $\widehat{\deg}(\overline{L}|_C) \geq 0$ for each integral closed $C$ of dimension $1$.'
+    why: '`ArithKleiman` and `ArithmeticVolumeNef` of [the Weil bound](/proof/weil-bound/) are about nef Hermitian line bundles.'
+  - concept: Arithmetic Hilbert-Samuel
+    text: 'Gillet and Soulé, An arithmetic Riemann-Roch theorem, Invent. Math. 110 (1992); Abbes and Bouche, Ann. Inst. Fourier 45 (1995)'
+    says: 'For $L$ ample with positive metric and smooth generic fibre, $\log\#\widehat{H}^0(X, \overline{L}^{\otimes n}) = \overline{L}^{D+1} n^{D+1}/(D+1)! + o(n^{D+1})$.'
+    why: '`HSUse` of [the Weil bound](/proof/weil-bound/) states the $\limsup$ upper bound for nef bundles, and `ArithHilbertSamuel` is a field of [the published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
+  - concept: Moriwaki and Yuan
+    text: 'Yuan, Big line bundles over arithmetic varieties, Invent. Math. 173 (2008)'
+    says: 'For nef $\overline{L}, \overline{M}$, $\widehat{\mathrm{vol}}(\overline{L} \otimes \overline{M}^{-1}) \geq \overline{L}^{D+1} - (D+1)\overline{L}^D \cdot \overline{M}$, and $\widehat{\mathrm{vol}}(\overline{L}) = \overline{L}^{D+1}$ for nef $\overline{L}$.'
+    why: 'The proof states $\overline{A}^{D+1} \leq \widehat{\mathrm{vol}}(\overline{A})$ for semipositive $\overline{A}$ nef on fibres and on the generic fibre, as `MoriwakiBigStatement` ([the Weil bound](/proof/weil-bound/)).'
+    steps: [every-character-of-literature]
+  - concept: Arithmetic Kleiman criterion
+    text: 'Zhang, Positive line bundles on arithmetic varieties, J. Amer. Math. Soc. 8 (1995)'
+    says: 'A nef Hermitian line bundle $\overline{A}$ with nonnegative heights on all arithmetic curves has $\overline{A}^{D+1} \geq 0$.'
+    why: 'It is the statement `ArithKleiman` inside `HSUse` of [the Weil bound](/proof/weil-bound/).'
+  - concept: Euclidean lattice
+    math2: AAATH70CY1
+    says: 'A Euclidean lattice is a free $\mathbb{Z}$-module of finite rank with a Euclidean norm on $E_{\mathbb{R}}$, of degree $-\log\operatorname{covol}(E)$.'
+    why: 'The spaces of sections counted in [the Weil bound](/proof/weil-bound/) are such lattices.'
+  - concept: Hermitian lattice
+    text: 'Bost, Périodes et isogénies des variétés abéliennes sur les corps de nombres, Astérisque 237 (1996), Section 4'
+    says: 'A Hermitian lattice over $\mathcal{O}_K$ is a projective $\mathcal{O}_K$-module with a Hermitian norm at each $\sigma : K \to \mathbb{C}$, conjugate at $\bar\sigma$; its degree is that of its determinant.'
+    why: 'The Siegel lemma `LineOfLargeDegree` of [the Weil bound](/proof/weil-bound/) is about Hermitian lattices over $\mathcal{O}_K$.'
+  - concept: Slope
+    text: 'Bost, Périodes et isogénies des variétés abéliennes sur les corps de nombres, Astérisque 237 (1996), Section 4'
+    says: 'The slope of a Hermitian lattice is $\mu(\overline{E}) = \widehat{\deg}(\overline{E})/([K:\mathbb{Q}]\operatorname{rank} E)$.'
+    why: 'The Siegel lemma of [the Weil bound](/proof/weil-bound/) finds a vector of degree at least $\mu(F) - \frac12\log i - \varepsilon$.'
+  - concept: Maximal slope
+    text: 'Bost, Périodes et isogénies des variétés abéliennes sur les corps de nombres, Astérisque 237 (1996), Section 4'
+    says: 'The maximal slope $\mu_{\max}(\overline{E})$ is the supremum of $\mu(\overline{F})$ over the nonzero submodules $F \subset E$.'
+    why: '`SlopeBoundSt` of [the Weil bound](/proof/weil-bound/) bounds $\mu_{\max}$ of the Lie algebra of a semi-abelian scheme.'
+  - concept: Absolute Siegel lemma
+    text: 'Roy and Thunder, An absolute Siegel''s lemma, J. reine angew. Math. 476 (1996)'
+    says: 'For a Hermitian lattice $F$ of rank $i$ over $\mathcal{O}_K$ and $\varepsilon > 0$ there are $K''$ and $v \neq 0$ with $\mu(F) - \frac12\log i - \varepsilon \leq \widehat{\deg}_{K''}(v)$.'
+    why: 'It is `LineOfLargeDegree` of [the Weil bound](/proof/weil-bound/), which gives short vectors for the slope bound.'
+  - concept: Bost slope inequality
+    text: 'Bost, Périodes et isogénies des variétés abéliennes sur les corps de nombres, Astérisque 237 (1996), Section 4'
+    says: 'If $\varphi : E \to F$ is injective with $\|\varphi(x)\|_\sigma \leq C\|x\|_\sigma$, then $\mu(\overline{E}) \leq \mu_{\max}(\overline{F}) + \log C$.'
+    why: 'The code proves it, but the slope bound of [the Weil bound](/proof/weil-bound/) uses the Siegel lemma in its place.'
+  - concept: Hodge bundle
+    text: 'Faltings and Chai, Degeneration of Abelian Varieties, Chapter V'
+    says: 'The Hodge bundle of $A \to S$ is $\omega_{A/S} = e^*\Omega^1_{A/S}$, dual to $\operatorname{Lie}(A)$, and the Hodge metric on $\det\omega$ is $\|\alpha\|^2 = i^{g^2}2^{-g}\int \alpha \wedge \bar\alpha$.'
+    why: 'The volume theorem of [the Weil bound](/proof/weil-bound/) computes intersection numbers of Hodge line bundles twisted by a weight $u$.'
+    steps: [covolume-bound-of-x-def]
+  - concept: Faltings height
+    text: 'Faltings, Endlichkeitssätze für abelsche Varietäten über Zahlkörpern, Invent. Math. 73 (1983)'
+    says: 'The Faltings height of $A$ with semistable reduction is the normalized arithmetic degree of the Hodge line bundle of its Néron model with the Hodge metric.'
+    why: 'It is the arithmetic size of a Hodge bundle, of the kind that `SlopeBoundSt` of [the Weil bound](/proof/weil-bound/) controls through $\widehat{\deg}_n B$.'
+  - concept: Semipositivity of the Hodge bundle
+    text: 'Moret-Bailly, Pinceaux de variétés abéliennes, Astérisque 129 (1985)'
+    says: 'For a semi-abelian $G$ over a smooth projective curve in characteristic $0$, each vector bundle $W \hookrightarrow \operatorname{Lie}(G)$ has $\deg\det W \leq 0$.'
+    why: 'It is `SemiAbelianLieSeminegative`, an input of the volume branch in [the literature chapter](/proof/literature/).'
+  - concept: Zarhin's trick
+    text: 'Zarhin, A remark on endomorphisms of abelian varieties over function fields of finite characteristic, Math. USSR-Izv. 8 (1974)'
+    says: 'For each abelian variety $A$, $(A \times A^\vee)^4$ has a principal polarization.'
+    why: 'Its consequence `ZarhinStatement`, that $A$ is a retract of a principally polarized abelian scheme, is an input of `deep_slim_use` in [the Weil bound](/proof/weil-bound/).'
+    steps: [every-character-of-literature]

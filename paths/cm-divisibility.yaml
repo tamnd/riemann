@@ -1,0 +1,89 @@
+id: cm-divisibility
+title: CM curves, the invariant derivation and divisibility
+for: [cm-divisibility]
+needs: [algebra, number-fields, class-field-theory, l-functions, groups, elliptic-curves, formal-groups]
+lead: 'To read this chapter you need CM elliptic curves and their lattices, the Chowla-Selberg formula, and formal group laws with their invariant derivation.'
+items:
+  - concept: Greatest common divisor
+    math2: 0C8WYW4KYQ
+    says: 'For $a, b \in \mathbb{Z}$ not both $0$, $\gcd(a, b)$ is the largest integer that divides both; by the Bézout identity it is $ax + by$ for some $x, y \in \mathbb{Z}$.'
+    why: '`flatProductDepthPeriodic_gcd` gets the period $\gcd(k, k'')$ from the periods $k$ and $k''$ by the Bezout identity.'
+  - concept: Formal power series
+    math2: 033WGN00BF
+    says: 'The ring $R[[X_1, \dots, X_d]]$ is the set of all formal sums $\sum_\alpha a_\alpha X^\alpha$, with no convergence asked.'
+    why: 'The invariant derivation of Step 2 acts on power series in $X_1, \dots, X_d$ over a $p$-adically complete ring $B$.'
+  - concept: Ideal class group
+    math2: WQ46BD3ARY
+    says: 'The ideal class group is $\mathrm{Cl}_K = I_K/P_K$, fractional ideals modulo principal ones. It is finite, and its order is the class number $h_K$.'
+    why: 'The Chowla-Selberg formula of Step 6 is a mean over the ideal classes $c$ of an imaginary quadratic field.'
+  - concept: Ramification
+    math2: E7WHZXQ0WF
+    says: 'If $\mathfrak p\mathcal{O}_L = \mathfrak P_1^{e_1} \cdots \mathfrak P_g^{e_g}$, then $e_i$ is the ramification index of $\mathfrak P_i$, and $\mathfrak p$ is ramified in $L$ when some $e_i > 1$. It splits completely if $g = [L:K]$ and is inert if $\mathfrak p\mathcal{O}_L$ is prime.'
+    why: 'The CM curve of the code is used with $p = d$, which is ramified in the host field, while the timeline asks for $p$ inert.'
+  - concept: Partial zeta function
+    text: 'Neukirch, Algebraic Number Theory, VII.8'
+    says: 'For a ray class $\mathfrak c$ modulo $\mathfrak f$, $\zeta(s, \mathfrak c) = \sum_{\mathfrak a \in \mathfrak c} N(\mathfrak a)^{-s}$ over integral ideals; it is meromorphic with a simple pole at $s = 1$ and has a functional equation.'
+    why: 'The proof of `JetInt` uses only the functional equation of partial zeta functions, and `ToricDenominator` uses bounds on their values.'
+  - concept: Class number formula
+    math2: 55XX5A7XZV
+    says: '$\operatorname{Res}_{s=1} \zeta_K(s) = 2^{r_1}(2\pi)^{r_2} h_K R_K/(w_K \sqrt{|d_K|})$; for an imaginary quadratic field of discriminant $-d$ with $d > 4$, $L(1, \chi_{-d}) = \pi h/\sqrt d$.'
+    why: 'The proof of the Chowla-Selberg formula of Step 6 uses $L(1, \chi) = \pi h/\sqrt d$.'
+  - concept: Kronecker limit formula
+    math2: PD750J2XV9
+    says: 'For the Eisenstein series $E(\tau, s) = \sum_{(m,n) \ne 0} y^s/|m\tau + n|^{2s}$, $E(\tau, s) = \pi/(s-1) + 2\pi(\gamma - \log 2 - \log(\sqrt y |\eta(\tau)|^2)) + O(s - 1)$.'
+    why: 'The proof of the Chowla-Selberg formula of Step 6 uses the Kronecker limit formula for the real analytic Eisenstein series.'
+  - concept: Hecke L-function
+    text: 'Neukirch, Algebraic Number Theory, VII.8'
+    says: 'The Hecke L-function of $\chi$ is $L(s, \chi) = \prod_{v \nmid \infty} L(s, \chi_v)$ with $L(s, \chi_v) = (1 - \chi_v(\varpi_v) q_v^{-s})^{-1}$ at unramified $v$ and $1$ at ramified $v$.'
+    why: 'The number $\beta$ of `BetaArch` is built from a value of a Hecke L-function, and `LBound` bounds $\log|\Lambda(s)|$.'
+  - concept: Discriminant
+    text: 'Silverman, The Arithmetic of Elliptic Curves, VI.3'
+    says: 'The discriminant of a lattice is $\Delta(L) = g_2(L)^3 - 27 g_3(L)^2$; it is nonzero and $\Delta(cL) = c^{-12}\Delta(L)$.'
+    why: 'The number $\beta$ of Step 5 has the denominator $\Delta(\Lambda)^{\mathrm{wt}}$, and Chowla-Selberg is a mean of $\log(N(\mathfrak a_c)^6 |\Delta(L_c)|)$.'
+  - concept: Eisenstein sum
+    math2: EYREVY31BN
+    says: 'The Eisenstein sum of weight $k \geq 3$ of a lattice is $G_k(L) = \sum_{\omega \in L \setminus \{0\}} \omega^{-k}$, and $g_2 = 60 G_4$, $g_3 = 140 G_6$.'
+    why: '`JetInt` bounds the derivatives at $0$ of Eisenstein lattice sums of weight $2s$, divided by powers of periods.'
+  - concept: Minimal discriminant
+    text: 'Silverman, The Arithmetic of Elliptic Curves, VII.1 and VIII.8'
+    says: 'The minimal discriminant of $E$ over a number field is $\prod_v \mathfrak{p}_v^{v(\Delta_v)}$, with $\Delta_v$ the discriminant of a Weierstrass model at $v$ with integral coefficients and least $v(\Delta)$.'
+    why: '`CMCurveGoodOutsidePrimeSt` asks for a curve with minimal discriminant $-p^3$; it is a field of [published_results_eigen](/step/published-results-eigen/).'
+    steps: [published-results-eigen]
+  - concept: Quadratic twist
+    text: 'Silverman, The Arithmetic of Elliptic Curves, X.5'
+    says: 'The quadratic twist of $y^2 = x^3 + ax + b$ by $d$ is $y^2 = x^3 + ad^2x + bd^3$; it has the same $j$ and discriminant $d^6\Delta$.'
+    why: 'The proof of `cmCurveGoodOutsidePrime` twists $y^2 = x^3 - \tfrac{g_2}{4}x - \tfrac{g_3}{4}$ by $1$ or $-p$, as $p \equiv 3$ or $7 \pmod 8$.'
+  - concept: Shimura reciprocity
+    text: 'Shimura, Introduction to the Arithmetic Theory of Automorphic Functions, Theorem 6.31'
+    says: 'For $\tau \in \mathbb{H} \cap K$ and a modular function $f$ over $\mathbb{Q}^{\mathrm{ab}}$, $f(\tau)^{[s^{-1}, K]} = f^{q_\tau(s)}(\tau)$ for each $s \in \mathbb{A}_{K,f}^\times$.'
+    why: '`Transport` writes each Galois conjugate of $\beta$ as a value of the same shape; this is used in `BetaArch`.'
+  - concept: Chowla-Selberg
+    text: 'Chowla and Selberg, On Epstein''s zeta-function, J. reine angew. Math. 227 (1967)'
+    says: 'For $K$ of discriminant $-d$, $d > 4$, the mean over classes of $\log(N(\mathfrak{a}_c)^6|\Delta(L_c)|)$ is $12\log 2\pi - 6\log d + 6\gamma - 6L''(1,\chi)/L(1,\chi)$.'
+    why: '`chowla_selberg_discriminant` is this formula; `betaArch_of_transport` uses it to average over the conjugates of $\beta$.'
+  - concept: Gross's curves
+    text: 'Gross, Arithmetic on Elliptic Curves with Complex Multiplication, Lecture Notes in Math. 776 (1980)'
+    says: 'For a prime $p > 3$ with $p \equiv 3 \bmod 4$ there is $A$ over $\mathbb{Q}(j(\mathcal{O}_K))$, $K = \mathbb{Q}(\sqrt{-p})$, with $j(A) = j(\mathcal{O}_K)$, good reduction away from $p$ and minimal discriminant $(-p)^3$.'
+    why: '`CMCurveGoodOutsidePrimeSt` is the existence of these curves, a field of [published_results_eigen](/step/published-results-eigen/).'
+    steps: [published-results-eigen]
+  - concept: CM type
+    text: 'Shimura, Abelian Varieties with Complex Multiplication and Modular Functions, Chapter II'
+    says: 'A CM type of a CM field $E$ is a set $\varphi$ of embeddings $E \to \mathbb{C}$ with one from each pair of complex conjugate embeddings.'
+    why: '`JetInt` is stated for a CM field $E$ abelian over $\mathbb{Q}$ with a CM type $\varphi$.'
+  - concept: Formal group law
+    text: 'Silverman, The Arithmetic of Elliptic Curves, 2nd ed. (2009), ch. IV'
+    says: 'A commutative formal group law of dimension $n$ over $R$ is an $n$-tuple of power series $F(X, Y)$ with $F(X, 0) = X$, $F(0, Y) = Y$, associativity and commutativity. Examples are $X + Y$ and $X + Y + XY$.'
+    why: 'The formula of Step 2 is for a lift $\mu$ whose image under $\theta$ is a commutative formal group law.'
+  - concept: Invariant derivation
+    text: 'Hazewinkel, Formal Groups and Applications (1978), ch. I'
+    says: 'For a formal group law $F$ and $u \in R^n$, $D_u g(X) = \sum_i u_i \,\partial/\partial Y_i\, g(F(X, Y))|_{Y=0}$. It commutes with translations, and the $D_u$ form the Lie algebra of $F$.'
+    why: '`invDer` is $D_u$, and Step 2 computes the constant term of $D_u^{\,p}(X_j)$ modulo $\ker\theta + (p)$.'
+  - concept: p-divisible group
+    text: 'Tate, p-divisible groups, Proc. Conf. Local Fields (1967)'
+    says: 'A $p$-divisible group of height $h$ over $R$ is a system of finite flat commutative group schemes $G_n$ of order $p^{nh}$ with $G_n = G_{n+1}[p^n]$. Examples are $\mu_{p^\infty}$, $\mathbb{Q}_p/\mathbb{Z}_p$ and $A[p^\infty]$.'
+    why: '`isNil_dual_frobenius` uses the formula of Step 2 for a $p$-divisible group whose dual is connected.'
+  - concept: Prismatic Dieudonné theory
+    text: 'Anschütz and Le Bras, Prismatic Dieudonné theory, Forum Math. Pi 11 (2023)'
+    says: 'For quasi-syntomic rings, $p$-divisible groups are equivalent to admissible prismatic Dieudonné crystals. Over $\mathcal{O}_C$ this gives free $A_{\mathrm{inf}}$-modules of rank equal to the height, with Frobenius and Hodge filtration.'
+    why: 'The formula of Step 2 serves `PrismaticDieudonneHodge`, a field of the arithmetic literature bundle [published_results_arithmetic](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]

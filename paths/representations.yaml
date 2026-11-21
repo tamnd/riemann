@@ -1,76 +1,155 @@
 id: representations
 title: Representations of local groups
-for: []
-needs: []
-lead: 'This path covers the representation theory of $\mathrm{GL}_n$ over local and finite fields. At its end, a reader can read the twelve laws of `LawsT` in IsRecT.'
+order: 8
+needs: [groups]
+lead: 'Representations of compact groups, of $\mathrm{GL}_n$ over $p$-adic and finite fields, and of real reductive groups. They are the language of the local laws `IsRecT`, of the Satake parameters of the Galois row and of the discrete series in the unitary hypotheses.'
 items:
-  - concept: Group representation
+  - concept: Representation
     math2: WYGRXCG2RN
-    says: 'Let $G$ be a group and let $V$ be a vector space over a field $F$. A representation of $G$ on $V$ is a group homomorphism $\rho: G \to \mathrm{GL}(V)$, where $\mathrm{GL}(V)$ is the group of invertible linear maps $V \to V$.'
-    why: 'All objects of the row are representations, either of $\mathrm{GL}_n(E_w)$ or of a Weil or Galois group.'
+    says: 'A representation of a group $G$ is a vector space $V$ with a homomorphism $\pi : G \to \mathrm{GL}(V)$.'
+    why: 'All local objects of the row are representations, of $\mathrm{GL}_n(E_w)$ in [IsRecT](/step/is-rect-def/) or of a Weil group.'
+    steps: [is-rect-def]
   - concept: Irreducible representation
     math2: FX3NEFYFFN
-    says: 'A representation $\rho: G \to \mathrm{GL}(V)$ is irreducible when $V \neq 0$ and the only subspaces $W \subseteq V$ with $\rho(g)W \subseteq W$ for all $g \in G$ are $0$ and $V$.'
+    says: 'A representation is irreducible when $V \ne 0$ and its only subrepresentations are $0$ and $V$.'
     why: 'The domain of the map $rc$ in [IsRecT](/step/is-rect-def/) is the set of classes of irreducible smooth representations of $\mathrm{GL}_n(E_w)$.'
     steps: [is-rect-def]
-  - concept: Schur lemma
+  - concept: Schur's lemma
     math2: X4M2FFKQJ6
-    says: 'Let $M$ and $N$ be simple modules over a ring $R$. Then every module homomorphism $f: M \to N$ is either $0$ or an isomorphism. For an irreducible smooth complex representation $V$ of $\mathrm{GL}_n(F)$, with $F$ a nonarchimedean local field, each linear map $V \to V$ that commutes with the group action is a scalar, so the center of $\mathrm{GL}_n(F)$ acts on $V$ by a character $\omega$, the central character.'
-    why: 'The Schur lemma gives the central character $\omega$ of an irreducible representation, which the laws `central` and `absCentral` use.'
+    says: 'A nonzero intertwining map between irreducible representations is an isomorphism, and an irreducible representation of countable dimension has $\mathrm{Hom}_G(\pi, \pi) = \mathbb{C}$, so it has a central character.'
+    why: 'The laws `central` and `absCentral` of [IsRecT](/step/is-rect-def/) use the central character $\omega$ of an irreducible class.'
     steps: [is-rect-def]
-  - concept: Haar measure
-    math2: CE0V9686M8
-    says: 'Let $G$ be a locally compact Hausdorff group. A left Haar measure on $G$ is a nonzero Radon measure $\mu$ on the Borel sets of $G$ with $\mu(gA) = \mu(A)$ for every $g \in G$ and every Borel set $A$. A left Haar measure exists, and it is unique up to a positive scalar.'
-    why: 'The theta integral $I_M(\Phi)$ of the [theta chapter](/proof/theta-matching/) is an integral for a Haar measure on a unitary group.'
-  - concept: Reductive group
-    math2: 2XS84PWE3S
-    says: 'Let $k$ be a field with algebraic closure $\bar{k}$. A linear algebraic group $G$ over $k$ is reductive when it is smooth and connected and $G_{\bar{k}}$ has no nontrivial connected normal unipotent subgroup. Examples are $\mathrm{GL}_n$, $\mathrm{SL}_n$, the symplectic groups, and the unitary groups.'
-    why: 'The groups $\mathrm{GL}_n$ and the unitary groups $U_X$ of the proof are reductive groups.'
+  - concept: Character of a representation
+    math2: RMWMYBY8TC
+    says: 'The character of a finite-dimensional representation is the class function $\chi_\pi(g) = \operatorname{tr}\pi(g)$; for a finite group the irreducible characters are an orthonormal basis of the class functions.'
+    why: '[The statement Green](/step/green-def/) is about class functions on $\mathrm{GL}_d(\mathbb{Z}/g)$ that are characters of simple representations.'
+    steps: [green-def]
+  - concept: Contragredient
+    text: 'Bushnell and Henniart, The Local Langlands Conjecture for GL(2), 2.7'
+    says: 'The contragredient $\pi^\vee$ of a smooth representation is the space of smooth vectors of the dual $V^*$, with $(\pi^\vee(g)\lambda)(v) = \lambda(\pi(g^{-1})v)$.'
+    why: 'The law `dual` of [IsRecT](/step/is-rect-def/) sends the contragredient of a `Good` class to the dual Weil-Deligne class.'
+    steps: [is-rect-def]
+  - concept: Unitary representation
+    math2: 74BPYJNZTM
+    says: 'A unitary representation of a topological group $G$ is a strongly continuous homomorphism from $G$ to the unitary group of a Hilbert space.'
+    why: 'Discrete series and the unitary dual are sets of unitary representations, used in [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Matrix coefficient
+    math2: J85Q7QGGHS
+    says: 'A matrix coefficient of a unitary representation $\pi$ is a function $g \mapsto \langle \pi(g)u, v \rangle$.'
+    why: 'The [determinants chapter](/proof/determinants/) integrates the Weil matrix coefficient against the matrix coefficient `mc M φ g` of an automorphic form.'
+  - concept: Schur orthogonality
+    math2: ETNDTECY97
+    says: 'For irreducible unitary $\pi, \pi''$ of a compact group, $\int_G \langle \pi(g)u, v \rangle \overline{\langle \pi''(g)u'', v'' \rangle}\, dg$ is $0$ if $\pi \not\cong \pi''$ and $\langle u, u'' \rangle \overline{\langle v, v'' \rangle}/\dim \pi$ if $\pi = \pi''$.'
+    why: '[UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) has the field `schurOrthogonalitySquareIntegrable`, the form of this theorem for discrete series.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Highest weight
+    math2: C5W8BE1DRY
+    says: 'The irreducible representations of $\mathrm{U}(n)$ are in bijection with the dominant weights $\lambda_1 \ge \dots \ge \lambda_n$ in $\mathbb{Z}^n$, the weight of a highest weight vector, which is unique up to a scalar.'
+    why: 'The statement [TLiftK](/step/tlift-k-def/) asks for dominant weights `DomWeight` at the infinite places, and the [determinants chapter](/proof/determinants/) uses the highest weight vector $\prod_s \Delta_s^{\nu_s - \nu_{s+1}}$ of leading minors.'
+    steps: [tlift-k-def]
+  - concept: Weyl branching law
+    text: 'Goodman and Wallach, Symmetry, Representations, and Invariants, 8.1'
+    says: 'The irreducible representation of $\mathrm{U}(n)$ of highest weight $\lambda$ restricts to $\mathrm{U}(n-1)$ as the multiplicity-free sum of the $V_\mu$ with $\lambda_1 \ge \mu_1 \ge \lambda_2 \ge \dots \ge \mu_{n-1} \ge \lambda_n$.'
+    why: '[ThetaLocalInputs](/step/theta-local-inputs-def/) has the field `weylBranching`, and the interlacing condition of [the Bessel seesaw chapter](/proof/bessel-seesaw/) is its analogue for discrete series.'
+    steps: [theta-local-inputs-def]
   - concept: Admissible representation
-    math2: E15H5E8FP4
-    says: 'Let $G$ be a reductive group over a nonarchimedean local field, for example $\mathrm{GL}_n(F)$. A complex representation $(\pi, V)$ of $G$ is smooth when the stabilizer of each $v \in V$ is open in $G$. It is admissible when it is smooth and, for each compact open subgroup $K \subseteq G$, the space $V^K$ of $K$-fixed vectors has finite dimension.'
-    why: 'Smooth irreducible representations of $\mathrm{GL}_n(E_w)$ are admissible, and this is the setting of [IsRecT](/step/is-rect-def/).'
+    math2: SZV8Y806Y7
+    says: 'A representation of a $p$-adic group is smooth if each vector has an open stabilizer, and admissible if moreover $V^K$ has finite dimension for each compact open $K$.'
+    why: 'The type `IrrGL` of [IsRecT](/step/is-rect-def/) is the set of classes of smooth irreducible representations, which are admissible.'
     steps: [is-rect-def]
-  - concept: Induced representation
+  - concept: Parabolic induction
     math2: JJP4JFH3C6
-    says: 'Let $H$ be a subgroup of a group $G$ and let $(\sigma, W)$ be a representation of $H$. The induced representation $\operatorname{Ind}_H^G \sigma$ is the space of functions $f: G \to W$ with $f(hg) = \sigma(h) f(g)$ for all $h \in H$ and $g \in G$, where $G$ acts by $(g \cdot f)(x) = f(xg)$. For a parabolic subgroup $P = MN$ of $\mathrm{GL}_n(F)$ and a smooth representation $\sigma$ of $M$, parabolic induction takes the smooth such functions, with $\sigma$ extended to $P$ trivially on $N$ and usually twisted by $\delta_P^{1/2}$.'
-    why: 'Segments of cuspidal representations come from parabolic induction, and the law `langlands` reads $rc(x)$ off a list of segments.'
-    steps: [is-rect-def]
+    says: 'For $P = MN$ and a smooth $\sigma$ of $M$, $i_P^G\sigma$ is the space of smooth $f : G \to W$ with $f(nmg) = \delta_P(m)^{1/2}\sigma(m)f(g)$, with $G$ acting by right translation.'
+    why: '[UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) has the fields `unlinkedProductIrreducible` and `bernsteinUnitaryProductIrreducible` on induced representations.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Jacquet module
+    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS 10 (1977)'
+    says: 'The Jacquet module of $\pi$ along $P = MN$ is $r_P(\pi) = \delta_P^{-1/2} \otimes V/\langle \pi(n)v - v \rangle$; it is left adjoint to $i_P^G$, and the geometric lemma filters $r_Q \circ i_P^G$.'
+    why: '[Local Langlands from the literature](/step/local-langlands-gl-rect-exists-of-literature/) takes `GeometricLemma` as an input, and [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) has the field `depthZeroJacquetInjective`.'
+    steps: [local-langlands-gl-rect-exists-of-literature, unitary-group-third-place-hypotheses-def]
   - concept: Cuspidal representation
     math2: 9AZ164C298
-    says: 'Let $F$ be a nonarchimedean local field. An irreducible smooth representation $\pi$ of $\mathrm{GL}_n(F)$ is cuspidal when its Jacquet module $\pi_N$ is zero for the unipotent radical $N$ of every proper parabolic subgroup. Equivalently, the matrix coefficients of $\pi$ have compact support modulo the center.'
+    says: 'A smooth irreducible representation is cuspidal if all its Jacquet modules along proper parabolics vanish, or equivalently if its matrix coefficients have compact support modulo the center.'
     why: 'The law `cusp` of [IsRecT](/step/is-rect-def/) says that $rc$ sends a cuspidal class to an irreducible class.'
     steps: [is-rect-def]
   - concept: Supercuspidal support
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/376
-    says: 'The supercuspidal support of an irreducible smooth representation of $\mathrm{GL}_n$ is the multiset of supercuspidal representations from which it is a subquotient of the induced representation.'
-    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS (1977)'
+    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS 10 (1977)'
+    says: 'The supercuspidal support of an irreducible $\pi$ of $\mathrm{GL}_n(F)$ is the unique multiset $\{\rho_1, \dots, \rho_k\}$ of supercuspidals with $\pi$ a subquotient of $\rho_1 \times \dots \times \rho_k$.'
     why: 'A class is `Good` in [IsRecT](/step/is-rect-def/) when each element of its supercuspidal support is `GoodCusp`.'
     steps: [is-rect-def]
-  - concept: Zelevinsky segments
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/377
-    says: 'A segment is a list $\rho, \rho|\det|, \dots, \rho|\det|^{m-1}$ of cuspidal representations, and multisets of segments classify the irreducible representations of $\mathrm{GL}_n$.'
-    text: 'Zelevinsky, Induced representations of reductive p-adic groups II, Ann. Sci. ENS (1980)'
-    why: 'The law `langlands` of [IsRecT](/step/is-rect-def/) writes $rc(x)$ as a sum over the segments $\Delta$ of $x$.'
+  - concept: Segment
+    text: 'Zelevinsky, Induced representations of reductive p-adic groups II, Ann. Sci. ENS 13 (1980)'
+    says: 'A segment is a list $[\rho, \rho\nu^{m-1}] = (\rho, \rho\nu, \dots, \rho\nu^{m-1})$ with $\rho$ supercuspidal and $\nu = |\det|$; a multisegment is a multiset of segments.'
+    why: 'The law `langlands` of [IsRecT](/step/is-rect-def/) writes $rc(x)$ as a sum over the segments $\Delta$ of $x$, with $\mathrm{Sp}(\ell(\Delta))$.'
     steps: [is-rect-def]
   - concept: Langlands classification
     math2: YHFP9HGBTT
-    says: 'Let $G$ be a real or $p$-adic reductive group. Each irreducible admissible representation of $G$ is the unique irreducible quotient of an induced representation $\operatorname{Ind}_P^G(\sigma \otimes \nu)$, where $P = MN$ is a parabolic subgroup, $\sigma$ is an irreducible tempered representation of $M$, and $\nu$ is a positive real unramified character of $M$ in the open positive chamber for $P$. The triple $(P, \sigma, \nu)$ is unique up to conjugation in $G$.'
-    why: 'The proof of [RecTExists](/step/rect-exists/) uses the Langlands classification of irreducible representations of $\mathrm{GL}_n$.'
+    says: 'For $\mathrm{GL}_n(F)$, each irreducible representation is the unique irreducible quotient $L(\mathfrak{a})$ of $L(\Delta_1) \times \dots \times L(\Delta_k)$ for exactly one multisegment $\mathfrak{a}$, in an order where no $\Delta_i$ precedes a later $\Delta_j$.'
+    why: 'The proof of [local Langlands existence](/step/rect-exists/) uses the exhaustion and multisegment results `Pr.exh` and `Pr.multi` of the Langlands classification.'
     steps: [rect-exists]
-  - concept: Unitary representation
-    math2: 74BPYJNZTM
-    says: 'Let $G$ be a topological group and let $H$ be a complex Hilbert space. A unitary representation of $G$ on $H$ is a homomorphism $\pi$ from $G$ to the group of unitary operators on $H$ such that $g \mapsto \pi(g)v$ is continuous for every $v \in H$.'
-    why: 'The Weil representation of the theta chapter is a unitary representation, and its local quotients give the matching.'
+  - concept: Satake parameter
+    text: 'Cartier, Representations of p-adic groups: a survey, Proc. Sympos. Pure Math. 33 (1979), Part 1, IV'
+    says: 'An unramified irreducible $\pi$ of $\mathrm{GL}_n(F)$ is a subquotient of $\chi_1 \times \dots \times \chi_n$ with unramified $\chi_i$, and its Satake parameter is the multiset $\{\chi_i(\varpi)\}$; through the Satake isomorphism it is the character of $\mathcal{H}(G, K)$ on the spherical vector.'
+    why: 'The statement `CoreAll` of [the Galois row](/proof/galois-row/) compares Frobenius characteristic polynomials with Satake parameters, and `SatU` in [GeoOne](/step/geo-one-def/) asks for them.'
+    steps: [geo-one-def]
+  - concept: Iwahori fixed vectors
+    text: 'Borel, Admissible representations of a semi-simple group over a local field with vectors fixed under an Iwahori subgroup, Invent. Math. 35 (1976)'
+    says: 'An irreducible $\pi$ of $\mathrm{GL}_n(F)$ has a nonzero vector fixed by the Iwahori subgroup if and only if it is a subquotient of a product of unramified characters.'
+    why: '[The Galois row](/proof/galois-row/) proves local-global compatibility at places with Iwahori fixed vectors (`localGlobalCompatAtIwahoriFixed_of_unlinked`), and [ThetaLocalInputs](/step/theta-local-inputs-def/) has the field `borelCasselman`.'
+    steps: [theta-local-inputs-def]
+  - concept: Depth zero
+    text: 'Moy and Prasad, Jacquet functors and unrefined minimal K-types, Comment. Math. Helv. 71 (1996)'
+    says: 'An irreducible $\pi$ of $\mathrm{GL}_n(F)$ has depth zero if it has a nonzero vector fixed by $K_1 = 1 + \varpi M_n(\mathcal{O})$; the depth zero supercuspidals are $\operatorname{c-Ind}_{F^\times K}^G \tau$ for $\tau$ cuspidal of $\mathrm{GL}_n(\mathbb{F}_q)$, and $(K, \tau)$ is a type for them.'
+    why: 'The law `depth` of [IsRecT](/step/is-rect-def/) sends a `Good` class with a `KOne`-fixed vector to a tame class, and the law `type` gives the inertia of $rc(\sigma)$ for $\sigma$ that inflates a cuspidal $\tau$.'
+    steps: [is-rect-def]
+  - concept: Green's parametrization
+    text: 'Green, The characters of the finite general linear groups, Trans. Amer. Math. Soc. 80 (1955)'
+    says: 'The irreducible cuspidal representations of $\mathrm{GL}_n(\mathbb{F}_q)$ are the $\tau_\theta$ for regular characters $\theta$ of $\mathbb{F}_{q^n}^\times$ up to Frobenius, of dimension $\prod_{i<n}(q^i - 1)$ and character $(-1)^{n-1}\sum_j \theta(z^{q^j})$ on elliptic regular elements.'
+    why: '[The statement Green](/step/green-def/) is this parametrization, obtained in [Green from regular characters](/step/green-of-regular/) and used by [ZeroFreeAll](/step/zero-free-all-of-green-v-win/).'
+    steps: [green-def, green-of-regular, zero-free-all-of-green-v-win]
+  - concept: Deligne-Lusztig induction
+    text: 'Deligne and Lusztig, Representations of reductive groups over finite fields, Ann. of Math. 103 (1976)'
+    says: 'Deligne-Lusztig induction attaches to a torus $T$ of a finite reductive group and a character $\theta$ of $T(\mathbb{F}_q)$ a virtual representation $R_T^\theta$ built from $\ell$-adic cohomology; for $\mathrm{GL}_n$ and the elliptic torus, $(-1)^{n-1}R_T^\theta = \tau_\theta$.'
+    why: 'The field `greenRegularCharacters` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) states the character values that this construction gives.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Whittaker model
+    math2: 7EFDMJSVDP
+    says: 'An irreducible $\pi$ of $\mathrm{GL}_n(F)$ is generic if $\mathrm{Hom}_{N_n}(\pi, \psi_N) \ne 0$; this space then has dimension one, and its nonzero element gives the Whittaker model of functions $W_v(g) = \lambda(\pi(g)v)$.'
+    why: '[UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) has the field `genericUnitaryDualGL`, and [ThetaLocalInputs](/step/theta-local-inputs-def/) has `cuspidalMirabolic`.'
+    steps: [unitary-group-third-place-hypotheses-def, theta-local-inputs-def]
+  - concept: L-factor of the pair
+    text: 'Jacquet, Piatetski-Shapiro and Shalika, Rankin-Selberg convolutions, Amer. J. Math. 105 (1983)'
+    says: 'The L-factor $L(s, \pi \times \pi'')$ generates the fractional ideal spanned by the Rankin-Selberg integrals of Whittaker functions, and the epsilon factor $\varepsilon(s, \pi \times \pi'', \psi)$ is the monomial in the local functional equation.'
+    why: 'The record `LawsT` of [IsRecT](/step/is-rect-def/) has no law on L-factors or epsilon factors, so the proof never compares them.'
+    steps: [is-rect-def]
+  - concept: Bernstein-Zelevinsky finiteness
+    text: 'Bernstein and Zelevinsky, Induced representations of reductive p-adic groups I, Ann. Sci. ENS 10 (1977)'
+    says: 'Parabolic induction and Jacquet modules preserve finite length, and $\dim \pi^J$ is bounded by a constant $c(J)$ over all smooth irreducible $\pi$.'
+    why: '`BernsteinZelevinskyFiniteness` is a field of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) and an input of [local Langlands from the literature](/step/local-langlands-gl-rect-exists-of-literature/).'
+    steps: [unitary-group-third-place-hypotheses-def, local-langlands-gl-rect-exists-of-literature]
   - concept: Harish-Chandra module
     math2: 2MKHH636C3
-    says: 'Let $G$ be a real reductive group with maximal compact subgroup $K$ and complexified Lie algebra $\mathfrak{g}$. A $(\mathfrak{g}, K)$-module is a complex vector space $V$ with an action of $\mathfrak{g}$ and an action of $K$, in which each vector lies in a finite-dimensional $K$-stable subspace, the derivative of the $K$-action is the action of $\operatorname{Lie}(K)$, and $k(Xv) = (\operatorname{Ad}(k)X)(kv)$. A Harish-Chandra module is a $(\mathfrak{g}, K)$-module that is finitely generated over $U(\mathfrak{g})$ and in which each irreducible representation of $K$ occurs with finite multiplicity.'
-    why: 'The functional row in [nonempty-hyps](/step/nonempty-hyps/) uses the field `harishChandraModules` of the unitary hypotheses.'
+    says: 'A Harish-Chandra module is a $(\mathfrak{g}, K)$-module that is finitely generated over $U(\mathfrak{g})$ and has each $K$-type with finite multiplicity; the $K$-finite vectors of an irreducible unitary representation form one.'
+    why: 'The functional row in [HypsAlt is nonempty](/step/nonempty-hyps/) uses the field `harishChandraModules`.'
+    steps: [nonempty-hyps]
+  - concept: Infinitesimal character
+    text: 'Knapp, Representation Theory of Semisimple Groups, VIII.6'
+    says: 'The infinitesimal character of an irreducible Harish-Chandra module is the character by which $\mathcal{Z}(\mathfrak{g})$ acts, a Weyl group orbit in $\mathfrak{h}^*$; for the representation of $\mathrm{U}(n)$ of highest weight $\lambda$ it is $\{\lambda_k + \frac{n+1}{2} - k\}$.'
+    why: 'The field `weights` of [Row0b](/step/row0b-def/) gives the Hodge-Tate weights from the infinitesimal character of $\pi$, and `weight` of [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/) matches it with `infOfWeight`.'
+    steps: [row0b-def, base-change-isobaric-n-def]
+  - concept: Casselman-Wallach globalization
+    text: 'Wallach, Real Reductive Groups II, 11.6'
+    says: 'Each Harish-Chandra module is the space of $K$-finite vectors of a unique smooth admissible Fréchet representation of moderate growth, and this gives an equivalence of categories.'
+    why: 'The functional row in [HypsAlt is nonempty](/step/nonempty-hyps/) uses the field `casselmanWallach`.'
     steps: [nonempty-hyps]
   - concept: Discrete series
-    math2: 2CKZETC3QA
-    says: 'Let $G$ be a unimodular locally compact group with a Haar measure. An irreducible unitary representation $\pi$ of $G$ is a discrete series representation when it is unitarily equivalent to a subrepresentation of the left regular representation of $G$ on $L^2(G)$. Equivalently, some nonzero matrix coefficient $g \mapsto \langle \pi(g)u, v \rangle$ is square-integrable on $G$.'
-    why: 'The functional row in [nonempty-hyps](/step/nonempty-hyps/) also uses the field `discreteSeriesCover`.'
+    math2: 9AB7HYGPEK
+    says: 'A discrete series representation is an irreducible unitary representation with a nonzero square-integrable matrix coefficient; for real $G$ they exist when $G$ has a compact Cartan subgroup and are parametrized by Harish-Chandra parameters.'
+    why: 'The functional row in [HypsAlt is nonempty](/step/nonempty-hyps/) uses `discreteSeriesCover`, and [the Bessel seesaw chapter](/proof/bessel-seesaw/) states interlacing on Harish-Chandra parameters.'
     steps: [nonempty-hyps]
+  - concept: Formal degree
+    text: 'Harish-Chandra, Discrete series for semisimple Lie groups II, Acta Math. 116 (1966)'
+    says: 'The formal degree $d(\pi)$ of a discrete series is the constant with $\int_G |\langle \pi(g)u, v \rangle|^2 dg = d(\pi)^{-1}\|u\|^2\|v\|^2$; for real groups it is the Weyl dimension of the compact dual, up to the Haar measure.'
+    why: 'The field `formalDegreeCompactDual` of [ThetaLocalInputs](/step/theta-local-inputs-def/) is this formula.'
+    steps: [theta-local-inputs-def]

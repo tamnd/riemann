@@ -1,0 +1,91 @@
+id: siegel-weil
+title: Siegel-Weil, the metaplectic representation and cusp forms
+for: [siegel-weil]
+needs: [algebra, number-fields, class-field-theory, analysis, complex-analysis, groups, automorphic-forms, theta, periods]
+lead: 'To read this chapter you need Hermitian spaces over a CM field, Siegel Eisenstein series and their Fourier coefficients, and the Weil representation in its Schrödinger model.'
+items:
+  - concept: Hermitian form
+    math2: 8NJ7XY6F1S
+    says: 'A Hermitian form is a sesquilinear form $h$ with $h(y, x) = \sigma(h(x, y))$.'
+    why: '`SiegelWeilStd` takes a definite space $A$ and a space $Y$, one Hermitian and one skew-Hermitian, in [the Siegel-Weil chapter](/proof/siegel-weil/).'
+  - concept: Skew-Hermitian form
+    text: 'Scharlau, Quadratic and Hermitian Forms, 7.1'
+    says: 'A skew-Hermitian form is a sesquilinear form $h$ with $h(y, x) = -\sigma(h(x, y))$.'
+    why: 'The doubled group of `SiegelWeilStd` is $U(Y \oplus -Y)$, and $Y$ is skew-Hermitian when $A$ is Hermitian.'
+  - concept: Hecke character
+    math2: KPYFGB342X
+    says: 'A Hecke character of a number field $K$ is a continuous homomorphism $\chi : \mathbb{A}_K^\times \to \mathbb{C}^\times$ with $\chi(K^\times) = 1$, that is a character of the idele class group $C_K$.'
+    why: 'The Weil representation of `SiegelWeilStd` comes with a Hecke character $\chi$ whose restriction to $\mathbb{A}_F^\times$ is $\eta^m$ (`ResEtaPow`).'
+  - concept: Haar measure
+    math2: CE0V9686M8
+    says: 'A Haar measure on a locally compact group is a nonzero regular left invariant Borel measure; it exists and is unique up to a positive factor.'
+    why: 'The right side of `SiegelWeilStd` is a mean over $D$ for a Haar measure $\mu$ on $U_A(\mathbb{A})$, with $0 < \mu(D) < \infty$.'
+  - concept: Fundamental domain
+    math2: WEGEXJBX26
+    says: 'A fundamental domain for a discrete subgroup $\Gamma$ of $G$ is a measurable set that meets each coset $\Gamma g$ in one point.'
+    why: 'The theta integral of `SiegelWeilStd` is taken over a fundamental domain $D$ for $U_A(F)$ in $U_A(\mathbb{A})$.'
+  - concept: Schwartz space
+    math2: GE020MY43M
+    says: 'The Schwartz space is the space of smooth $f$ on $\mathbb{R}^n$ with $\sup |x^\alpha \partial^\beta f| < \infty$ for all $\alpha, \beta$.'
+    why: '`TBij` says that the transform $T$ is a bijection onto the Schwartz space of $m \times n$ matrices.'
+  - concept: Poisson summation formula
+    math2: GARGJYSGFG
+    says: 'Let $f: \mathbb{R} \to \mathbb{C}$ be a Schwartz function and let $\hat{f}(\xi) = \int_{\mathbb{R}} f(x) e^{-2\pi i x \xi}\,dx$ be its Fourier transform. Then $\sum_{n \in \mathbb{Z}} f(n) = \sum_{k \in \mathbb{Z}} \hat{f}(k)$, and both series converge absolutely.'
+    why: '`siegelWeilStd_pre` gets the bundle `TAll` from a Poisson summation theorem.'
+  - concept: Metaplectic group
+    math2: 8B0JM2YDE2
+    says: 'The metaplectic group $\mathrm{Mp}_{2n}(\mathbb{R})$ is the connected double cover of $\mathrm{Sp}_{2n}(\mathbb{R})$.'
+    why: '`MetaplecticRepresentation` gives a double cover of $\mathrm{Sp}_{2n}(\mathbb{R})$ with the Weil representation; it is a field of [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Sobolev norm
+    math2: M4CEZ5K9HP
+    says: 'The Sobolev norm of order $d$ of a smooth $\varphi$ on a Lie group is $\sum_{|\alpha| \le d} \|X^\alpha \varphi\|_{L^2}$ for a basis of the Lie algebra.'
+    why: '`CuspDecaySobolev`, a field of [ThetaLocalInputs](/step/theta-local-inputs-def/), bounds the decay of a cusp form by a Sobolev growth norm.'
+    steps: [theta-local-inputs-def]
+  - concept: Siegel parabolic
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-Functions, LNM 1254, Part A'
+    says: 'The Siegel parabolic $P = MN$ of $\mathrm{U}(W)$ is the stabilizer of the maximal isotropic subspace $X$, with $M = \{ m(a) \}$, $a \in \mathrm{GL}_n(E)$, and $N = \{ n(\beta) : \beta^{T} = c(\beta) \}$.'
+    why: 'In `TAll` the Siegel parabolic acts by explicit formulas (`TPar`, Step 2), and Step 3 compares Fourier coefficients along its unipotent radical.'
+  - concept: Siegel Eisenstein series
+    text: 'Tan, Poles of Siegel Eisenstein series on U(n,n), Canad. J. Math. 51 (1999)'
+    says: 'The Siegel Eisenstein series on $\mathrm{U}(n, n)$ is $\sum_{P(F) \backslash G(F)} f_s(\gamma g)$ for a section with $f_s(n(b)m(a)g) = \chi(\det a)|\det a|_E^{s + n/2} f_s(g)$.'
+    why: 'The left side of `SiegelWeilStd` is the Siegel Eisenstein series of the section $x \mapsto l(\omega(x)\Phi)$ at $s_0 = \tfrac{m-n}{2}$.'
+  - concept: Fourier coefficient
+    text: 'Bump, Automorphic Forms and Representations, 3.5'
+    says: 'For $N$ abelian, the Fourier coefficient $\varphi_T(g) = \int_{N(F) \backslash N(\mathbb{A}_F)} \varphi(ng)\overline{\psi_T(n)}\, dn$ satisfies $\varphi = \sum_T \varphi_T$.'
+    why: 'For $n < m$, `ThetaCoef` and `WhitK` show that both sides of `SiegelWeilStd` have the same Fourier coefficients.'
+  - concept: Constant term
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2.6'
+    says: 'The constant term of $\varphi$ along $P = MN$ is $\varphi_P(g) = \int_{N(F) \backslash N(\mathbb{A}_F)} \varphi(ng)\, dn$.'
+    why: 'For $m < n$, `CTSplit` writes a constant term as a Fourier coefficient of an Eisenstein series of lower rank plus a second term.'
+  - concept: Rapid decay of cusp forms
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2.18'
+    says: 'A cusp form $\varphi$ satisfies $|\varphi(g)| \le C_r\|g\|^{-r}$ on a Siegel set for each $r > 0$.'
+    why: '`CuspDecaySobolev` is this decay with a Sobolev bound; [HypsAlt is nonempty](/step/nonempty-hyps/) uses the field `cuspRapidDecay`.'
+    steps: [nonempty-hyps]
+  - concept: Poincaré series
+    text: 'Iwaniec, Topics in Classical Automorphic Forms, 3.3'
+    says: 'The Poincaré series $P_m = \sum_{\Gamma_\infty \backslash \mathrm{SL}_2(\mathbb{Z})} j(\gamma, \tau)^{-k} e^{2\pi i m\gamma\tau}$ is a cusp form with $\langle f, P_m \rangle = (k-2)!\,(4\pi m)^{1-k} a_m(f)$.'
+    why: 'In the proof of `FunctionalsSeparate`, used by [HypsAlt is nonempty](/step/nonempty-hyps/), a Poincaré series gives a cusp form with a theta period that is not zero.'
+    steps: [nonempty-hyps]
+  - concept: Weil representation
+    math2: H3Q2703KKV
+    says: 'The Weil representation $\omega_\psi$ is the genuine representation of $\mathrm{Mp}(W)$ that intertwines the Stone-von Neumann representation $\rho_\psi$ with its twists by $\mathrm{Sp}(W)$.'
+    why: '`IsDbl` asks for a Weil representation of the doubled group $G_2(\mathbb{A})$ on Schwartz functions.'
+  - concept: Schrödinger model
+    text: 'Kudla, Notes on the local theta correspondence (1996), II.4'
+    says: 'The Schrödinger model realizes $\omega_\psi$ on $S(V^n)$ with $\omega(m(a))\varphi(x) = \chi_V(\det a)|\det a|^{m/2}\varphi(xa)$, $\omega(n(b))\varphi(x) = \psi(\frac12\operatorname{tr}(b(x, x)))\varphi(x)$ and $\omega(w)$ a Fourier transform.'
+    why: 'The formulas `TPar` and `TWeyl` of Step 2 are the Schrödinger model of the Weil representation.'
+  - concept: Siegel-Weil formula
+    text: 'Ichino, On the Siegel-Weil formula for unitary groups, Math. Z. 255 (2007)'
+    says: 'For anisotropic $V$ of dimension $m$, the Siegel Eisenstein series of $f_\Phi$ at $s_0 = (m - n)/2$ equals $\kappa$ times the theta integral $\int_{[\mathrm{U}(V)]} \theta(g, h; \Phi)\, dh$, with $\kappa = 1$ for $m > n$ and $2$ for $m \le n$.'
+    why: '`SiegelWeilStd` is this formula; through `theoremK_head2` it gives [ThetaIntegralsAgree and LocalMatching](/step/theta-integrals-agree-and-local-matching-of-literature/).'
+    steps: [theta-integrals-agree-and-local-matching-of-literature]
+  - concept: Doubled group
+    text: 'Gelbart, Piatetski-Shapiro and Rallis, Explicit Constructions of Automorphic L-functions, LNM 1254 (1987), Part A, 2'
+    says: 'The doubled group of $\mathrm{U}(W)$ is $\mathrm{U}(W \oplus -W) \cong \mathrm{U}(n, n)$, which contains $\mathrm{U}(W) \times \mathrm{U}(W)$ and the Siegel parabolic of the diagonal.'
+    why: '`SiegelWeilStd` is a statement on the doubled group $G_2 = U(Y \oplus -Y)$ and its Siegel parabolic.'
+  - concept: Orbit integral
+    text: 'Jacquet and Rallis, On the Gross-Prasad conjecture for unitary groups, Clay Math. Proc. 13 (2011)'
+    says: 'The orbit integral of $\Phi$ at $x$ is $\int_{H_x(\mathbb{A}_F) \backslash H(\mathbb{A}_F)} \Phi(h^{-1}x)\, dh$.'
+    why: 'The Fourier coefficients of Step 3 are the orbit integrals $\mathrm{orb}_T(\Phi)$ over the $X$ with $\mathrm{gram}(X, X) = -2T$.'

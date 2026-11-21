@@ -1,70 +1,152 @@
 id: automorphic-forms
-title: Automorphic forms and representations
-for: []
-needs: [complex-analysis, number-fields, representations]
-lead: 'This path goes from modular forms to cuspidal automorphic representations of $\mathrm{GL}_n$. At its end, a reader can parse the input $\pi$ of the row statement.'
+title: Automorphic forms
+order: 9
+needs: [representations, l-functions]
+lead: 'From modular forms to automorphic forms and representations on adelic groups, their spectrum, and base change. The cuspidal $\pi$ of the row statement and the isobaric base change of the window bound are of this kind.'
 items:
   - concept: Modular form
     math2: GWKN5VG78A
-    says: 'Let $k$ be an integer, let $\mathbb{H} = \{\tau \in \mathbb{C} : \operatorname{Im} \tau > 0\}$, and let $\Gamma$ be a subgroup of finite index in $\mathrm{SL}_2(\mathbb{Z})$, for example $\mathrm{SL}_2(\mathbb{Z})$ itself. A modular form of weight $k$ for $\Gamma$ is a holomorphic function $f: \mathbb{H} \to \mathbb{C}$ with $f\left(\frac{a\tau + b}{c\tau + d}\right) = (c\tau + d)^k f(\tau)$ for all $\begin{pmatrix} a & b \\ c & d \end{pmatrix} \in \Gamma$. It must also be holomorphic at the cusps: for every $\gamma \in \mathrm{SL}_2(\mathbb{Z})$ with bottom row $(c, d)$, the function $(c\tau + d)^{-k} f(\gamma\tau)$ stays bounded as $\operatorname{Im} \tau \to \infty$.'
-    why: 'Modular forms are the case of $\mathrm{GL}_2$ over $\mathbb{Q}$, and the vwin counts use newforms of weight $2e+1$.'
+    says: 'A modular form of weight $k$, level $N$ and character $\chi$ is a holomorphic $f$ on $\mathbb{H}$ with $f(\gamma\tau) = \chi(d)(c\tau + d)^k f(\tau)$ for $\gamma \in \Gamma_0(N)$ that is bounded at each cusp.'
+    why: 'The statement `KatoTwoW` of [the window bound](/proof/vwin/) uses a newform of weight $2e+1$.'
   - concept: Cusp form
     math2: A50Y012RBP
-    says: 'Let $f$ be a modular form of weight $k$ for a subgroup $\Gamma$ of finite index in $\mathrm{SL}_2(\mathbb{Z})$. Then $f$ is a cusp form when, for every $\gamma \in \mathrm{SL}_2(\mathbb{Z})$ with bottom row $(c, d)$, the function $(c\tau + d)^{-k} f(\gamma\tau)$ tends to $0$ as $\operatorname{Im} \tau \to \infty$. For $\Gamma = \mathrm{SL}_2(\mathbb{Z})$, this means that $f(\tau) = \sum_{n \ge 0} a_n e^{2\pi i n\tau}$ has $a_0 = 0$.'
-    why: 'The unitary hypotheses in [nonempty-hyps](/step/nonempty-hyps/) contain many named results on cusp forms.'
+    says: 'A cusp form is a modular form that tends to $0$ at each cusp; on an adelic group it is an automorphic form whose constant terms along all proper parabolics vanish.'
+    why: 'The record [nonempty-hyps](/step/nonempty-hyps/) contains many named results on cusp forms of unitary groups.'
     steps: [nonempty-hyps]
   - concept: Eisenstein series
     math2: 3NZBZXYWAJ
-    says: 'Let $k \ge 4$ be an even integer and let $\mathbb{H}$ be the upper half-plane. The Eisenstein series of weight $k$ is the function $G_k(\tau) = \sum_{(m, n) \in \mathbb{Z}^2 \setminus \{(0, 0)\}} (m\tau + n)^{-k}$ on $\mathbb{H}$. The series converges absolutely, and $G_k$ is a modular form of weight $k$ for $\mathrm{SL}_2(\mathbb{Z})$ that is not a cusp form.'
-    why: 'The theta branch of the [literature chapter](/proof/literature/) uses statements named `EisBL` and `SiegelWeilStd`, on Eisenstein series and the Siegel-Weil formula.'
+    says: 'An Eisenstein series is the sum $E(g, f_s) = \sum_{\gamma \in P(F) \backslash G(F)} f_s(\gamma g)$ of a section of an induced representation; for $\mathrm{SL}_2(\mathbb{Z})$ it is $G_k(\tau) = \sum (m\tau + n)^{-k}$.'
+    why: 'The statement `EisBL` of [the Siegel-Weil chapter](/proof/siegel-weil/) gives the meromorphic continuation of a Siegel Eisenstein series.'
+  - concept: Petersson inner product
+    math2: EMZTGD63V3
+    says: 'The Petersson inner product of $f, g$ of weight $k$, one of them cuspidal, is $\int_{\Gamma \backslash \mathbb{H}} f \bar g\, y^k\, dx\, dy / y^2$.'
+    why: 'The Rallis inner product formula of [the determinants chapter](/proof/determinants/) computes Petersson products of theta lifts.'
   - concept: Hecke operator
     math2: S4SV3QZ8B1
-    says: 'Let $M_k$ be the space of modular forms of weight $k$ for $\mathrm{SL}_2(\mathbb{Z})$ and let $n \ge 1$. The Hecke operator $T_n: M_k \to M_k$ is $(T_n f)(\tau) = n^{k-1} \sum d^{-k} f\left(\frac{a\tau + b}{d}\right)$, where the sum runs over the integers $a, d \ge 1$ with $ad = n$ and $0 \le b < d$. For a group $G$ with a compact open subgroup $K$ and a smooth representation $\pi$ of $G$, the Hecke operator of a double coset $KgK$ acts on the $K$-fixed vectors by $v \mapsto \int_{KgK} \pi(x) v \, dx$.'
-    why: 'Hecke operators at unramified places have eigenvalues, and the Galois row relates them to Frobenius elements through Satake parameters.'
+    says: 'For $p \nmid N$, the Hecke operator $T_p$ acts on $q$-expansions by $a_n(T_p f) = a_{np}(f) + \chi(p) p^{k-1} a_{n/p}(f)$.'
+    why: 'The statement `CoreAll` of [the Galois row](/proof/galois-row/) compares Hecke eigenvalues, through Satake parameters, with Frobenius characteristic polynomials.'
   - concept: Hecke algebra
     math2: 5J2P2AGY4N
-    says: 'Let $G$ be a locally compact totally disconnected group, for example $\mathrm{GL}_n(F)$ for a $p$-adic field $F$, and let $K$ be a compact open subgroup with Haar measure $dg$ on $G$. The Hecke algebra $\mathcal{H}(G, K)$ is the space of compactly supported functions $f: G \to \mathbb{C}$ with $f(k_1 g k_2) = f(g)$ for all $k_1, k_2 \in K$, with the product $(f_1 * f_2)(x) = \int_G f_1(g) f_2(g^{-1} x) \, dg$. For $G = \mathrm{GL}_n(F)$ and $K = \mathrm{GL}_n(\mathcal{O}_F)$, it is the spherical Hecke algebra, and it is commutative.'
-    why: 'The spherical Hecke algebra acts on unramified vectors, and its characters are the Satake parameters.'
+    says: 'The Hecke algebra $\mathcal{H}(G(F_v), K_v)$ is the convolution algebra of compactly supported functions on $G(F_v)$ that are invariant on both sides by $K_v$.'
+    why: 'Its characters on unramified vectors give the Satake parameters used in [the Galois row](/proof/galois-row/).'
+  - concept: Newform
+    text: 'Atkin and Lehner, Hecke operators on Gamma_0(m), Math. Ann. 185 (1970)'
+    says: 'A newform is a normalized cusp form that is an eigenvector of all Hecke operators and is orthogonal to the forms from lower levels.'
+    why: 'The structure `HypothesesH''` of [the window bound](/proof/vwin/) has a field on newforms.'
+  - concept: Poincaré series
+    text: 'Iwaniec, Topics in Classical Automorphic Forms, 3.3'
+    says: 'The Poincaré series $P_m = \sum_{\Gamma_\infty \backslash \mathrm{SL}_2(\mathbb{Z})} j(\gamma, \tau)^{-k} e^{2\pi i m\gamma\tau}$ is a cusp form with $\langle f, P_m \rangle = (k-2)!\,(4\pi m)^{1-k} a_m(f)$.'
+    why: 'The lemma `exists_multT_eq_poin` of [the Siegel-Weil chapter](/proof/siegel-weil/) builds a cusp form with a nonzero theta period from a Poincaré series.'
   - concept: Automorphic form
     math2: 68SJQEC11F
-    says: 'Let $G$ be a connected semisimple Lie group with finite center inside $\mathrm{GL}_n(\mathbb{R})$, let $K$ be a maximal compact subgroup, and let $\Gamma \subseteq G$ be an arithmetic subgroup. An automorphic form for $\Gamma$ is a smooth function $f: G \to \mathbb{C}$ with $f(\gamma g) = f(g)$ for all $\gamma \in \Gamma$, such that the right translates of $f$ by $K$ span a finite-dimensional space, an ideal of finite codimension in the center of the universal enveloping algebra kills $f$, and $|f(g)| \le C \|g\|^N$ for some constants $C, N > 0$. Here $\|g\|$ is the largest absolute value of an entry of $g$ or $g^{-1}$.'
-    why: 'The theta integrals of the [theta chapter](/proof/theta-matching/) are automorphic forms on unitary groups.'
+    says: 'An automorphic form is a smooth, $K_\infty$-finite, $\mathcal{Z}$-finite function of moderate growth on $G(F) \backslash G(\mathbb{A}_F)$.'
+    why: 'The theta integrals $I_M(\Phi)$ of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) are automorphic forms on unitary groups.'
+    steps: [theta-integrals-agree-def]
+  - concept: Moderate growth
+    text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979), 1.2'
+    says: 'A function $\varphi$ on $G(\mathbb{A}_F)$ has moderate growth if $|\varphi(g)| \le C\|g\|^r$ for some $C$ and $r$.'
+    why: 'The condition `Decay` of [ThetaIntegralsAgree](/step/theta-integrals-agree-def/) asks for moderate growth and rapid decay of theta integrals.'
+    steps: [theta-integrals-agree-def]
+  - concept: Constant term
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2.6'
+    says: 'The constant term of $\varphi$ along $P = MN$ is $\varphi_P(g) = \int_{N(F) \backslash N(\mathbb{A}_F)} \varphi(ng)\, dn$.'
+    why: 'The step `CTSplit` of [the Siegel-Weil chapter](/proof/siegel-weil/) splits a constant term to run an induction on $n$.'
+  - concept: Rapid decay of cusp forms
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, I.2.18'
+    says: 'A cusp form $\varphi$ satisfies $|\varphi(g)| \le C_r\|g\|^{-r}$ on a Siegel set for each $r > 0$.'
+    why: 'The fields `cuspRapidDecay` and `cuspDecaySobolev` of [ThetaLocalInputs](/step/theta-local-inputs-def/) are this theorem.'
+    steps: [theta-local-inputs-def]
+  - concept: Fourier coefficient
+    text: 'Bump, Automorphic Forms and Representations, 3.5'
+    says: 'For $N$ abelian, the Fourier coefficient $\varphi_T(g) = \int_{N(F) \backslash N(\mathbb{A}_F)} \varphi(ng)\overline{\psi_T(n)}\, dn$ satisfies $\varphi = \sum_T \varphi_T$.'
+    why: 'The proof of the Siegel-Weil formula in [the Siegel-Weil chapter](/proof/siegel-weil/) compares Fourier coefficients (`ThetaCoef`).'
+  - concept: Whittaker function
+    text: 'Bump, Automorphic Forms and Representations, 3.5'
+    says: 'The Whittaker function of $\varphi$ on $\mathrm{GL}_n$ is $W_\varphi(g) = \int_{N(F) \backslash N(\mathbb{A}_F)} \varphi(ug)\overline{\psi_N(u)}\, du$ for the standard generic character $\psi_N$.'
+    why: 'The local integrals `WhitK` of [the Siegel-Weil chapter](/proof/siegel-weil/) are Whittaker integrals of Siegel Eisenstein series.'
+  - concept: Siegel Eisenstein series
+    text: 'Tan, Poles of Siegel Eisenstein series on U(n,n), Canad. J. Math. 51 (1999)'
+    says: 'The Siegel Eisenstein series on $\mathrm{U}(n, n)$ is $\sum_{P(F) \backslash G(F)} f_s(\gamma g)$ for a section with $f_s(n(b)m(a)g) = \chi(\det a)|\det a|_E^{s + n/2} f_s(g)$.'
+    why: 'The statement `SiegelWeilStd` of [the Siegel-Weil chapter](/proof/siegel-weil/) is about its value at $s_0 = (m - n)/2$.'
+  - concept: Automorphic representation
+    text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979), 4.6'
+    says: 'An automorphic representation is an irreducible $(\mathfrak{g}, K_\infty) \times G(\mathbb{A}_{F,f})$-module that is a subquotient of the space of automorphic forms.'
+    why: 'The structure `IsAutRepU` of [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/) encodes automorphic representations of unitary groups.'
+    steps: [base-change-isobaric-n-def]
   - concept: Cuspidal automorphic representation
     math2: null
     proposal: https://github.com/tamnd/math2/issues/383
-    says: 'A cuspidal automorphic representation is an irreducible constituent of the space of cusp forms on $G(F) \backslash G(\mathbb{A}_F)$.'
     text: 'Borel and Jacquet, Automorphic forms and automorphic representations, Proc. Sympos. Pure Math. 33 (1979)'
-    why: 'The row statement [Row0b](/step/row0b-def/) takes a cuspidal subspace $\pi$ of automorphic forms on $\mathrm{GL}_a$.'
+    says: 'A cuspidal automorphic representation is an irreducible submodule of the space of cusp forms on $G(F) \backslash G(\mathbb{A}_F)$.'
+    why: 'The row statement [Row0b](/step/row0b-def/) takes a cuspidal subspace `CuspSub` of cusp forms on $\mathrm{GL}_a$.'
     steps: [row0b-def]
-  - concept: Satake parameters
+  - concept: Restricted tensor product
+    text: 'Bump, Automorphic Forms and Representations, 3.4'
+    says: 'The restricted tensor product $\bigotimes''_v V_v$ is the direct limit of the finite tensor products, along fixed vectors $\xi_v$ for almost all $v$.'
+    why: 'The field `flathFactorisation` of [ThetaLocalInputs](/step/theta-local-inputs-def/) writes automorphic representations as restricted tensor products.'
+    steps: [theta-local-inputs-def]
+  - concept: Flath tensor product theorem
+    text: 'Flath, Decomposition of representations into tensor products, Proc. Sympos. Pure Math. 33 (1979)'
+    says: 'An irreducible admissible representation of $G(\mathbb{A}_F)$ is $\bigotimes''_v \pi_v$ for irreducible admissible $\pi_v$, unique up to isomorphism and unramified for almost all $v$.'
+    why: 'It is the field `flathFactorisation` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) and of [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def, unitary-group-third-place-hypotheses-def]
+  - concept: Local component
+    text: 'Bump, Automorphic Forms and Representations, 3.4'
+    says: 'The local component of $\pi = \bigotimes''_v \pi_v$ at $v$ is the representation $\pi_v$ of $G(F_v)$.'
+    why: 'The predicate `IsLocComp` of [Row0b](/step/row0b-def/) and the field `loc` of [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/) name local components.'
+    steps: [row0b-def, base-change-isobaric-n-def]
+  - concept: Discrete spectrum
+    text: 'Moeglin and Waldspurger, Spectral Decomposition and Eisenstein Series, VI'
+    says: 'The discrete spectrum of $L^2(G(F) \backslash G(\mathbb{A}_F), \omega)$ is the closed span of its irreducible closed subrepresentations; it contains the cuspidal spectrum.'
+    why: 'The blocks $V_i$ of [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/) are discrete (`IsDiscrete`).'
+    steps: [base-change-isobaric-n-def]
+  - concept: Residual representation
+    text: 'Moeglin and Waldspurger, Le spectre résiduel de GL(n), Ann. Sci. ENS 22 (1989)'
+    says: 'The residual (Speh) representation $\mathrm{Speh}(\sigma, b)$ of $\mathrm{GL}_{ab}$ is spanned by residues of Eisenstein series induced from $\sigma|\det|^{(b-1)/2} \otimes \dots \otimes \sigma|\det|^{(1-b)/2}$.'
+    why: 'The condition `CsdAsc` of [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/) asks that each block is of this form.'
+    steps: [base-change-isobaric-n-def]
+  - concept: Multiplicity one
+    text: 'Shalika, The multiplicity one theorem for GL_n, Ann. of Math. 100 (1974)'
+    says: 'Each cuspidal automorphic representation of $\mathrm{GL}_n$ occurs exactly once in the space of cusp forms.'
+    why: 'It is `CuspidalMultiplicityOne` of [the literature inputs](/proof/literature/).'
+  - concept: Strong multiplicity one
     math2: null
-    proposal: https://github.com/tamnd/math2/issues/384
-    says: 'The Satake parameters of an unramified representation are the conjugacy class in the dual group that its spherical Hecke eigencharacter gives under the Satake isomorphism.'
-    text: 'Cartier, Representations of p-adic groups, a survey, Proc. Sympos. Pure Math. 33 (1979)'
-    why: 'The statement `CoreAll` of the [Galois row chapter](/proof/galois-row/) compares Satake parameters with Frobenius characteristic polynomials.'
+    proposal: https://github.com/tamnd/math2/issues/387
+    text: 'Jacquet and Shalika, On Euler products and the classification of automorphic representations I, Amer. J. Math. (1981)'
+    says: 'Two cuspidal automorphic representations of $\mathrm{GL}_n$ with isomorphic local components at almost all places are equal.'
+    why: 'The structure `HypothesesH''` of [the window bound](/proof/vwin/) lists strong multiplicity one among its inputs.'
+  - concept: Isobaric sum
+    text: 'Jacquet and Shalika, On Euler products and the classification of automorphic representations II, Amer. J. Math. (1981)'
+    says: 'The isobaric sum $\pi_1 \boxplus \dots \boxplus \pi_k$ is the automorphic representation of $\mathrm{GL}_{\sum n_i}$ whose local components are induced from the $\pi_{i,v}$, with $L(s, \boxplus \pi_i) = \prod L(s, \pi_i)$.'
+    why: 'The conclusion of [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/) is an isobaric sum $V_0 \boxplus \dots \boxplus V_{c-1}$.'
+    steps: [base-change-isobaric-n-def]
   - concept: Regular algebraic automorphic representation
     math2: null
     proposal: https://github.com/tamnd/math2/issues/385
-    says: 'An automorphic representation of $\mathrm{GL}_n$ is regular algebraic when its infinitesimal character at infinity is that of an algebraic representation with distinct weights.'
     text: 'Clozel, Motifs et formes automorphes, in Automorphic Forms, Shimura Varieties and L-functions I (1990)'
-    why: 'The row statement [Row0b](/step/row0b-def/) asks that $\pi$ is regular algebraic.'
+    says: 'An automorphic representation of $\mathrm{GL}_n(\mathbb{A}_E)$ is regular algebraic when its infinitesimal character at each embedding has $n$ distinct entries in $\frac{n-1}{2} + \mathbb{Z}$.'
+    why: 'The row statement [Row0b](/step/row0b-def/) asks that $\pi$ satisfies `IsRegAlg`.'
     steps: [row0b-def]
+  - concept: Cohomological
+    text: 'Clozel, Motifs et formes automorphes, in Automorphic Forms, Shimura Varieties and L-functions I (1990), 3.4'
+    says: 'A cuspidal $\pi$ is cohomological if $H^*(\mathfrak{g}, K_\infty; \pi_\infty \otimes \xi) \ne 0$ for an irreducible algebraic $\xi$; for $\mathrm{GL}_n$ this is the same as regular algebraic.'
+    why: 'It is the field `clozelCohomological` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
   - concept: Polarized automorphic representation
     math2: null
     proposal: https://github.com/tamnd/math2/issues/386
-    says: 'A polarized pair $(\pi, \chi)$ is a representation $\pi$ of $\mathrm{GL}_n$ over a CM field with $\pi^c \cong \pi^\vee \otimes (\chi \circ N)$ and a sign condition on $\chi$.'
     text: 'Clozel, Harris and Taylor, Automorphy for some l-adic lifts of automorphic mod l Galois representations, Publ. IHES (2008)'
+    says: 'A polarized pair $(\pi, \chi)$ has $\pi^c \cong \pi^\vee \otimes (\chi \circ N_{E/E^+})$ and $\chi_v(-1) = (-1)^n$ at each real place $v$.'
     why: 'The row statement [Row0b](/step/row0b-def/) asks that $(\pi, \chi)$ is a `PolarizedPair`.'
     steps: [row0b-def]
   - concept: Base change of automorphic representations
     math2: null
     proposal: https://github.com/tamnd/math2/issues/405
-    says: 'Let $E/F$ be a finite cyclic extension of number fields. Base change sends an automorphic representation $\pi$ of $\mathrm{GL}_n(\mathbb{A}_F)$ to an automorphic representation $\Pi$ of $\mathrm{GL}_n(\mathbb{A}_E)$ such that, for almost all places $w$ of $E$ over a place $v$ of $F$, the L-parameter of $\Pi_w$ is the restriction to the Weil group $W_{E_w}$ of the L-parameter of $\pi_v$. Arthur and Clozel proved that such a $\Pi$ exists, and $\Pi$ is isobaric.'
-    why: 'The vwin chain uses `baseChangeN`, named as an isobaric base change to $\mathrm{GL}_n$, in [vwin-of-row](/step/vwin-of-row/).'
-    steps: [vwin-of-row]
-  - concept: Strong multiplicity one
-    math2: null
-    proposal: https://github.com/tamnd/math2/issues/387
-    says: 'Two cuspidal automorphic representations of $\mathrm{GL}_n$ that agree at almost all places are equal.'
-    text: 'Jacquet and Shalika, On Euler products and the classification of automorphic representations I, Amer. J. Math. (1981)'
-    why: 'The structure `HypothesesH''` of the [vwin chapter](/proof/vwin/) lists strong multiplicity one among its named inputs.'
+    text: 'Arthur and Clozel, Simple Algebras, Base Change, and the Advanced Theory of the Trace Formula (1989)'
+    says: 'Base change sends $\pi$ on $\mathrm{U}_n$ or $\mathrm{GL}_n(\mathbb{A}_F)$ to an isobaric $\Pi$ on $\mathrm{GL}_n(\mathbb{A}_E)$ whose local components match those of $\pi$ at split, unramified and infinite places.'
+    why: 'The window bound uses it as `baseChangeN` in [vwin-of-row](/step/vwin-of-row/).'
+    steps: [vwin-of-row, base-change-isobaric-n-def]
+  - concept: Definite quaternion algebra
+    text: 'Vignéras, Arithmétique des algèbres de quaternions, LNM 800 (1980), III.5'
+    says: 'A definite quaternion algebra over a totally real $F$ is a quaternion algebra ramified at every real place; its adelic double cosets are finite.'
+    why: 'The structure `HypothesesH''` of [the window bound](/proof/vwin/) has a field for the existence of a definite quaternion algebra.'
