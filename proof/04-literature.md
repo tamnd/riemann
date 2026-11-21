@@ -49,6 +49,15 @@ next:
   - text: Theta integrals and local matching
     path: proof/theta-matching/
     sub: the main output of this page
+  - text: The Weil bound and arithmetic positivity
+    path: proof/weil-bound/
+    sub: the branch below topCovolSlim2_use_alt_alt
+  - text: Siegel-Weil, the metaplectic representation and cusp forms
+    path: proof/siegel-weil/
+    sub: the proof of SiegelWeilStd
+  - text: CM curves, the invariant derivation and divisibility
+    path: proof/cm-divisibility/
+    sub: the CM curve and the Chowla-Selberg inputs
 steps: [open-literature-statements-def, row-def, every-character-of-literature, published-results-eigen, published-results-first, theta-integrals-agree-and-local-matching-of-literature, local-langlands-gl-rect-exists-of-literature, published-results-arithmetic]
 ---
 ## Result
@@ -76,7 +85,7 @@ The file fills these fields with 195 small theorems. Each one has the form `NAME
 
 The structure `O` has three fields. Two of them have the same type `UpperTheory.One.M.Row`, a statement on the existence of Galois representations. The third is a form of the local Langlands correspondence. At the call site, the Lean code fills the two `Row` fields with the same proof, and fills the third with a theorem that it proves. So the word "open" in the name is a label. In the final proof, nothing in `O` is left as a hypothesis.
 
-Three branches carry most of the weight below this theorem: the main theorem of the [next chapter](/proof/theta-matching/) (312,785 declarations in its dominator part), a volume bound (52,322) and a theta statement (13,076).
+Three branches carry most of the weight below this theorem: the main theorem of the [next chapter](/proof/theta-matching/) (313,327 declarations in its dominator part), a volume bound (52,186) and a theta statement (8,520).
 
 ## Before you read
 
@@ -243,20 +252,20 @@ theorem theta_integrals_agree_and_local_matching_of_literature (O : OpenLiteratu
   PositivityTheory.ThKR.theoremK_head2 (eis_bl_of_literature O) (siegel_weil_std_of_literature O)
 ```
 
-The theorem `theoremK_head2` ([TheoremKOfMod.lean#L26](lean:Development/WeilBound/ThetaLifts/Reductions/FiniteClosure/TheoremKOfMod.lean#L26)) proves `EisBL → SiegelWeilStd → ThetaIntegralsAgree ∧ LocalMatching`. Both of its inputs are leaf citations.
+The theorem `theoremK_head2` ([TheoremKOfMod.lean#L26](lean:Development/WeilBound/ThetaLifts/Reductions/FiniteClosure/TheoremKOfMod.lean#L26)) proves `EisBL → SiegelWeilStd → ThetaIntegralsAgree ∧ LocalMatching`. Both of its inputs are leaf citations: each one is one line that calls a theorem proved in another file. The chapter [Siegel-Weil, the metaplectic representation and cusp forms](/proof/siegel-weil/) follows the proof of `SiegelWeilStd`.
 
 - `EisBL` ([HypothesesE.lean#L46](lean:Development/WeilBound/ThetaLifts/LatticeBasics/HypothesesE.lean#L46)) says: for a section $f$ of the right type on a doubled group, the Eisenstein series converges for $\operatorname{Re}(s) > t$ for some $t$, is holomorphic there, and near each point $s_0$ a power $(s - s_0)^k$ times it is a holomorphic family of functions of moderate growth.
 - `SiegelWeilStd` ([HypothesesS.lean#L11](lean:Development/WeilBound/ThetaLifts/LatticeBasics/HypothesesS.lean#L11)) says: in a set of cases on two spaces (one Hermitian and one skew-Hermitian), the Eisenstein series at the point $s = \tfrac{m - n}{2}$ equals a constant ($1$ or $2$) times the average of a theta sum over a fundamental domain. This has the shape of a Siegel and Weil formula. This page does not unfold `EisValueAt`, `thetaSum` or `IsDbl`.
 - `LocalMatching` ([WeilTensorModels.lean#L581](lean:Development/AbelianVarietyTheory/BlockTheory/DivisorBase/WeilTensorModels.lean#L581)) says: for each triple that satisfies `IsTriple`, there are data `R`, `Rf` with `IsMatched`.
 - `ThetaIntegralsAgree` ([WeilTensorModels.lean#L585](lean:Development/AbelianVarietyTheory/BlockTheory/DivisorBase/WeilTensorModels.lean#L585)) is three statements: decay and a constant (`OneConst`, `Coinv`) for each matched triple, and two step relations `StepBeta`, `StepAlpha` that compare the constants for spaces of sizes $b + 2$ and $b$, with a nonzero factor $C$ and a value of a partial L-function.
 
-The chapter [/proof/theta-matching/](/proof/theta-matching/) unfolds these. The dominator part of this branch has 13,076 declarations. Of these, `theoremK_head2_of_mod` holds 11,236 and `siegel_weil_std_of_literature` holds 1,629.
+The chapter [/proof/theta-matching/](/proof/theta-matching/) unfolds these. The dominator part of this branch has 8,520 declarations. Of these, `theoremK_head2_of_mod` holds 6,655 and `siegel_weil_std_of_literature` holds 1,652.
 
 ### Step 7. The volume branch
 
 The theorem `topCovolSlim2_use_alt_alt` ([TopCovolSlim2Use.lean#L16](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/TopCovolSlim2Use.lean#L16)) has 15 hypotheses and the conclusion `CovolumeBoundOfX`. Thirteen hypotheses come from theorems of this file, with names such as `ResolutionCharZero`, `PoincareLelongInv`, `FarguesExact`, `ZarhinStatement`, `NefRR`, `SiegelToroidalIntegral`, `ToroidalForFanKS`, `ArDegree`, `GrothendieckDeformation`, and the 28-field bundle `PublishedHodgeBundleTheorems`. None of them uses `O`. The other two are `hsUse_outright` and `moriwakiBig_outright`.
 
-The proof builds two records `HypothesesX` and `HypothesesH` from the inputs, and then calls `topCovolG_alt_alt` with them and with `deep_slim_use`. In the dominator part (52,322 declarations), `deep_slim_use` holds 30,393 and `topCovolG_alt_alt` holds 12,544.
+The proof builds two records `HypothesesX` and `HypothesesH` from the inputs, and then calls `topCovolG_alt_alt` with them and with `deep_slim_use`. In the dominator part (52,186 declarations), `deep_slim_use` holds 30,358 and `topCovolG_alt_alt` holds 12,516.
 
 The conclusion is ([LiftLambdaBound.lean#L60](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LiftLambdaBound.lean#L60)):
 
@@ -269,19 +278,19 @@ In words: for each family `Fm` in the class that `Closed FamHyp` gives, there is
 
 ## Where it is in the code
 
-Sizes are the sizes of the dominator parts: the declarations that only this node reaches from the top. The main theorem has 504,946.
+Sizes are the sizes of the dominator parts: the declarations that only this node reaches from the top. The main theorem has 503,326.
 
 | Declaration | Module | Size |
 |---|---|---|
-| `every_character_of_literature_of_vWin` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 504,946 |
-| `every_character_of_theta_integrals_local_matching` | ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses | 312,785 |
-| `topCovolSlim2_use_alt_alt` | ThirdPlaceSeries/TopCovolSlim2Use | 52,322 |
-| `theta_integrals_agree_and_local_matching_of_literature` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 13,076 |
-| `GlobalTheory.TorKSField.toroidalForFanKS` | (cited by `toroidal_for_fan_ks_of_literature`) | 5,097 |
-| `published_results_arithmetic` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 5,090 |
-| `siegel_toroidal_integral_of_literature` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 3,657 |
-| `published_results_eigen` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 3,035 |
-| `published_results_first` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 1,287 |
+| `every_character_of_literature_of_vWin` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 503,326 |
+| `every_character_of_theta_integrals_local_matching` | ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses | 313,327 |
+| `topCovolSlim2_use_alt_alt` | ThirdPlaceSeries/TopCovolSlim2Use | 52,186 |
+| `theta_integrals_agree_and_local_matching_of_literature` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 8,520 |
+| `GlobalTheory.TorKSField.toroidalForFanKS` | (cited by `toroidal_for_fan_ks_of_literature`) | 5,077 |
+| `published_results_arithmetic` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 5,089 |
+| `siegel_toroidal_integral_of_literature` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 3,656 |
+| `published_results_eigen` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 3,017 |
+| `published_results_first` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 2,346 |
 | `OpenLiteratureStatements` | ThirdPlaceSeries/EveryCharacterOfLiteratureOfVWin | 1 |
 
 The module prefix is `Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/`. The file itself has 814 lines, of which 208 are imports.

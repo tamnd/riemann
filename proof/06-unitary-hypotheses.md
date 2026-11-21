@@ -53,6 +53,9 @@ next:
   - text: The trunk
     path: proof/trunk/
     sub: the map of the proof
+  - text: Bessel periods, seesaw and separation of functionals
+    path: proof/bessel-seesaw/
+    sub: the proof of FunctionalsSeparate
 steps: [nonempty-hyps, hyps-alt-def, closed-def, definite-side-condition-def, unitary-group-third-place-hypotheses-def, theta-local-inputs-def, covolume-bound-of-x-def]
 ---
 ## Result
@@ -77,7 +80,7 @@ theorem nonempty_hyps_definite_side_of_closed_bound :
 
 In words: assume seven inputs. The first is a list of about sixty statements named after published results on [[unitary groups|0R9R0Y1HDK]] and automorphic forms. The sixth, `RecTExists`, is an existence statement of local Langlands type. The seventh is a "closed bound" on certain families. Then there is at least one record of type `HypsAlt NL DefiniteSideCondition`. The caller `every_character_of_theta_integrals_local_matching` gives this record to `UpperTheory.Top.every_character_of_green_v_win`, together with `VWin`, and gets `UpperTheory.EveryCharacter`.
 
-The node dominates 263,288 declarations. Its three largest dominator children are the three branches of this page: 89,250, 19,048 and 12,571 declarations.
+The node dominates 263,615 declarations. Its three largest dominator children are the three branches of this page: 88,131, 19,399 and 12,608 declarations.
 
 ## Idea
 
@@ -200,9 +203,9 @@ This page does not unfold `extensionWithList`.
 
 The Lean proof ([lines 45 to 68](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L45)) does these steps.
 
-1. It gets `FunctionalsSeparate` from `functionalsSeparate_of_howeUnram_of_siegelWeil` (4,517 declarations).
+1. It gets `FunctionalsSeparate` from `functionalsSeparate_of_howeUnram_of_siegelWeil` (4,530 declarations).
 2. It gets `S0.RowRat` from `test_vector_assembly_holds` through `rowRatW_of_rowTest`.
-3. It gets `ConstantFunctionFits` from `fourier_coefficient_fit_of_join_alt` (4,121). This uses the second half of branch 2.
+3. It gets `ConstantFunctionFits` from `fourier_coefficient_fit_of_join_alt` (4,155). This uses the second half of branch 2.
 4. `evaluation_grid_of_join` gives a constant $C_{F1}$ such that `EvLgG (GridA CF)` holds for $C_F \ge C_{F1}$. `rowFun_at_gridA_alt` gives a constant $C_{F0}$.
 5. It sets $c_{\mathrm{Dep}} = \max(C_{F0}, C_{F1})$.
 6. Branch 3 gives `OpenParameterStatements` at the parameters of dependence $c_{\mathrm{Dep}}$.
@@ -220,7 +223,7 @@ theorem GlobalTheory.T.open0_of_unitary_group_hypotheses :
 
 `OpenParameterStatements p` is a structure of twelve fields. Each field is `LinkedAt p r` for one row statement `r`: primitivity, a lambda prime condition, a divisor condition, a decomposition point condition, a selection jump condition, a tie condition, a label condition, a goodness condition, a weak geometric compatibility, a multiplicity condition, a kappa condition, and a defect condition. The defect condition `RowDefectCondition` is the row form of `DefiniteSideCondition`. So branch 3 already proves the definite side condition in row form.
 
-The theorem at line 75 only calls `Open0ProofU.open_orbit_of_unramified_exponents_alt` (line 39). That proof builds each of the twelve fields from one lemma and the input record. The largest part is `main_theorem_published_inputs_third_alt_alt` (10,903 declarations). It gives the multiplicity condition, from fourteen named hypotheses (Harish-Chandra finiteness, rapid decay of cusp forms, Weil representation of the unitary pair, Siegel-Weil formula, doubling method, strong approximation and others). The next parts are `weil_unitary_entries'` (1,187, the defect condition) and `good_ft_entries_alt_alt` (262, the label condition).
+The theorem at line 75 only calls `Open0ProofU.open_orbit_of_unramified_exponents_alt` (line 39). That proof builds each of the twelve fields from one lemma and the input record. The largest part is `main_theorem_published_inputs_third_alt_alt` (10,941 declarations). It gives the multiplicity condition, from fourteen named hypotheses (Harish-Chandra finiteness, rapid decay of cusp forms, Weil representation of the unitary pair, Siegel-Weil formula, doubling method, strong approximation and others). The next parts are `weil_unitary_entries'` (1,187, the defect condition) and `good_ft_entries_alt_alt` (262, the label condition).
 
 ### 8. Branch 2: `SurjectiveOntoX` and `LambdaLowerBound₂`
 
@@ -237,7 +240,7 @@ Both conclusions have the form `Closed FamHyp (...)` for one fixed class `FamHyp
 
 Here "eventually at points" means: there is $x_0$ such that for every $x > x_1$ with $x \ge x_0$, every $i$ and every point $p$ that satisfies `PointConditions'`, the property holds. This page does not unfold `FamHyp`, `ON` or `L6`. The names suggest "onto" and "a lower bound for $\lambda$", but this page does not claim more than the definitions.
 
-The proof is two calls. `ontoX_of_hypotheses_alt_alt` (18,718 declarations) proves the first part from twelve named hypotheses. One of them is `RecTExists`, which is made by `llOf_alt` from the field `litN.loc.llc`. Its main sub-branches are `runHolds_of_parOK` (5,645), `geoSt_of_pageSt_alt` (5,142) and `expSt_of_base_change_and_crystalline_lattices` (3,437). `lamLow_of_hypotheses_alt_alt` (312 declarations) proves the second part from seven named hypotheses: rapid decay, the Weil-Siegel formula, Siegel-Weil convergence, the doubling method, unramified doubling for $\mathrm{GL}$, Bernstein-Zelevinsky finiteness and formal degrees.
+The proof is two calls. `ontoX_of_hypotheses_alt_alt` (19,069 declarations) proves the first part from twelve named hypotheses. One of them is `RecTExists`, which is made by `llOf_alt` from the field `litN.loc.llc`. Its main sub-branches are `runHolds_of_parOK` (5,710), `geoSt_of_pageSt_alt` (5,131) and `expSt_of_base_change_and_crystalline_lattices` (3,719). `lamLow_of_hypotheses_alt_alt` (312 declarations) proves the second part from seven named hypotheses: rapid decay, the Weil-Siegel formula, Siegel-Weil convergence, the doubling method, unramified doubling for $\mathrm{GL}$, Bernstein-Zelevinsky finiteness and formal degrees.
 
 ### 9. Branch 1: the record is nonempty
 
@@ -253,14 +256,14 @@ theorem hypotheses_nonempty_of_unramified_exponents_alt :
 
 (The fifth line is the same "closed bound" hypothesis as in the top node.) The proof ([HypothesesNonemptyOfUnramifiedExponents.lean#L42](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HypothesesNonemptyOfUnramifiedExponents.lean#L42)) has six steps.
 
-1. `large_unramified_exponent_bundles_exist_alt` (19,947 declarations) gives three facts: `SiegelMassRatioCM`, `MemberE` for the stronger parameters, and `ExBL` (there is a large base condition with bundles). Its main part is `member_exists_baseLattice_alt` (13,165).
+1. `large_unramified_exponent_bundles_exist_alt` (19,960 declarations) gives three facts: `SiegelMassRatioCM`, `MemberE` for the stronger parameters, and `ExBL` (there is a large base condition with bundles). Its main part is `member_exists_baseLattice_alt` (13,155).
 2. `hyps_e_third_layer_ser_n_of_geometric_galois` (1,263) gives two inputs `prN` and `serN` from the fields `litN` and `toHypothesesX`.
 3. It calls branch 2 and branch 3 again at $c_{\mathrm{Dep}}$.
-4. `UpperTheory.GalC.final_alt_alt` (15,671) turns the closed bound into `NL`. Its type `NLink.Final.mainTheorem` says: from the named hypotheses and the closed bound for `BoundAtTwoThreeFamilyFonAlt`, the same `LinkedAt` statement holds with `Closed 𝒞 LinkN`. This is where the "closed bound" hypothesis is used. Its main part is `final_of_alt` (14,915).
+4. `UpperTheory.GalC.final_alt_alt` (15,614) turns the closed bound into `NL`. Its type `NLink.Final.mainTheorem` says: from the named hypotheses and the closed bound for `BoundAtTwoThreeFamilyFonAlt`, the same `LinkedAt` statement holds with `Closed 𝒞 LinkN`. This is where the "closed bound" hypothesis is used. Its main part is `final_of_alt` (14,859).
 5. `open_and_linked_of_stronger_extension_alt` moves the open statements and the `NL` row to the stronger parameters.
-6. `allRows_of_open0_alt` (34,902) gives a record `AllRowsAlt ... NL DefiniteSideCondition`. Then `nonempty_hyps_of_allRows_alt` (419) builds the `HypsAlt` element from it.
+6. `allRows_of_open0_alt` (33,892) gives a record `AllRowsAlt ... NL DefiniteSideCondition`. Then `nonempty_hyps_of_allRows_alt` (419) builds the `HypsAlt` element from it.
 
-`AllRowsAlt` has one "row" for each property field of `HypsAlt`, each in the form `Lg1 KP Q Q' (fun S => ...)`. The last step joins these rows with `RowL.and` into one row, takes one selection from `ExBL`, and reads off the fields. The largest parts of `allRows_of_open0_alt` are `lg1_sLp_sO_hTF` (14,500; the $L^p$ selection, order and torsion free rows, from one Siegel-Weil hypothesis) and `hServ_of_linkR` (10,751; the service row, from global Artin reciprocity).
+`AllRowsAlt` has one "row" for each property field of `HypsAlt`, each in the form `Lg1 KP Q Q' (fun S => ...)`. The last step joins these rows with `RowL.and` into one row, takes one selection from `ExBL`, and reads off the fields. The largest parts of `allRows_of_open0_alt` are `lg1_sLp_sO_hTF` (13,601; the $L^p$ selection, order and torsion free rows, from one Siegel-Weil hypothesis) and `hServ_of_linkR` (10,829; the service row, from global Artin reciprocity).
 
 ### What "unramified exponents" means here
 
@@ -272,17 +275,17 @@ All modules below are in `Development/AutomorphicArithmetic/ThetaCorrespondence/
 
 | Declaration | Module | Size |
 | --- | --- | --- |
-| `UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound` | [SiegelEisensteinSecondTermHypotheses.lean#L44](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L44) | 263,288 |
-| `GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt` | [HypothesesNonemptyOfUnramifiedExponents.lean#L41](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HypothesesNonemptyOfUnramifiedExponents.lean#L41) | 89,250 |
-| `GlobalTheory.Fc.AllAtMemberStage0.allRows_of_open0_alt` | [LinkROfIsLinked.lean#L50](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkROfIsLinked.lean#L50) | 34,902 |
-| `GlobalTheory.T.large_unramified_exponent_bundles_exist_alt` | [MemberBundlesLargeUnramifiedExponents.lean#L69](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/MemberBundlesLargeUnramifiedExponents.lean#L69) | 19,947 |
-| `UpperTheory.GalC.final_alt_alt` | [CFinal.lean#L19](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/CFinal.lean#L19) | 15,671 |
+| `UpperTheory.Lit.nonempty_hyps_definite_side_of_closed_bound` | [SiegelEisensteinSecondTermHypotheses.lean#L44](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SiegelEisensteinSecondTermHypotheses.lean#L44) | 263,615 |
+| `GlobalTheory.Fc.S0.StageU.hypotheses_nonempty_of_unramified_exponents_alt` | [HypothesesNonemptyOfUnramifiedExponents.lean#L41](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/HypothesesNonemptyOfUnramifiedExponents.lean#L41) | 88,131 |
+| `GlobalTheory.Fc.AllAtMemberStage0.allRows_of_open0_alt` | [LinkROfIsLinked.lean#L50](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LinkROfIsLinked.lean#L50) | 33,892 |
+| `GlobalTheory.T.large_unramified_exponent_bundles_exist_alt` | [MemberBundlesLargeUnramifiedExponents.lean#L69](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/MemberBundlesLargeUnramifiedExponents.lean#L69) | 19,960 |
+| `UpperTheory.GalC.final_alt_alt` | [CFinal.lean#L19](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/CFinal.lean#L19) | 15,614 |
 | `GlobalTheory.Fc.nonempty_hyps_of_allRows_alt` | [NonemptyHypsOfAllRows.lean#L19](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/NonemptyHypsOfAllRows.lean#L19) | 419 |
-| `GlobalTheory.Fc.S0.ontoX_and_lamLow_of_unitaryGroupHypotheses'` | [SurjectiveAndLowWeightOfUnramifiedExponents.lean#L16](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SurjectiveAndLowWeightOfUnramifiedExponents.lean#L16) | 19,048 |
-| `GlobalTheory.BigOn.ontoX_of_hypotheses_alt_alt` | [OntoXOfPrints.lean#L28](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OntoXOfPrints.lean#L28) | 18,718 |
+| `GlobalTheory.Fc.S0.ontoX_and_lamLow_of_unitaryGroupHypotheses'` | [SurjectiveAndLowWeightOfUnramifiedExponents.lean#L16](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/SurjectiveAndLowWeightOfUnramifiedExponents.lean#L16) | 19,399 |
+| `GlobalTheory.BigOn.ontoX_of_hypotheses_alt_alt` | [OntoXOfPrints.lean#L28](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OntoXOfPrints.lean#L28) | 19,069 |
 | `GlobalTheory.BigTop.lamLow_of_hypotheses_alt_alt` | [LamLowOfPublished.lean#L17](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/LamLowOfPublished.lean#L17) | 312 |
-| `GlobalTheory.T.open0_of_unitary_group_hypotheses` | [OpenOrbitOfUnramifiedExponents.lean#L75](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OpenOrbitOfUnramifiedExponents.lean#L75) | 12,571 |
-| `GlobalTheory.T.main_theorem_published_inputs_third_alt_alt` | [MainTheoremPublishedInputsThird.lean#L34](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/MainTheoremPublishedInputsThird.lean#L34) | 10,903 |
+| `GlobalTheory.T.open0_of_unitary_group_hypotheses` | [OpenOrbitOfUnramifiedExponents.lean#L75](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/OpenOrbitOfUnramifiedExponents.lean#L75) | 12,608 |
+| `GlobalTheory.T.main_theorem_published_inputs_third_alt_alt` | [MainTheoremPublishedInputsThird.lean#L34](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/MainTheoremPublishedInputsThird.lean#L34) | 10,941 |
 | `GlobalTheory.Fc.HypsAlt` | [Hyps.lean#L22](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/Hyps.lean#L22) | 1 |
 | `GlobalTheory.Fc.DefiniteSideCondition` | [DefiniteSideCondition.lean#L25](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/DefiniteSideCondition.lean#L25) | 1 |
 | `GlobalTheory.Fc.S0.UnitaryGroupThirdPlaceHypotheses` | [BernsteinUnitaryProductIrreducible.lean#L22](lean:Development/AutomorphicArithmetic/ThetaCorrespondence/ThetaPairLifts/ThirdPlaceSeries/BernsteinUnitaryProductIrreducible.lean#L22) | 1 |

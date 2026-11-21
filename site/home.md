@@ -28,7 +28,7 @@ The text has four levels. Level L0 is the proof in one page. Level L1 is a chapt
 
 If you know analytic number theory, read [the proof in one page](/proof/) first. It proves the Riemann Hypothesis from one statement about Dirichlet L-functions, and you can check each step with pen and paper. Then follow the chapters in order. Each chapter page has the list of all chapters in its side panel, and a link to the next chapter at the bottom.
 
-If you want to see the Lean code, open [the code page](/code/). It has the numbers of the release, the trunk of the proof and its largest branches. Each of the 1,061,531 declarations has a page with its statement, a plain reading of the statement, the file and line, and what it uses. The 769,260 declarations that the proof uses also show the chain from `riemannHypothesis` and their parts. So you can walk down the whole proof by links.
+If you want to see the Lean code, open [the code page](/code/). It has the numbers of the release, the trunk of the proof and its largest branches. Each of the 1,061,531 declarations has a page with its statement, a plain reading of the statement, the file and line, and what it uses. The 757,483 declarations that the proof uses also show the chain from `riemannHypothesis` and their parts. So you can walk down the whole proof by links.
 
 If you want to know if the claim holds, read [what is checked](/trust/). Lean accepts a proof only relative to its axioms and its statements, and that page tells which checks ran.
 

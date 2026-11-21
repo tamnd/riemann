@@ -1,7 +1,7 @@
 ---
 title: The window bound VWin
 description: The branch under vwin_of_row. It turns the Galois row hypothesis into VWin, a bound on lengths of Tate-Shafarevich groups of twisted Q_l/Z_l over a family of abelian number fields.
-lead: The Lean code proves VWin from the row hypothesis Row0b. VWin bounds a weighted sum of lengths of Tate-Shafarevich groups over fields cut out by a primitive character and two auxiliary primes. This page says what VWin states and how the 56,145 declarations below vwin_of_row are put together.
+lead: The Lean code proves VWin from the row hypothesis Row0b. VWin bounds a weighted sum of lengths of Tate-Shafarevich groups over fields cut out by a primitive character and two auxiliary primes. This page says what VWin states and how the 55,805 declarations below vwin_of_row are put together.
 level: L1
 status: draft
 lean:
@@ -160,7 +160,7 @@ theorem v_window_of_automorphy_csd_ss_mono_odd (hN : LiteratureRankNHypothesis) 
   vwin_of_hypotheses_H_E_alt (published_hypotheses_from_patching_alt hN UpperTheory.V.Z.Tf.SR.descWeak)
 ```
 
-`v_window_of_literal_automorphy_n` is equal to this theorem. `published_hypotheses_from_patching_alt` ([PublishedHypothesesFromPatching.lean#L98](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/PublishedHypothesesFromPatching.lean#L98)) builds `HypothesesH'`. This structure keeps `litN := hN` and adds fields for Clozel's conjectures on cohomology (`ClozelCohC`, `ClozelConjC`), Galois representations for totally real fields in rank 2, strong multiplicity one, quadratic base change, newforms, a descent statement `DescWeak`, cyclotomic statements and the existence of a definite quaternion algebra. Its dominator subtree has 3,579 declarations. The largest parts are `RankTwoDescent.descS` (1,534) and `clozelConjC` (787).
+`v_window_of_literal_automorphy_n` is equal to this theorem. `published_hypotheses_from_patching_alt` ([PublishedHypothesesFromPatching.lean#L98](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/PublishedHypothesesFromPatching.lean#L98)) builds `HypothesesH'`. This structure keeps `litN := hN` and adds fields for Clozel's conjectures on cohomology (`ClozelCohC`, `ClozelConjC`), Galois representations for totally real fields in rank 2, strong multiplicity one, quadratic base change, newforms, a descent statement `DescWeak`, cyclotomic statements and the existence of a definite quaternion algebra. Its dominator subtree has 3,449 declarations. The largest parts are `RankTwoDescent.descS` (1,506) and `clozelConjC` (787).
 
 ### Step 5. Lemma K and the four counts
 
@@ -175,7 +175,7 @@ theorem vwin_of_hypotheses_H_E_alt (hH : HypothesesH') : VWin :=
     h4.1 h4.2 (count_v_of_printed_bound_k_reduced_unitary_lift hH hK hE.2)
 ```
 
-This theorem is the main fork. Its dominator subtree has 48,252 declarations.
+This theorem is the main fork. Its dominator subtree has 48,127 declarations.
 
 `LemmaK CK` ([LemmaK.lean#L13](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/GeneratorCountTuples/LemmaK.lean#L13)) states: for a prime $l$, a totally complex number field $L$ that contains a primitive root of unity of order $l$ (order 4 if $l = 2$), and $e \ge 1$, the group $H^2$ with coefficients $\mathbb{Z}_l$ twisted by $\chi^{e+1}$ is finite, and $\log \# H^2 \le \exp\!\big((2en)^{C_K} \log(2D)\big)$, where $n = [L:\mathbb{Q}]$ and $D = |\mathrm{disc}\, L|$.
 
@@ -226,29 +226,29 @@ Sizes are dominator subtree sizes: the number of declarations that only this dec
 
 | Declaration | Module | Size |
 |---|---|---|
-| `UpperTheory.One.vwin_of_row` | [VwinOfRow.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean#L4) | 56,145 |
-| `UpperTheory.One.Join.automorphic_window_of_inputs` | [TopMainZj.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean#L71) | 56,142 |
-| `UpperTheory.One.Join.v_window_of_depth_zero_residual_bc_cm` | [TopMainZj.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean#L55) | 55,494 |
-| `UpperTheory.V.v_window_of_literal_automorphy_n` | [WindowBoundOfLiteratureLevel.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean#L33) | 55,435 |
-| `…DescentVanishingReductions.vwin_of_hypotheses_H_E_alt` | [WindowBoundOfLiteratureLevel.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean#L25) | 48,252 |
-| `UpperTheory.V.Z.Kato.WeilSphericalRecords.katoTwoW_of_printsH` | [KatoTwoWOfPublishedH.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/KatoTwoWOfPublishedH.lean#L48) | 9,560 |
-| `…DescentVanishingReductions.sp4In0_alt` | [Sp4In0.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/Sp4In0.lean#L18) | 6,409 |
-| `UpperTheory.V.Z.Sym.W.unitary_three_automorphy_dense_of_prints` | [UnitaryThreeInputsOfLiterature.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/UnitaryThreeInputsOfLiterature.lean#L30) | 4,233 |
-| `…DescentVanishingReductions.published_hypotheses_from_patching_alt` | [PublishedHypothesesFromPatching.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/PublishedHypothesesFromPatching.lean#L98) | 3,579 |
-| `UpperTheory.V.ZK.lemmaK_litN_alt` | [KFinal.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/KFinal.lean#L11) | 2,843 |
-| `UpperTheory.V.Z.Int.slopeAll` | [SlopeAll.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/IntegralDeterminants/SlopeAll.lean#L11) | 2,415 |
-| `UpperTheory.V.Th.core_alt_bis` | [ThFinal.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/ThFinal.lean#L17) | 1,148 |
+| `UpperTheory.One.vwin_of_row` | [VwinOfRow.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/VwinOfRow.lean#L4) | 55,805 |
+| `UpperTheory.One.Join.automorphic_window_of_inputs` | [TopMainZj.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean#L71) | 55,802 |
+| `UpperTheory.One.Join.v_window_of_depth_zero_residual_bc_cm` | [TopMainZj.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean#L55) | 55,154 |
+| `UpperTheory.V.v_window_of_literal_automorphy_n` | [WindowBoundOfLiteratureLevel.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean#L33) | 55,095 |
+| `…DescentVanishingReductions.vwin_of_hypotheses_H_E_alt` | [WindowBoundOfLiteratureLevel.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/WindowBoundOfLiteratureLevel.lean#L25) | 48,127 |
+| `UpperTheory.V.Z.Kato.WeilSphericalRecords.katoTwoW_of_printsH` | [KatoTwoWOfPublishedH.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/KatoTwoWOfPublishedH.lean#L48) | 9,555 |
+| `…DescentVanishingReductions.sp4In0_alt` | [Sp4In0.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/Sp4In0.lean#L18) | 7,295 |
+| `UpperTheory.V.Z.Sym.W.unitary_three_automorphy_dense_of_prints` | [UnitaryThreeInputsOfLiterature.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/UnitaryThreeInputsOfLiterature.lean#L30) | 4,238 |
+| `…DescentVanishingReductions.published_hypotheses_from_patching_alt` | [PublishedHypothesesFromPatching.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/PublishedHypothesesFromPatching.lean#L98) | 3,449 |
+| `UpperTheory.V.ZK.lemmaK_litN_alt` | [KFinal.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/KFinal.lean#L11) | 2,836 |
+| `UpperTheory.V.Z.Int.slopeAll` | [SlopeAll.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/IntegralDeterminants/SlopeAll.lean#L11) | 2,414 |
+| `UpperTheory.V.Th.core_alt_bis` | [ThFinal.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/ThFinal.lean#L17) | 1,145 |
 | `UpperTheory.V.HV.Core.of_four_alt` | [HVCore.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/HVCore.lean#L18) | 957 |
 | `UpperTheory.One.Join.cm_abelian_inputs_from_literature` | [TopMainZj.lean](lean:Development/AutomorphicArithmetic/AutomorphicVarieties/ModularityArgument/ThresholdArguments/DenseThresholdCases/TopMainZj.lean#L59) | 594 |
 
 Some notes on the largest sub-branches:
 
-- `katoTwoW_of_printsH` (9,560) proves `KatoTwoW`. It reads the row from `hH.litN.aut.gal` and uses `quadBC2`. Most of its size is `twoS` (9,180) and below it `Kato.Final.zetaUr` (8,227), with parts named after Kato's Euler system and Hecke projectors on newforms.
-- `sp4In0_alt` (6,409) proves `SymplecticFourImageDense`. Its largest parts are `seedIIs_alt` (3,294) and `indCs` (2,035).
-- `unitary_three_automorphy_dense_of_prints` (4,233) proves `UnitaryThreeAutomorphyDense`. It is reached through `ends0_alt` and `linkedUnlE_alt`.
-- `lemmaK_litN_alt` (2,843) proves `∃ CK, LemmaK CK` from `LiteratureRankNHypothesis`. Its largest part is `bOdd` (1,794).
-- `slopeAll` (2,415) proves `SlopeAll`: for a cuspidal polarized $\pi$ on a CM field with regular infinitesimal character given by a strictly decreasing $m$, the Satake parameters at each place have slopes in the range set by $m$. It is used by `intK` and `intP`. One path to it starts at `count_i_of_printed_bound_k_kato_automorphy`.
-- `core_alt_bis` (1,148) proves `DenseThresholdMainCase`, a statement on ordinary points of a universal ordinary determinant ring in a Hida setting for $2 \le n \le 4$. It is reached through `linkedUnlE_alt`.
+- `katoTwoW_of_printsH` (9,555) proves `KatoTwoW`. It reads the row from `hH.litN.aut.gal` and uses `quadBC2`. Most of its size is `twoS` (9,174) and below it `Kato.Final.zetaUr` (8,219), with parts named after Kato's Euler system and Hecke projectors on newforms.
+- `sp4In0_alt` (7,295) proves `SymplecticFourImageDense`. Its largest parts are `seedIIs_alt` (3,287) and `indCs` (2,024).
+- `unitary_three_automorphy_dense_of_prints` (4,238) proves `UnitaryThreeAutomorphyDense`. It is reached through `ends0_alt` and `linkedUnlE_alt`.
+- `lemmaK_litN_alt` (2,836) proves `∃ CK, LemmaK CK` from `LiteratureRankNHypothesis`. Its largest part is `bOdd` (1,788).
+- `slopeAll` (2,414) proves `SlopeAll`: for a cuspidal polarized $\pi$ on a CM field with regular infinitesimal character given by a strictly decreasing $m$, the Satake parameters at each place have slopes in the range set by $m$. It is used by `intK` and `intP`. One path to it starts at `count_i_of_printed_bound_k_kato_automorphy`.
+- `core_alt_bis` (1,145) proves `DenseThresholdMainCase`, a statement on ordinary points of a universal ordinary determinant ring in a Hida setting for $2 \le n \le 4$. It is reached through `linkedUnlE_alt`.
 
 ## Notes
 

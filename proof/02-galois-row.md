@@ -59,6 +59,9 @@ next:
   - text: The theta matching
     path: proof/theta-matching/
     sub: the next large branch
+  - text: Block determinants and theta Parseval
+    path: proof/determinants/
+    sub: the proof of the theta lift TLiftK
 steps: [row0b-def, is-rect-def, rect-exists-def, rect-exists, galois-row-holds, galois-representations-of-theta-lift, galois-local-global-strong-of-geometry-lift, geo-one-holds, geo-one-def, t-lift-k, tlift-k-def]
 ---
 ## Result
@@ -83,7 +86,7 @@ theorem galoisLocalGlobalStrong_recParameter : UpperTheory.GalStar.Row0b recT :=
 
 Here `recT` is `fun h rc => UpperTheory.Zero.LLC.IsRecT h rc` ([Development.lean#L18](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean#L18)). In standard notation, the Lean statement says this. Let $E$ be a CM field with maximal real subfield $E^+$. Let $\ell$ be a prime, let $\iota : \overline{\mathbb{Q}}_\ell \cong \mathbb{C}$ and let $a \geq 1$. Let $\pi$ be a cuspidal automorphic representation of $\mathrm{GL}_a(\mathbb{A}_E)$ that is regular algebraic, and let $\chi$ be a Hecke character of $E^+$ such that $(\pi, \chi)$ is a polarized pair. Then there is a continuous semisimple representation $r : \mathrm{Gal}(\overline{E}/E) \to \mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$, with an integer $wt$ and Hodge-Tate multisets $HT_\tau$, that satisfy a list of local conditions at every finite place. The conditions compare $r$ at a place $w$ with the Weil-Deligne parameter $rc(\pi_w)$, for each local map $rc$ that satisfies `IsRecT`.
 
-The whole branch has 54,225 declarations in its dominator tree. This is the second largest branch below the trunk.
+The whole branch has 51,591 declarations in its dominator tree. This is the second largest branch below the trunk.
 
 ## Idea
 
@@ -93,8 +96,8 @@ The proof has a short top and three large parts. The top first proves a variant 
 
 So almost all the work is in `CoreAll`. The Lean code gets `CoreAll` from four inputs. Two of them are large:
 
-1. `GeoOne`, a statement about Galois representations cut out of geometric towers (43,427 declarations). Its proof uses a holomorphic Lefschetz formula for finite étale correspondences of smooth projective schemes over $\mathbb{C}$.
-2. `TLiftK`, a theta lift statement between definite unitary groups (5,201 declarations).
+1. `GeoOne`, a statement about Galois representations cut out of geometric towers (43,297 declarations). Its proof uses a holomorphic Lefschetz formula for finite étale correspondences of smooth projective schemes over $\mathbb{C}$.
+2. `TLiftK`, a theta lift statement between definite unitary groups (2,709 declarations).
 
 The rest (about 5,400 declarations) assembles `CoreAll`, then `R1` and the Iwahori clause, then `Row0`.
 
@@ -184,7 +187,7 @@ theorem galoisLocalGlobal_of_geometry_lift (geo : GeoOne) (up : UpperTheory.TP.T
     (UpperTheory.Gal.Int.Cong.congFinOdd_of_ex UpperTheory.Gal.Wt.wtLacEx_holds) up)
 ```
 
-So the direct uses of `galoisLocalGlobalStrong_recParameter` are `galoisRepresentations_of_thetaLift` (49,010 declarations below it) and the theta lift theorem `UpperTheory.TP.K.tLiftK` (5,201). The first one feeds the proof `geoOne_holds` of `GeoOne` into a conditional theorem. It is a plain chain of implications. `GeoOne` enters at one point only: `seedFinOdd_of_geoOne` turns it into `SeedFinOdd`. `TLiftK` enters at one point only, inside `coreAll_of`.
+So the direct uses of `galoisLocalGlobalStrong_recParameter` are `galoisRepresentations_of_thetaLift` (48,870 declarations below it) and the theta lift theorem `UpperTheory.TP.K.tLiftK` (2,709). The first one feeds the proof `geoOne_holds` of `GeoOne` into a conditional theorem. It is a plain chain of implications. `GeoOne` enters at one point only: `seedFinOdd_of_geoOne` turns it into `SeedFinOdd`. `TLiftK` enters at one point only, inside `coreAll_of`.
 
 ### Step 4. From CoreAll to Row0 (the step rest)
 
@@ -198,7 +201,7 @@ theorem rest (h : GlobalTheory.RoadU.CoreAll) : UpperTheory.GalStar.Row0 recT :=
 
 `R1` ([IsQg.lean#L13](lean:Development/AbelianVarietyTheory/Statements/EllipticCurveLevels/IsQg.lean#L13)) says: when $\sigma \otimes |\det|^{(1-a)/2}$ has support of characters with no two linked by $|\cdot|$ (`PlainTor`), the class of $r$ at $w$ equals $rc$ of it for each $rc$ with `IsRecT` (away from $\ell$), and the analogous statement for the class `wdAt` above $\ell$. `LocalGlobalCompatAtIwahoriFixedPlaces` ([LocalGlobalCompatAtIwahoriFixedPlaces.lean#L16](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalGaloisCompatibility/PAdicSplitting/LocalGlobalCompatAtIwahoriFixedPlaces.lean#L16)) gives $N = 0$ and equal inertia characteristic polynomials when $\sigma$ has a `KOne`-fixed vector and either `PlainTor` holds or $E_w \cong \mathbb{Q}_g$ with a separation condition `Apart`.
 
-The proof of `galoisLocalGlobal_of_localGlobalCompatibility` ([GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/InertCharpoly/GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192)) takes $r$ from `CoreAll.1`, takes $wt$ and $HT$ from a lemma `exists_weights`, and fills each field of `Props` from the three inputs. The sizes are: `localGlobalCompatAtIwahoriFixed_of_unlinked` 1,520, `galoisCompat_unlinkedSupport_of_spherical` 238, and the assembly 116. The step `localGlobalCompatAtIwahoriFixed_of_unlinked` itself uses `UpperTheory.Zero.LLC.recTExists`.
+The proof of `galoisLocalGlobal_of_localGlobalCompatibility` ([GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/InertCharpoly/GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192)) takes $r$ from `CoreAll.1`, takes $wt$ and $HT$ from a lemma `exists_weights`, and fills each field of `Props` from the three inputs. The sizes are: `localGlobalCompatAtIwahoriFixed_of_unlinked` 1,522, `galoisCompat_unlinkedSupport_of_spherical` 238, and the assembly 116. The step `localGlobalCompatAtIwahoriFixed_of_unlinked` itself uses `UpperTheory.Zero.LLC.recTExists`.
 
 ### Step 5. CoreAll from four inputs (the step coreAll_of)
 
@@ -209,11 +212,11 @@ theorem coreAll_of (seed : SeedFinOdd) (cong : CongFinOdd) (up : UpperTheory.TP.
       UpperTheory.Gal.Desc.descOffT (UpperTheory.Gal.Lim.limFinOdd_of seed cong))
 ```
 
-The Lean code first proves `Core`, the same as `CoreAll` but restricted to a smaller scope (`Level.csd`: $E$ has an element $x$ with $x^2 = -d$, $[E^+ : \mathbb{Q}]$ even, conditions at non-split places, $\chi$ a fixed power of a quadratic character, and only split places). `toCoreK` gives `Core` from `TLiftK`, `ClosedPhi`, `DescOffT` and `LimFinOdd`. Then `coreAll_of_core` extends `Core` to `CoreAll`. `LimFinOdd` comes from `SeedFinOdd` and `CongFinOdd`. Sizes: `coreAll_of` 1,756 in total, `toCoreK` 496, `seedFinOdd_of_geoOne` 718, `congFinOdd_of_ex` 495, `wtLacEx_holds` 183. This page does not unfold `SeedFinOdd`, `CongFinOdd`, `LimFinOdd`, `ClosedPhi` and `DescOffT`. They are defined in [LimWU4OfLimWU3.lean#L103](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWU4OfLimWU3.lean#L103) and nearby files.
+The Lean code first proves `Core`, the same as `CoreAll` but restricted to a smaller scope (`Level.csd`: $E$ has an element $x$ with $x^2 = -d$, $[E^+ : \mathbb{Q}]$ even, conditions at non-split places, $\chi$ a fixed power of a quadratic character, and only split places). `toCoreK` gives `Core` from `TLiftK`, `ClosedPhi`, `DescOffT` and `LimFinOdd`. Then `coreAll_of_core` extends `Core` to `CoreAll`. `LimFinOdd` comes from `SeedFinOdd` and `CongFinOdd`. Sizes: `coreAll_of` 1,760 in total, `toCoreK` 496, `seedFinOdd_of_geoOne` 718, `congFinOdd_of_ex` 495, `wtLacEx_holds` 183. This page does not unfold `SeedFinOdd`, `CongFinOdd`, `LimFinOdd`, `ClosedPhi` and `DescOffT`. They are defined in [LimWU4OfLimWU3.lean#L103](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWU4OfLimWU3.lean#L103) and nearby files.
 
 ### Step 6. The geometric branch geoOne_holds
 
-This is the largest part (43,427 declarations).
+This is the largest part (43,297 declarations).
 
 ```lean
 theorem weight_one_geometric_realization : LocalSmoothExtension.HolomorphicLefschetzFormula := by
@@ -234,13 +237,13 @@ $$
 \sum_{b=0}^{d} (-1)^b \operatorname{tr}\big(c_{1*} \circ c_2^* \mid H^{a,b}\big) = \sum_{y \in F} \frac{[X^a] \det(1 + X A_y)}{\det(1 - A_y)} ,
 $$
 
-where $H^{a,b}$ is the Lean object `hodgeH s a b` and the spaces are finite-dimensional. This has the shape of the holomorphic Lefschetz fixed-point formula. This page does not unfold `hodgeH`, `hodgeTrace`, `hodgePull` and `IsTan`. The proof is `UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence` with 1,822 declarations below it.
+where $H^{a,b}$ is the Lean object `hodgeH s a b` and the spaces are finite-dimensional. This has the shape of the holomorphic Lefschetz fixed-point formula. This page does not unfold `hodgeH`, `hodgeTrace`, `hodgePull` and `IsTan`. The proof is `UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence` with 1,812 declarations below it.
 
 The three parts of `geoOne_of_parts` are:
 
-- `steps_holds : Steps` (26,278). `Steps` is a structure of seventeen fields built by `steps_of`. Three are the main local steps: `CrysStep` (a piece of the cohomology of a tower is crystalline at places above $\ell$ where a cover is onto), `JumpStep` (Hodge-Tate jumps occur where the Hodge numbers say) and `PhiStep` (the Frobenius characteristic polynomial divides a power of a root polynomial). The largest children are `jumpStep_holds` (2,666), `UpperTheory.Et.e4` (2,254), `crysStep_holds` (1,908), a projective bundle formula (1,586), `UpperTheory.Et.proper_base_change` (1,247) and `phiStep` (1,038).
-- `kodaira_spencer_of_weight_one hW : KSAll` (11,961). `KSAll` has six fields: `StdEx`, `KSEx`, `KSNice`, `KSGood`, `KSCong`, `KSHodge`. The Lefschetz formula enters only in the field `KSHodge`, through `ksHodge_of_geo hW FixK_holds`. The largest children are `model_nonempty` (2,598), `ksHodge_of_geo` (1,901) and `FixK_holds` (1,790).
-- `Pl.planEx_holds : PlanEx` (1,938). `PlanEx` has the same hypotheses as `GeoOne` and gives "plans" with Hodge-Tate and congruence properties. `Plan.pack` turns a plan into a `Pack` by `KSAll`.
+- `steps_holds : Steps` (26,256). `Steps` is a structure of seventeen fields built by `steps_of`. Three are the main local steps: `CrysStep` (a piece of the cohomology of a tower is crystalline at places above $\ell$ where a cover is onto), `JumpStep` (Hodge-Tate jumps occur where the Hodge numbers say) and `PhiStep` (the Frobenius characteristic polynomial divides a power of a root polynomial). The largest children are `crysStep_holds` (4,188), `jumpStep_holds` (2,709), a projective bundle formula (1,595), `UpperTheory.Et.proper_base_change` (1,247) and `phiStep` (1,031).
+- `kodaira_spencer_of_weight_one hW : KSAll` (11,907). `KSAll` has six fields: `StdEx`, `KSEx`, `KSNice`, `KSGood`, `KSCong`, `KSHodge`. The Lefschetz formula enters only in the field `KSHodge`, through `ksHodge_of_geo hW FixK_holds`. The largest children are `model_nonempty` (2,597), `ksHodge_of_geo` (1,902) and `FixK_holds` (1,789).
+- `Pl.planEx_holds : PlanEx` (1,934). `PlanEx` has the same hypotheses as `GeoOne` and gives "plans" with Hodge-Tate and congruence properties. `Plan.pack` turns a plan into a `Pack` by `KSAll`.
 
 ### Step 7. The theta lift branch tLiftK
 
@@ -256,29 +259,29 @@ $$
 
 and at each split place the local components are related by a nonzero map from a Schwartz-Bruhat space that intertwines the two actions (`LocPair`). The Lean name points to the theta lift. The statement is an existence statement of this form; this page does not claim it is a published theorem.
 
-The proof `tLift_holds_k` is `tLift_of_tools_k tools_holds_k (hgtEx_of_k stab2Cpt_k)`. The two large parts are `tLift_of_tools_k` (2,998, with `realPair_k` 2,636) and `tools_holds_k` (2,158, with `siegelWeilStd_k` 1,679, a Siegel-Weil statement by its name, and `weilEx_k` 395). The chapter [the theta matching](/proof/theta-matching/) treats theta lifts in more detail.
+The proof `tLift_holds_k` is `tLift_of_tools_k tools_holds_k (hgtEx_of_k stab2Cpt_k)`. The two parts are `tools_holds_k` (2,169, with `siegelWeilStd_k` 1,680, a Siegel-Weil statement by its name, and `weilEx_k` 395) and `tLift_of_tools_k` (503, with `realPair_k` 140). The chapter [block determinants and theta Parseval](/proof/determinants/) follows `tLift_of_tools_k` in detail. The chapter [the theta matching](/proof/theta-matching/) treats theta lifts in more detail.
 
 ## Where it is in the code
 
 | Declaration | Module | Size |
 |---|---|---|
-| `galoisLocalGlobalStrong_recParameter` | `…IntegralStructures.RowSrc` | 54,225 |
-| `galoisRepresentations_of_thetaLift` | `…IntegralStructures.GaloisRepresentationsOfThetaLift` | 49,010 |
-| `Geo.geoOne_holds` | `…GeometricFlagBases.WeightOneGeometricRealization` | 43,427 |
-| `Geo.geometric_realization_of_weight_one` | `…GeometricFlagBases.GeometricRealizationOfWeightOne` | 41,483 |
-| `Geo.steps_holds` | same | 26,278 |
-| `Geo.kodaira_spencer_of_weight_one` | same | 11,961 |
-| `Geo.Pl.planEx_holds` | `…PrimeLevelLocalization.SpecTopHolds` | 1,938 |
-| `Geo.weight_one_geometric_realization` | `…WeightOneGeometricRealization` | 1,824 |
-| `galoisLocalGlobalStrong_of_geometry_lift` | `…IntegralStructures.Development` | 5,421 |
-| `galoisLocalGlobal_of_geometry_lift` | same | 5,420 |
-| `rest` | same | 1,942 |
-| `coreAll_of` | same | 1,756 |
+| `galoisLocalGlobalStrong_recParameter` | `…IntegralStructures.RowSrc` | 51,591 |
+| `galoisRepresentations_of_thetaLift` | `…IntegralStructures.GaloisRepresentationsOfThetaLift` | 48,870 |
+| `Geo.geoOne_holds` | `…GeometricFlagBases.WeightOneGeometricRealization` | 43,297 |
+| `Geo.geometric_realization_of_weight_one` | `…GeometricFlagBases.GeometricRealizationOfWeightOne` | 41,363 |
+| `Geo.steps_holds` | same | 26,256 |
+| `Geo.kodaira_spencer_of_weight_one` | same | 11,907 |
+| `Geo.Pl.planEx_holds` | `…PrimeLevelLocalization.SpecTopHolds` | 1,934 |
+| `Geo.weight_one_geometric_realization` | `…WeightOneGeometricRealization` | 1,814 |
+| `galoisLocalGlobalStrong_of_geometry_lift` | `…IntegralStructures.Development` | 5,415 |
+| `galoisLocalGlobal_of_geometry_lift` | same | 5,414 |
+| `rest` | same | 1,944 |
+| `coreAll_of` | same | 1,760 |
 | `Div.seedFinOdd_of_geoOne` | `…ZetaCharacterDivisibility.MainFin` | 718 |
 | `Cong.congFinOdd_of_ex` | `…CongruenceOddLevel.CongFinOddOfLvLac` | 495 |
-| `UpperTheory.TP.K.tLiftK` | `…ThetaParseval.ThetaKernels.TLiftK` | 5,201 |
-| `UpperTheory.TP.tLift_of_tools_k` | `…ThetaKernels.TPGTop` | 2,998 |
-| `UpperTheory.TP.tools_holds_k` | `…ThetaKernels.TPGHolds` | 2,158 |
+| `UpperTheory.TP.K.tLiftK` | `…ThetaParseval.ThetaKernels.TLiftK` | 2,709 |
+| `UpperTheory.TP.tLift_of_tools_k` | `…ThetaKernels.TPGTop` | 503 |
+| `UpperTheory.TP.tools_holds_k` | `…ThetaKernels.TPGHolds` | 2,169 |
 
 The prefix `…` is `Development.AutomorphicArithmetic.Foundations.GaloisRepresentations`. Names without a namespace are in `UpperTheory.Gal.Int`. "Size" is the number of declarations in the dominator subtree: the declarations that the trunk reaches only through this one.
 
@@ -287,6 +290,6 @@ The prefix `…` is `Development.AutomorphicArithmetic.Foundations.GaloisReprese
 - `IsRecT` is a hypothesis inside `Row0b`. The local clauses of `Row0b` hold for each $rc$ with `IsRecT`. If no such $rc$ existed, those clauses would hold for no $rc$ and say nothing. The Lean code closes this gap with a separate theorem `recTExists`, which `everyCharacter_of_row` also uses. This page does not describe that theorem.
 - `wdOf` and `infChar` are defined by choice. `wdOf` returns the trivial class if no Weil-Deligne class of $r$ at $w$ exists. `infChar` returns $a$ copies of $0$ if no infinitesimal character exists. A reader who checks the statement must check that the hypotheses force the intended values.
 - The difference between `Row0` and `Row0b` is the bound $16 n^2 < g$ in `IsQpBig`. The proof goes through the stronger `Row0`, so the bound is not used in this branch. The other users of `Row0b` may need only the weaker form.
-- `GeoOne` is very large (43,427 declarations), but the Lean code uses it at one point only, to prove `SeedFinOdd`. This page does not unfold `SeedFinOdd`, so it does not say why that statement needs the geometry.
+- `GeoOne` is very large (43,297 declarations), but the Lean code uses it at one point only, to prove `SeedFinOdd`. This page does not unfold `SeedFinOdd`, so it does not say why that statement needs the geometry.
 - This page does not unfold `IsLocalArtin`, `segSum`, `IsL`, `IsCrysAt`, `IsdRAt`, `IsPstAt`, `IsJumpsAt`, `wdAt`, `LocBridge`, `VBase`, `hodgeH`, `ResEtaPow`, `IsAutRepU` and `LocPair`. Their names suggest standard notions, but the words above use those notions only where the code shows them.
 - The theorem `galoisLocalGlobalStrong_recParameter` has one other user, `UpperTheory.V.SmallClassNumbers.litN`. This page does not describe it.
