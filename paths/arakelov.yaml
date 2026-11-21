@@ -73,7 +73,7 @@ items:
     why: '`ArithKleiman` and `ArithmeticVolumeNef` of [the Weil bound](/proof/weil-bound/) are about nef Hermitian line bundles.'
   - concept: Arithmetic Hilbert-Samuel
     text: 'Gillet and Soulé, An arithmetic Riemann-Roch theorem, Invent. Math. 110 (1992); Abbes and Bouche, Ann. Inst. Fourier 45 (1995)'
-    says: 'For $L$ ample with positive metric and smooth generic fibre, $\log\#\widehat{H}^0(X, \overline{L}^{\otimes n}) = \overline{L}^{D+1} n^{D+1}/(D+1)! + o(n^{D+1})$.'
+    says: 'For $L$ ample with positive metric and smooth generic fibre, $\widehat{\chi}_{\sup}(H^0(X, L^{\otimes n})) = \overline{L}^{D+1} n^{D+1}/(D+1)! + o(n^{D+1})$; for nef $\overline{L}$ the count $\log\#\widehat{H}^0(X, \overline{L}^{\otimes n})$ has the same leading term.'
     why: '`HSUse` of [the Weil bound](/proof/weil-bound/) states the $\limsup$ upper bound for nef bundles, and `ArithHilbertSamuel` is a field of [the published arithmetic results](/step/published-results-arithmetic/).'
     steps: [published-results-arithmetic]
   - concept: Moriwaki and Yuan
