@@ -59,6 +59,7 @@ next:
   - text: The theta matching
     path: proof/theta-matching/
     sub: the next large branch
+steps: [row0b-def, is-rect-def, rect-exists-def, rect-exists, galois-row-holds]
 ---
 ## Result
 

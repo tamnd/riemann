@@ -2,6 +2,20 @@
 
 All changes that a reader can see are in this file. The versions follow the milestones: milestone Mn closes with `v0.(n+1).0`.
 
+## Unreleased
+
+### Added
+
+- The written steps of the trunk, in `proof/steps/`. There are 20 steps, from the statement of the Riemann Hypothesis down to the first named results. Each step has a statement, the Lean statement, a proof or a reading of the definition, the steps that it uses and its status. All steps are drafts by a model, and each one has the field `drafted_by`. A person must check each one.
+- Each chapter gives the reading order of its steps in the field `steps`.
+- `links/literature.yaml` lists the 18 named results of the trunk. For each one it gives what the Lean statement says, the published works, and how the Lean statement differs from them. Each DOI was checked.
+- CONTRIBUTING.md tells the format of a step.
+- The deploy workflow runs `rh check` before it builds the site.
+
+### Changed
+
+- The theta chapter tells that `ZeroFreeAll` has no exception at s = 1, and that the case s = 1 is true only because of the value that Mathlib gives to ζ(1).
+
 ## v0.2.1 (2026-11-21)
 
 ### Added

@@ -41,6 +41,9 @@ jobs:
         run: go build -trimpath -o "$RUNNER_TEMP/rh" ./cmd/rh
       - name: get the records
         run: content/scripts/fetch-records.sh content "$RUNNER_TEMP/records"
+      - name: check the proof
+        run: |
+          "$RUNNER_TEMP/rh" check -content content -index "$RUNNER_TEMP/records/records/index"
       - name: build the site
         env:
           COMMIT: ${{ github.sha }}

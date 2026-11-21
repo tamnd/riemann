@@ -43,6 +43,7 @@ next:
   - text: What is checked
     path: trust/
     sub: the trust report
+steps: [riemann-hypothesis, rh-of-all, rh-of-every, rh-of-right, every-character-def, all-chi, every-character]
 ---
 ## The claim
 
