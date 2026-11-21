@@ -4,6 +4,11 @@ All changes that a reader can see are in this file. The versions follow the mile
 
 ## Unreleased
 
+### Changed
+
+- The Learn section is now a book. Part I has 17 chapters on the background subjects, in the order to read them, with each definition and theorem that the proof uses. Part II has one short guide for each chapter of the proof. Pull request #20.
+- A reader pass over the 28 pages of Learn. It cut about 11 percent of the words and fixed about 40 errors in statements, such as missing hypotheses, a wrong epsilon factor in Tate's thesis and a false form of arithmetic Hilbert-Samuel. Pull request #21.
+
 ## v0.6.1 (2026-11-21)
 
 The first real results of the trust report, for milestone M2.

@@ -78,7 +78,7 @@ items:
     why: 'The theorem `ThmBab K 401` comes from Lemma K, Poitou-Tate, local finiteness, local Tate duality and `ferreroWashington`.'
   - concept: Euler system
     text: 'Rubin, Euler Systems, Annals of Math. Studies 147 (2000), ch. 2'
-    says: 'An Euler system for $T$ is a family of classes $c_F \in H^1(F, T)$ over abelian extensions $F$ of $K$ whose corestrictions satisfy norm relations with Euler factors. A non-torsion class $c_K$ bounds the Selmer group of $T^\vee(1)$.'
+    says: 'An Euler system for $T$ is a family of classes $c_F \in H^1(F, T)$ over abelian extensions $F$ of $K$ whose corestrictions satisfy norm relations with Euler factors. A non-torsion class $c_K$ bounds a Selmer group of $W^* = \mathrm{Hom}(T, \mu_{p^\infty})$.'
     why: 'The proof of `KatoTwoW` in [the window bound](/proof/vwin/) goes through an Euler system argument.'
   - concept: Kato Euler system
     math2: null

@@ -1,30 +1,28 @@
-The proof uses real analysis and analysis on groups: limits and bounds, measures and integrals, $L^2$ spaces, the Fourier transform, topological groups, Haar measure and Lie groups. The volume branch of [the Weil bound](/proof/weil-bound/) is stated with a lim sup, and the hypotheses on L-values of [the literature](/proof/literature/) are bounds for all large $x$. The theta branch integrates over adelic quotients with a Haar measure and uses the Weil representation on Schwartz functions.
+The proof uses real analysis and analysis on groups. The bounds of the arithmetic branches are stated with lim sups and $O$ notation, and the theta branch integrates over adelic quotients with a Haar measure and lets the Weil representation act on Schwartz functions.
 
 ## Limits and the O notation
 
-**Definition.** A sequence $(a_n)$ of real numbers has *[[limit|05M5SWSZZD]]* $a$ if for each $\varepsilon > 0$ there is $n_0$ with $|a_n - a| < \varepsilon$ for each $n \ge n_0$. A function $f$ on $\mathbb{R}$ has limit $b$ as $x \to x_0$ if for each $\varepsilon > 0$ there is $\delta > 0$ with $|f(x) - b| < \varepsilon$ for each $x$ with $0 < |x - x_0| < \delta$.
+**Definition.** A sequence $(a_n)$ of real numbers has *[[limit|05M5SWSZZD]]* $a$ if for each $\varepsilon > 0$ there is $n_0$ with $|a_n - a| < \varepsilon$ for each $n \ge n_0$. A function $f$ on $\mathbb{R}$ has limit $b$ as $x \to x_0$ if for each $\varepsilon > 0$ there is $\delta > 0$ with $|f(x) - b| < \varepsilon$ whenever $0 < |x - x_0| < \delta$.
 
 **Definition.** The *[[limit superior|0T3RZQXDYD]]* of a real sequence is
 $$\limsup_{n \to \infty} a_n = \lim_{n \to \infty} \sup_{k \ge n} a_k \in [-\infty, \infty].$$
-It always exists. The sequence converges if and only if $\limsup a_n = \liminf a_n$ is finite, and then both equal the limit.
+It always exists. The sequence converges if and only if $\limsup a_n = \liminf a_n$ is finite, and then both equal the limit. For example, $\limsup (-1)^n = 1$ and $\liminf (-1)^n = -1$.
 
-**Example.** For $a_n = (-1)^n$, $\limsup a_n = 1$ and $\liminf a_n = -1$.
-
-**Definition.** A statement $P(x)$ holds *for all large $x$* if there is $x_0$ such that $P(x)$ holds for each $x \ge x_0$. Let $f, g$ be functions with $g > 0$. One writes *$f(x) = O(g(x))$* if there are $C$ and $x_0$ with $|f(x)| \le C g(x)$ for each $x \ge x_0$. The constant $C$ is the *implied constant*.
+**Definition.** A statement $P(x)$ holds *for all large $x$* if there is $x_0$ such that $P(x)$ holds for each $x \ge x_0$. Let $g > 0$. One writes *$f(x) = O(g(x))$* if there is a constant $C$, the *implied constant*, with $|f(x)| \le C g(x)$ for all large $x$.
 
 **Example.** $\log x = O(x^\varepsilon)$ for each $\varepsilon > 0$, and $x^2 + 5x = O(x^2)$.
 
-The volume $\mathrm{vol}(P, \Lambda)$ in [the Weil bound](/proof/weil-bound/) is a lim sup of normalized logarithms of counts. The hypotheses of [HypsAlt](/step/hyps-alt-def/) hold for each large $x$, and the bound $|L'(1, \chi)/L(1, \chi) - Z(\chi)| \le C \log(3q)$ in [the literature](/proof/literature/) is a bound of type $O(\log q)$.
+The volume $\mathrm{vol}(P, \Lambda)$ of [the Weil bound](/proof/weil-bound/) is a lim sup of normalized logarithms of counts, the hypotheses of [HypsAlt](/step/hyps-alt-def/) hold for all large $x$, and [the literature](/proof/literature/) bounds $|L'(1, \chi)/L(1, \chi) - Z(\chi)|$ by $C \log(3q)$.
 
 ## Continuity and smooth functions
 
 **Definition.** A map $f : X \to Y$ of topological spaces is *[[continuous|0X3WGX95FE]]* if $f^{-1}(U)$ is open for each open $U \subseteq Y$. For metric spaces this is the $\varepsilon$-$\delta$ condition at each point.
 
-**Definition.** A space $X$ is *compact* if each cover of $X$ by open sets has a finite subcover. It is *locally compact* if each point has a compact neighbourhood. A continuous real function on a compact space is bounded and attains its maximum.
+**Definition.** A space $X$ is *compact* if each cover of $X$ by open sets has a finite subcover, and *locally compact* if each point has a compact neighbourhood. A continuous real function on a nonempty compact space is bounded and attains its maximum.
 
 **Definition.** Let $U \subseteq \mathbb{R}^n$ be open. A function $f : U \to \mathbb{C}$ is *[[smooth|0V33BNKZ9S]]* if all partial derivatives $\partial^\alpha f = \partial_1^{\alpha_1} \cdots \partial_n^{\alpha_n} f$ exist and are continuous on $U$. For a multi-index $\alpha$, $|\alpha| = \alpha_1 + \dots + \alpha_n$.
 
-The Galois representation $r$ of [the trunk](/proof/trunk/) is continuous, and [the Galois row](/proof/galois-row/) works with spaces of smooth functions on $\mathrm{GL}_a(\mathbb{A}_E)$.
+The Galois representation $r$ of [the trunk](/proof/trunk/) is continuous, and [the Galois row](/proof/galois-row/) works with smooth functions on $\mathrm{GL}_a(\mathbb{A}_E)$.
 
 ## Measures and integrals
 
@@ -32,30 +30,28 @@ The Galois representation $r$ of [the trunk](/proof/trunk/) is continuous, and [
 
 **Definition.** Let $(X, \mathcal{M}, \mu)$ be a measure space. A measurable function $f : X \to \mathbb{C}$ is *[[integrable|X7GTF3D98F]]* if $\int_X |f| \, d\mu < \infty$. Then the Lebesgue integral $\int_X f \, d\mu$ is defined, and $|\int f \, d\mu| \le \int |f| \, d\mu$. Two functions are equal *almost everywhere* if they differ on a set of measure $0$.
 
-**Theorem ([[dominated convergence theorem|BYNV84PF86]]).** Let $f_n$ be measurable, with $f_n \to f$ almost everywhere. Suppose that there is an integrable $g$ with $|f_n| \le g$ for each $n$. Then $f$ is integrable and $\int f_n \, d\mu \to \int f \, d\mu$.
+**Theorem ([[dominated convergence theorem|BYNV84PF86]]).** Let $f_n$ be measurable, with $f_n \to f$ almost everywhere, and let $g$ be integrable with $|f_n| \le g$ for each $n$. Then $f$ is integrable and $\int f_n \, d\mu \to \int f \, d\mu$.
 
-**Definition.** Let $(X, \mu)$ and $(Y, \nu)$ be σ-finite measure spaces. The *product measure* $\mu \times \nu$ on $X \times Y$ is the measure with $(\mu \times \nu)(A \times B) = \mu(A) \nu(B)$.
+**Definition.** A measure space is *σ-finite* if it is a countable union of sets of finite measure. For σ-finite $(X, \mu)$ and $(Y, \nu)$, the *product measure* $\mu \times \nu$ is the unique measure on the product σ-algebra of $X \times Y$ with $(\mu \times \nu)(A \times B) = \mu(A) \nu(B)$.
 
 **Theorem (Tonelli).** Let $f : X \times Y \to [0, \infty]$ be measurable. Then
 $$\int_{X \times Y} f \, d(\mu \times \nu) = \int_X \Big( \int_Y f(x, y) \, d\nu(y) \Big) d\mu(x) = \int_Y \Big( \int_X f(x, y) \, d\mu(x) \Big) d\nu(y).$$
 
-**Theorem ([[Fubini's theorem|0R0T1VWH5X]]).** Let $f : X \times Y \to \mathbb{C}$ be integrable for $\mu \times \nu$. Then the same equalities hold, and the inner integrals are finite almost everywhere. By Tonelli, $f$ is integrable when one iterated integral of $|f|$ is finite.
+**Theorem ([[Fubini's theorem|0R0T1VWH5X]]).** Let $f : X \times Y \to \mathbb{C}$ be integrable for $\mu \times \nu$. Then the same equalities hold, and the inner integrals are finite almost everywhere. By Tonelli, a measurable $f$ is integrable when one iterated integral of $|f|$ is finite.
 
-**Example.** For $f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2$ on $(0, 1]^2$ the two iterated integrals are $\pi/4$ and $-\pi/4$. This $f$ is not integrable.
+**Example.** For $f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2$ on $(0, 1]^2$ the two iterated integrals are $\pi/4$ and $-\pi/4$, so $f$ is not integrable.
 
-The seesaw identity of [the Bessel seesaw](/proof/bessel-seesaw/) is a change of the order of integration: the proof `upLast` writes both sides as one integral over $[U(W_0)] \times [U(T)]$ and applies Fubini. Step 4 of [block determinants](/proof/determinants/) proves that a product of two matrix coefficients is integrable on $U(X)(\mathbb{A})$, and [the theta matching](/proof/theta-matching/) asks that each theta function be integrable on a fundamental domain.
+The proof `upLast` of [the Bessel seesaw](/proof/bessel-seesaw/) writes both sides of the seesaw identity as one integral over $[U(W_0)] \times [U(T)]$ and applies Fubini. Step 4 of [block determinants](/proof/determinants/) proves that a product of two matrix coefficients is integrable.
 
 ## L2 spaces and the Cauchy-Schwarz inequality
 
 **Definition.** Let $(X, \mu)$ be a measure space. The space *$L^2(X, \mu)$* is the set of measurable $f : X \to \mathbb{C}$ with $\int |f|^2 \, d\mu < \infty$, modulo functions that are $0$ almost everywhere. Its *[[inner product|0NB0AWGJBW]]* is $\langle f, g \rangle = \int f \overline{g} \, d\mu$, and its norm is $\|f\|_2 = \langle f, f \rangle^{1/2}$.
 
-**Definition.** A *[[Hilbert space|HM2HHE3J51]]* is a complex vector space with an inner product whose norm is complete. A *unitary representation* of a group $G$ on a Hilbert space $H$ is a homomorphism $\pi$ from $G$ to the group of linear bijections of $H$ that preserve the inner product, such that $g \mapsto \pi(g) v$ is continuous for each $v$.
+**Definition.** A *[[Hilbert space|HM2HHE3J51]]* is a complex vector space with an inner product whose norm is complete. A *unitary representation* of a topological group $G$ (defined below) on a Hilbert space $H$ is a homomorphism $\pi$ from $G$ to the group of linear bijections of $H$ that preserve the inner product, such that $g \mapsto \pi(g) v$ is continuous for each $v$.
 
 **Theorem ([[Cauchy-Schwarz inequality|0RFWW56Y22]]).** In a space with an inner product, $|\langle f, g \rangle| \le \|f\| \, \|g\|$, with equality if and only if $f$ and $g$ are linearly dependent.
 
-The space $L^2(X, \mu)$ is a Hilbert space (Riesz-Fischer). For a unitary representation, Cauchy-Schwarz bounds each matrix coefficient: $|\langle \pi(g) v, w \rangle| \le \|v\| \, \|w\|$.
-
-The metaplectic representation $\Omega$ of Step 8 of [the Siegel-Weil chapter](/proof/siegel-weil/) is a unitary representation on an $L^2$ space, and the hypothesis `RowsFinDim` of [HypsAlt](/step/hyps-alt-def/) is about automorphic $L^2$ spaces.
+The space $L^2(X, \mu)$ is a Hilbert space (Riesz-Fischer). For a unitary representation, Cauchy-Schwarz bounds each matrix coefficient: $|\langle \pi(g) v, w \rangle| \le \|v\| \, \|w\|$. The metaplectic representation of Step 8 of [the Siegel-Weil chapter](/proof/siegel-weil/) is unitary on an $L^2$ space, and `RowsFinDim` of [HypsAlt](/step/hyps-alt-def/) is about automorphic $L^2$ spaces.
 
 ## The Fourier transform
 
@@ -63,69 +59,69 @@ The metaplectic representation $\Omega$ of Step 8 of [the Siegel-Weil chapter](/
 $$\hat f(\xi) = \int_{\mathbb{R}^n} f(x) \, e^{-2\pi i x \cdot \xi} \, dx.$$
 It is a bounded continuous function, and $\hat f(\xi) \to 0$ as $|\xi| \to \infty$.
 
-**Example.** The *Gaussian* $\varphi_0(x) = e^{-\pi x \cdot x}$ satisfies $\hat\varphi_0 = \varphi_0$, and $\int_{\mathbb{R}^n} \varphi_0 = 1$.
+**Example.** The *Gaussian* $\varphi_0(x) = e^{-\pi x \cdot x}$ satisfies $\hat\varphi_0 = \varphi_0$ and $\int_{\mathbb{R}^n} \varphi_0 = 1$.
 
 **Definition.** The *[[Schwartz space|GE020MY43M]]* $\mathcal{S}(\mathbb{R}^n)$ is the set of smooth $f$ such that each seminorm
 $$\|f\|_{\alpha, \beta} = \sup_{x \in \mathbb{R}^n} |x^\alpha \partial^\beta f(x)|$$
-is finite. Its elements are *Schwartz functions*. The Gaussian is one.
+is finite. Its elements are *Schwartz functions*, for example the Gaussian.
 
 **Theorem (Fourier inversion and Plancherel).** The Fourier transform is a linear bijection $\mathcal{S}(\mathbb{R}^n) \to \mathcal{S}(\mathbb{R}^n)$, with inverse $f(x) = \int \hat f(\xi) e^{2\pi i x \cdot \xi} \, d\xi$. It satisfies $\langle \hat f, \hat g \rangle = \langle f, g \rangle$, so it extends to a unitary map $L^2(\mathbb{R}^n) \to L^2(\mathbb{R}^n)$.
 
-The same definitions work over a local field or the adeles with a nontrivial additive character $\psi$ in place of $e^{2\pi i x}$; Chapter 5 defines these characters. In the Schrödinger model of Step 2 of [the Siegel-Weil chapter](/proof/siegel-weil/), the Weyl element acts by a Fourier transform, and the metaplectic statement of Step 8 fixes the value of the Weil representation on the Gaussian $e^{-\pi x \cdot x}$. The test functions of [the theta matching](/proof/theta-matching/) are Schwartz functions.
+Over a local field or the adeles the same definitions work with a nontrivial additive character $\psi$ in place of $e^{2\pi i x}$ (Chapter 5). In [the Siegel-Weil chapter](/proof/siegel-weil/) the Weyl element acts by a Fourier transform, and the test functions of [the theta matching](/proof/theta-matching/) are Schwartz functions.
 
 ## Sobolev norms
 
-**Definition.** Let $G$ be a Lie group with Lie algebra $\mathfrak{g}$ and a basis $X_1, \dots, X_k$ of $\mathfrak{g}$. Each $X \in \mathfrak{g}$ acts on smooth functions by $(X\varphi)(g) = \frac{d}{dt}\big|_{t=0} \varphi(g \exp(tX))$. The *[[Sobolev norm|M4CEZ5K9HP]]* of order $d$ of $\varphi$ is
+**Definition.** Let $G$ be a Lie group with Lie algebra $\mathfrak{g}$ (both defined below), Haar measure on $G$, and a basis $X_1, \dots, X_k$ of $\mathfrak{g}$. Each $X \in \mathfrak{g}$ acts on smooth functions by $(X\varphi)(g) = \frac{d}{dt}\big|_{t=0} \varphi(g \exp(tX))$. The *[[Sobolev norm|M4CEZ5K9HP]]* of order $d$ of $\varphi$ is
 $$\|\varphi\|_{S, d} = \sum_{|\alpha| \le d} \|X^\alpha \varphi\|_{L^2}, \qquad X^\alpha = X_1^{\alpha_1} \cdots X_k^{\alpha_k}.$$
-Norms with weights, such as $\sum_{|\alpha| \le d} \sup_g |X^\alpha \varphi(g)| \, \|g\|^{-N}$, are of the same type.
+Weighted norms such as $\sum_{|\alpha| \le d} \sup_g |X^\alpha \varphi(g)| \, \|g\|^{-N}$ are of the same type.
 
 **Example.** On $\mathbb{R}$ with $X = d/dx$, the norm of order $1$ is $\|\varphi\|_2 + \|\varphi'\|_2$.
 
-The bound `CuspDecaySobolev` of Step 10 of [the Siegel-Weil chapter](/proof/siegel-weil/) says that $\mathrm{decay}_M(\varphi) \le C \cdot \mathrm{growthSob}_{d,N}(\varphi)$ for smooth cusp functions: a cusp form decays faster than each power of the height, with a constant controlled by a Sobolev norm.
+The bound `CuspDecaySobolev` of Step 10 of [the Siegel-Weil chapter](/proof/siegel-weil/) says that a smooth cusp function decays faster than each power of the height, with a constant controlled by a weighted Sobolev norm.
 
 ## Topological groups and covering maps
 
 **Definition.** A *[[topological group|92700QAB5Y]]* is a group $G$ with a topology for which $(x, y) \mapsto xy$ and $x \mapsto x^{-1}$ are continuous. It is a *[[locally compact group|20YERDAS5W]]* if its topology is locally compact and Hausdorff.
 
-**Example.** $\mathbb{R}^n$, $\mathbb{C}^\times$ and $\mathrm{GL}_n(\mathbb{R})$ are locally compact. So are $\mathbb{Q}_p$ and the adele group $\mathrm{GL}_n(\mathbb{A}_F)$ (Chapter 4 defines $\mathbb{A}_F$). Each discrete group is locally compact.
+**Example.** $\mathbb{R}^n$, $\mathbb{C}^\times$, $\mathrm{GL}_n(\mathbb{R})$, $\mathbb{Q}_p$, each discrete group, and the adele group $\mathrm{GL}_n(\mathbb{A}_F)$ of Chapter 4 are locally compact.
 
-**Definition.** A continuous surjection $p : \tilde X \to X$ is a *[[covering map|3XZRRE165N]]* if each $x \in X$ has an open neighbourhood $U$ such that $p^{-1}(U)$ is a disjoint union of open sets, each mapped homeomorphically onto $U$ by $p$. It is a *double cover* if each fibre has two points. A covering homomorphism of topological groups $p : \tilde G \to G$ is a covering map that is a homomorphism; its kernel is a discrete normal subgroup.
+**Definition.** A continuous surjection $p : \tilde X \to X$ is a *[[covering map|3XZRRE165N]]* if each $x \in X$ has an open neighbourhood $U$ such that $p^{-1}(U)$ is a disjoint union of open sets, each mapped homeomorphically onto $U$ by $p$. It is a *double cover* if each fibre has two points. A covering homomorphism $p : \tilde G \to G$ of topological groups is a covering map that is a homomorphism; its kernel is a discrete normal subgroup.
 
-**Example.** $z \mapsto z^2$ is a double cover $\mathbb{C}^\times \to \mathbb{C}^\times$ with kernel $\{\pm 1\}$. The map $\mathbb{R} \to \mathbb{R}/\mathbb{Z}$ is a covering with kernel $\mathbb{Z}$.
+**Example.** $z \mapsto z^2$ is a double cover $\mathbb{C}^\times \to \mathbb{C}^\times$ with kernel $\{\pm 1\}$, and $\mathbb{R} \to \mathbb{R}/\mathbb{Z}$ is a covering with kernel $\mathbb{Z}$.
 
-**Proposition.** The fundamental group of $\mathrm{Sp}_{2n}(\mathbb{R})$ is $\mathbb{Z}$. So $\mathrm{Sp}_{2n}(\mathbb{R})$ has exactly one connected double cover, the *[[metaplectic group|8B0JM2YDE2]]* $\mathrm{Mp}_{2n}(\mathbb{R})$, and it is not a matrix group.
+**Proposition.** Let $n \ge 1$. The fundamental group of $\mathrm{Sp}_{2n}(\mathbb{R})$ is $\mathbb{Z}$. So $\mathrm{Sp}_{2n}(\mathbb{R})$ has, up to isomorphism, exactly one connected double cover, the *[[metaplectic group|8B0JM2YDE2]]* $\mathrm{Mp}_{2n}(\mathbb{R})$, and it is not a matrix group.
 
-The statement `MetaplecticRepresentation` of Step 8 of [the Siegel-Weil chapter](/proof/siegel-weil/) asks for a topological group $G$ and a covering map onto $\mathrm{Sp}(\mathbb{R})$ with a kernel of two elements, on which the Weil representation is a true representation.
+`MetaplecticRepresentation`, in Step 8 of [the Siegel-Weil chapter](/proof/siegel-weil/), asks for a covering homomorphism onto $\mathrm{Sp}(\mathbb{R})$ with kernel of order $2$ on which the Weil representation is a true representation.
 
 ## Haar measure
 
-**Theorem (Haar, Weil).** Let $G$ be a locally compact group. There is a nonzero Borel measure $\mu$ on $G$ that is finite on compact sets, positive on nonempty open sets, regular, and left invariant: $\mu(gA) = \mu(A)$ for each $g \in G$ and each Borel set $A$. Any two such measures differ by a positive constant factor.
+**Theorem (Haar, Weil).** Let $G$ be a locally compact group. There is a nonzero regular Borel measure $\mu$ on $G$ that is finite on compact sets, positive on nonempty open sets, and left invariant: $\mu(gA) = \mu(A)$ for each $g \in G$ and each Borel set $A$. Any two such measures differ by a positive constant factor.
 
-**Definition.** Such a $\mu$ is a *[[Haar measure|CE0V9686M8]]*. For $g \in G$, the measure $A \mapsto \mu(Ag)$ is again left invariant, so it is $\Delta(g) \mu$ for a number $\Delta(g) > 0$. The continuous homomorphism $\Delta : G \to \mathbb{R}_{>0}$ is the *modular function*. The group is *unimodular* if $\Delta = 1$, that is, if $\mu$ is also right invariant.
+**Definition.** Such a $\mu$ is a *[[Haar measure|CE0V9686M8]]*. For $g \in G$, the measure $A \mapsto \mu(Ag)$ is again left invariant, so it is $\Delta(g) \mu$ for a number $\Delta(g) > 0$. The continuous homomorphism $\Delta : G \to \mathbb{R}_{>0}$ is the *modular function*, and $G$ is *unimodular* if $\Delta = 1$, that is, if $\mu$ is also right invariant.
 
-**Example.** On $\mathbb{R}$, $dx$ is a Haar measure. On $\mathbb{R}^\times$ it is $dx/|x|$. On $\mathrm{GL}_n(\mathbb{R})$ it is $|\det g|^{-n} \prod_{i,j} dg_{ij}$. Abelian groups, compact groups and $\mathrm{GL}_n$, $\mathrm{Sp}_{2n}$ and $\mathrm{U}(p, q)$ are unimodular.
+**Example.** A Haar measure is $dx$ on $\mathbb{R}$, $dx/|x|$ on $\mathbb{R}^\times$, and $|\det g|^{-n} \prod_{i,j} dg_{ij}$ on $\mathrm{GL}_n(\mathbb{R})$. Abelian groups, compact groups, $\mathrm{GL}_n$, $\mathrm{Sp}_{2n}$ and $\mathrm{U}(p, q)$ are unimodular.
 
-Let $\Gamma \subseteq G$ be a discrete subgroup. A *[[fundamental domain|WEGEXJBX26]]* for $\Gamma$ is a measurable set $D \subseteq G$ that meets each coset $\Gamma g$ in exactly one point. If $G$ is unimodular, integration over $D$ defines a $G$-invariant measure on $\Gamma \backslash G$, and its total mass $\mu(D)$ is the *volume* of $\Gamma \backslash G$.
+**Definition.** Let $\Gamma \subseteq G$ be a discrete subgroup. A *[[fundamental domain|WEGEXJBX26]]* for $\Gamma$ is a measurable set $D \subseteq G$ that meets each coset $\Gamma g$ in exactly one point. If $G$ is unimodular, integration over $D$ defines a $G$-invariant measure on $\Gamma \backslash G$, and its total mass $\mu(D)$ is the *volume* of $\Gamma \backslash G$.
 
-The predicate `Model.IsGood` of Step 1 of [the theta matching](/proof/theta-matching/) asks for a Haar measure on $U_X(\mathbb{A})$ and a fundamental domain for $U_X(F)$. The theta integrals of [the Siegel-Weil chapter](/proof/siegel-weil/) are integrals over such a domain, and Step 9 there proves that the domain of $U_J(F)$ has finite volume.
+`Model.IsGood`, in [the theta matching](/proof/theta-matching/), asks for a Haar measure on $U_X(\mathbb{A})$ and a fundamental domain for $U_X(F)$ on which each theta function is integrable. Step 9 of [the Siegel-Weil chapter](/proof/siegel-weil/) proves that the domain of $U_J(F)$ has finite volume.
 
 ## Lie groups and Lie algebras
 
 **Definition.** A *[[Lie group|7JBRGCVJRB]]* is a group that is a smooth manifold, with smooth multiplication and inverse. A closed subgroup of $\mathrm{GL}_n(\mathbb{R})$ is a Lie group (Cartan).
 
-**Definition.** For $X \in M_n(\mathbb{R})$ the *[[matrix exponential|020M04FN1H]]* is $\exp(X) = \sum_{k \ge 0} X^k / k!$. The series converges for each $X$. It satisfies $\exp(X + Y) = \exp(X) \exp(Y)$ if $XY = YX$, and $\det \exp(X) = e^{\operatorname{tr} X}$.
+**Definition.** For $X \in M_n(\mathbb{R})$ the *[[matrix exponential|020M04FN1H]]* is $\exp(X) = \sum_{k \ge 0} X^k / k!$. The series converges for each $X$, $\exp(X + Y) = \exp(X) \exp(Y)$ if $XY = YX$, and $\det \exp(X) = e^{\operatorname{tr} X}$.
 
 **Definition.** Let $G \subseteq \mathrm{GL}_n(\mathbb{R})$ be a closed subgroup. Its *[[Lie algebra|5JJYBJ6A8K]]* is
 $$\mathfrak{g} = \{X \in M_n(\mathbb{R}) : \exp(tX) \in G \text{ for each } t \in \mathbb{R}\}.$$
 It is a real vector space, closed under the bracket $[X, Y] = XY - YX$.
 
-**Definition.** A *[[one-parameter subgroup|YHA64AP1HN]]* of a topological group $G$ is a continuous homomorphism $\gamma : \mathbb{R} \to G$. For a matrix group, each one-parameter subgroup is $t \mapsto \exp(tX)$ for exactly one $X \in \mathfrak{g}$.
+**Definition.** A *[[one-parameter subgroup|YHA64AP1HN]]* of a topological group $G$ is a continuous homomorphism $\gamma : \mathbb{R} \to G$. For a closed subgroup $G$ of $\mathrm{GL}_n(\mathbb{R})$, each one-parameter subgroup is $t \mapsto \exp(tX)$ for exactly one $X \in \mathfrak{g}$.
 
 **Example.** Let $J = \begin{pmatrix} 0 & 1_n \\ -1_n & 0 \end{pmatrix}$ and $\mathrm{Sp}_{2n}(\mathbb{R}) = \{g : g^T J g = J\}$. Its Lie algebra is $\mathfrak{sp}_{2n} = \{X : X^T J + J X = 0\}$.
 
-Let $\pi$ be a representation of $G$ on a space $V$ of functions or a Banach space. A vector $v$ is *smooth* if $g \mapsto \pi(g) v$ is smooth. On smooth vectors, $\mathfrak{g}$ acts by the derived representation $d\pi(X) v = \frac{d}{dt}\big|_{t=0} \pi(\exp(tX)) v$, and $d\pi([X, Y]) = [d\pi(X), d\pi(Y)]$.
+**Definition.** Let $\pi$ be a representation of $G$ on a Banach space $V$. A vector $v$ is *smooth* if $g \mapsto \pi(g) v$ is smooth. On smooth vectors, $\mathfrak{g}$ acts by the derived representation $d\pi(X) v = \frac{d}{dt}\big|_{t=0} \pi(\exp(tX)) v$, and $d\pi([X, Y]) = [d\pi(X), d\pi(Y)]$.
 
-The statement `RealMetaplecticRepresentation` of Step 8 of [the Siegel-Weil chapter](/proof/siegel-weil/) says that each $X \in \mathfrak{sp}$ gives a one-parameter subgroup of the cover that lifts $t \mapsto \exp(tX)$, and that the Weil representation is smooth along smooth curves. The local matching condition `IsRealMaps` of [LocalMatching](/step/local-matching-def/) is stated with the Lie algebra action of one-parameter subgroups at the infinite places.
+In [the Siegel-Weil chapter](/proof/siegel-weil/), `RealMetaplecticRepresentation` lifts each $t \mapsto \exp(tX)$, $X \in \mathfrak{sp}$, to a one-parameter subgroup of the metaplectic cover, and `IsRealMaps` of [LocalMatching](/step/local-matching-def/) uses the Lie algebra action at the infinite places.
 
 ## Further reading
 
