@@ -21,7 +21,10 @@ Let $O$ be a proof of the structure [OpenLiteratureStatements](/step/open-litera
 The proof applies the theorem `UpperTheory.One.M.New.llOf_alt` to twelve inputs. The type of `llOf_alt` is
 
 $$
-\mathsf{RecTExists} \to \mathsf{LocalConverseGL} \to \mathsf{DepthZeroInduction} \to \dots \to \mathsf{BernsteinZelevinskyFiniteness} \to \mathsf{RecTExists},
+\begin{aligned}
+&\mathsf{RecTExists} \to \mathsf{LocalConverseGL} \to \mathsf{DepthZeroInduction} \to \dots \\
+&\qquad \to \mathsf{BernsteinZelevinskyFiniteness} \to \mathsf{RecTExists},
+\end{aligned}
 $$
 
 with twelve hypotheses and the conclusion `RecTExists`. The inputs are these.
