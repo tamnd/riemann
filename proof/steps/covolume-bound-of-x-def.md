@@ -15,7 +15,10 @@ open: [GlobalTheory.BigTop.FamHyp, GlobalTheory.CovTop.EventuallyAtAllPoints]
 `CovolumeBoundOfX` is a definition of a proposition with no parameters. It says:
 
 $$
-\mathrm{Closed}\ \mathrm{FamHyp}\ \bigl( (F, C_H) \mapsto \exists C_0 \ge 0,\ \mathrm{EventuallyAtAllPoints}\ F\ (p \mapsto \forall C \ge C_0,\ (p.S\ \mathrm{false}).\mathrm{L3}\ (p.N\ C\ C_H)) \bigr).
+\begin{aligned}
+&\mathrm{Closed}\ \mathrm{FamHyp}\ \bigl( (F, C_H) \mapsto \exists C_0 \ge 0,\\
+&\qquad \mathrm{EventuallyAtAllPoints}\ F\ (p \mapsto \forall C \ge C_0,\ (p.S\ \mathrm{false}).\mathrm{L3}\ (p.N\ C\ C_H)) \bigr).
+\end{aligned}
 $$
 
 The symbols are these.

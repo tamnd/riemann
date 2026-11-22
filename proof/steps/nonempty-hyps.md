@@ -22,7 +22,11 @@ Assume seven inputs. The Lean local name of each input is in parentheses.
 6. ($h_L$) A proof of [RecTExists](/step/rect-exists-def/), a local map of [[local Langlands|9E45NBX1G0]] type at each finite place of each number field.
 7. ($h_N$) The closed bound. For each real $c_{\mathrm{Dep}}$:
    $$
-   \mathrm{LinkedAt}\bigl(\mathrm{parametersOfDependence}(h_L, c_{\mathrm{Dep}}),\; (Q, L) \mapsto \mathrm{SlotNormCondition}\ Q\ L\ (\mathcal{C} \mapsto \mathrm{Closed}\ \mathcal{C}\ \mathrm{BoundAtTwoThreeFamilyFonAlt})\bigr).
+   \begin{aligned}
+   &\mathrm{LinkedAt}\bigl(\mathrm{parametersOfDependence}(h_L, c_{\mathrm{Dep}}),\\
+   &\qquad (Q, L) \mapsto \mathrm{SlotNormCondition}\ Q\ L\\
+   &\qquad\qquad (\mathcal{C} \mapsto \mathrm{Closed}\ \mathcal{C}\ \mathrm{BoundAtTwoThreeFamilyFonAlt})\bigr).
+   \end{aligned}
    $$
    In words: along the parameters of dependence $c_{\mathrm{Dep}}$, for every admissible class $\mathcal{A}$ and selection, the derived class `D3 3 𝒜` satisfies `Closed` of the bound `BoundAtTwoThreeFamilyFonAlt`. That bound says that there are $C$ and $x_0$ such that `BoundAtTwoThree` holds at all large $x$ and all indices.
 
