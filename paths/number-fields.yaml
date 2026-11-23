@@ -1,6 +1,6 @@
 id: number-fields
 title: Number fields
-order: 4
+order: 6
 needs: [algebra]
 lead: 'Number fields, their rings of integers, ideals and class groups, the splitting of primes with decomposition groups and Frobenius elements, places and completions, and adeles and ideles.'
 items:

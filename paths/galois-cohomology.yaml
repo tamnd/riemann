@@ -1,6 +1,6 @@
 id: galois-cohomology
 title: Galois cohomology
-order: 11
+order: 22
 needs: [galois-representations]
 lead: 'Continuous cohomology of Galois groups, the duality theorems over local and global fields, Selmer groups and Iwasawa theory. The window bound of the proof is a bound on lengths of Tate-Shafarevich groups, and its counting argument uses these tools.'
 items:

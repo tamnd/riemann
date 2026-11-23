@@ -1,0 +1,124 @@
+id: real-groups
+title: Representations of real reductive groups
+order: 13
+needs: [analysis, groups, representations]
+lead: 'Harish-Chandra modules, the Casimir operator, principal series, asymptotics of matrix coefficients, discrete series and formal degrees, the Langlands classification and the unitary dual of $\mathrm{GL}_n$ over $\mathbb{R}$ and $\mathbb{C}$. These are the inputs at the archimedean places of the unitary hypotheses and the Bessel seesaw.'
+items:
+  - concept: Iwasawa decomposition
+    math2: ZYVEVYBA41
+    says: 'Multiplication $K \times A_0 \times N_0 \to G$, $(k, a, n) \mapsto kan$, is a diffeomorphism.'
+    why: 'It gives the compact picture of induced representations and the function $H(g)$ in the definition of $\Xi$.'
+  - concept: KAK integration formula
+    text: 'Helgason, Groups and Geometric Analysis, Chapter I, §5'
+    says: 'In coordinates $g = k \exp(H) k''$ the Haar measure is $\prod_{\alpha > 0} \sinh(\alpha(H))^{m_\alpha}\, dk\, dH\, dk''$, so $G$ grows like $e^{2\rho(H)}$.'
+    why: 'It reduces each $L^2$ and $L^{2+\varepsilon}$ estimate of matrix coefficients to an integral over the positive chamber.'
+  - concept: Langlands decomposition of parabolic subgroups
+    text: 'Knapp, Lie Groups Beyond an Introduction, Chapter VII'
+    says: 'A standard parabolic subgroup is $P = MAN$ with $Z_G(A) = M \times A$ and $N$ its unipotent radical.'
+    why: 'Induced representations from $P$ build the tempered representations and the standard modules of the Langlands classification.'
+  - concept: K-finite vectors
+    text: 'Knapp, Representation Theory of Semisimple Groups, Chapter VIII'
+    says: 'In an admissible representation the $K$-finite vectors are smooth, dense, and stable under $\mathfrak{g}$.'
+    why: 'This is the field `kFiniteVectorsUnitary` of [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Harish-Chandra module
+    math2: 2MKHH636C3
+    says: 'A Harish-Chandra module is a finitely generated $(\mathfrak{g}, K)$-module in which each $K$-type has finite multiplicity.'
+    why: 'The field `harishChandraModules` of the [third place hypotheses](/step/unitary-group-third-place-hypotheses-def/) passes between unitary representations and their Harish-Chandra modules.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Harish-Chandra admissibility theorem
+    text: 'Knapp, Representation Theory of Semisimple Groups, VIII.1'
+    says: 'Each irreducible unitary representation of a real reductive group is admissible.'
+    why: 'It lets the [unitary hypotheses](/proof/unitary-hypotheses/) describe unitary representations by their $(\mathfrak{g}, K)$-modules.'
+  - concept: Unitarizable modules and the unitary dual
+    math2: 95Q8WZMN0W
+    says: 'The unitary dual is in bijection with the irreducible Harish-Chandra modules that carry a positive definite invariant Hermitian form.'
+    why: 'The classification of the unitary dual of $\mathrm{GL}_n$ is stated and proved in this algebraic form.'
+  - concept: Universal enveloping algebra and its center
+    math2: SCZ8PRVY00
+    says: 'The center $\mathcal{Z}(\mathfrak{gl}_n)$ of $U(\mathfrak{gl}_n)$ is a polynomial algebra in the Gelfand elements $\operatorname{tr}(E^k)$, $1 \le k \le n$.'
+    why: 'The operators in the development proof of `harishChandraFinite` are these elements acting by right translation.'
+  - concept: Casimir element
+    text: 'Humphreys, Introduction to Lie Algebras and Representation Theory, §6.2'
+    says: 'For an invariant nondegenerate form $B$ with dual bases $X_i, X^i$, the element $\sum X_i X^i$ is central and acts on infinitesimal character $\lambda$ by $\langle \lambda, \lambda \rangle - \langle \rho, \rho \rangle$.'
+    why: 'On $\mathrm{SL}_2(\mathbb{R})$ it is the hyperbolic Laplacian, and the formula $4FE = s^2 - (n+1)^2$ gives the reducibility and unitarity of principal series.'
+  - concept: Harish-Chandra isomorphism
+    math2: YNBQS0X9ZB
+    says: 'There is an isomorphism $\mathcal{Z}(\mathfrak{g}) \cong S(\mathfrak{h})^W$, so the characters of $\mathcal{Z}(\mathfrak{g})$ are the $W$-orbits in $\mathfrak{h}^*$.'
+    why: 'Infinitesimal characters given by it are matched with Hodge-Tate weights at the archimedean places of the [Galois row](/proof/galois-row/).'
+  - concept: Harish-Chandra finiteness for Z(g)-finite modules
+    text: 'Wallach, Real Reductive Groups I, Chapter 3'
+    says: 'A finitely generated $\mathcal{Z}(\mathfrak{g})$-finite $(\mathfrak{g}, K)$-module is admissible of finite length.'
+    why: 'It is the local input of `harishChandraFinite`, a field of the [third place hypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Analyticity of K-finite matrix coefficients
+    text: 'Wallach, Real Reductive Groups I, Chapter 3'
+    says: '$K$-finite matrix coefficients of an admissible representation of finite length are real analytic, because they solve an elliptic equation built from the Casimir elements of $G$ and $K$.'
+    why: 'This is the field `harishChandraAnalyticity` of the [third place hypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Parabolic induction
+    math2: JJP4JFH3C6
+    says: 'The normalized induced representation $I(P, \sigma, \nu)$ acts on functions with $f(man g) = e^{(\nu + \rho_P)(\log a)} \sigma(m) f(g)$, and it is unitary for unitary $\sigma$ and imaginary $\nu$.'
+    why: 'Tempered representations, Speh representations and complementary series of $\mathrm{GL}_n$ are all built from it.'
+  - concept: Casselman subrepresentation theorem
+    text: 'Casselman and Miličić, Asymptotic behavior of matrix coefficients of admissible representations, Duke Math. J. 49 (1982)'
+    says: 'Each irreducible admissible $(\mathfrak{g}, K)$-module embeds in a principal series module induced from the minimal parabolic subgroup.'
+    why: 'It makes the exponents of a representation finite and computable, which is the basis of the coefficient bounds.'
+  - concept: Bargmann classification
+    text: 'Bargmann, Irreducible unitary representations of the Lorentz group, Ann. of Math. 48 (1947)'
+    says: 'The unitary dual of $\mathrm{SL}_2(\mathbb{R})$ consists of the trivial representation, the unitary and complementary principal series, the discrete series $D_k^\pm$ and the limits $D_1^\pm$.'
+    why: 'It is the model case of each classification in the chapter, and its complementary series correspond to Laplace eigenvalues below $\frac{1}{4}$.'
+  - concept: Harish-Chandra Xi function
+    text: 'Wallach, Real Reductive Groups I, Chapter 4'
+    says: 'The spherical function $\Xi$ satisfies $c\, e^{-\rho(H)} \le \Xi(\exp H) \le C (1 + \|H\|)^d e^{-\rho(H)}$ on the positive chamber.'
+    why: 'Majorants of this kind make the Bessel period integrals of tempered coefficients in the [Bessel seesaw](/proof/bessel-seesaw/) converge.'
+  - concept: Casselman criterion
+    text: 'Casselman and Miličić, Asymptotic behavior of matrix coefficients of admissible representations, Duke Math. J. 49 (1982)'
+    says: 'An irreducible admissible representation is square integrable if and only if each exponent $\nu$ has $\operatorname{Re} \nu < 0$ on the closed positive chamber minus $0$, and tempered if and only if $\operatorname{Re} \nu \le 0$ there.'
+    why: 'The development proof that each square integrable representation of $\mathrm{U}(p, q)$ is a discrete series uses decay estimates of this kind.'
+  - concept: Tempered representations
+    text: 'Cowling, Haagerup and Howe, Almost L2 matrix coefficients, J. Reine Angew. Math. 387 (1988)'
+    says: 'An irreducible unitary representation is tempered if and only if its $K$-finite coefficients lie in $L^{2+\varepsilon}$ for each $\varepsilon > 0$.'
+    why: 'The support of the Plancherel measure, and the local components that the Ramanujan conjecture predicts, are the tempered representations.'
+  - concept: Discrete series
+    math2: 9AB7HYGPEK
+    says: 'A discrete series representation is an irreducible unitary representation with a nonzero matrix coefficient in $L^2(G)$.'
+    why: 'The fields `discreteSeriesExists` and `discreteSeriesCover` of the [third place hypotheses](/step/unitary-group-third-place-hypotheses-def/) concern them.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Harish-Chandra classification of discrete series
+    text: 'Harish-Chandra, Discrete series for semisimple Lie groups II, Acta Math. 116 (1966)'
+    says: '$G$ has discrete series if and only if it has a compact Cartan subgroup, and the discrete series are parametrized by regular integral $\lambda$ modulo $W_K$.'
+    why: 'For $\mathrm{U}(p, q)$ it gives the parameters whose interlacing the [Bessel seesaw](/proof/bessel-seesaw/) imposes, and the field `discreteSeriesClassification`.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Blattner formula and lowest K-type
+    text: 'Hecht and Schmid, A proof of Blattner''s conjecture, Invent. Math. 31 (1975)'
+    says: 'The $K$-types of $\pi_\lambda$ have highest weights $\Lambda + \beta$ with $\Lambda = \lambda + \rho_n - \rho_c$ and $\beta$ a sum of noncompact positive roots, and $\Lambda$ occurs once.'
+    why: 'The development predicate `IsDS` characterizes a discrete series of $\mathrm{U}(p, q)$ by this minimal $K$-type, as in the field `discreteSeriesLowestKType` of [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Formal degree
+    text: 'Knapp, Representation Theory of Semisimple Groups, Chapter IX'
+    says: 'A discrete series $\pi$ has a constant $d(\pi) > 0$ with $\int_G \langle \pi(g) u, v \rangle \overline{\langle \pi(g) u'', v'' \rangle}\, dg = d(\pi)^{-1} \langle u, u'' \rangle \overline{\langle v, v'' \rangle}$, and $d(\pi_\lambda)$ is proportional to $\prod_{\alpha > 0} |\langle \lambda, \alpha \rangle|$.'
+    why: 'These are the fields `schurOrthogonalitySquareIntegrable` and `formalDegreeCompactDual` of [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Langlands classification
+    math2: YHFP9HGBTT
+    says: 'Each irreducible admissible representation is the unique irreducible quotient $J(P, \sigma, \nu)$ of $I(P, \sigma, \nu)$ for a unique triple with $\sigma$ tempered and $\operatorname{Re} \nu$ strictly positive.'
+    why: 'It defines the Speh representations and the standard modules that the unitary dual of $\mathrm{GL}_n$ is described by.'
+  - concept: Archimedean local Langlands correspondence
+    math2: 9E45NBX1G0
+    says: 'Irreducible admissible representations of $\mathrm{GL}_n(F)$, $F = \mathbb{R}$ or $\mathbb{C}$, correspond bijectively to semisimple $n$-dimensional representations of the Weil group $W_F$.'
+    why: 'It matches infinitesimal characters with Hodge-Tate weights at the archimedean places of the [Galois row](/proof/galois-row/).'
+  - concept: Unitary dual of GL(n)
+    text: 'Vogan, The unitary dual of GL(n) over an archimedean field, Invent. Math. 83 (1986)'
+    says: 'Irreducible unitary representations of $\mathrm{GL}_n(F)$ are the products of Speh representations $u(\delta, m)$ and complementary series $u(\delta, m)\nu^\alpha \times u(\delta, m)\nu^{-\alpha}$, $0 < \alpha < \frac{1}{2}$, uniquely up to order.'
+    why: 'It gives the field `genericUnitaryDualGL` of the [third place hypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Tadić classification
+    text: 'Tadić, Classification of unitary representations in irreducible representations of general linear group (non-Archimedean case), Ann. Sci. ENS 19 (1986)'
+    says: 'Over a nonarchimedean local field of characteristic $0$, the unitary dual of $\mathrm{GL}_n$ has the same form, built from Speh representations of square integrable representations.'
+    why: 'Its generic part, products $\delta_i \nu^{\alpha_i}$ with $|\alpha_i| < \frac{1}{2}$, is the local bound used for cuspidal representations at the finite places.'
+  - concept: Bernstein irreducibility theorem
+    text: 'Bernstein, P-invariant distributions on GL(N) and the classification of unitary representations of GL(N) (non-archimedean case), Lecture Notes in Math. 1041 (1984)'
+    says: 'Over a nonarchimedean local field, the parabolic induction $\sigma_1 \times \sigma_2$ of two irreducible unitary representations is irreducible.'
+    why: 'This is the field `bernsteinUnitaryProductIrreducible` of the [third place hypotheses](/step/unitary-group-third-place-hypotheses-def/), proved in the development volumes through mirabolic-invariant distributions.'
+    steps: [unitary-group-third-place-hypotheses-def]

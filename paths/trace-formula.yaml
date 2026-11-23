@@ -1,0 +1,135 @@
+id: trace-formula
+title: 'Reduction theory, Eisenstein series and the trace formula'
+order: 15
+needs: [analysis, groups, representations, automorphic-forms, l-functions, class-field-theory, periods]
+lead: 'The analytic theory behind the automorphic inputs of the proof: reduction theory and Siegel sets, Harish-Chandra finiteness, constant terms of Eisenstein series, the simple, twisted and relative trace formulas, and Rankin-Selberg integrals.'
+items:
+  - concept: Arithmetic subgroup
+    text: 'A. Borel, Introduction aux groupes arithmétiques, reduction theory'
+    says: 'An arithmetic subgroup of $G(\mathbb{Q})$ is a subgroup commensurable with $G(\mathbb{Z})$; it is discrete in $G(\mathbb{R})$, and it has a neat subgroup of finite index.'
+    why: 'The open compact subgroups with no torsion of [GeoOne](/step/geo-one-def/) cut out neat arithmetic groups.'
+    steps: [geo-one-def]
+  - concept: Siegel set
+    text: 'A. Borel and Harish-Chandra, Arithmetic subgroups of algebraic groups, Ann. of Math. 75 (1962)'
+    says: 'A Siegel set is $\omega A_t K$ with $\omega$ compact in $N$ and $A_t$ the elements with $\alpha(a) \ge t$ for each simple root; finitely many translates of one Siegel set cover $\Gamma \backslash G(\mathbb{R})$.'
+    why: 'The Siegel sets for unitary groups enter [HypsAlt is nonempty](/step/nonempty-hyps/) through `siegelSetUnitary`.'
+    steps: [nonempty-hyps]
+  - concept: Fundamental domain
+    math2: KNJA2NEZ9F
+    says: 'Each $z \in \mathbb{H}$ has an $\mathrm{SL}_2(\mathbb{Z})$-translate with $|\operatorname{Re} z| \le \frac12$ and $|z| \ge 1$, and the quotient has volume $\pi/3$ for $dx\, dy/y^2$.'
+    why: 'This is the model case of reduction theory and fixes the residue $3/\pi$ of the Eisenstein series.'
+  - concept: Finiteness of class numbers
+    text: 'A. Borel, Some finiteness properties of adele groups over number fields, Publ. Math. IHES 16 (1963)'
+    says: 'For $K_f$ compact open, $G(F) \backslash G(\mathbb{A}_{F,f}) / K_f$ is finite, and $G(F) \backslash G(\mathbb{A}_F)/K_f$ is a finite union of quotients $\Gamma_i \backslash G(F \otimes \mathbb{R})$.'
+    why: 'It turns forms on definite unitary groups into finitely many vectors, as in [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]
+  - concept: Godement compactness criterion
+    text: 'A. Borel and Harish-Chandra, Arithmetic subgroups of algebraic groups, Ann. of Math. 75 (1962)'
+    says: 'For $G$ semisimple over $\mathbb{Q}$, $\Gamma \backslash G(\mathbb{R})$ is compact if and only if $G$ has no proper parabolic subgroup over $\mathbb{Q}$.'
+    why: 'It tells when the trace formula has only the elliptic terms of a compact quotient.'
+  - concept: Harish-Chandra finiteness
+    text: 'Harish-Chandra, Automorphic Forms on Semisimple Lie Groups, Lecture Notes in Math. 62, Theorem 1'
+    says: 'Automorphic forms of fixed level, fixed $K_\infty$-types and killed by an ideal of finite codimension of $\mathcal{Z}$ form a finite dimensional space.'
+    why: 'It is `AutomorphicFormsFiniteGL` in [the literature layer](/proof/literature/) and a field of [EveryCharacter from Row0b](/step/every-character-of-row/).'
+    steps: [every-character-of-row]
+  - concept: Cusp form
+    math2: A50Y012RBP
+    says: 'An automorphic form whose constant terms along the maximal standard parabolics vanish is a cusp form, and the operators $R(f)$ on cusp forms are of trace class.'
+    why: 'The trace class property is `cuspTraceClass` in [ThetaLocalInputs](/step/theta-local-inputs-def/).'
+    steps: [theta-local-inputs-def]
+  - concept: Unfolding
+    text: 'D. Bump, Automorphic Forms and Representations, Chapter 1'
+    says: 'For $\Lambda \subseteq \Gamma$, $\int_{\Gamma \backslash G} \sum_{\gamma \in \Lambda \backslash \Gamma} f(\gamma g)\, dg = \int_{\Lambda \backslash G} f(g)\, dg$ when either side converges absolutely.'
+    why: 'It is the first step of the [Siegel-Weil formula](/proof/siegel-weil/) and of every Rankin-Selberg integral.'
+  - concept: Eisenstein series
+    math2: 3NZBZXYWAJ
+    says: 'The series $E(z, s) = \sum_{\Gamma_\infty \backslash \mathrm{SL}_2(\mathbb{Z})} \operatorname{Im}(\gamma z)^s$ has constant term $y^s + \frac{\xi(2s-1)}{\xi(2s)} y^{1-s}$, continues meromorphically, and has residue $3/\pi$ at $s = 1$.'
+    why: 'Its residue gives the pole of the Rankin-Selberg integral at $s = 1$.'
+  - concept: Constant term formula
+    text: 'C. Moeglin and J.-L. Waldspurger, Spectral Decomposition and Eisenstein Series, Chapter II'
+    says: 'The constant term of a cuspidal Eisenstein series along its own parabolic is $\sum_{w \in W(M)} M(w, \lambda)\phi$, and for the Borel subgroup of $\mathrm{GL}_n$ each $M(w, \lambda)$ is a product of ratios $\xi(\langle\lambda,\alpha^\vee\rangle)/\xi(\langle\lambda,\alpha^\vee\rangle + 1)$.'
+    why: 'The poles of the intertwining operators locate the residual spectrum used in the development volumes.'
+  - concept: Residual spectrum
+    text: 'C. Moeglin and J.-L. Waldspurger, Le spectre résiduel de GL(n), Ann. Sci. ENS 22 (1989)'
+    says: 'The residual spectrum of $\mathrm{GL}_n$ consists of the Speh representations $\mathrm{Speh}(\sigma, b)$, obtained as iterated residues of Eisenstein series with ascending exponents.'
+    why: 'The development volumes embed $\mathrm{Speh}(\sigma, b)$ into the representation induced with ascending exponents.'
+  - concept: Selberg trace formula
+    text: 'J. Arthur, An introduction to the trace formula, Clay Math. Proc. 4, Section 1'
+    says: 'For $\Gamma \backslash G$ compact, $\sum_\pi m(\pi) \operatorname{tr}\pi(f) = \sum_{\{\gamma\}} \operatorname{vol}(\Gamma_\gamma \backslash G_\gamma) O_\gamma(f)$.'
+    why: 'It is the model for every trace formula comparison below [HypsAlt is nonempty](/step/nonempty-hyps/).'
+    steps: [nonempty-hyps]
+  - concept: Poisson summation formula
+    math2: GARGJYSGFG
+    says: 'For a Schwartz function $f$ on $\mathbb{R}$, $\sum_n \hat f(n) = \sum_m f(m)$; it is the trace formula of $\mathbb{Z} \subseteq \mathbb{R}$.'
+    why: 'It gives the Fourier expansion of Eisenstein series and the functional equation of the mirabolic Eisenstein series.'
+  - concept: Arthur truncation
+    text: 'J. Arthur, A trace formula for reductive groups I, Duke Math. J. 45 (1978)'
+    says: 'The truncated kernel $k^T(x, f)$ is integrable on $G(F) \backslash G(\mathbb{A}_F)^1$, and its integral $J^T(f)$ is a polynomial in $T$ with expansions over classes and over cuspidal data.'
+    why: 'The development volumes truncate the twisted trace on $\mathrm{GL}_a \times \mathrm{GL}_b$ with a large parameter.'
+  - concept: Simple trace formula
+    text: 'J. Arthur, The invariant trace formula II. Global theory, J. Amer. Math. Soc. 1 (1988)'
+    says: 'With a supercuspidal coefficient at one place and a function supported on the regular elliptic set at another, the trace on cusp forms equals the sum of elliptic orbital integrals.'
+    why: 'Two simple trace formulas give the equality of cuspidal multiplicities below [HypsAlt is nonempty](/step/nonempty-hyps/).'
+    steps: [nonempty-hyps]
+  - concept: Pseudo-coefficient
+    text: 'L. Clozel and P. Delorme, Le théorème de Paley-Wiener invariant pour les groupes de Lie réductifs, Invent. Math. 77 (1984)'
+    says: 'Each discrete series $\pi$ has a compactly supported function $f_\pi$ with $\operatorname{tr}\pi(f_\pi) = 1$ and $\operatorname{tr}\pi''(f_\pi) = 0$ for the other tempered $\pi''$.'
+    why: 'The development statement `LocalPC` is the existence of such functions for $\mathrm{U}(p, q)$.'
+  - concept: Orbital integrals of pseudo-coefficients
+    text: 'J. Arthur, The L2-Lefschetz numbers of Hecke operators, Invent. Math. 97 (1989)'
+    says: 'A pseudo-coefficient has vanishing orbital integrals off the elliptic set, and at a regular elliptic element its orbital integral is a constant times the conjugate character.'
+    why: 'The sum over an L-packet then depends only on the infinitesimal character, which lets two unitary groups be compared.'
+  - concept: Linear independence of characters
+    text: 'N. Jacobson, Basic Algebra II, the density theorem'
+    says: 'The traces of pairwise non-isomorphic irreducible admissible representations of $G(\mathbb{A}_{F,f})$ are linearly independent on the Hecke algebra, by the density theorem of Jacobson.'
+    why: 'It separates the terms of the spectral side in the comparison below [HypsAlt is nonempty](/step/nonempty-hyps/).'
+    steps: [nonempty-hyps]
+  - concept: Twisted orbital integral
+    text: 'J. Arthur and L. Clozel, Simple Algebras, Base Change, and the Advanced Theory of the Trace Formula, Annals of Math. Studies 120'
+    says: 'For an automorphism $\theta$, the twisted orbital integral is $\int_{G_{\delta\theta} \backslash G} \phi(x^{-1}\delta\theta(x))\, dx$, and these are the geometric terms of the twisted trace formula.'
+    why: 'The elliptic expansion of the twisted trace in the development volumes is a sum of such integrals.'
+  - concept: Norm map
+    text: 'J. Arthur and L. Clozel, Simple Algebras, Base Change, and the Advanced Theory of the Trace Formula, Annals of Math. Studies 120'
+    says: 'For $E/F$ cyclic, $N\delta = \delta\sigma(\delta)\cdots\sigma^{\ell-1}(\delta)$ gives a map from regular $\sigma$-conjugacy classes of $\mathrm{GL}_n(E)$ to conjugacy classes of $\mathrm{GL}_n(F)$.'
+    why: 'Matching of test functions for base change is defined through it.'
+  - concept: Base change fundamental lemma
+    text: 'R. Kottwitz, Base change for unit elements of Hecke algebras, Compositio Math. 60 (1986)'
+    says: 'For $E_v/F_v$ unramified, the units of the spherical Hecke algebras of $\mathrm{GL}_n(E_v)$ and $\mathrm{GL}_n(F_v)$ are associated.'
+    why: 'It is the local matching of units behind [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/).'
+    steps: [base-change-isobaric-n-def]
+  - concept: Stable base change for unitary groups
+    text: 'J.-P. Labesse, Cohomologie, stabilisation et changement de base, Astérisque 257 (1999)'
+    says: 'The twisted trace formula for $\mathrm{Res}_{E/F}\mathrm{GL}_n$ with $\theta(g) = J\,{}^t\bar g^{-1}J^{-1}$ compares with the stable trace formula of a unitary group.'
+    why: 'It gives the base change of [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/).'
+    steps: [base-change-isobaric-n-def]
+  - concept: Relative trace formula
+    text: 'H. Jacquet and S. Rallis, On the Gross-Prasad conjecture for unitary groups, Clay Math. Proc. 13 (2011)'
+    says: 'Integrating the kernel over $[H_1] \times [H_2]$ gives products of periods on the spectral side and relative orbital integrals on the geometric side.'
+    why: 'The [periods chapter](/learn/periods/#orbit-integrals-and-the-relative-trace-formula) states it, and the development volumes use its Jacquet-Rallis form below [EveryCharacter](/step/every-character/).'
+    steps: [every-character]
+  - concept: Jacquet-Rallis fundamental lemma
+    text: 'R. Beuzart-Plessis, A new proof of the Jacquet-Rallis fundamental lemma, Duke Math. J. 170 (2021)'
+    says: 'For $E/F$ unramified, the unit of $\mathfrak{gl}_{n+1}(\mathcal{O}_F)$ matches the unit of the integral Hermitian matrices of the split space and $0$ on the other space, with the transfer factor $\omega$.'
+    why: 'The development volumes prove the Lie algebra form for unit functions below [EveryCharacter](/step/every-character/).'
+    steps: [every-character]
+  - concept: Smooth transfer and the Fourier transform
+    text: 'W. Zhang, Fourier transform and the global Gan-Gross-Prasad conjecture for unitary groups, Ann. of Math. 180 (2014)'
+    says: 'Each test function on one side has a matching function on the other, and transfer commutes with partial Fourier transforms up to a Weil constant.'
+    why: 'The induction on $n$ in the development volumes uses an $\mathrm{SL}_2(F)$ action by a Weil representation on test functions.'
+  - concept: Rankin-Selberg unfolding
+    text: 'D. Bump, Automorphic Forms and Representations, Chapter 1'
+    says: 'For cusp forms $f, g$ of weight $k$, $\int f\bar g y^k E(z, s)\, d\mu = \Gamma(s+k-1)(4\pi)^{-(s+k-1)} \sum_n a_n \overline{b_n} n^{-(s+k-1)}$.'
+    why: 'It is the model of the integrals that give the pole statement `RSPole` of the development volumes.'
+  - concept: Mirabolic Eisenstein series
+    text: 'J. Cogdell, Lectures on L-functions, converse theorems, and functoriality for GL(n), Fields Inst. Monogr. 20'
+    says: 'The series $E(g, \Phi, s) = |\det g|^s \int \sum_{\xi \ne 0} \Phi(t\xi g)|t|^{ns}\mu(t)\, d^\times t$ has a functional equation $s \mapsto 1 - s$ and at most simple poles, with residue at $s = 1$ proportional to $\hat\Phi(0)$.'
+    why: 'Its residue produces the pole of $L^S(s, \pi \times \tilde\pi)$ at $s = 1$.'
+  - concept: Pole of the Rankin-Selberg L-function
+    text: 'H. Jacquet and J. Shalika, On Euler products and the classification of automorphic representations I and II, Amer. J. Math. 103 (1981)'
+    says: 'For unitary cuspidal $\pi, \pi''$ on $\mathrm{GL}_n$, $L^S(s, \pi \times \tilde\pi'')$ is nonzero on $\operatorname{Re}(s) = 1$ and has a pole at $s = 1$ if and only if $\pi'' \cong \pi$.'
+    why: 'It is `jacquetShalika` in [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) and `JacquetShalika` in [the literature layer](/proof/literature/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Strong multiplicity one
+    text: 'H. Jacquet and J. Shalika, On Euler products and the classification of automorphic representations I and II, Amer. J. Math. 103 (1981)'
+    says: 'Two cuspidal automorphic representations of $\mathrm{GL}_n(\mathbb{A}_F)$ that agree at almost all places are equal.'
+    why: 'It is the input `CuspidalMultiplicityOne` of [the literature layer](/proof/literature/).'

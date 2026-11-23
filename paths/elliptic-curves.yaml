@@ -1,6 +1,6 @@
 id: elliptic-curves
 title: Elliptic curves and complex multiplication
-order: 12
+order: 23
 needs: [automorphic-forms, class-field-theory]
 lead: 'Lattices in $\mathbb{C}$ and the Weierstrass function, elliptic curves with their reduction, twists and periods, and complex multiplication, with the Chowla-Selberg formula and the CM curves of Gross. The last sections are on abelian varieties and abelian schemes.'
 items:

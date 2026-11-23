@@ -1,0 +1,124 @@
+id: analytic-number-theory
+title: Character sums and the analytic theory of primes
+order: 9
+needs: [algebra, analysis, complex-analysis, number-fields, class-field-theory, l-functions, etale-cohomology]
+lead: 'Gauss and Jacobi sums, Weil''s bound, the large sieve, the zeros of Dirichlet L-functions, the explicit formula and its converse, primes in progressions and short intervals, and primes represented by norm forms. The proof uses them for the window pair, the window bound and the literature inputs on primes.'
+items:
+  - concept: Additive character
+    math2: 2WMYTJD33F
+    says: 'The additive characters of $\mathbb{Z}/q\mathbb{Z}$ are $a \mapsto e(ha/q)$, and their sum over $a$ is $q$ if $q \mid h$ and $0$ otherwise.'
+    why: 'Each Gauss sum and each completion of an incomplete character sum in the development volumes is built from these characters.'
+  - concept: Orthogonality of characters
+    math2: S6ARZ7M1YE
+    says: 'For $(b, q) = 1$, $\sum_{\chi \bmod q}\chi(a)\overline{\chi}(b)$ is $\varphi(q)$ if $a \equiv b \pmod q$ and $0$ otherwise.'
+    why: 'It turns the congruence conditions of [VWin](/step/vwin-def/) into sums over Dirichlet characters.'
+    steps: [vwin-def]
+  - concept: Gauss sum
+    math2: EQ6A3ZN48K
+    says: 'For nontrivial characters $\chi$ and $\psi$ of $\mathbb{F}_q$, $g(\chi, \psi) = \sum_x \chi(x)\psi(x)$ has absolute value $\sqrt{q}$, and for primitive $\chi$ modulo $q$, $\sum_a \chi(a)e(an/q) = \overline{\chi}(n)\tau(\chi)$.'
+    why: 'It writes a multiplicative character through additive ones, which is the step from the additive to the multiplicative large sieve used in the development volumes.'
+  - concept: Jacobi sum
+    text: 'Ireland and Rosen, A Classical Introduction to Modern Number Theory, chapter 8'
+    says: 'If $\chi_1$, $\chi_2$ and $\chi_1\chi_2$ are nontrivial, then $J(\chi_1, \chi_2) = g(\chi_1)g(\chi_2)/g(\chi_1\chi_2)$ has absolute value $\sqrt{q}$.'
+    why: 'It is the case of Weil''s bound that can be checked by hand, and the development chapter on Jacobi character sums bounds sums of this type.'
+  - concept: Product of primitive characters
+    text: 'Davenport, Multiplicative Number Theory, chapter 5'
+    says: 'If $\chi_i$ is primitive modulo $q_i$ and $(q_1, q_2) = 1$, then $\chi_1\chi_2$ is primitive modulo $q_1q_2$.'
+    why: 'The development volumes twist a character of conductor $f$ by $(\cdot/q)$ and need the twist to be primitive of conductor $fq$, so that the zero-free region applies.'
+  - concept: Quadratic reciprocity
+    math2: 0YY06KP3ZQ
+    says: 'For a nonzero integer $n$, $q \mapsto (n/q)$ on odd primes $q \nmid n$ is a real character modulo $4|n|$, principal if and only if $n$ is a square.'
+    why: 'In a mean square over primes $q$ of $\sum_n c_n(n/q)$ in the development volumes, only the pairs with $nm$ a square give a main term.'
+  - concept: Weil bound for character sums
+    text: 'Weil, On some exponential sums, Proc. Nat. Acad. Sci. 34 (1948)'
+    says: 'For a nontrivial $\chi$ of order $d$ and $f$ with $m$ distinct roots, not a constant times a $d$-th power, $|\sum_{x \in \mathbb{F}_q}\chi(f(x))| \leq (m - 1)\sqrt{q}$.'
+    why: 'It is the Riemann hypothesis for curves, stated in [étale cohomology](/learn/etale-cohomology/), applied to $y^d = f(x)$, and it bounds the complete sums in the character sum chapters of the development volumes.'
+  - concept: Pólya-Vinogradov inequality
+    text: 'Davenport, Multiplicative Number Theory, chapter 23'
+    says: 'For primitive $\chi$ modulo $q > 1$, each sum of $\chi(n)$ over an interval has absolute value at most $\sqrt{q}(1 + \log q)$.'
+    why: 'It bounds the character sums that appear when the development volumes count integers in boxes with prescribed quadratic symbols.'
+  - concept: Large sieve
+    text: 'Iwaniec and Kowalski, Analytic Number Theory, chapter 7 (Bilinear forms and the large sieve)'
+    says: 'For $\delta$-spaced points $x_r$, $\sum_r|\sum_{M < n \leq M + N}a_ne(nx_r)|^2 \leq (N - 1 + \delta^{-1})\sum|a_n|^2$, and the same bound with $Q^2$ for primitive characters of modulus at most $Q$.'
+    why: 'It is the source of the mean square bounds over moduli and of the zero density theorems that the development volumes use.'
+  - concept: Mean square of real character sums
+    text: 'Heath-Brown, A mean value estimate for real character sums, Acta Arith. 72 (1995)'
+    says: 'For odd squarefree $m \leq M$ and $n \leq N$, $\sum_m|\sum_n a_n(n/m)|^2 \ll_\varepsilon (MN)^\varepsilon(M + N)\sum|a_n|^2$.'
+    why: 'The development volumes bound the mean square over primes $q$ of $\sum_{n \leq Z}\Lambda(n)\min(1, y/n)\kappa(n)(n/q)$ by an argument of this kind.'
+  - concept: Zero-free region
+    text: 'Davenport, Multiplicative Number Theory, chapter 14'
+    says: '$L(s, \chi)$ has no zero with $\sigma \geq 1 - c/\log(q(|t| + 2))$, except at most one simple real zero for at most one real character modulo $q$.'
+    why: 'It is the main input to the prime number theorem for a character, which the development volumes use to bound tails of twisted prime sums.'
+  - concept: Siegel's theorem
+    text: 'Davenport, Multiplicative Number Theory, chapter 21'
+    says: 'For each $\varepsilon > 0$ there is an ineffective $c(\varepsilon) > 0$ with $L(1, \chi) > c(\varepsilon)q^{-\varepsilon}$ and $\beta \leq 1 - c(\varepsilon)q^{-\varepsilon}$ for real primitive $\chi$ modulo $q$.'
+    why: 'The development volumes use it in the form $\beta \leq 1 - c(\delta)k^{-\delta}$ to control the exceptional zero of a twist.'
+  - concept: Local formula for L'/L
+    text: 'Davenport, Multiplicative Number Theory, chapter 16'
+    says: 'For primitive $\chi$ modulo $q$ and $-1 \leq \sigma \leq 2$, $\frac{L''}{L}(s, \chi) = \sum_{|\gamma - t| < 1}\frac{1}{s - \rho} + O(\log(q(|t| + 2)))$.'
+    why: 'At $s = 1$ it is the statement `LogDerOne`, a field of [ThetaLocalInputs](/step/theta-local-inputs-def/) given in [the literature chapter](/proof/literature/).'
+    steps: [theta-local-inputs-def]
+  - concept: Log-free zero density
+    text: 'Iwaniec and Kowalski, Analytic Number Theory, chapter 18 (The least prime in an arithmetic progression)'
+    says: 'There is an absolute $A$ with $\sum_{\chi \bmod q}N(\sigma, T, \chi) \ll (qT)^{A(1 - \sigma)}$ for $\frac{1}{2} \leq \sigma \leq 1$.'
+    why: 'The relative prime number theorem in progressions of the development volumes uses a bound of this form summed over all characters modulo $M$.'
+  - concept: Deuring-Heilbronn phenomenon
+    text: 'Iwaniec and Kowalski, Analytic Number Theory, chapter 18 (The least prime in an arithmetic progression)'
+    says: 'If an exceptional zero $\beta_1$ modulo $q$ exists, every other zero satisfies $\beta \leq 1 - \frac{c_1}{\mathcal{L}}\log\frac{c_2}{(1 - \beta_1)\mathcal{L}}$ with $\mathcal{L} = \log(q(|\gamma| + 2))$.'
+    why: 'The development volumes prove it by a Turán power sum to keep the error below the main term when $\beta_1$ is close to $1$.'
+  - concept: Explicit formula
+    math2: 72WNRWJQC1
+    says: 'For primitive nonprincipal $\chi$ and $2 \leq T \leq x$, $\psi(x, \chi) = -\sum_{|\gamma| < T}x^\rho/\rho$ plus a constant, a logarithm and an error $O(xT^{-1}\log^2(qx))$.'
+    why: 'With $T = \exp(\sqrt{\log u})$ it gives the bound for $\psi_0(\chi, u)$ that the development volumes use for twisted prime sums.'
+  - concept: Smoothed prime sum at s = 1
+    text: 'Apostol, Introduction to Analytic Number Theory, chapter 4'
+    says: 'For nonprincipal $\chi$, $\sum_{n \leq y}\Lambda(n)\chi(n)(y/n - 1) + y\frac{L''}{L}(1, \chi) = -y\int_y^\infty\psi(u, \chi)u^{-2}du$.'
+    why: 'It turns bounds for $\psi(u, \chi)$ on $[y, \infty)$ into bounds for the sums $G_0(\chi, y)$ of the development volumes.'
+  - concept: Zero-free half planes from prime sums
+    math2: KPZ1S446MN
+    says: 'If $\psi(x, \chi) = O(x^\theta)$ for a nonprincipal $\chi$, then $L(s, \chi) \neq 0$ for $\mathrm{Re}\, s > \theta$, since $-L''/L(s, \chi) = s\int_1^\infty\psi(u, \chi)u^{-s - 1}du$ is then holomorphic there.'
+    why: 'The window bound of [the theta matching](/proof/theta-matching/) is a version with bounds only on windows $[Y, Y^\lambda]$, and it gives [ZeroFreeAll](/step/zero-free-all-of-green-v-win/).'
+    steps: [zero-free-all-of-green-v-win]
+  - concept: Guinand-Weil explicit formula
+    text: 'Weil, Sur les formules explicites de la théorie des nombres premiers (1952)'
+    says: 'For an even test function $h$ with Fourier transform $g$, $\sum_\rho h(\gamma)$ equals $h(\frac{i}{2}) + h(-\frac{i}{2})$ plus an archimedean term minus $2\sum_n\Lambda(n)n^{-1/2}g(\log n)$.'
+    why: 'It writes positivity statements on zeros as sums of local terms, the form in which Weil''s criterion states the Riemann Hypothesis.'
+  - concept: Siegel-Walfisz theorem
+    text: 'Davenport, Multiplicative Number Theory, chapter 22'
+    says: 'For $q \leq (\log x)^A$ and $(a, q) = 1$, $\psi(x; q, a) = x/\varphi(q) + O_A(xe^{-c\sqrt{\log x}})$ with an ineffective constant.'
+    why: 'It handles the off-diagonal terms of the mean squares over primes in the development volumes when the moduli are small.'
+  - concept: Brun-Titchmarsh theorem
+    text: 'Montgomery and Vaughan, The large sieve, Mathematika 20 (1973)'
+    says: 'For $1 \leq q < x$ and $(a, q) = 1$, $\pi(x; q, a) \leq 2x/(\varphi(q)\log(x/q))$.'
+    why: 'It is the upper bound for primes in a progression that needs no information on zeros, used for error terms.'
+  - concept: Bombieri-Vinogradov theorem
+    text: 'Davenport, Multiplicative Number Theory, chapter 28'
+    says: 'For each $A$ there is $B$ with $\sum_{q \leq x^{1/2}(\log x)^{-B}}\max_{(a, q) = 1}\max_{y \leq x}|\psi(y; q, a) - y/\varphi(q)| \ll_A x(\log x)^{-A}$.'
+    why: 'It gives on average over moduli what the Generalized Riemann Hypothesis gives for each modulus, and shows what the large sieve can reach.'
+  - concept: Primes in progressions with the exceptional term
+    text: 'Gallagher, A large sieve density estimate near σ = 1, Invent. Math. 11 (1970)'
+    says: 'For $x \geq q^C$, $\psi(x; q, a) = \frac{x}{\varphi(q)}(1 - \chi_1(a)x^{\beta_1 - 1}/\beta_1)(1 + O(e^{-c\log x/\log q}))$, the middle factor present only if $\beta_1$ exists.'
+    why: 'It counts the primes $d$ of the window pair in [VWin](/step/vwin-def/), whose modulus is about $e^z$.'
+    steps: [vwin-def]
+  - concept: Linnik's theorem
+    text: 'Iwaniec and Kowalski, Analytic Number Theory, chapter 18 (The least prime in an arithmetic progression)'
+    says: 'There is an absolute $L$ such that each class $a$ modulo $q$ with $(a, q) = 1$ contains a prime $p \ll q^L$.'
+    why: 'It is the field `linnik` of [ThetaLocalInputs](/step/theta-local-inputs-def/), and it gives a prime $p \equiv 1 \pmod M$ with $p \leq M^A$.'
+    steps: [theta-local-inputs-def]
+  - concept: Primes in short intervals
+    text: 'Iwaniec and Kowalski, Analytic Number Theory, chapter 10 (Zero-density estimates)'
+    says: 'If $N(\sigma, T) \ll T^{A(1 - \sigma)}\log^B T$, then $\psi(x + h) - \psi(x) \sim h$ for $x^{1 - 1/A + \varepsilon} \leq h \leq x$.'
+    why: 'The hypothesis `hLit` of [HypsAlt](/step/hyps-alt-def/) is a statement on primes in short intervals of this kind.'
+    steps: [hyps-alt-def]
+  - concept: Primes of the form 4p = A^2 + dB^2
+    text: 'Cox, Primes of the form x^2 + ny^2, section 5'
+    says: 'For a prime $d \equiv 3 \pmod 4$, $d > 3$, a prime $p \neq d$ has $4p = A^2 + dB^2$ if and only if it splits completely in the Hilbert class field of $\mathbb{Q}(\sqrt{-d})$, a set of density $1/(2h_K)$.'
+    why: 'The development volumes need a lower bound for such primes in intervals $[X, X(1 + h)]$, which comes from the class group $L$-functions.'
+  - concept: Ray class field
+    text: 'Cox, Primes of the form x^2 + ny^2, section 8'
+    says: 'A prime $\mathfrak{p} \nmid \mathfrak{m}$ of $K$ is $(\pi)$ with $\pi \equiv 1 \pmod{\mathfrak{m}}$ if and only if it splits completely in the ray class field $K_{\mathfrak{m}}$.'
+    why: 'The development volumes need primes $\pi\overline{\pi}$ with $\pi \equiv 1 \pmod N$ of norm at most $N^C$, a Linnik theorem for ray class characters.'
+  - concept: Least prime in the Chebotarev theorem
+    text: 'Lagarias, Montgomery and Odlyzko, A bound for the least prime ideal in the Chebotarev density theorem, Invent. Math. 54 (1979)'
+    says: 'Each conjugacy class of a Galois extension $L/K$ is the Frobenius of a prime of $K$ of norm $\ll d_L^A$, with $A$ absolute.'
+    why: 'It is the general form of the Linnik bound behind the norm form primes used by the development volumes.'

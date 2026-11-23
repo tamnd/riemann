@@ -1,6 +1,6 @@
 id: formal-groups
 title: Formal groups and p-divisible groups
-order: 13
+order: 24
 needs: [galois-representations]
 lead: 'Formal group laws, p-divisible groups and their Dieudonné modules, up to prismatic Dieudonné theory over $A_{\mathrm{inf}}$ and Grothendieck-Messing deformation theory. The proof uses them in its prismatic Dieudonné statement and as named literature inputs.'
 items:

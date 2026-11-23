@@ -1,6 +1,6 @@
 id: arakelov
 title: Arakelov geometry and heights
-order: 15
+order: 28
 needs: [geometry]
 lead: 'Hermitian line bundles, arithmetic intersection numbers and heights, the arithmetic volume with the theorems of Hilbert-Samuel, Moriwaki and Yuan, Hermitian lattices and their slopes, and the Hodge bundle of an abelian scheme. The volume branch of the Weil bound uses them.'
 items:

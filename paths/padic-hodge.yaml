@@ -1,0 +1,139 @@
+id: padic-hodge
+title: p-adic Hodge theory
+order: 25
+needs: [galois-representations, galois-cohomology, formal-groups, geometry]
+lead: 'Hodge-Tate, de Rham, semistable and crystalline representations of a p-adic Galois group, the filtered modules that classify them, the comparison theorems, integral lattices and the local Bloch-Kato subgroups. The proof uses this theory at the places above $\ell$.'
+items:
+  - concept: p-adic Hodge theory
+    math2: 6YDZNXR19H
+    says: 'p-adic Hodge theory sorts the p-adic representations of $G_K$, for $K$ a finite extension of $\mathbb{Q}_p$, by tensoring them with period rings and taking invariants.'
+    why: 'The clause `above` of [Row0b](/step/row0b-def/) is stated in its language.'
+    steps: [row0b-def]
+  - concept: Admissible representation
+    text: 'Fontaine, Représentations p-adiques semi-stables, Astérisque 223, Exposé III'
+    says: 'For a regular ring $B$ a representation $V$ is $B$-admissible when $\dim_{B^{G_K}} (B \otimes V)^{G_K} = \dim V$, and admissible representations are closed under subobjects, quotients, tensor products and duals.'
+    why: 'Each of the classes crystalline, semistable and de Rham in [Row0b](/step/row0b-def/) is admissibility for one ring.'
+    steps: [row0b-def]
+  - concept: Tate's theorem on C(i)
+    text: 'Tate, p-divisible groups, section 3'
+    says: '$H^0(G_K, C(i))$ is $K$ for $i = 0$ and $0$ otherwise, $H^1(G_K, C)$ is a line spanned by $\log \chi$, and $H^1(G_K, C(i)) = 0$ for $i \neq 0$.'
+    why: 'It computes the invariants of every period ring and gives the Hodge-Tate weights behind the jumps of [Row0b](/step/row0b-def/).'
+    steps: [row0b-def]
+  - concept: Hodge-Tate weights
+    text: 'Fontaine and Ouyang, Theory of p-adic Galois representations, chapter on Hodge-Tate representations'
+    says: 'An integer $i$ is a Hodge-Tate weight of $V$ with multiplicity $\dim_K (V \otimes C(i))^{G_K}$, so that $\mathbb{Q}_p(1)$ has weight $-1$ in the convention of this handbook.'
+    why: 'The jumps $HT$ in [Row0b](/step/row0b-def/) and `JumpsOcc` in [GeoOne](/step/geo-one-def/) are these integers.'
+    steps: [row0b-def, geo-one-def]
+  - concept: Sen operator
+    text: 'Sen, Continuous cohomology and p-adic Galois representations, Invent. Math. 62 (1980)'
+    says: 'Inertia acts on $V$ through a finite quotient exactly when $V \otimes C$ is trivial, and $V$ is Hodge-Tate exactly when the Sen operator is semisimple with integer eigenvalues.'
+    why: 'It shows that the Hodge-Tate condition behind [Row0b](/step/row0b-def/) is a condition on one linear operator.'
+    steps: [row0b-def]
+  - concept: Fontaine's period rings
+    math2: K6HW8YWCQJ
+    says: 'The rings $B_{\mathrm{cris}} \subset B_{\mathrm{st}} \subset B_{\mathrm{dR}}$ carry a $G_K$ action, with Frobenius on the first two, monodromy on $B_{\mathrm{st}}$ and a filtration on $B_{\mathrm{dR}}$, and their invariants are $K_0$, $K_0$ and $K$.'
+    why: 'The statement `FontaineBcris` of [the literature chapter](/proof/literature/) and the bundle `nLink` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/) use $B_{\mathrm{cris}}$.'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: De Rham representation
+    text: 'Fontaine, Le corps des périodes p-adiques, Astérisque 223, Exposé II'
+    says: '$V$ is de Rham when $D_{\mathrm{dR}}(V) = (B_{\mathrm{dR}} \otimes V)^{G_K}$ has dimension $\dim V$, and then its filtration jumps are the Hodge-Tate weights.'
+    why: 'Row representations at places above $\ell$ are de Rham, and the jumps of $D_{\mathrm{dR}}$ are the $HT$ of [Row0b](/step/row0b-def/).'
+    steps: [row0b-def]
+  - concept: Fundamental exact sequence
+    text: 'Fontaine, Le corps des périodes p-adiques, Astérisque 223, Exposé II'
+    says: 'The sequence $0 \to \mathbb{Q}_p \to B_{\mathrm{cris}}^{\varphi = 1} \to B_{\mathrm{dR}}/B^+_{\mathrm{dR}} \to 0$ is exact.'
+    why: 'It gives full faithfulness of $D_{\mathrm{cris}}$ and the exponential of Bloch-Kato behind `BlochKatoLocal` in [the literature chapter](/proof/literature/).'
+  - concept: Crystalline representation
+    text: 'Fontaine, Représentations p-adiques semi-stables, Astérisque 223, Exposé III'
+    says: '$V$ is crystalline when $D_{\mathrm{cris}}(V) = (B_{\mathrm{cris}} \otimes V)^{G_K}$ has dimension $\dim V$ over $K_0$, and $D_{\mathrm{cris}}$ is then a fully faithful functor to filtered $\varphi$-modules.'
+    why: 'The clause `above` of [Row0b](/step/row0b-def/) and `CrysAt` of [GeoOne](/step/geo-one-def/) ask for crystalline representations at spherical places.'
+    steps: [row0b-def, geo-one-def]
+  - concept: Semistable representation
+    text: 'Fontaine, Représentations p-adiques semi-stables, Astérisque 223, Exposé III'
+    says: '$V$ is semistable when $D_{\mathrm{st}}(V) = (B_{\mathrm{st}} \otimes V)^{G_K}$ has full dimension, and $D_{\mathrm{st}}(V)$ is then a filtered $(\varphi, N)$-module with $D_{\mathrm{cris}}(V) = D_{\mathrm{st}}(V)^{N = 0}$.'
+    why: 'The Tate curve shows the monodromy $N$ that the potentially semistable clause of [Row0b](/step/row0b-def/) allows.'
+    steps: [row0b-def]
+  - concept: Weakly admissible module
+    text: 'Colmez and Fontaine, Construction des représentations p-adiques semi-stables, Invent. Math. 140 (2000)'
+    says: 'A filtered $(\varphi, N)$-module is weakly admissible when $t_H = t_N$ for it and $t_H \leq t_N$ for every subobject, and these are exactly the modules $D_{\mathrm{st}}(V)$.'
+    why: 'Weak admissibility ties the jumps to the Frobenius slopes, the two conditions that [GeoOne holds](/step/geo-one-holds/) treats as `JumpStep` and `PhiStep`.'
+    steps: [geo-one-holds]
+  - concept: Dieudonné-Manin slopes
+    text: 'Fontaine and Ouyang, Theory of p-adic Galois representations, chapter on filtered phi-modules'
+    says: 'Over $\widehat{K_0^{\mathrm{ur}}}$ a $\varphi$-module splits by slopes, and $t_N(D) = v_p(\det \varphi)$ is the sum of the slopes.'
+    why: 'Slopes of $\varphi$ are the p-adic valuations of the Frobenius eigenvalues in `PhiKilled` of [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]
+  - concept: Mazur's inequality
+    text: 'Mazur, Frobenius and the Hodge filtration, Bull. AMS 78 (1972)'
+    says: 'For crystalline $V$ the Newton polygon of $\varphi$ on $D_{\mathrm{cris}}(V)$ lies on or above the Hodge polygon of the jumps, with the same endpoints.'
+    why: 'It bounds the valuations of the Frobenius eigenvalues in [GeoOne](/step/geo-one-def/) by the jumps.'
+    steps: [geo-one-def]
+  - concept: Fontaine's Weil-Deligne representation
+    text: 'Fontaine, Représentations l-adiques potentiellement semi-stables, Astérisque 223, Exposé VIII'
+    says: 'For potentially semistable $V$, $r(w) = w \circ \varphi^{-f\alpha(w)}$ on $D_{\mathrm{pst}}(V)$ with the monodromy $N$ is a Weil-Deligne representation, unramified with $N = 0$ and $r(\Phi) = \varphi^f$ when $V$ is crystalline.'
+    why: 'The class `wdAt` in [GeoOne](/step/geo-one-def/) and the potentially semistable clause of [Row0b](/step/row0b-def/) are built from it.'
+    steps: [geo-one-def, row0b-def]
+  - concept: p-adic monodromy theorem
+    text: 'Berger, Représentations p-adiques et équations différentielles, Invent. Math. 148 (2002)'
+    says: 'A p-adic representation of $G_K$ is de Rham if and only if it is potentially semistable.'
+    why: 'It is `DeRhamPotSemistable` in [the literature chapter](/proof/literature/) and a field of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Comparison theorems
+    text: 'Faltings, p-adic Hodge theory, J. AMS 1 (1988); Tsuji, Invent. Math. 137 (1999)'
+    says: 'The p-adic étale cohomology of a smooth proper variety over $K$ is de Rham with $D_{\mathrm{dR}}$ the de Rham cohomology, crystalline with $D_{\mathrm{cris}}$ the crystalline cohomology under good reduction, and semistable with $D_{\mathrm{st}}$ the Hyodo-Kato cohomology under semistable reduction.'
+    why: 'They make representations from geometry satisfy the conditions of [Row0b](/step/row0b-def/) at places above $\ell$.'
+    steps: [row0b-def]
+  - concept: Katz-Messing compatibility
+    text: 'Katz and Messing, Some consequences of the Riemann hypothesis for varieties over finite fields, Invent. Math. 23 (1974)'
+    says: 'For good reduction the characteristic polynomial of $\varphi^f$ on crystalline cohomology equals that of geometric Frobenius on $\ell^\prime$-adic cohomology for every $\ell^\prime \neq p$.'
+    why: 'It matches the characteristic polynomial in `PhiKilled` of [GeoOne](/step/geo-one-def/) with $\ell^\prime$-adic data.'
+    steps: [geo-one-def]
+  - concept: Fontaine-Laffaille modules
+    text: 'Fontaine and Laffaille, Construction de représentations p-adiques, Ann. Sci. ENS 15 (1982)'
+    says: 'For $K$ unramified, lattices in crystalline representations with weights in an interval of length at most $p - 2$ are described by filtered $W(k)$-modules with divided Frobenius maps.'
+    why: 'It is the oldest integral theory behind the crystalline lattices of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Wach modules
+    text: 'Berger, Limites de représentations cristallines, Compositio Math. 140 (2004)'
+    says: 'For $K$ unramified, a lattice in a crystalline representation gives a $W(k)[[\pi]]$-module with $\varphi$ and $\Gamma$ actions whose reduction mod $\pi$ recovers $D_{\mathrm{cris}}$.'
+    why: 'Wach modules give explicit crystalline lattices of the kind named in [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Breuil-Kisin modules
+    text: 'Kisin, Crystalline representations and F-crystals, Progr. Math. 253 (2006), section 2'
+    says: 'A lattice in a crystalline representation with weights in $[-h, 0]$ gives a unique $\varphi$-module over $W(k)[[u]]$ of height at most $h$ that recovers the lattice on $G_{K_\infty}$.'
+    why: 'Breuil-Kisin modules are the values of the prismatic F-crystals of `BhattScholzeIntegral` in [the literature chapter](/proof/literature/) at the Breuil-Kisin prism.'
+  - concept: Witt vectors and A_inf
+    math2: 6N3X2QX4W9
+    says: 'Fontaine''s ring $A_{\mathrm{inf}} = W(\mathcal{O}_{C^\flat})$ is the ring of Witt vectors of the tilt, with the surjection $\theta$ onto $\mathcal{O}_C$.'
+    why: 'The statement `PrismaticDieudonneHodge` of [CM divisibility](/proof/cm-divisibility/) asks for modules over $A_{\mathrm{inf}}$.'
+  - concept: BKF modules
+    text: 'Bhatt, Morrow and Scholze, Integral p-adic Hodge theory, Publ. Math. IHES 128 (2018), section 4'
+    says: 'Breuil-Kisin-Fargues modules over $A_{\mathrm{inf}}$ are equivalent to pairs of a finite free $\mathbb{Z}_p$-module $T$ and a $B^+_{\mathrm{dR}}$-lattice in $T \otimes B_{\mathrm{dR}}$.'
+    why: 'For $p$-divisible groups this is the classification behind `PrismaticDieudonneHodge` of [CM divisibility](/proof/cm-divisibility/).'
+  - concept: Prismatic F-crystals
+    text: 'Bhatt and Scholze, Prismatic F-crystals and crystalline Galois representations, Camb. J. Math. 11 (2023)'
+    says: 'The étale realization is an equivalence between prismatic F-crystals in vector bundles on $\mathcal{O}_K$ and lattices in crystalline representations of $G_K$.'
+    why: 'It is `BhattScholzeIntegral` in [the literature chapter](/proof/literature/) and the field `bhattScholzeCrystallineLattices` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Bloch-Kato subgroups
+    text: 'Bloch and Kato, L-functions and Tamagawa numbers of motives, Grothendieck Festschrift I, section 3'
+    says: '$H^1_e \subset H^1_f \subset H^1_g$ are the kernels of $H^1(K, V)$ to $H^1$ of $B_{\mathrm{cris}}^{\varphi = 1} \otimes V$, $B_{\mathrm{cris}} \otimes V$ and $B_{\mathrm{dR}} \otimes V$, and $H^1_f$ classifies crystalline extensions.'
+    why: 'They are the local conditions at $\ell$ of the Bloch-Kato Selmer groups whose vanishing is `KatoTwoW` in [the window bound](/proof/vwin/).'
+  - concept: Bloch-Kato dimension formula
+    text: 'Bloch and Kato, L-functions and Tamagawa numbers of motives, Corollary 3.8.4'
+    says: 'For de Rham $V$, $\dim H^1_f(K, V) = \dim D_{\mathrm{dR}}(V)/\mathrm{Fil}^0 + \dim H^0(K, V)$.'
+    why: 'It is part of `BlochKatoLocal` in the bundle `nLink` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Local Tate duality for H^1_f
+    text: 'Bloch and Kato, L-functions and Tamagawa numbers of motives, Proposition 3.8'
+    says: 'For de Rham $V$, $H^1_f(K, V)$ and $H^1_f(K, V^*(1))$ are exact annihilators under the local Tate pairing, and so are $H^1_e(K, V)$ and $H^1_g(K, V^*(1))$.'
+    why: 'Local Tate duality and the local Euler characteristic sit beside `BlochKatoLocal` in `nLink` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).'
+    steps: [unitary-group-third-place-hypotheses-def]
+  - concept: Galois cohomology
+    math2: 9MPCZ3EAJM
+    says: 'For a p-adic representation $V$ of $G_K$ the continuous cohomology groups $H^i(K, V)$ are finite-dimensional, vanish for $i > 2$, and satisfy $h^0 - h^1 + h^2 = -[K : \mathbb{Q}_p] \dim V$.'
+    why: 'The Euler characteristic gives $\dim H^1_f(V) + \dim H^1_f(V^*(1)) = \dim H^1(V)$, the count behind `BlochKatoLocal` in [the literature chapter](/proof/literature/).'
+  - concept: Selmer group
+    math2: 36YNSTESMQ
+    says: 'A Bloch-Kato Selmer group is the set of global classes whose restriction lies in $H^1_f$ at every place.'
+    why: 'The vanishing of such groups for two twists of a two-dimensional representation is `KatoTwoW` in [the window bound](/proof/vwin/).'
