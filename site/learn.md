@@ -5,7 +5,7 @@ lead: This section is a short book. Part I defines each concept that the proof u
 ---
 ## Where to start
 
-To read [the top of the proof](/proof/), you need only chapters 3 and 6 of Part I: complex analysis, and the zeta function and Dirichlet L-functions. With them you can check the four steps between `EveryCharacter` and the Riemann hypothesis yourself.
+To read [the top of the proof](/proof/), you need only chapters 5 and 8 of Part I: complex analysis, and the zeta function and Dirichlet L-functions. With them you can check the four steps between `EveryCharacter` and the Riemann hypothesis yourself.
 
 To read a chapter further down, open its guide in Part II. The guide lists what the chapter needs, with a link to the section of Part I for each concept. Read those sections first.
 

@@ -1,6 +1,6 @@
 id: class-field-theory
 title: Class field theory
-order: 5
+order: 7
 needs: [number-fields]
 lead: 'Additive and Hecke characters, quadratic symbols, local and global class field theory, the Hasse principle for norms and Hermitian forms, and Tate''s thesis with Hecke L-functions and epsilon factors.'
 items:

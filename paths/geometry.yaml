@@ -1,6 +1,6 @@
 id: geometry
 title: Algebraic and complex geometry
-order: 14
+order: 18
 needs: [elliptic-curves]
 lead: 'Schemes and line bundles, the vanishing theorems and resolution of singularities, Dolbeault cohomology with the holomorphic Lefschetz formula and the Kodaira-Spencer map, étale and de Rham cohomology, and Shimura varieties with their toroidal compactifications.'
 items:

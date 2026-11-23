@@ -1,0 +1,146 @@
+id: etale-cohomology
+title: Étale cohomology
+order: 19
+needs: [algebra, geometry, galois-cohomology, galois-representations]
+lead: 'The étale site and its cohomology with torsion and $\ell$-adic coefficients: the Kummer sequence, curves, proper and smooth base change, Künneth, Poincaré duality, purity, cycle and Chern classes, the Lefschetz trace formula and the comparison theorems.'
+items:
+  - concept: Étale morphism
+    math2: H84VHC8PX2
+    says: 'A morphism is étale if it is locally of finite presentation, flat and unramified; locally it is $R \to (R[x]/(f))_g$ with $f$ monic and $f^\prime$ a unit.'
+    why: 'The Hecke correspondences on the towers of [the Galois row](/proof/galois-row/) are pairs of finite étale maps.'
+  - concept: Grothendieck topology
+    math2: GDRFSJ8E2B
+    says: 'The étale site $X_{\mathrm{et}}$ has the étale $X$-schemes as opens and jointly surjective families of étale maps as coverings.'
+    why: 'All cohomology groups of the Galois representations of [GeoOne](/step/geo-one-def/) are taken on this site.'
+    steps: [geo-one-def]
+  - concept: Strictly henselian local ring
+    text: 'Milne, Étale Cohomology, I'
+    says: 'A local ring is henselian if simple roots of monic polynomials lift from the residue field, and strictly henselian if in addition the residue field is separably closed; the stalks of $\mathcal{O}$ on $X_{\mathrm{et}}$ are strict henselizations.'
+    why: 'The development volumes prove the proper base change theorem over a strictly henselian base, as an input of [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]
+  - concept: Étale fundamental group
+    text: 'SGA 1, Exposé V'
+    says: 'For connected $X$, finite étale $X$-schemes are equivalent to finite continuous $\pi_1^{\mathrm{et}}(X, \bar x)$-sets; for a field, $\pi_1^{\mathrm{et}}$ is the absolute Galois group.'
+    why: 'Lisse sheaves on Shimura varieties are representations of $\pi_1^{\mathrm{et}}$, and finite étale covers give the towers of [the Galois row](/proof/galois-row/).'
+  - concept: Étale sheaves on a field
+    text: 'Milne, Étale Cohomology, II'
+    says: 'Sheaves on $(\mathrm{Spec}\, K)_{\mathrm{et}}$ are discrete $G_K$-modules, and $H^i(\mathrm{Spec}\, K, \mathcal{F}) = H^i(G_K, \mathcal{F}_{\bar x})$.'
+    why: 'This identifies the étale cohomology of a field with the Galois cohomology used in [VWin](/step/vwin-def/).'
+    steps: [vwin-def]
+  - concept: Étale cohomology
+    math2: 7YX76G0838
+    says: 'For $X$ of finite type over $k$ and $\ell$ invertible, $H^i(X_{\bar k}, \mathbb{Q}_\ell) = (\varprojlim_m H^i(X_{\bar k}, \mathbb{Z}/\ell^m)) \otimes \mathbb{Q}_\ell$, a finite-dimensional continuous representation of $\mathrm{Gal}(\bar k/k)$.'
+    why: 'The representations $\rho$ of [GeoOne](/step/geo-one-def/) are cut out of these groups for towers of Shimura varieties.'
+    steps: [geo-one-def]
+  - concept: Sheaf cohomology
+    math2: PQ6Q143ARJ
+    says: 'Étale cohomology $H^i(X, \mathcal{F})$ is the right derived functor of global sections on $X_{\mathrm{et}}$, and $R^i f_* \mathcal{F}$ is the sheaf associated with $V \mapsto H^i(X \times_Y V, \mathcal{F})$.'
+    why: 'The development volumes build a model of these groups with coefficients $\mathbb{Z}/q(i)$ for [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]
+  - concept: Hilbert 90
+    text: 'Milne, Étale Cohomology, III'
+    says: '$H^1(X_{\mathrm{et}}, \mathbb{G}_m) = \mathrm{Pic}(X)$.'
+    why: 'With the Kummer sequence it computes $H^1$ and $H^2$ with $\mu_n$ coefficients, the base of the Chern classes used in [the Galois row](/proof/galois-row/).'
+  - concept: Kummer sequence
+    text: 'Milne, Étale Cohomology, II and III'
+    says: 'For $n$ invertible on $X$, $0 \to \mu_n \to \mathbb{G}_m \to \mathbb{G}_m \to 0$ with $u \mapsto u^n$ is exact on $X_{\mathrm{et}}$, and gives Kummer classes $\delta(u) \in H^1(X, \mu_n)$ and $c_1(L) \in H^2(X, \mu_n)$.'
+    why: 'The development volumes prove it for the twists $\mathbb{Z}/q(1)$ and use it for the finiteness behind [GeoOne holds](/step/geo-one-holds/).'
+    steps: [geo-one-holds]
+  - concept: Tate twist
+    text: 'Deligne, SGA 4½, Cohomologie étale: les points de départ'
+    says: 'The sheaf $\Lambda(i) = \mu_n^{\otimes i}$ is constant over a separably closed field, but $\mathrm{Gal}$ acts on $\Lambda(1)$ by the cyclotomic character modulo $n$.'
+    why: 'The coefficients $\mathbb{Z}/q(i)$ of the étale model in the development volumes are these twists, and they fix the Hodge-Tate weights in [Row0b](/step/row0b-def/).'
+    steps: [row0b-def]
+  - concept: Cohomology of curves
+    text: 'SGA 4, Exposé IX'
+    says: 'For a smooth projective connected curve of genus $g$ over an algebraically closed field and $n$ invertible, $H^1(X, \mu_n) \cong J[n] \cong (\mathbb{Z}/n)^{2g}$, $H^2(X, \mu_n) \cong \mathbb{Z}/n$ and $H^q = 0$ for $q \ge 3$.'
+    why: 'The $H^1$ of modular and Shimura curves carries the Galois representations of weight $2$ forms, the model case of [the Galois row](/proof/galois-row/).'
+  - concept: Tate module
+    math2: 4CSMQFTGD8
+    says: 'For an abelian variety $A$ over an algebraically closed field, $H^1(A, \mathbb{Z}_\ell) \cong \mathrm{Hom}(T_\ell A, \mathbb{Z}_\ell)$ and $H^i(A, \mathbb{Z}_\ell) \cong \wedge^i H^1$.'
+    why: 'Shimura varieties of PEL type are moduli of abelian varieties, whose Tate modules give the local systems of [the Galois row](/proof/galois-row/).'
+  - concept: Proper base change
+    text: 'SGA 4, Exposé XII'
+    says: 'For $f$ proper and $\mathcal{F}$ torsion, $g^* R^i f_* \mathcal{F} \cong R^i f^\prime_* g^{\prime *} \mathcal{F}$, so $(R^i f_* \mathcal{F})_{\bar s} \cong H^i(X_{\bar s}, \mathcal{F})$.'
+    why: 'The record `Steps` of [GeoOne](/step/geo-one-def/) uses proper base change.'
+    steps: [geo-one-def]
+  - concept: Finiteness
+    text: 'SGA 4, Exposé XIV'
+    says: 'For $f$ proper and $\mathcal{F}$ constructible, $R^i f_* \mathcal{F}$ is constructible; for $X$ proper over a separably closed field, $H^i(X, \mathcal{F})$ is finite.'
+    why: 'It makes the representations of [GeoOne](/step/geo-one-def/) finite dimensional.'
+    steps: [geo-one-def]
+  - concept: Smooth base change
+    text: 'SGA 4, Exposé XVI'
+    says: 'For $g$ smooth, $f$ quasi-compact quasi-separated and $\mathcal{F}$ torsion with orders invertible on the base, the base change maps are isomorphisms.'
+    why: 'It gives the invariance under change of algebraically closed field that moves between $\overline{\mathbb{Q}}$, $\mathbb{C}$ and $\overline{\mathbb{Q}}_\ell$ in [the Galois row](/proof/galois-row/).'
+  - concept: Good reduction
+    text: 'Milne, Étale Cohomology, VI'
+    says: 'For $X$ smooth and proper over $\mathcal{O}_K[1/N]$, $H^i(X_{\bar K}, \mathbb{Q}_\ell)$ is unramified at $v \nmid N\ell$, and $\mathrm{Frob}_v$ acts as the Frobenius of the special fibre.'
+    why: 'It is the first step of the Eichler-Shimura argument behind the condition `ESAt` of [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]
+  - concept: Cohomology with compact support
+    text: 'SGA 4, Exposé XVII'
+    says: 'For $X$ separated of finite type with a compactification $j : X \to \bar X$, $H^i_c(X, \mathcal{F}) = H^i(\bar X, j_! \mathcal{F})$, independent of $\bar X$.'
+    why: 'The trace formula and Poincaré duality for the open Shimura varieties of [the Galois row](/proof/galois-row/) are stated with compact supports.'
+  - concept: Cup product
+    text: 'Milne, Étale Cohomology, VI'
+    says: 'The cup product makes $\bigoplus_{i,a} H^i(X, \Lambda(a))$ a graded commutative ring, natural under pullback.'
+    why: 'The development volumes build it from Alexander-Whitney cochains to define the power sum classes used for [GeoOne holds](/step/geo-one-holds/).'
+    steps: [geo-one-holds]
+  - concept: Künneth formula
+    text: 'SGA 4, Exposé XVII'
+    says: 'Over a separably closed field, $H^m_c(X \times Y, \mathbb{Q}_\ell) \cong \bigoplus_{i+j=m} H^i_c(X, \mathbb{Q}_\ell) \otimes H^j_c(Y, \mathbb{Q}_\ell)$.'
+    why: 'It decomposes the class of the diagonal in the Lefschetz formula, and its Hodge form enters the comparison inputs of [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]
+  - concept: Poincaré duality
+    text: 'SGA 4, Exposé XVIII'
+    says: 'For $X$ smooth of pure dimension $d$ over a separably closed field, cup product and trace give a perfect pairing $H^i_c(X, \mathcal{F}) \times H^{2d-i}(X, \mathcal{F}^\vee(d)) \to \Lambda$.'
+    why: 'It defines the Gysin maps $c_{1*}$ through which Hecke correspondences act in [the Galois row](/proof/galois-row/).'
+  - concept: Cohomological purity
+    text: 'SGA 4, Exposé XVI'
+    says: 'For a smooth pair $Z \subseteq X$ of codimension $c$, $H^i_Z(X, \mathcal{F}) \cong H^{i-2c}(Z, \mathcal{F}(-c))$ for $\mathcal{F}$ locally constant, which gives the Gysin sequence.'
+    why: 'It defines the cycle classes, and so the classes of the correspondences that act on the cohomology of the towers of [the Galois row](/proof/galois-row/).'
+  - concept: Chern class
+    math2: PAD37GKDPD
+    says: 'The Chern classes $c_i(E) \in H^{2i}(X, \Lambda(i))$ satisfy $\sum_{i=0}^r (-1)^i \pi^* c_i(E)\, \xi^{r-i} = 0$ on $\mathbb{P}(E)$, with $\xi = c_1(\mathcal{O}(1))$.'
+    why: 'The power sum classes $s_k$ built from them are the axiom D2 of the étale model used for [GeoOne holds](/step/geo-one-holds/).'
+    steps: [geo-one-holds]
+  - concept: Cycle class
+    text: 'Deligne, SGA 4½, Cycle'
+    says: 'A closed subvariety $Z$ of codimension $c$ of a smooth $X$ has a class $\mathrm{cl}(Z) \in H^{2c}(X, \mathbb{Q}_\ell(c))$, and $\mathrm{cl}$ is a ring homomorphism from the Chow ring.'
+    why: 'The class of the diagonal turns fixed points into traces in the Lefschetz formula behind [GeoOne holds](/step/geo-one-holds/).'
+    steps: [geo-one-holds]
+  - concept: Purity of the branch locus
+    text: 'SGA 1, Exposé X'
+    says: 'A finite surjective morphism from a normal integral scheme to a regular one that is étale outside codimension $2$ is étale.'
+    why: 'The development volumes use it with Abhyankar''s lemma to control tame covers of integral models in [the Galois row](/proof/galois-row/).'
+  - concept: Grothendieck-Lefschetz trace formula
+    text: 'Deligne, SGA 4½, Rapport sur la formule des traces'
+    says: 'For $X$ of finite type over $\mathbb{F}_q$, $\# X(\mathbb{F}_{q^m}) = \sum_i (-1)^i\, \mathrm{tr}((F^*)^m \mid H^i_c(\bar X, \mathbb{Q}_\ell))$.'
+    why: 'Its holomorphic analogue for finite étale correspondences is the input of [GeoOne holds](/step/geo-one-holds/).'
+    steps: [geo-one-holds]
+  - concept: Lefschetz fixed-point theorem
+    math2: G44NQXCWT9
+    says: 'For $X$ smooth projective over an algebraically closed field and a correspondence $\Gamma$ on $X$, $(\Gamma \cdot \Delta) = \sum_i (-1)^i\, \mathrm{tr}(\Gamma^* \mid H^i(X, \mathbb{Q}_\ell))$.'
+    why: 'The holomorphic form of this formula for finite étale correspondences proves `HolomorphicLefschetzFormula` in [GeoOne holds](/step/geo-one-holds/).'
+    steps: [geo-one-holds]
+  - concept: Weil conjectures
+    text: 'Deligne, La conjecture de Weil I, Publ. Math. IHÉS 43'
+    says: 'For $X$ smooth and proper over $\mathbb{F}_q$, the eigenvalues of Frobenius on $H^i$ are algebraic integers with all conjugates of absolute value $q^{i/2}$.'
+    why: 'It bounds the Frobenius eigenvalues on the cohomology from which the representations of [Row0b](/step/row0b-def/) are cut out.'
+    steps: [row0b-def]
+  - concept: Eichler-Shimura relation
+    text: 'Shimura, Introduction to the Arithmetic Theory of Automorphic Functions, 7'
+    says: 'On the reduction of $X_0(N)$ modulo $p \nmid N$, $T_p = F + {}^t F$, so $\mathrm{Frob}_p^2 - T_p \mathrm{Frob}_p + p = 0$ on $H^1$.'
+    why: 'The development volumes prove its analogue for Hecke towers, which gives the Frobenius condition `ESAt` of [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]
+  - concept: Artin comparison theorem
+    text: 'SGA 4, Exposé XVI'
+    says: 'For $X$ of finite type over $\mathbb{C}$ and $\mathcal{F}$ constructible, $H^i(X_{\mathrm{et}}, \mathcal{F}) \cong H^i(X(\mathbb{C}), \mathcal{F}^{\mathrm{an}})$, so $H^i(X, \mathbb{Q}_\ell) \cong H^i(X(\mathbb{C}), \mathbb{Q}) \otimes \mathbb{Q}_\ell$.'
+    why: 'It connects the $\ell$-adic cohomology of Shimura varieties to the complex geometry of the Lefschetz formula in [GeoOne holds](/step/geo-one-holds/).'
+    steps: [geo-one-holds]
+  - concept: Hodge-Tate decomposition
+    text: 'Faltings, p-adic Hodge theory, J. Amer. Math. Soc. 1'
+    says: 'For $X$ proper smooth over a $p$-adic field $K$, $H^i(X_{\bar K}, \mathbb{Q}_p) \otimes \mathbb{C}_p \cong \bigoplus_j H^{i-j}(X, \Omega^j) \otimes \mathbb{C}_p(-j)$.'
+    why: 'The comparison chapter of the development volumes proves it to get the Hodge-Tate weights and the crystalline condition `CrysAt` of [GeoOne](/step/geo-one-def/).'
+    steps: [geo-one-def]

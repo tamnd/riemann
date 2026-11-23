@@ -1,6 +1,6 @@
 id: l-functions
 title: Zeta and L-functions
-order: 6
+order: 8
 needs: [class-field-theory, complex-analysis]
 lead: 'The Riemann zeta function, Dirichlet characters and L-functions, the Riemann Hypothesis and its generalization in the Mathlib forms, the explicit formula and theorems on primes, and the zeta functions of number fields.'
 items:

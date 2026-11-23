@@ -1,6 +1,6 @@
 id: analysis
 title: Analysis
-order: 2
+order: 4
 needs: [algebra]
 lead: 'The analysis that the proof uses: limits, lim sup and $O$ bounds, measures and Fubini, $L^2$ spaces, the Fourier transform and Schwartz functions, Sobolev norms, topological groups and covers, Haar measure, Lie groups and one-parameter subgroups.'
 items:

@@ -1,0 +1,133 @@
+id: combinatorics
+title: Symmetric functions, minors and heights of polynomials
+order: 2
+needs: [algebra, representations, analysis, complex-analysis, arakelov]
+lead: 'Binomial coefficients and their valuations, partitions and tableaux, symmetric and Schur polynomials, the Pieri and Littlewood-Richardson rules, identities among minors, Vandermonde determinants, polynomials on matrices over $\mathbb{Z}$, and the Mahler measure and other sizes of polynomials.'
+items:
+  - concept: Binomial coefficient
+    math2: 0GBZM0MT0F
+    says: 'For $k \in \mathbb{N}$, $\binom{x}{k} = x(x-1)\cdots(x-k+1)/k!$, which counts the subsets with $k$ elements of a set with $x$ elements when $x \in \mathbb{N}$.'
+    why: 'The extremal projector factors in the growth bounds below [EveryCharacter from theta integrals and local matching](/step/theta-local-matching/) have denominators $\binom{h+k}{k}$.'
+    steps: [theta-local-matching]
+  - concept: Vandermonde's identity
+    math2: 01JADB9VW5
+    says: '$\binom{x+y}{k} = \sum_{j} \binom{x}{j}\binom{y}{k-j}$ as polynomials in $x$ and $y$.'
+    why: 'The binomial polynomial identities of the development volumes reduce to it and to Pascal''s rule.'
+  - concept: Integer-valued polynomials
+    text: 'Cahen and Chabert, Integer-Valued Polynomials, Chapter I'
+    says: 'A polynomial in $\mathbb{Q}[x_1, \dots, x_n]$ maps $\mathbb{Z}^n$ to $\mathbb{Z}$ if and only if it is a $\mathbb{Z}$-combination of products of binomial coefficients $\binom{x_i}{k_i}$ (Pólya).'
+    why: 'It shows that polynomials in the weights, such as dimensions of representations, have integral values.'
+  - concept: Legendre's formula
+    math2: 01WPV9PHN7
+    says: '$v_p(m!) = \sum_{i \ge 1} \lfloor m/p^i \rfloor = (m - s_p(m))/(p-1)$, with $s_p(m)$ the digit sum of $m$ in base $p$.'
+    why: 'It bounds the $p$-adic valuations of the monomial factorials $\alpha!$ that appear as Fock norms.'
+  - concept: Kummer's theorem
+    math2: 0VBWK9XYDG
+    says: '$v_p \binom{k+m}{k}$ is the number of carries when $k$ and $m$ are added in base $p$.'
+    why: 'The growth bounds use it to control the $l$-adic size of the denominators of the extremal projector.'
+    steps: [theta-local-matching]
+  - concept: Lucas's theorem
+    math2: 0RY4GGMEQG
+    says: 'Modulo $p$, $\binom{m}{k}$ is the product of the binomial coefficients of the base $p$ digits of $m$ and $k$.'
+    why: 'It computes binomial coefficients modulo $l$, which is needed when divided powers are reduced modulo $l$ in the Weyl modules.'
+  - concept: Divided powers of polarization operators
+    text: 'Humphreys, Introduction to Lie Algebras and Representation Theory, Section 26'
+    says: 'For $a \ne b$, $E_{ab}^{(k)} = E_{ab}^k/k!$ with $E_{ab} = \sum_j x_{aj}\partial/\partial x_{bj}$ maps $\mathbb{Z}[x_{ij}]$ to itself, since $\sum_k t^k E_{ab}^{(k)} f$ is $f$ after the row operation $x_b \mapsto x_b + t x_a$.'
+    why: 'They define the integral Weyl modules $\Delta(\nu)$ of [the unitary hypotheses](/proof/unitary-hypotheses/).'
+  - concept: Partition
+    math2: 0JV30XN73Z
+    says: 'A partition is a weakly decreasing sequence of natural numbers with finitely many nonzero parts, drawn as a Young diagram with conjugate, contents and hook lengths.'
+    why: 'Partitions index the irreducible polynomial representations of $\mathrm{GL}_n$ and the shapes of the skew diagrams in Lemma D.'
+  - concept: Horizontal strip
+    text: 'Macdonald, Symmetric Functions and Hall Polynomials, Chapter I, Section 1'
+    says: '$\lambda/\mu$ has at most one box in each column if and only if $\lambda_1 \ge \mu_1 \ge \lambda_2 \ge \mu_2 \ge \cdots$.'
+    why: 'The paths of dominant weights that index bases of $\mathrm{Pol}(n, B)$ in the growth bounds move by horizontal strips.'
+    steps: [theta-local-matching]
+  - concept: Semistandard tableau
+    text: 'Fulton, Young Tableaux, Chapter 1'
+    says: 'A filling of a diagram that weakly increases along rows and strictly increases down columns; it is the same as a chain of horizontal strips, or a Gelfand-Tsetlin pattern.'
+    why: 'Tableaux count weights of representations and index the standard products of minors.'
+  - concept: Hook length formula
+    text: 'Sagan, The Symmetric Group, Chapter 3'
+    says: 'The number of standard tableaux of shape $\lambda \vdash d$ is $d!/\prod h(i,j)$.'
+    why: 'It gives the degrees $f^\lambda$ of the characters of $S_d$ that bound character values in the development volumes.'
+  - concept: Fundamental theorem of symmetric polynomials
+    math2: 0GW1ZZH0R4
+    says: '$\Lambda_n = \mathbb{Z}[e_1, \dots, e_n]$ with $e_1, \dots, e_n$ algebraically independent.'
+    why: 'Each symmetric function of the Frobenius eigenvalues is a polynomial in the coefficients of a characteristic polynomial, as in [the Galois row](/proof/galois-row/).'
+  - concept: Newton's identities
+    math2: 0WG2A3HE0S
+    says: '$k e_k = \sum_{i=1}^{k} (-1)^{i-1} e_{k-i} p_i$ for $k \ge 1$.'
+    why: 'In characteristic $0$ they pass between characteristic polynomials and traces of powers of Frobenius in [the Galois row](/proof/galois-row/).'
+  - concept: Cauchy-Binet formula
+    text: 'Horn and Johnson, Matrix Analysis, Chapter 0'
+    says: 'A minor of $AB$ is $\sum_S \det A_{I,S} \det B_{S,J}$, the sum over the subsets $S$ of the inner index set.'
+    why: 'It proves the Cauchy identity and the invariance of determinantal divisors, and gives the corank bounds of the Pieri chapters.'
+  - concept: Smith normal form
+    text: 'Jacobson, Basic Algebra I, Chapter 3'
+    says: 'Over a principal ideal domain each matrix is equivalent to a diagonal one with $s_1 \mid s_2 \mid \cdots$, and $s_1 \cdots s_k$ is the gcd of the minors of size $k$.'
+    why: 'Over a discrete valuation ring the length of a cokernel is $v(\det)$, which measures the lattice inclusions of [the unitary hypotheses](/proof/unitary-hypotheses/).'
+  - concept: Vandermonde determinant
+    math2: 0P84B554AS
+    says: '$\det(x_i^{j-1}) = \prod_{i<j} (x_j - x_i)$.'
+    why: 'It is the Weyl denominator in the bialternant formula for Schur polynomials.'
+  - concept: Confluent Vandermonde determinant
+    text: 'Krattenthaler, Advanced determinant calculus, Sém. Lothar. Combin. 42'
+    says: 'With rows of divided derivatives at points $y_i$ of multiplicity $m_i$, the determinant is $\prod_{i<j} (y_j - y_i)^{m_i m_j}$.'
+    why: 'It computes the Vandermonde products up to sign that appear when eigenvalues coincide.'
+  - concept: Schur polynomial
+    text: 'Macdonald, Symmetric Functions and Hall Polynomials, Chapter I, Sections 3 and 5'
+    says: '$s_\lambda = a_{\lambda+\delta}/a_\delta = \sum_T x^T$ over semistandard tableaux of shape $\lambda$, and it is the character of the representation $V_\lambda$ of $\mathrm{GL}_n$.'
+    why: 'Weights in [the Galois row](/proof/galois-row/) are read off from Schur polynomials in the roots of characteristic polynomials.'
+  - concept: Cauchy identity
+    text: 'Macdonald, Symmetric Functions and Hall Polynomials, Chapter I, Section 4'
+    says: '$\prod_{i,j} (1 - x_i y_j)^{-1} = \sum_\lambda s_\lambda(x) s_\lambda(y)$.'
+    why: 'It gives the decomposition of polynomials on $m \times n$ matrices under $\mathrm{GL}_m \times \mathrm{GL}_n$, used for the Fock spaces of [the determinants chapter](/proof/determinants/).'
+  - concept: Weyl dimension formula
+    text: 'Fulton and Harris, Representation Theory, Lecture 6 and Appendix A'
+    says: '$\dim V_\lambda = \prod_{i<j} (\lambda_i - \lambda_j + j - i)/(j - i)$, and for a partition this is $\prod (n + c)/h$ over the boxes.'
+    why: 'The development volumes count dimensions of weight and path spaces with it.'
+  - concept: Pieri rule
+    text: 'Macdonald, Symmetric Functions and Hall Polynomials, Chapter I, Section 5'
+    says: '$s_\mu h_k$ is the sum of the $s_\lambda$ over the $\lambda$ with $\lambda/\mu$ a horizontal strip of size $k$.'
+    why: 'The Pieri and column minors chapters of [the unitary hypotheses](/proof/unitary-hypotheses/) use it in alternant form.'
+  - concept: Littlewood-Richardson rule
+    text: 'Fulton, Young Tableaux, Chapter 5'
+    says: '$c^\lambda_{\mu\nu}$ is the number of tableaux of shape $\lambda/\mu$ and weight $\nu$ with a lattice reverse reading word; so the columns of $\lambda/\mu$ have at most $\ell(\nu)$ boxes when $c^\lambda_{\mu\nu} \ne 0$.'
+    why: 'The graded Lemma D of [the unitary hypotheses](/proof/unitary-hypotheses/) kills the shapes with a column of more than $p$ boxes over $\lambda_2$.'
+  - concept: Straightening law
+    text: 'De Concini, Eisenbud and Procesi, Young diagrams and determinantal varieties, Invent. Math. 56'
+    says: 'The standard bideterminants, products of minors indexed by standard bitableaux, form a $\mathbb{Z}$-basis of $\mathbb{Z}[x_{ij}]$.'
+    why: 'Bases of products of minors over a discrete valuation ring are the input to the growth bounds below [EveryCharacter from theta integrals and local matching](/step/theta-local-matching/).'
+    steps: [theta-local-matching]
+  - concept: Weyl and dual Weyl modules
+    text: 'Jantzen, Representations of Algebraic Groups, Part II, Chapter 2'
+    says: 'The span $\Delta(\nu)$ of divided powers applied to $\prod \Delta_s^{\nu_s - \nu_{s+1}}$ is a lattice inside the module $\nabla(\nu)$ of column-invariant polynomials of weight $\nu$, with finite index in each weight space.'
+    why: 'The exponent of $l$ in $\nabla(\nu)_\mu / \Delta(\nu)_\mu$ is what Lemma D bounds in [the unitary hypotheses](/proof/unitary-hypotheses/).'
+  - concept: Mahler measure
+    math2: QVPYBPRHRC
+    says: '$M(f) = \exp \int_{\mathbb{T}^n} \log|f|\,d\mu$, which in one variable is $|a|\prod \max(1, |\alpha_i|)$ by Jensen''s formula.'
+    why: 'Mahler measures of Chow forms give the archimedean part of the heights behind [the covolume bound](/step/covolume-bound-of-x-def/).'
+    steps: [covolume-bound-of-x-def]
+  - concept: Gauss's lemma
+    math2: 08C1NWBNHA
+    says: 'A product of primitive polynomials over $\mathbb{Z}$ is primitive; more generally the Gauss norm at a non-archimedean place is multiplicative.'
+    why: 'It makes the Mahler height of a polynomial additive under products.'
+  - concept: Heights of polynomials
+    text: 'Bombieri and Gubler, Heights in Diophantine Geometry, Section 1.6'
+    says: 'The height $h(f)$ and the Mahler height $h_M(f)$ sum local sizes of $f$ over all places, and in one variable $-d\log 2 \le h_M(f) - h(f) \le \frac12\log(d+1)$.'
+    why: 'They compare the sizes of polynomial equations used in the height estimates of the volume branch.'
+    steps: [covolume-bound-of-x-def]
+  - concept: Spherical Mahler measure of a linear form
+    text: 'Bost, Gillet and Soulé, Heights of projective varieties and positive Green forms, J. Amer. Math. Soc. 7'
+    says: 'On the unit sphere of $\mathbb{C}^n$, $\int \log|\langle u, z \rangle|\,d\sigma = \log|u| - \frac12 H_{n-1}$.'
+    why: 'It is the source of the term $\delta H_{n-1}/2$ in the Chow form formula behind [the covolume bound](/step/covolume-bound-of-x-def/).'
+    steps: [covolume-bound-of-x-def]
+  - concept: Fock pairing
+    text: 'Bargmann, On a Hilbert space of analytic functions and an associated integral transform, Comm. Pure Appl. Math. 14'
+    says: '$\langle f, g \rangle = \sum_\alpha \alpha!\, f_\alpha \overline{g_\alpha}$, for which multiplication by $z_i$ is adjoint to $\partial_i$ and $E_{ab}$ is adjoint to $E_{ba}$.'
+    why: 'It is the inner product of the Fock model in [the theta chapter](/learn/theta/#the-fock-model) that [the determinants chapter](/proof/determinants/) computes with.'
+  - concept: Bombieri's inequality
+    text: 'Beauzamy, Bombieri, Enflo and Montgomery, Products of polynomials in many variables, J. Number Theory 36'
+    says: 'For homogeneous $f$ and $g$, $\langle fg, fg \rangle \ge \langle f, f \rangle \langle g, g \rangle$ for the Fock pairing.'
+    why: 'It compares the Fock norm of a product of polynomials with the norms of its factors.'

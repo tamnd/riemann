@@ -1,6 +1,6 @@
 id: automorphic-forms
 title: Automorphic forms
-order: 9
+order: 14
 needs: [representations, l-functions]
 lead: 'From modular forms to automorphic forms and representations on adelic groups, their spectrum, and base change. The cuspidal $\pi$ of the row statement and the isobaric base change of the window bound are of this kind.'
 items:

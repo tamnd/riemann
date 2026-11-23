@@ -1,0 +1,110 @@
+id: positivity-resolution
+title: Positivity, vanishing theorems, resolution and L2 methods
+order: 20
+needs: [geometry, arakelov, analysis]
+lead: 'Ample, nef and big line bundles, metrics and Chern-Weil forms, resolution and principalization, the vanishing theorems of Kodaira, Kawamata-Viehweg and Nadel, the L2 estimates of Hörmander and Ohsawa-Takegoshi, and the Angehrn-Siu theorem. The volume estimates and the arithmetic inputs of the proof use them as published theorems.'
+items:
+  - concept: Ample line bundle
+    math2: RRK8P6TXG2
+    says: 'A line bundle is ample if a positive power is very ample, or equivalently if its powers kill the higher cohomology of each coherent sheaf.'
+    why: 'Serre vanishing for an ample bundle lifts sections from a subvariety in the Angehrn-Siu count behind [EveryCharacter from the literature](/step/every-character-of-literature/).'
+  - concept: Nakai-Moishezon criterion
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry I, 1.2'
+    says: 'A divisor is ample if and only if its top self-intersection on each positive-dimensional subvariety is positive.'
+    why: 'It proves that ample plus nef is ample, a step of the vanishing on a log resolution in the development.'
+  - concept: Nef divisor
+    math2: RZ66X0NAM5
+    says: 'A divisor is nef if its degree on each curve is nonnegative, and nefness is preserved by pullback.'
+    why: 'Pullbacks of ample bundles to a resolution are only nef, and `NefRR` in [the Weil bound](/proof/weil-bound/) is stated for nef bundles.'
+  - concept: Kleiman's theorem
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry I, 1.4'
+    says: 'The nef cone is the closure of the ample cone, and nef classes have nonnegative intersections with all subvarieties.'
+    why: 'It gives the nonnegative mixed intersection numbers in the proof that ample plus nef is ample.'
+  - concept: Big divisor and volume
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry I, 2.2'
+    says: 'A divisor is big if its sections grow like a positive multiple of $m^n/n!$, and a nef divisor is big exactly when its top self-intersection is positive.'
+    why: 'Nef and big is the hypothesis of Kawamata-Viehweg vanishing in the [published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Kodaira's lemma
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry I, 2.2'
+    says: 'A big divisor is numerically an ample divisor plus an effective divisor.'
+    why: 'It reduces the nef and big case of Kawamata-Viehweg vanishing to the ample case.'
+  - concept: Hermitian metric and Chern form
+    math2: Q6X6W2N29G
+    says: 'A metric with local weight $\varphi$ has Chern form $dd^c\varphi$, and the bundle is ample exactly when some metric has a positive Chern form.'
+    why: 'Chern forms of metrized bundles give the arithmetic degrees of the [Arakelov chapter](/learn/arakelov/).'
+  - concept: Plurisubharmonic function
+    math2: FF2P7ER3QT
+    says: 'A psh function is upper semicontinuous and subharmonic on complex lines, and its logarithmic poles are measured by Lelong numbers.'
+    why: 'Psh weights such as $n\log|s|^2$ are the singular metrics of `L2ExtensionLogCanonical` in the [published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Chern-Weil theorem
+    math2: PAD37GKDPD
+    says: 'The Chern forms of a Hermitian vector bundle are closed, change by $dd^c$ of a form when the metric changes, and represent the Chern classes.'
+    why: 'It turns Chern numbers into integrals of curvature forms, as in the arithmetic degrees of the [Arakelov chapter](/learn/arakelov/).'
+  - concept: Splitting principle and flag push-forward
+    text: 'Fulton, Intersection Theory, 3.2'
+    says: 'On the full flag bundle a vector bundle has a filtration by line bundles, so Chern classes become symmetric functions of first Chern classes.'
+    why: 'It is the statement `FlagPushForward` inside `GoodChernWeil` of the [published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Good metric
+    text: 'Mumford, Hirzebruch''s proportionality theorem in the non-compact case, Section 1'
+    says: 'A metric with logarithmic growth and Poincaré growth of its connection along a normal crossing boundary has integrable Chern forms that represent the Chern classes of the extension.'
+    why: 'It is `GoodChernWeil` in the [published arithmetic results](/step/published-results-arithmetic/), used on toroidal compactifications of unitary Shimura varieties.'
+  - concept: Blow-up
+    math2: 4SFS82N88K
+    says: 'The blow-up along a smooth centre of codimension $c$ is smooth, with exceptional divisor a projective bundle and canonical divisor $\pi^*K_X + (c-1)E$.'
+    why: 'Resolutions and principalizations in the development are composites of such blow-ups.'
+  - concept: Resolution of singularities
+    math2: MB52NDA6WN
+    says: 'In characteristic zero each variety has a functorial resolution by blow-ups in smooth centres with snc exceptional divisor.'
+    why: 'It is the input `ResolutionCharZero` of [the Weil bound](/proof/weil-bound/).'
+  - concept: Principalization
+    text: 'Kollár, Lectures on Resolution of Singularities, Chapter 3'
+    says: 'In characteristic zero each nonzero ideal becomes the ideal of an snc divisor after blow-ups in smooth centres.'
+    why: 'It is `PrincipalisationCharZero` in [the Weil bound](/proof/weil-bound/) and gives log resolutions for multiplier ideals.'
+  - concept: Discrepancy and klt pair
+    text: 'Kollár and Mori, Birational Geometry of Algebraic Varieties, Chapter 2'
+    says: 'A pair is klt if every divisor over it has discrepancy greater than $-1$, and this can be checked on one log resolution.'
+    why: 'The Angehrn-Siu inductive step of the development produces divisors that are not klt at given points.'
+  - concept: Kodaira vanishing
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry I, 4.2'
+    says: 'For $L$ ample on a smooth projective variety in characteristic zero, $H^i(X, K_X + L) = 0$ for $i > 0$.'
+    why: 'It is the base case of the vanishing theorems, and fails in characteristic $p$ without the hypotheses of Deligne and Illusie.'
+  - concept: Kawamata-Viehweg vanishing
+    math2: TAMCTW7SA0
+    says: 'If $N$ is numerically a nef and big $\mathbb{Q}$-divisor plus an snc divisor with coefficients in $[0,1)$, then $H^i(X, K_X + N) = 0$ for $i > 0$.'
+    why: 'It is `KawamataViehweg` in the [published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Multiplier ideal
+    math2: BKM0TQSCD9
+    says: 'For a $\mathbb{Q}$-divisor $D$ and a log resolution $\mu$, $\mathcal{J}(D) = \mu_*\mathcal{O}_Y(K_{Y/X} - \lfloor \mu^*D \rfloor)$, independent of $\mu$, with zero set the non-klt locus.'
+    why: 'It defines the non-klt locus in `NadelVanishingAndNonKltDivisor` of the [published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Local vanishing
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry II, 9.4'
+    says: 'The higher direct images of $\mathcal{O}_Y(K_{Y/X} - \lfloor \mu^*D \rfloor)$ under a log resolution vanish.'
+    why: 'It brings vanishing from the log resolution down to $X$ in the development proof of Nadel vanishing.'
+  - concept: Nadel vanishing
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry II, 9.4'
+    says: 'If $L - D$ is nef and big, then $H^i(X, \mathcal{O}(K_X + L) \otimes \mathcal{J}(D)) = 0$ for $i > 0$.'
+    why: 'It is `NadelVanishingAndNonKltDivisor` in the [published arithmetic results](/step/published-results-arithmetic/), and gives sections at isolated non-klt points.'
+  - concept: Skoda's integrability theorem
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry II, Chapter 9'
+    says: 'A psh weight with Lelong number less than $1$ at a point has $e^{-\varphi}$ integrable near it, and multiplicity at least $n$ makes a divisor non-klt.'
+    why: 'It links multiplicities, which sections count, to the klt condition in the Angehrn-Siu method.'
+  - concept: Hilbert space methods
+    math2: HM2HHE3J51
+    says: 'The Riesz representation theorem turns an a priori estimate for the adjoint of $\bar\partial$ into existence of a solution with a norm bound.'
+    why: 'The development proves the Hörmander statement `HStatement` by this duality argument.'
+  - concept: Hörmander L2 estimate
+    text: 'Hörmander, An Introduction to Complex Analysis in Several Variables, 4.4'
+    says: 'On a pseudoconvex domain with strictly psh weight $\varphi$, each $\bar\partial$-closed $g$ is $\bar\partial u$ with $\int |u|^2 e^{-\varphi} \le \int |g|^2_{i\partial\bar\partial\varphi} e^{-\varphi}$.'
+    why: 'It builds the sections with controlled norm behind `L2ExtensionLogCanonical` in the [published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Ohsawa-Takegoshi extension
+    text: 'Ohsawa and Takegoshi, On the extension of L2 holomorphic functions, Math. Z. 195'
+    says: 'A holomorphic function on a hyperplane section of a bounded pseudoconvex domain with finite weighted $L^2$ norm extends with a norm bound that depends only on the domain size.'
+    why: 'It is the model for `L2ExtensionLogCanonical`, which extends from the zero set of sections with weight $e^{-\psi}/(1+\delta^2\psi^2)$.'
+  - concept: Bergman kernel asymptotics
+    text: 'Tian, On a set of polarized Kähler metrics on algebraic manifolds, J. Differential Geom. 32'
+    says: 'For a positive Hermitian line bundle, sup norms of sections of $L^m$ are at most $C m^{n/2}$ times their $L^2$ norms.'
+    why: 'It compares the norms in the arithmetic Hilbert-Samuel formula `ArithHilbertSamuel` of the [published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Angehrn-Siu theorem
+    text: 'Lazarsfeld, Positivity in Algebraic Geometry II, 10.4'
+    says: 'If $(L^{\dim Z} \cdot Z) > (n(n+1)/2)^{\dim Z}$ for all subvarieties $Z$ through $x$, then $K_X + L$ has a section not vanishing at $x$.'
+    why: 'Its point separation form is `point_separation_pair_of_literature` in [EveryCharacter from the literature](/step/every-character-of-literature/).'

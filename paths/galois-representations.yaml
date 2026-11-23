@@ -1,6 +1,6 @@
 id: galois-representations
 title: Galois representations
-order: 10
+order: 21
 needs: [automorphic-forms, class-field-theory]
 lead: 'Galois representations, Weil-Deligne representations and the local Langlands correspondence, with the p-adic Hodge theory needed at the places above $\ell$. The row statement of the proof asks for such a representation attached to an automorphic representation.'
 items:

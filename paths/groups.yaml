@@ -1,6 +1,6 @@
 id: groups
 title: Classical groups
-order: 7
+order: 10
 needs: [algebra, analysis, number-fields, l-functions]
 lead: 'The general linear, symplectic and unitary groups, their parabolic, Levi and compact subgroups, their adelic points and the quotients of finite volume, Hermitian lattices and the Siegel mass formula, and the Heisenberg and metaplectic groups.'
 items:

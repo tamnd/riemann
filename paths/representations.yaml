@@ -1,6 +1,6 @@
 id: representations
 title: Representations of local groups
-order: 8
+order: 12
 needs: [groups]
 lead: 'Representations of compact groups, of $\mathrm{GL}_n$ over $p$-adic and finite fields, and of real reductive groups. They are the language of the local laws `IsRecT`, of the Satake parameters of the Galois row and of the discrete series in the unitary hypotheses.'
 items:

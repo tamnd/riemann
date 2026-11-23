@@ -1,6 +1,6 @@
 id: complex-analysis
 title: Complex analysis
-order: 3
+order: 5
 needs: [analysis]
 lead: 'Holomorphic and meromorphic functions, zeros and poles, analytic continuation, the logarithmic derivative, the zeros of the cosine, the Gamma function, Poisson summation, theta functions and the Mellin transform: what the last step of the proof and the continuation of Eisenstein series need.'
 items:

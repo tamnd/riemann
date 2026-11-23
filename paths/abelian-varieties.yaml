@@ -1,0 +1,128 @@
+id: abelian-varieties
+title: Abelian varieties, their moduli and degenerations
+order: 26
+needs: [algebra, number-fields, elliptic-curves, geometry, galois-representations, formal-groups]
+lead: 'Abelian varieties and abelian schemes, their duals and polarizations, Néron models and good reduction, the Siegel moduli schemes with level structure, Mumford''s construction of degenerations and the toroidal and minimal compactifications. The development uses these for the good reduction criteria, the dual abelian scheme, Zarhin''s trick and the compactified Shimura varieties of the volume bound.'
+items:
+  - concept: Abelian variety
+    math2: R7W03TXRS9
+    says: 'An abelian variety over a field $k$ is a proper, smooth, geometrically connected group scheme over $k$; it is commutative and projective.'
+    why: 'The CM abelian varieties of [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/) are abelian varieties over number fields.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Complex torus and Riemann form
+    math2: Y7MA6KBE9M
+    says: 'A complex torus $V/\Lambda$ is the analytic space of an abelian variety if and only if it has a positive definite Hermitian form $H$ with $\operatorname{Im} H$ integral on $\Lambda$.'
+    why: 'The fields `PeriodComparison` and `GaussManinPeriods` of [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/) compare de Rham classes with periods on these tori.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Theorem of the cube
+    text: 'D. Mumford, Abelian Varieties, Chapter II, section on the theorem of the cube'
+    says: 'For a line bundle $L$ on an abelian variety, the alternating product of the pullbacks $m_I^*L$ over $I \subseteq \{1,2,3\}$ is trivial on $A^3$, so $[n]^*L \cong L^{n^2}$ for symmetric $L$.'
+    why: 'The cubical line bundles in the degeneration data behind `SiegelToroidalIntegral` of [the literature chapter](/proof/literature/) rest on it.'
+  - concept: Torsion points and Tate module
+    math2: 4CSMQFTGD8
+    says: 'For $n$ prime to the characteristic, $A[n](\bar k) \cong (\mathbb{Z}/n)^{2g}$, and $T_\ell A = \varprojlim A[\ell^m](\bar k)$ is free of rank $2g$ over $\mathbb{Z}_\ell$ with a Galois action.'
+    why: 'The good reduction criteria in [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/) are stated through the inertia action on these modules.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Abelian scheme
+    math2: JDDXZ89N33
+    says: 'An abelian scheme over $S$ is a smooth proper group scheme over $S$ with geometrically connected fibres; by rigidity it is commutative.'
+    why: 'The universal families over the Siegel and unitary moduli spaces in [the literature chapter](/proof/literature/) are abelian schemes.'
+  - concept: Hodge bundle
+    text: 'G. Faltings and C.-L. Chai, Degeneration of Abelian Varieties, Chapter I'
+    says: 'The Hodge bundle $\omega_{A/S} = e^*\Omega^1_{A/S}$ is locally free of rank $g$, and $\det \omega_{A/S}$ is the Hodge line bundle whose sections of weight $k$ are modular forms.'
+    why: 'Its metric and slopes enter `SlopeBoundSt` of [the Weil bound](/proof/weil-bound/).'
+  - concept: Dual abelian variety and Poincaré bundle
+    math2: HZXSESHC8P
+    says: 'The dual $A^\vee$ represents line bundles in $\mathrm{Pic}^0$ rigidified at $0$, through the Poincaré bundle on $A \times A^\vee$, and $(A^\vee)^\vee = A$.'
+    why: 'The dual abelian scheme with biduality is an input of [EveryCharacter](/step/every-character/).'
+    steps: [every-character]
+  - concept: Dual isogeny and Weil pairing
+    text: 'D. Mumford, Abelian Varieties, Chapter III and Chapter IV'
+    says: 'For an isogeny $f$, $\ker f^\vee$ is the Cartier dual of $\ker f$, which for $f = [n]$ gives a perfect pairing $e_n : A[n] \times A^\vee[n] \to \mu_n$.'
+    why: 'Symplectic level structures on the moduli spaces of [the literature chapter](/proof/literature/) are defined through this pairing.'
+  - concept: De Rham cohomology of an abelian scheme
+    text: 'B. Mazur and W. Messing, Universal Extensions and One Dimensional Crystalline Cohomology, Lecture Notes in Math. 370'
+    says: 'For an abelian scheme $A/S$ there is an exact sequence $0 \to \omega_{A/S} \to H^1_{\mathrm{dR}}(A/S) \to \operatorname{Lie}(A^\vee/S) \to 0$ of locally free sheaves of ranks $g$, $2g$, $g$.'
+    why: 'This is the field `AbelianDeRham` of [the bundle of published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
+  - concept: Serre-Tate theorem
+    text: 'N. Katz, Serre-Tate local moduli, Lecture Notes in Math. 868'
+    says: 'Over a ring in which $p$ is nilpotent, deforming an abelian scheme along a nilpotent thickening is the same as deforming its $p$-divisible group.'
+    why: 'With Grothendieck-Messing it gives the field `GrothendieckDeformation` of [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/).'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Polarization
+    text: 'D. Mumford, Abelian Varieties, Chapter IV, section on the Rosati involution'
+    says: 'A polarization is a homomorphism $\lambda : A \to A^\vee$ that is $\varphi_L$ for an ample $L$ on each geometric fibre; it is principal if it is an isomorphism.'
+    why: 'The field `principalPolarisationOneSection` of [the bundle of published arithmetic results](/step/published-results-arithmetic/) concerns principal polarizations.'
+    steps: [published-results-arithmetic]
+  - concept: Rosati involution and Serre's lemma
+    text: 'D. Mumford, Abelian Varieties, Chapter IV, section on the Rosati involution'
+    says: 'The Rosati involution is positive, so $\mathrm{Aut}(A, \lambda)$ is finite, and an automorphism that is trivial on $A[n]$ with $n \ge 3$ is the identity.'
+    why: 'This makes the moduli problems with level $n \ge 3$ in [the literature chapter](/proof/literature/) representable by schemes.'
+  - concept: Zarhin's trick
+    text: 'Yu. G. Zarhin, 1974; D. Mumford, Abelian Varieties, Chapter IV'
+    says: 'For each abelian variety $A$, the abelian variety $(A \times A^\vee)^4$ has a principal polarization, so $A$ is a direct factor of a principally polarized abelian variety.'
+    why: 'It is `ZarhinStatement` in [the Weil bound](/proof/weil-bound/).'
+  - concept: Néron model
+    math2: K0EQTBRPE3
+    says: 'Over a discrete valuation ring $R$, an abelian variety $A_K$ has a unique smooth separated group scheme of finite type $N$ with $N_K = A_K$ such that each $K$-morphism from the generic fibre of a smooth $R$-scheme extends to $N$.'
+    why: 'The good reduction criteria of [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/) are statements about the special fibre of $N$.'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Criterion of Néron, Ogg and Shafarevich
+    text: 'J.-P. Serre and J. Tate, Good reduction of abelian varieties, Ann. of Math. 88 (1968), Theorem 1'
+    says: 'An abelian variety over the fraction field of a discrete valuation ring has good reduction if and only if inertia acts trivially on $T_\ell A$ for one, or each, prime $\ell$ different from the residue characteristic.'
+    why: 'It is part of `SerreTateGoodReductionSt` in [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/), used by [the window bound](/proof/vwin/).'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Semistable reduction theorem
+    text: 'A. Grothendieck, SGA 7 I, Exposé IX, Théorème 3.6'
+    says: 'Each abelian variety over the fraction field of a discrete valuation ring acquires semi-abelian reduction over a finite separable extension.'
+    why: 'It is the field `SemistableReductionSt` of [the bundle of published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
+  - concept: Potential good reduction of CM abelian varieties
+    text: 'J.-P. Serre and J. Tate, Good reduction of abelian varieties, section on complex multiplication'
+    says: 'An abelian variety with complex multiplication over a number field has potentially good reduction at each finite place.'
+    why: 'It is part of `SerreTateGoodReductionSt` in [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/).'
+    steps: [cm-abelian-inputs-from-literature]
+  - concept: Semi-abelian scheme
+    text: 'S. Bosch, W. Lütkebohmert and M. Raynaud, Néron Models, Chapter 7'
+    says: 'A semi-abelian scheme is a smooth separated commutative group scheme whose fibres are extensions of abelian varieties by tori.'
+    why: 'The Lie algebras of the semi-abelian schemes over toroidal compactifications enter `SemiAbelianLieSeminegative` in [the Weil bound](/proof/weil-bound/).'
+  - concept: Extension of homomorphisms
+    text: 'G. Faltings and C.-L. Chai, Degeneration of Abelian Varieties, Chapter I, Section 2'
+    says: 'Over a normal noetherian base, a homomorphism of semi-abelian schemes over a dense open subscheme extends uniquely to the whole base.'
+    why: 'It is `SemiAbelianHomExtension` in [the bundle of published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
+  - concept: Siegel moduli scheme with level structure
+    text: 'D. Mumford, J. Fogarty and F. Kirwan, Geometric Invariant Theory, Chapter 7'
+    says: 'For $n \ge 3$, principally polarized abelian schemes of dimension $g$ with symplectic level-$n$ structure are classified by a smooth quasi-projective scheme $\mathcal{A}_{g,n}$ over $\mathbb{Z}[\zeta_n, 1/n]$ of relative dimension $g(g+1)/2$.'
+    why: 'This Siegel family is the base of `SiegelToroidalIntegral` in [the literature chapter](/proof/literature/).'
+  - concept: Kodaira-Spencer map
+    math2: EWZ1G10MAY
+    says: 'Over $\mathcal{A}_{g,n}$ the Kodaira-Spencer map is an isomorphism $\operatorname{Sym}^2 \omega \cong \Omega^1$, so the canonical bundle is $(\det \omega)^{g+1}$.'
+    why: 'The record `KSAll` of [the Galois row](/proof/galois-row/) collects its properties.'
+  - concept: Tate curve
+    text: 'J. H. Silverman, Advanced Topics in the Arithmetic of Elliptic Curves, Chapter V'
+    says: 'For $|q| < 1$ in a complete field $K$, the curve $E_q$ with $E_q(\bar K) \cong \bar K^\times/q^{\mathbb{Z}}$ is an elliptic curve with split multiplicative reduction, and it degenerates to $\mathbb{G}_m$ over $\mathbb{Z}[\![q]\!]$.'
+    why: 'It is the case $g = 1$ of the degenerations whose charts enter `SiegelToroidalIntegral` in [the literature chapter](/proof/literature/).'
+  - concept: Raynaud extension and degeneration data
+    text: 'G. Faltings and C.-L. Chai, Degeneration of Abelian Varieties, Chapter II'
+    says: 'A semi-abelian degeneration over a complete normal base gives an extension $\widetilde{G}$ of an abelian scheme by a split torus with character group $X$, and periods $\iota : X \to \widetilde{G}(K)$ subject to a positivity condition.'
+    why: 'The polarized charts of `SiegelToroidalIntegral` in [the literature chapter](/proof/literature/) are given by such data.'
+  - concept: Mumford's construction
+    text: 'D. Mumford, An analytic construction of degenerating abelian varieties over complete rings, Compositio Math. 24 (1972)'
+    says: 'From degeneration data one builds a semi-abelian scheme whose generic fibre is the abelian variety $\widetilde{G}_K/\iota(X)$, and this gives an equivalence of categories.'
+    why: 'The development uses it to build the semi-abelian uniformizations that feed [the bundle of published arithmetic results](/step/published-results-arithmetic/).'
+  - concept: Toroidal compactification
+    text: 'G. Faltings and C.-L. Chai, Degeneration of Abelian Varieties, Chapter IV, Theorem IV.5.7'
+    says: 'For a smooth admissible cone decomposition, $\mathcal{A}_{g,n}$ has a smooth proper compactification with normal crossings boundary, a semi-abelian extension of the universal family and $\operatorname{Sym}^2 \omega \cong \Omega^1(\log D)$.'
+    why: 'It is the field `ToroidalCompactification` of [the bundle of published arithmetic results](/step/published-results-arithmetic/), and its unitary form `ToroidalForFanKS` is in [the literature chapter](/proof/literature/).'
+    steps: [published-results-arithmetic]
+  - concept: Minimal compactification and Koecher principle
+    text: 'G. Faltings and C.-L. Chai, Degeneration of Abelian Varieties, Chapter V'
+    says: 'The ring of modular forms gives a normal projective compactification $\mathcal{A}^*_{g,n}$ on which a power of $\det \omega$ is ample, and for $g \ge 2$ each modular form on $\mathcal{A}_{g,n}$ extends to the toroidal compactification.'
+    why: 'The statement that a power of the Hodge bundle is globally generated in `SiegelToroidalIntegral` of [the literature chapter](/proof/literature/) comes from it.'
+  - concept: Mumford proportionality
+    text: 'D. Mumford, Hirzebruch''s proportionality theorem in the non-compact case, Invent. Math. 42 (1977)'
+    says: 'Chern numbers of the canonical extensions of automorphic vector bundles to a toroidal compactification equal the volume ratio times the Chern numbers on the compact dual, up to the sign $(-1)^N$.'
+    why: 'Its unitary form `GoodChernWeil` gives the volume term of [the Weil bound](/proof/weil-bound/) through [the bundle of published arithmetic results](/step/published-results-arithmetic/).'
+    steps: [published-results-arithmetic]
