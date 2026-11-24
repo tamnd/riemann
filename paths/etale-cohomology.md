@@ -50,7 +50,7 @@ Each presheaf has a sheafification $\mathcal{F} \to \mathcal{F}^{\#}$ with the s
 
 The stalk of $\mathbb{G}_a$ at $\bar x$ is $\mathcal{O}^{\mathrm{sh}}_{X, \bar x}$, and the stalk of $\mathbb{G}_m$ is its unit group.
 
-**Theorem.** Let $K$ be a field and $G_K = \mathrm{Gal}(K^{\mathrm{sep}}/K)$. The functor $\mathcal{F} \mapsto \mathcal{F}_{\bar x} = \operatorname{colim}_{L} \mathcal{F}(\mathrm{Spec}\, L)$, over finite separable $L/K$ inside $K^{\mathrm{sep}}$, is an equivalence from sheaves on $(\mathrm{Spec}\, K)_{\mathrm{et}}$ to discrete $G_K$-modules. Under it, $H^i(\mathrm{Spec}\, K, \mathcal{F}) = H^i(G_K, \mathcal{F}_{\bar x})$, the [[Galois cohomology|9MPCZ3EAJM]] (Milne, *Étale Cohomology*, Chapter II).
+**Theorem (étale sheaves on a field).** Let $K$ be a field and $G_K = \mathrm{Gal}(K^{\mathrm{sep}}/K)$. The functor $\mathcal{F} \mapsto \mathcal{F}_{\bar x} = \operatorname{colim}_{L} \mathcal{F}(\mathrm{Spec}\, L)$, over finite separable $L/K$ inside $K^{\mathrm{sep}}$, is an equivalence from sheaves on $(\mathrm{Spec}\, K)_{\mathrm{et}}$ to discrete $G_K$-modules. Under it, $H^i(\mathrm{Spec}\, K, \mathcal{F}) = H^i(G_K, \mathcal{F}_{\bar x})$, the [[Galois cohomology|9MPCZ3EAJM]] (Milne, *Étale Cohomology*, Chapter II).
 
 So the étale cohomology of a field is the Galois cohomology of [the Galois cohomology chapter](/learn/galois-cohomology/). The sheaf $\mu_n$ corresponds to $\mu_n(K^{\mathrm{sep}})$.
 
@@ -315,7 +315,7 @@ For a scheme $X$ of finite type over $\mathbb{C}$, let $X^{\mathrm{an}} = X(\mat
 
 **Theorem (Riemann existence theorem).** Let $X$ be of finite type over $\mathbb{C}$. Then $Y \mapsto Y^{\mathrm{an}}$ is an equivalence from finite étale $X$-schemes to finite covering spaces of $X^{\mathrm{an}}$. So for $X$ connected, $\pi_1^{\mathrm{et}}(X, \bar x)$ is the profinite completion of the topological fundamental group $\pi_1(X^{\mathrm{an}}, x)$ (SGA 1, Exposé XII).
 
-**Theorem (comparison theorem; Artin).** Let $X$ be of finite type over $\mathbb{C}$ and $\mathcal{F}$ a constructible sheaf on $X_{\mathrm{et}}$. Then the natural maps
+**Theorem (Artin comparison theorem).** Let $X$ be of finite type over $\mathbb{C}$ and $\mathcal{F}$ a constructible sheaf on $X_{\mathrm{et}}$. Then the natural maps
 $$\begin{aligned} H^i(X_{\mathrm{et}}, \mathcal{F}) &\to H^i(X^{\mathrm{an}}, \mathcal{F}^{\mathrm{an}}), \\ H^i_c(X_{\mathrm{et}}, \mathcal{F}) &\to H^i_c(X^{\mathrm{an}}, \mathcal{F}^{\mathrm{an}}) \end{aligned}$$
 are isomorphisms for all $i$ (SGA 4, Exposé XI for $X$ smooth, and Exposé XVI in general).
 

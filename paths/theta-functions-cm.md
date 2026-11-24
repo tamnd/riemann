@@ -31,13 +31,13 @@ $$\begin{aligned} \theta[a, b](z + m, Z) &= e(a^T m)\, \theta[a, b](z, Z), \\ \t
 
 So $\theta(\cdot, Z)$ is a section of a line bundle on the complex torus $A_Z = \mathbb{C}^g / (Z\mathbb{Z}^g + \mathbb{Z}^g)$ of [the abelian varieties chapter](/learn/abelian-varieties/#complex-tori). The factor $\exp(-\pi i\, m^T Z m - 2\pi i\, m^T z)$ is the *classical factor of automorphy*.
 
-**Definition.** A characteristic $m = (a, b)$ is *half-integral* if $a, b \in \{0, \tfrac12\}^g$. It is *even* if $4 a^T b$ is even and *odd* otherwise. The *theta constant* (or *Thetanullwert*) of $m$ is $\theta[m](Z) = \theta[m](0, Z)$.
+**Definition.** A characteristic $m = (a, b)$ is *half-integral* if $a, b \in \{0, \tfrac12\}^g$. It is *even* if $4 a^T b$ is even and *odd* otherwise. We also call a half-integral characteristic a *theta characteristic*; the normalization of the key rule and the theta functions at the prime $2$ use them. The *theta constant* (or *Thetanullwert*) of $m$ is $\theta[m](Z) = \theta[m](0, Z)$.
 
 **Proposition.** Let $m$ be half-integral. Then $\theta[m](-z, Z) = (-1)^{4 a^T b}\, \theta[m](z, Z)$. So the odd theta constants are $0$. There are $2^{g-1}(2^g + 1)$ even and $2^{g-1}(2^g - 1)$ odd half-integral characteristics.
 
 *Proof.* By (3) and (2) of the proposition above, $\theta[a, b](-z) = \theta[a - 2a, b - 2b](z) = e(-2a^T b)\,\theta[a, b](z)$, because $2a, 2b \in \mathbb{Z}^g$. Here $e(-2a^Tb) = (-1)^{4a^Tb}$. For the count, let $N_g^{\pm}$ be the numbers of even and odd characteristics. A pair $(a_j, b_j) \in \{0, \tfrac12\}^2$ has $4a_jb_j = 0$ in three cases and $1$ in one case. So $N_g^+ - N_g^- = (3 - 1)(N_{g-1}^+ - N_{g-1}^-) = 2^g$, and $N_g^+ + N_g^- = 4^g$. $\square$
 
-**Proposition (heat equation).** With the entries $Z_{jk} = Z_{kj}$, $j \le k$, as coordinates on $\mathbb{H}_g$,
+**Proposition (heat equation for theta).** With the entries $Z_{jk} = Z_{kj}$, $j \le k$, as coordinates on $\mathbb{H}_g$,
 $$\frac{\partial^2 \theta[m]}{\partial z_j \partial z_k} = 2\pi i\,(1 + \delta_{jk})\, \frac{\partial \theta[m]}{\partial Z_{jk}}.$$
 
 *Proof.* Differentiate term by term. For $j < k$ the term of $n$ gives $(2\pi i)^2 n'_j n'_k$ on the left and $2\pi i \cdot n'_j n'_k$ on the right, with $n' = n + a$. For $j = k$ the right side gets $\pi i\, n'^2_j$ and the factor $2$. $\square$
@@ -55,7 +55,7 @@ and $\theta_{11}(z, \tau) = -2 q^{1/4} \sin(\pi z) + O(q^{9/4})$. The function $
 
 See Mumford, *Tata Lectures on Theta I*, Chapter I, the sections on the Jacobi identities and the product formula.
 
-The derivative formula is the genus one case of the normalization of the key value in the development: a theta section and the Lie basis $(2\pi i)^{-1}\partial_z$ give the value $1$ on the classical theta functions with half-integral characteristic.
+The Jacobi derivative formula is the genus one case of the normalization of the key value in the development: a theta section and the Lie basis $(2\pi i)^{-1}\partial_z$ give the value $1$ on the classical theta functions with half-integral characteristic.
 
 ## The transformation formula
 
@@ -132,7 +132,7 @@ The spanning statement of the development (theta series $\theta_P(\Phi)$ with ro
 
 ## Theta functions on complex tori
 
-Let $Z \in \mathbb{H}_g$ and $A_Z = \mathbb{C}^g/\Lambda_Z$ with $\Lambda_Z = Z\mathbb{Z}^g + \mathbb{Z}^g$. By the Appell-Humbert theorem of [the abelian varieties chapter](/learn/abelian-varieties/#complex-tori), a holomorphic line bundle $L$ on a [[complex torus|Y7MA6KBE9M]] $V/\Lambda$ is given by a *factor of automorphy*: a family of nowhere zero holomorphic functions $e_\lambda$ on $V$, $\lambda \in \Lambda$, with $e_{\lambda + \mu}(v) = e_\lambda(v + \mu)\, e_\mu(v)$. Its global sections are the *theta functions* for $e$: entire $f$ with $f(v + \lambda) = e_\lambda(v) f(v)$.
+Let $Z \in \mathbb{H}_g$ and $A_Z = \mathbb{C}^g/\Lambda_Z$ with $\Lambda_Z = Z\mathbb{Z}^g + \mathbb{Z}^g$. By the Appell-Humbert theorem of [the abelian varieties chapter](/learn/abelian-varieties/#complex-tori), a holomorphic line bundle $L$ on a [[complex torus|Y7MA6KBE9M]] $V/\Lambda$ is given by a *factor of automorphy*: a family of nowhere zero holomorphic functions $e_\lambda$ on $V$, $\lambda \in \Lambda$, with $e_{\lambda + \mu}(v) = e_\lambda(v + \mu)\, e_\mu(v)$. Its global sections are the *theta functions* for $e$: entire $f$ with $f(v + \lambda) = e_\lambda(v) f(v)$. The torsion translates of theta functions that the CM sections need are theta functions on a complex torus in this sense.
 
 **Definition.** For $n \ge 1$, let $\mathrm{Th}_n(Z)$ be the space of entire functions $f$ on $\mathbb{C}^g$ with
 $$f(z + m) = f(z), \qquad f(z + Zm) = \exp\big(-\pi i n\, m^T Z m - 2\pi i n\, m^T z\big)\, f(z), \qquad m \in \mathbb{Z}^g.$$
@@ -183,7 +183,7 @@ So $\theta_L$ is a theta function for the canonical factor of automorphy of the 
 
 *Proof.* Multiply the first relation of the proposition on $\sigma$ by $\exp(-s_2((z+\omega)^2 - z^2)/2) = \exp(-s_2\omega(z + \omega/2))$. For the norm, $\operatorname{Re}\big(\tfrac{\pi}{a}\bar\omega(z + \tfrac{\omega}{2})\big) = \tfrac{\pi}{2a}(|z + \omega|^2 - |z|^2)$. $\square$
 
-The function $\theta_L$ is the "reduced" sigma function. Its multiplier does not depend on the holomorphic quasi-periods, and its norm is the Hermitian metric on $\mathcal{O}(0)$ that [Arakelov geometry](/learn/arakelov/) uses. The constant $s_2$ in the development's even sigma log series $\varphi = \Phi(\lambda) + \tfrac12 s_2\lambda^2$ is this $s_2$.
+The function $\theta_L$ is the "reduced" sigma function. Its multiplier does not depend on the holomorphic quasi-periods, and its norm is the Hermitian metric on $\mathcal{O}(0)$ that [Arakelov geometry](/learn/arakelov/) uses. The constant $s_2$ in the development's even sigma log series $\varphi = \Phi(\lambda) + \tfrac12 s_2\lambda^2$ is this $s_2$. Through the Weierstrass function and sigma function, the sigma log series of [CM divisibility](/proof/cm-divisibility/) is $-\log\theta_L$.
 
 ### The cubical structure
 
@@ -193,7 +193,7 @@ is invariant under $\Lambda$ in each variable. So it is a meromorphic function o
 
 *Proof.* Replace $x$ by $x + \lambda$. The four factors that contain $x$ change by $e_\lambda(x+y+z)\,e_\lambda(x)/(e_\lambda(x+y)\,e_\lambda(z+x))$. Its logarithm is $2\pi i(\ell_\lambda(x+y+z) + \ell_\lambda(x) - \ell_\lambda(x+y) - \ell_\lambda(x+z))$, which is $0$ by linearity; the constants $c_\lambda$ cancel. The same holds for $y$ and $z$. $\square$
 
-The classical factor and the canonical factor have this form. So $\Theta$ is a meromorphic trivialization of the line bundle of the theorem of the cube in [the abelian varieties chapter](/learn/abelian-varieties/#the-theorem-of-the-cube). For $f = \sigma$, identity (3) above writes the "biextension" quotient $\sigma(x+y)/(\sigma(x)\sigma(y))$ through $\wp$. The development works with $\varphi = -\log$ of a sigma series in a formal parameter. Its statements "cube" and "biadd" are this proposition and the additivity of $\log(\sigma(x+y)/\sigma(x)\sigma(y))$ in each variable up to integral terms.
+The classical factor and the canonical factor have this form. So $\Theta$, the cubical structure of a theta function $f$, is a meromorphic trivialization of the line bundle of the theorem of the cube in [the abelian varieties chapter](/learn/abelian-varieties/#the-theorem-of-the-cube). For $f = \sigma$, identity (3) above writes the "biextension" quotient $\sigma(x+y)/(\sigma(x)\sigma(y))$ through $\wp$. The development works with $\varphi = -\log$ of a sigma series in a formal parameter. Its statements "cube" and "biadd" are this proposition and the additivity of $\log(\sigma(x+y)/\sigma(x)\sigma(y))$ in each variable up to integral terms.
 
 ## The algebraic theory of theta functions
 
@@ -269,7 +269,7 @@ It extends to ideles $\mathbb{A}_{E^*}^\times \to \mathbb{A}_E^\times$ and to id
 1. $A$ and $i$ have a model over a number field.
 2. Let $A$ be defined over a number field $F \supseteq E^*$ with $i(\mathcal{O}_E) \subseteq \mathrm{End}_F(A)$. Let $\mathfrak{P}$ be a prime of $F$ where $A$ has good reduction, with norm $q$. There is $\pi_{\mathfrak{P}} \in \mathcal{O}_E$ such that $i(\pi_{\mathfrak{P}})$ reduces to the $q$-th power Frobenius endomorphism of the reduction, and
 $$\pi_{\mathfrak{P}}\mathcal{O}_E = N_{\Phi^*}\big(N_{F/E^*}\mathfrak{P}\big).$$
-See Shimura, *Abelian Varieties with Complex Multiplication and Modular Functions*, and Milne, *Complex Multiplication* (lecture notes), the chapters on the reduction of CM abelian varieties.
+This is the *Shimura-Taniyama formula*. See Shimura, *Abelian Varieties with Complex Multiplication and Modular Functions*, and Milne, *Complex Multiplication* (lecture notes), the chapters on the reduction of CM abelian varieties.
 
 By the theorem of Serre and Tate in [Néron models and good reduction](/learn/abelian-varieties/#neron-models-and-good-reduction), $A$ has potentially good reduction at each finite place. So after a finite extension of $F$, the theorem applies at every prime.
 
@@ -305,7 +305,7 @@ For example, the quotients $\theta[m](Z)/\theta[n](Z)$ of theta constants at a C
 
 The values of modular forms at a CM point are transcendental, but the transcendence is in one period. Let $Z$ be a CM point. By the theorem of Shimura and Taniyama, $A_Z$ is isomorphic to $A \otimes \mathbb{C}$ for an abelian variety $A$ over a number field $F \subset \mathbb{C}$, with the polarization and a level $n$ structure defined over $F$ (enlarge $F$). Let $\omega = (\omega_1, \dots, \omega_g)$ be a basis of $H^0(A, \Omega^1)$ over $F$. The isomorphism $A_Z \cong A \otimes \mathbb{C}$ gives $dz = M\omega$ for a matrix $M = M(Z, \omega) \in \mathrm{GL}_g(\mathbb{C})$, a matrix of inverse periods.
 
-**Proposition.** Let $f$ be a Siegel modular form of weight $k$ for $\Gamma(n)$ with Fourier coefficients in $\overline{\mathbb{Q}}$. Then $\det(2\pi i M)^k f(Z) \in \overline{\mathbb{Q}}$. More precisely, if the coefficients lie in a field $F_0$ that contains $\zeta_n$, then $\det(2\pi i M)^k f(Z) \in F_0 F$.
+**Proposition (algebraicity of CM values).** Let $f$ be a Siegel modular form of weight $k$ for $\Gamma(n)$ with Fourier coefficients in $\overline{\mathbb{Q}}$. Then $\det(2\pi i M)^k f(Z) \in \overline{\mathbb{Q}}$. More precisely, if the coefficients lie in a field $F_0$ that contains $\zeta_n$, then $\det(2\pi i M)^k f(Z) \in F_0 F$.
 
 *Proof.* By the q-expansion principle, $f$ is a modular form over $F_0$. So $f(A, \lambda, \eta, \omega) \in F_0F$, because the data are defined over $F$. By the homogeneity of the rule, $f(Z) = f(A_Z, \lambda_Z, \eta_Z, 2\pi i\,dz) = f(A, \lambda, \eta, 2\pi i M\omega) = \det(2\pi i M)^{-k}f(A, \lambda, \eta, \omega)$. $\square$
 
@@ -322,6 +322,8 @@ $$\log\frac{\theta_L(z)}{z} = -\frac{s_2(L)}{2}z^2 - \sum_{k \ge 2}\frac{G_{2k}(
 and each $G_{2k}(L)$ is a polynomial in $g_2(L)$ and $g_3(L)$ with rational coefficients.
 
 *Proof.* Expand $\frac{1}{z - \omega} + \frac1\omega + \frac{z}{\omega^2} = -\sum_{m \ge 2} z^m\omega^{-m-1}$ and sum over $\omega$; the terms with $m$ even cancel in pairs $\pm\omega$. This gives $\zeta(z) = \frac1z - \sum_{k \ge 2}G_{2k}z^{2k-1}$. Integrate and add $-s_2z^2/2$. The recursion for the Laurent coefficients of $\wp$ writes $G_{2k}$ as a polynomial in $G_4 = g_2/60$ and $G_6 = g_3/140$ (Silverman, *The Arithmetic of Elliptic Curves*, Chapter VI). $\square$
+
+So Masser's theorem, the algebraicity of s2 (that is, of $s_2(L)$), makes the Taylor coefficients of the reduced sigma function algebraic, and the sigma log series of the development has algebraic coefficients.
 
 At a torsion point $z_0 \notin L$, $Nz_0 \in L$, the translated functions $\theta_L(z + z_0)/\theta_L(z_0)$ have algebraic Taylor coefficients in the variable $z$ as well: the logarithmic derivative of $\theta_L$ is $\zeta(z) - s_2 z$, and $\zeta(z + z_0) - \zeta(z) - \zeta(z_0)$ is an elliptic function, a rational function of $\wp(z), \wp'(z)$ with coefficients algebraic over $\mathbb{Q}(g_2, g_3, \wp(z_0), \wp'(z_0))$. The development's `AlgT` (algebraic Taylor coefficients of torsion translates) is of this kind.
 

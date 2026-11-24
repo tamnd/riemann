@@ -28,6 +28,8 @@ Let $V$ be a complex vector space of dimension $g$ and $\Lambda \subset V$ a lat
 $$\theta(v, Z) = \sum_{m \in \mathbb{Z}^g} \exp\big(\pi i\, m^T Z m + 2\pi i\, m^T v\big)$$
 is a section of a line bundle $L(H_Z, \alpha)$, and its zero divisor is the *theta divisor* $\Theta$. For $g \ge 2$, most lattices $\Lambda \subset \mathbb{C}^g$ have no positive definite Riemann form, so most complex tori are not algebraic.
 
+The fields `PeriodComparison` and `GaussManinPeriods` of [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/) use the complex torus and Riemann form of $A$ to compare de Rham classes with periods.
+
 ### The theorem of the cube
 
 **Theorem (theorem of the cube).** Let $A$ be an abelian variety and $L$ a line bundle on $A$. For $I \subseteq \{1, 2, 3\}$, let $m_I : A^3 \to A$ be $(x_1, x_2, x_3) \mapsto \sum_{i \in I} x_i$. Then
@@ -42,7 +44,7 @@ $$\begin{aligned} &m_{123}^*L \otimes m_{12}^*L^{-1} \otimes m_{13}^*L^{-1} \oti
 
 *Proof of the first two claims.* Let $L$ be ample. Then $L \otimes [-1]^*L$ is ample and symmetric, so we may assume $L$ symmetric. Then $[n]^*L \cong L^{n^2}$ is ample. Its restriction to the fibre $[n]^{-1}(0)$ is trivial, and a proper scheme with a trivial ample bundle is finite, so $\ker [n]$ is finite and $[n]$ is surjective. By the projection formula for intersection numbers, $\deg [n] \cdot (L^g) = ([n]^*L)^g = n^{2g} (L^g)$, and $(L^g) > 0$. So $\deg [n] = n^{2g}$. If $n$ is prime to the characteristic, $[n]$ is multiplication by $n$ on the tangent space at $0$, so $[n]$ is étale and $\# A[d](\bar k) = d^{2g}$ for each $d \mid n$. A finite abelian group with this property for each $d \mid n$ is $(\mathbb{Z}/n)^{2g}$. $\square$
 
-**Definition.** Let $\ell$ be a prime different from the characteristic of $k$. The *[[Tate module|4CSMQFTGD8]]* of $A$ is $T_\ell A = \varprojlim_m A[\ell^m](\bar k)$, with the maps $[\ell] : A[\ell^{m+1}] \to A[\ell^m]$. It is a free $\mathbb{Z}_\ell$-module of rank $2g$ with a continuous action of $\mathrm{Gal}(\bar k/k)$ when $k$ is perfect (in general, of the Galois group of a separable closure). Let $V_\ell A = T_\ell A \otimes \mathbb{Q}_\ell$.
+**Definition.** Let $\ell$ be a prime different from the characteristic of $k$. The *[[Tate module|4CSMQFTGD8]]* of $A$ is $T_\ell A = \varprojlim_m A[\ell^m](\bar k)$, with the maps $[\ell] : A[\ell^{m+1}] \to A[\ell^m]$. It is a free $\mathbb{Z}_\ell$-module of rank $2g$ with a continuous action of $\mathrm{Gal}(\bar k/k)$ when $k$ is perfect (in general, of the Galois group of a separable closure). Let $V_\ell A = T_\ell A \otimes \mathbb{Q}_\ell$. The good reduction criteria below use torsion points and Tate module: they are stated through the action of inertia on $A[n]$ and on $T_\ell A$.
 
 **Theorem.** Let $A$, $B$ be abelian varieties over $k$. Then $\mathrm{Hom}(A, B)$ is a free $\mathbb{Z}$-module of finite rank, and the map $\mathrm{Hom}(A, B) \otimes \mathbb{Z}_\ell \to \mathrm{Hom}_{\mathbb{Z}_\ell}(T_\ell A, T_\ell B)$ is injective. So the rank of $\mathrm{Hom}(A, B)$ is at most $4 \dim A \dim B$ (Mumford, Chapter IV, section on $\mathrm{Hom}(X, Y)$ and the $\ell$-adic representation).
 
@@ -82,7 +84,7 @@ With the theorem of Grothendieck and Messing in [the formal groups chapter](/lea
 
 ## Duality and the Poincaré bundle
 
-Let $A$ be an abelian variety over $k$ of dimension $g$.
+Let $A$ be an abelian variety over $k$ of dimension $g$. This section constructs the dual abelian variety and Poincaré bundle, first over a field and then over a base.
 
 **Definition.** Let $\mathrm{Pic}^0(A_{\bar k})$ be the group of line bundles $L$ on $A_{\bar k}$ with $K(L) = A$, that is, with $t_x^*L \cong L$ for each $x \in A(\bar k)$.
 
@@ -98,7 +100,7 @@ A line bundle with property (b) is called *additive* or *primitive*. Property (b
 
 **Theorem (biduality).** Let $s : A^\vee \times A \to A \times A^\vee$ swap the factors. Then $s^*P$ makes $A$ a dual of $A^\vee$, so $(A^\vee)^\vee = A$ canonically. A homomorphism $f : A \to B$ has a *dual* $f^\vee : B^\vee \to A^\vee$, given by pulling back line bundles. If $f$ is an isogeny, so is $f^\vee$, and $\ker f^\vee$ is the Cartier dual of $\ker f$ (Mumford, Chapter III).
 
-**Definition.** Let $n$ be prime to the characteristic. Applied to $f = [n]$, the last statement gives a perfect pairing $e_n : A[n] \times A^\vee[n] \to \mu_n$, the *Weil pairing*. For a homomorphism $\lambda : A \to A^\vee$, let $e^\lambda_n(x, y) = e_n(x, \lambda(y))$ on $A[n] \times A[n]$. If $\lambda = \varphi_L$, then $e^\lambda_n$ is alternating (Mumford, Chapter IV, section on the Riemann form of a line bundle).
+**Definition.** Let $n$ be prime to the characteristic. Applied to $f = [n]$, the last statement gives a perfect pairing $e_n : A[n] \times A^\vee[n] \to \mu_n$, the *Weil pairing*. For a homomorphism $\lambda : A \to A^\vee$, let $e^\lambda_n(x, y) = e_n(x, \lambda(y))$ on $A[n] \times A[n]$. If $\lambda = \varphi_L$, then $e^\lambda_n$ is alternating (Mumford, Chapter IV, section on the Riemann form of a line bundle). The dual isogeny and Weil pairing define the symplectic level structures on the moduli spaces below.
 
 Now let $A \to S$ be an abelian scheme of relative dimension $g$.
 
@@ -110,7 +112,7 @@ on $S$-schemes $T$. By the proposition above, the condition on $M$ is that $M$ b
 
 The statement `DualAbelianScheme` of the development asks for a scheme $B$ and an additive bundle $P$ with this universal property, together with biduality; it is used by [EveryCharacter](/step/every-character/).
 
-**Proposition (de Rham cohomology).** Let $f : A \to S$ be an abelian scheme. Then $\operatorname{Lie}(A^\vee/S) \cong R^1 f_* \mathcal{O}_A$, and the Hodge filtration gives the exact sequence of locally free sheaves of ranks $g$, $2g$, $g$
+**Proposition (de Rham cohomology of an abelian scheme).** Let $f : A \to S$ be an abelian scheme. Then $\operatorname{Lie}(A^\vee/S) \cong R^1 f_* \mathcal{O}_A$, and the Hodge filtration gives the exact sequence of locally free sheaves of ranks $g$, $2g$, $g$
 $$0 \to \omega_{A/S} \to H^1_{\mathrm{dR}}(A/S) \to \operatorname{Lie}(A^\vee/S) \to 0$$
 (Mazur and Messing, *Universal Extensions and One Dimensional Crystalline Cohomology*, Lecture Notes in Math. 370, the chapter on the universal extension). A principal polarization $\lambda$ (defined below) gives a perfect alternating pairing on $H^1_{\mathrm{dR}}(A/S)$ in which $\omega_{A/S}$ is a Lagrangian subbundle.
 
@@ -136,7 +138,7 @@ By Albert's classification, the endomorphism algebra of a simple abelian variety
 
 *Proof.* Since $u - 1$ kills $A[n]$ and $[n]$ is the quotient by $A[n]$, $u - 1 = n\beta$ with $\beta \in \mathrm{End}(A)$. By the corollary, $u$ has finite order, so $u$ acts semisimply on $V_\ell A$ with roots of unity $\zeta$ as eigenvalues. The eigenvalues $(\zeta - 1)/n$ of $\beta$ are algebraic integers, since the characteristic polynomial of $\beta$ has integer coefficients (Mumford, Chapter IV). Let $\zeta \ne 1$ have order $m$. Then $n^{\varphi(m)}$ divides $N(1 - \zeta)$, which is $1$ if $m$ is not a prime power and $p$ if $m$ is a power of a prime $p$. As $n \ge 3$, this is impossible. So all eigenvalues are $1$, $u = 1$ on $V_\ell A$, and $u = 1$ because $\mathrm{End}(A) \to \mathrm{End}(T_\ell A)$ is injective. $\square$
 
-The same argument shows that the principal congruence subgroup $\Gamma(n) \subset \mathrm{Sp}_{2g}(\mathbb{Z})$ has no torsion for $n \ge 3$. The lemma is why the moduli problems below with level $n \ge 3$ are representable.
+The same argument shows that the principal congruence subgroup $\Gamma(n) \subset \mathrm{Sp}_{2g}(\mathbb{Z})$ has no torsion for $n \ge 3$. The Rosati involution and Serre's lemma are why the moduli problems below with level $n \ge 3$ are representable.
 
 **Theorem (Zarhin's trick).** Let $A$ be an abelian variety over a field. Then $(A \times A^\vee)^4$ has a principal polarization. More generally, the same holds for an abelian scheme $A/S$ with a polarization whose kernel is killed by an integer $n \ge 1$ (Zarhin, 1974).
 
@@ -190,7 +192,7 @@ The converse uses the Néron model: if $I$ fixes $A[m]$ for large $m$, the point
 1. $A_K$ has semi-abelian reduction if and only if each $\sigma \in I$ acts unipotently on $T_\ell(A_K)$, and then $(\sigma - 1)^2 = 0$ on $T_\ell(A_K)$ for each $\sigma \in I$ (SGA 7 I, Exposé IX, Proposition 3.5).
 2. (*Semistable reduction theorem.*) There is a finite separable extension $L/K$ such that $A_L$ has semi-abelian reduction at each place of $L$ above $R$ (SGA 7 I, Exposé IX, Théorème 3.6).
 
-**Theorem (Serre and Tate).** Let $A$ be an abelian variety over a number field $F$ with complex multiplication over $F$: a commutative semisimple subalgebra of $\mathrm{End}^0(A)$ of dimension $2g$ over $\mathbb{Q}$. Then $A$ has potentially good reduction at each finite place of $F$ (Serre and Tate, section on complex multiplication).
+**Theorem (Serre and Tate, potential good reduction of CM abelian varieties).** Let $A$ be an abelian variety over a number field $F$ with complex multiplication over $F$: a commutative semisimple subalgebra of $\mathrm{End}^0(A)$ of dimension $2g$ over $\mathbb{Q}$. Then $A$ has potentially good reduction at each finite place of $F$ (Serre and Tate, section on complex multiplication).
 
 These three results form `SerreTateGoodReductionSt`, the largest field of [the CM and abelian variety inputs](/step/cm-abelian-inputs-from-literature/), and the semistable reduction theorem is the field `SemistableReductionSt` of [the bundle of published arithmetic results](/step/published-results-arithmetic/).
 
@@ -208,7 +210,7 @@ Fix $g \ge 1$ and $n \ge 1$. Let $\zeta_n = e^{2\pi i/n}$ and $\Lambda_n = \math
 
 **Theorem (Mumford).** Let $n \ge 3$. The functor $\mathcal{A}_{g,n}$ is represented by a quasi-projective scheme $\mathcal{A}_{g,n}$ over $\Lambda_n$ with a universal triple $(\mathcal{X}, \lambda, \eta)$. It is smooth over $\Lambda_n$ of relative dimension $g(g+1)/2$ (Mumford, Fogarty and Kirwan, *Geometric Invariant Theory*, Chapter 7, for representability; Faltings and Chai, Chapter I, for smoothness).
 
-By Serre's lemma, a triple with $n \ge 3$ has no automorphism other than $1$; this is what makes the functor representable by a scheme rather than a stack. The development calls such a family a *Siegel family* of genus $g$ and level $n$.
+By Serre's lemma, a triple with $n \ge 3$ has no automorphism other than $1$; this is what makes the functor representable by a scheme rather than a stack. The development calls such a family a *Siegel family* of genus $g$ and level $n$. This Siegel moduli scheme with level structure is the base of `SiegelToroidalIntegral` in [the literature chapter](/proof/literature/).
 
 **Theorem (deformations).** Let $k$ be a perfect field and $(A_0, \lambda_0)$ a principally polarized abelian variety over $k$. The deformations of $(A_0, \lambda_0)$ over local Artin rings with residue field $k$ are unobstructed, and the universal deformation ring is a power series ring in $g(g+1)/2$ variables over the Witt vectors $W(k)$. The tangent space of the deformations of $A_0$ alone is $\operatorname{Lie}(A_0) \otimes \operatorname{Lie}(A_0^\vee)$, of dimension $g^2$, and $\lambda_0$ cuts it down to $\operatorname{Sym}^2 \operatorname{Lie}(A_0)$ (Oort, *Finite group schemes, local moduli for abelian varieties, and lifting problems*, Compositio Math. 23, 1971; Faltings and Chai, Chapter I).
 
@@ -323,6 +325,8 @@ is a normal projective scheme over $\Lambda_n$ that does not depend on $\Sigma$.
 
 **Theorem (Koecher principle, algebraic form).** For $g \ge 2$, restriction gives $H^0(\overline{\mathcal{A}}_{g,n}, \omega^{\otimes k}) = H^0(\mathcal{A}_{g,n}, \omega^{\otimes k})$ (Faltings and Chai, Chapter V).
 
+The minimal compactification and Koecher principle together show that a power of the Hodge line bundle is globally generated on $\overline{\mathcal{A}}_{g,n}$, as `SiegelToroidalIntegral` in [the literature chapter](/proof/literature/) states.
+
 **Definition.** The module of *cusp forms* of weight $k$ is $S_k = H^0(\overline{\mathcal{A}}_{g,n}, \omega^{\otimes k}(-D))$. Over $\mathbb{C}$ these are the cusp forms of the last section: at a boundary chart, $\exp(2\pi i \operatorname{tr}(TZ)/n)$ is a monomial in the $t_i$ whose exponents are the values of $T$ on the rays of the cone, and these are all positive exactly when $T$ is positive definite.
 
 **Corollary.** $H^0(\overline{\mathcal{A}}_{g,n}, \Omega^{g(g+1)/2}) \cong S_{g+1}$. So the holomorphic forms of top degree on a smooth toroidal compactification are the cusp forms of weight $g + 1$.
@@ -345,7 +349,7 @@ The extension $\overline{\mathcal{E}}$ is the *canonical extension*. For $\mathb
 
 **Example.** Let $g = 1$ and $\Gamma = \Gamma(n)$, $n \ge 3$, with $\mu_n = [\mathrm{PSL}_2(\mathbb{Z}) : \Gamma(n)/\{\pm 1\}] = \tfrac{n^3}{2} \prod_{p \mid n} (1 - p^{-2})$. The modular curve $X(n)$ has $\mu_n/n$ cusps. The discriminant $\Delta \in H^0(X(n), \omega^{\otimes 12})$ has no zero on $Y(n)$ and a zero of order $n$ in the parameter $q^{1/n}$ at each cusp, so $\deg \omega = \mu_n/12$. On the other side, $\check{Y} = \mathbb{P}^1$ and $\omega$ corresponds to $\mathcal{O}(-1)$. The hyperbolic area of $Y(n)$ for curvature $-1$ is $\mu_n \pi/3$, and the area of $\mathbb{P}^1$ for curvature $+1$ is $4\pi$, so $v(\Gamma) = \mu_n/12$ and the theorem gives $\deg \omega = (-1)^1 \cdot \tfrac{\mu_n}{12} \cdot (-1)$. For $n = 3$: $\mu_3 = 12$, $\deg \omega = 1$, and $2 \deg \omega = 2 = -2 + 4$, the degree of $\Omega^1(\log D)$ on a curve of genus $0$ with $4$ cusps.
 
-In the development, a form of this theorem for toroidal flag spaces of unitary Shimura varieties, `GoodChernWeil`, is the field `p16` of [the bundle of published arithmetic results](/step/published-results-arithmetic/). It turns self-intersection numbers of automorphic line bundles into a covolume times a flag degree, the volume term of [the Weil bound](/proof/weil-bound/).
+In the development, a form of Mumford proportionality for toroidal flag spaces of unitary Shimura varieties, `GoodChernWeil`, is the field `p16` of [the bundle of published arithmetic results](/step/published-results-arithmetic/). It turns self-intersection numbers of automorphic line bundles into a covolume times a flag degree, the volume term of [the Weil bound](/proof/weil-bound/).
 
 ## Notes and references
 

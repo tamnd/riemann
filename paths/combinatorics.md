@@ -46,7 +46,7 @@ On the polynomial ring $\mathbb{Q}[x_{ij}]$ in the entries of an $r \times n$ ma
 
 *Proof.* The flow of the vector field $E_{ab}$ is $x_{bj} \mapsto x_{bj} + t x_{aj}$, with the other variables fixed, since $a \ne b$. So $f_t = \exp(t E_{ab}) f$, a finite sum on polynomials. If $f$ has integer coefficients, so does $f_t$. $\square$
 
-The divided powers $E_{ab}^{(k)}$ define the integral Weyl modules of the section on polynomials on matrices. The growth bounds below [EveryCharacter from theta integrals and local matching](/step/theta-local-matching/) use operators $\sum_{k} (-1)^k \binom{h+k}{k}^{-1} E_{ba}^{(k)} E_{ab}^{(k)}$, and they control the $p$-adic size of the denominators $\binom{h+k}{k}$ by Kummer's theorem.
+These divided powers of polarization operators, $E_{ab}^{(k)}$, define the integral Weyl modules of the section on polynomials on matrices. The growth bounds below [EveryCharacter from theta integrals and local matching](/step/theta-local-matching/) use operators $\sum_{k} (-1)^k \binom{h+k}{k}^{-1} E_{ba}^{(k)} E_{ab}^{(k)}$, and they control the $p$-adic size of the denominators $\binom{h+k}{k}$ by Kummer's theorem.
 
 ## Partitions and Young tableaux
 
@@ -336,7 +336,7 @@ Now take $m = n = r$, and let $\mathrm{GL}_r$ act on $\mathbb{Z}[x_{ij}]$ by row
 
 *Proof.* $\mathrm{hw}_\nu \in \nabla(\nu)$ by the computation of the last proposition. Row operations commute with column operations, and the divided powers $E_{ab}^{(k)}$ preserve $\mathbb{Z}[x_{ij}]$ by the proposition of the first section. So $\Delta(\nu) \subseteq \nabla(\nu)$. Over $\mathbb{Q}$, $\nabla(\nu)$ is irreducible of highest weight $\nu$ (Borel-Weil), and $\Delta(\nu) \otimes \mathbb{Q}$ is a nonzero subrepresentation. Each weight space of both is a finitely generated $\mathbb{Z}$-module of the same rank. $\square$
 
-Reduced modulo a prime $l$, $\nabla(\nu)$ has the simple module $L(\nu)$ as its socle (J. C. Jantzen, *Representations of Algebraic Groups*, Part II, Chapter 2). The exponent $e$ such that $l^e \nabla(\nu)_\mu \subseteq \Delta(\nu)_\mu$, up to integers prime to $l$, is the quantity of the graded Lemma D in [the unitary hypotheses](/proof/unitary-hypotheses/). J. A. Green, *Polynomial Representations of $\mathrm{GL}_n$*, Lecture Notes in Math. 830, builds these modules from bideterminants.
+Reduced modulo a prime $l$, $\nabla(\nu)$ has the simple module $L(\nu)$ as its socle (J. C. Jantzen, *Representations of Algebraic Groups*, Part II, Chapter 2). The exponent $e$ such that $l^e \nabla(\nu)_\mu \subseteq \Delta(\nu)_\mu$, up to integers prime to $l$, is the quantity of the graded Lemma D in [the unitary hypotheses](/proof/unitary-hypotheses/). J. A. Green, *Polynomial Representations of $\mathrm{GL}_n$*, Lecture Notes in Math. 830, builds the Weyl and dual Weyl modules from bideterminants.
 
 ## Mahler measure and the size of polynomials
 
@@ -391,7 +391,7 @@ By the product formula, $h(cf) = h(f)$ for $c \in K^\times$, so $h(f)$ is the [h
 
 For heights of varieties one uses the Mahler measure of a Chow form, often over spheres in place of tori. Let $\sigma$ be the unitarily invariant probability measure on the unit sphere $S^{2n-1} \subset \mathbb{C}^n$, and put $m_S(f) = \int_{S^{2n-1}} \log|f| \, d\sigma$ (and products of spheres for multihomogeneous $f$).
 
-**Proposition.** For $u \in \mathbb{C}^n \setminus \{0\}$ and $\ell_u(z) = \sum_j u_j z_j$,
+**Proposition (spherical Mahler measure of a linear form).** For $u \in \mathbb{C}^n \setminus \{0\}$ and $\ell_u(z) = \sum_j u_j z_j$,
 $$m_S(\ell_u) = \log |u| - \tfrac12 H_{n-1}, \qquad H_{n-1} = 1 + \tfrac12 + \dots + \tfrac{1}{n-1}.$$
 
 *Proof.* By unitary invariance we may take $u = |u| e_1$, so $m_S(\ell_u) = \log|u| + \int \log |z_1| \, d\sigma$. For $z$ uniform on the sphere, $(|z_1|^2, \dots, |z_n|^2)$ is uniform on the simplex, so $|z_1|^2$ has density $(n-1)(1-t)^{n-2}$ on $[0, 1]$. With $s = 1 - t$,

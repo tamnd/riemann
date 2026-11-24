@@ -40,7 +40,7 @@ In the Hermitian case $h(x, x) \in F$, so $\mathfrak{n}L$ is an ideal of $F$ whi
 $$\mathrm{Tr}_{E/F}(\mathfrak{s}L) \subseteq \mathfrak{n}L \subseteq \mathfrak{s}L \cap F.$$
 If $\mathrm{Tr}_{E/F}(\mathcal{O}_E) = \mathcal{O}_F$ locally, for example when $E/F$ is unramified or split at the place, both inclusions are equalities. At a ramified dyadic place the norm can be smaller than the scale, and the classification needs both invariants. In the quadratic case $2\mathfrak{s}L \subseteq \mathfrak{n}L \subseteq \mathfrak{s}L$.
 
-**Definition (dual lattice).** The *dual* of $L$ is $L^\# = \{x \in V : h(x, L) \subseteq \mathcal{O}\}$. So $L$ is integral if and only if $L \subseteq L^\#$. For a fractional ideal $\mathfrak{a}$ of $\mathcal{O}$, the lattice $L$ is *$\mathfrak{a}$-modular* if $\{x \in V : h(x, L) \subseteq \mathfrak{a}\} = L$, that is, $L = \mathfrak{a} L^\#$. It is *unimodular*, or *self-dual*, if $L^\# = L$.
+**Definition (dual lattice and self-dual lattice).** The *dual* of $L$ is $L^\# = \{x \in V : h(x, L) \subseteq \mathcal{O}\}$. So $L$ is integral if and only if $L \subseteq L^\#$. For a fractional ideal $\mathfrak{a}$ of $\mathcal{O}$, the lattice $L$ is *$\mathfrak{a}$-modular* if $\{x \in V : h(x, L) \subseteq \mathfrak{a}\} = L$, that is, $L = \mathfrak{a} L^\#$. It is *unimodular*, or *self-dual*, if $L^\# = L$.
 
 An $\mathfrak{a}$-modular lattice has scale $\mathfrak{a}$. A rank one lattice $\mathcal{O}x$ is $\mathfrak{a}$-modular for $\mathfrak{a} = h(x, x)\mathcal{O}$.
 
@@ -50,7 +50,7 @@ with $c$ the identity in the quadratic case.
 
 *Proof.* Write $x = \sum_j b_j y_j$. For $a \in \mathfrak{a}_i$ we have $h(a x_i, x) = a\, c(b_i)$. So $x \in L^\#$ if and only if $\mathfrak{a}_i c(b_i) \subseteq \mathcal{O}$ for all $i$, that is, $b_i \in c(\mathfrak{a}_i)^{-1}$. $\square$
 
-**Definition (discriminant).** For $L = \bigoplus_i \mathfrak{a}_i x_i$ with [[Gram matrix|00SPJSDT3Z]] $G = (h(x_i, x_j))$, the *discriminant* of $L$ is the fractional ideal of $\mathcal{O}_F$
+**Definition (discriminant of a lattice).** For $L = \bigoplus_i \mathfrak{a}_i x_i$ with [[Gram matrix|00SPJSDT3Z]] $G = (h(x_i, x_j))$, the *discriminant* of $L$ is the fractional ideal of $\mathcal{O}_F$
 $$\mathfrak{d}L = \begin{cases} N_{E/F}(\mathfrak{a}_1 \cdots \mathfrak{a}_n) \det G \cdot \mathcal{O}_F & \text{(Hermitian case)}, \\ (\mathfrak{a}_1 \cdots \mathfrak{a}_n)^2 \det G \cdot \mathcal{O}_F & \text{(quadratic case)}. \end{cases}$$
 
 The matrix $G$ is Hermitian, so $\det G \in F$. A change of basis by $g$ multiplies $\det G$ by $N_{E/F}(\det g)$ and the product of the ideals by $(\det g)^{-1}$, so $\mathfrak{d}L$ is well defined. It is local: $(\mathfrak{d}L)_v = \mathfrak{d}(L_v)$.
@@ -71,7 +71,7 @@ $$\{x \in V : \mathrm{Tr}_{E/F}\, h(x, L) \subseteq \mathcal{O}_F\} = \mathfrak{
 
 So a self-dual Hermitian lattice is also self-dual for the trace form if and only if $\mathfrak{D}_{E/F} = \mathcal{O}_E$, that is, $E/F$ is unramified at all finite places. This is why the hypothesis `IsCMUnram` appears next to the two self-duality clauses `IsHerm` and `IsSkew` of [TLiftK](/step/tlift-k-def/).
 
-**Proposition (covolume).** Let $E/F$ be a CM extension with $d = [F : \mathbb{Q}]$, and let $V$ be positive definite. Give $V \otimes_{\mathbb{Q}} \mathbb{R} = \prod_{v \mid \infty} V_v$ the Euclidean structure $\sum_v \mathrm{Re}\, h_v$. Then for every lattice $L$ on $V$,
+**Proposition (covolume of a Hermitian lattice).** Let $E/F$ be a CM extension with $d = [F : \mathbb{Q}]$, and let $V$ be positive definite. Give $V \otimes_{\mathbb{Q}} \mathbb{R} = \prod_{v \mid \infty} V_v$ the Euclidean structure $\sum_v \mathrm{Re}\, h_v$. Then for every lattice $L$ on $V$,
 $$\mathrm{covol}(L) = \left(2^{-d} |d_E|^{1/2}\right)^n N_{F/\mathbb{Q}}(\mathfrak{d}L).$$
 
 *Proof.* For $L = \mathcal{O}_E^n$ with the standard form, $E \otimes \mathbb{R} = \mathbb{C}^d$ with the standard metric, and the covolume of $\mathcal{O}_E$ in it is $2^{-d}|d_E|^{1/2}$, the classical [[discriminant|3BCYVS9E17]] formula. For $L = \bigoplus \mathfrak{a}_i x_i$ with Gram matrix $G$, the ideals contribute $N_{E/\mathbb{Q}}(\mathfrak{a}_1 \cdots \mathfrak{a}_n) = N_{F/\mathbb{Q}}(N_{E/F}(\mathfrak{a}_1 \cdots \mathfrak{a}_n))$. At each real place $v$ of $F$, the real Gram matrix of $\mathrm{Re}\, h_v$ on $\mathbb{C}^n = \mathbb{R}^{2n}$ has determinant $(\det G_v)^2$, so the basis contributes $\det G_v$. The product over $v$ is $N_{F/\mathbb{Q}}(\det G)$, which is positive. $\square$
@@ -118,7 +118,7 @@ Since $\mathrm{Tr}(\mathcal{O}_{E_v}) = \mathcal{O}_v$, we can choose $a$ with $
 
 **Theorem (Jacobowitz, ramified case with $p$ odd).** Let $E_v/F_v$ be ramified with residue characteristic $p \ne 2$, and let $\Pi$ be a uniformizer of $E_v$ with $c(\Pi) = -\Pi$. Let $L$ be $\Pi^i \mathcal{O}_{E_v}$-modular. If $i$ is odd, $L$ has even rank and is an orthogonal sum of planes $H(i)$ with Gram matrix $\begin{pmatrix} 0 & \Pi^i \\ c(\Pi)^i & 0 \end{pmatrix}$. If $i$ is even, $L \cong \langle \varpi^{i/2} u_1, \dots, \varpi^{i/2} u_r \rangle$ with $u_j \in \mathcal{O}_v^\times$, and $L$ is determined by its rank and by the class of $\det L$ in $\mathcal{O}_v^\times / N(\mathcal{O}_{E_v}^\times)$, a group of order $2$. Two lattices are isometric if and only if their Jordan splittings have the same type and the components of even scale have the same determinant classes.
 
-This is in Jacobowitz, Hermitian forms over local fields (1962). The reason for the odd case is that $h(x, x) \in F_v \cap \Pi^i \mathcal{O}_{E_v} = \Pi^{i+1}\mathcal{O}_{E_v} \cap F_v$, so no vector generates the scale and the second case of the existence proof applies. In the ramified dyadic case $\mathrm{Tr}(\mathcal{O}_{E_v}) \ne \mathcal{O}_v$, and Jacobowitz classifies lattices with the norm ideals of the Jordan components as additional invariants.
+This is the Jacobowitz classification, in Jacobowitz, Hermitian forms over local fields (1962). The reason for the odd case is that $h(x, x) \in F_v \cap \Pi^i \mathcal{O}_{E_v} = \Pi^{i+1}\mathcal{O}_{E_v} \cap F_v$, so no vector generates the scale and the second case of the existence proof applies. In the ramified dyadic case $\mathrm{Tr}(\mathcal{O}_{E_v}) \ne \mathcal{O}_v$, and Jacobowitz classifies lattices with the norm ideals of the Jordan components as additional invariants.
 
 **Lemma (hyperbolic splitting).** Assume $\mathrm{Tr}(\mathcal{O}_{E_v}) = \mathcal{O}_v$, and let $L$ be unimodular. Let $x \in L$ be primitive and isotropic. Then there is $y \in L$ with $h(x, y) = 1$ and $h(y, y) = 0$, and
 $$L = (\mathcal{O}x + \mathcal{O}y) \perp L', \qquad L' = \{x, y\}^\perp \cap L.$$
@@ -135,7 +135,7 @@ The theta computations of the proof use this decomposition at the good places fo
 
 Now let $F$ be a number field and $E/F$ a quadratic extension, and let $V$ be a Hermitian space over $E$ or a quadratic space over $F$. Write $G = \mathrm{U}(V)$ or $G = \mathrm{O}(V)$, and $G^+ = \mathrm{SO}(V)$ in the quadratic case. The isometry classes of spaces are given by Landherr's theorem in the Hermitian case and by the [[Hasse principle|EMAR4X3W8D]] of Hasse and Minkowski in the quadratic case. So we fix $V$ and study the lattices on it.
 
-**Definition (class and genus).** Lattices $L, L'$ on $V$ are in the same *class* if $L' = \sigma L$ for some $\sigma \in G(F)$, and in the same *proper class* if $\sigma \in G^+(F)$. They are in the same *genus* if for each finite [[place|BT5V3TSNY6]] $v$ there is $\sigma_v \in G(F_v)$ with $L'_v = \sigma_v L_v$.
+**Definition (genus and class).** Lattices $L, L'$ on $V$ are in the same *class* if $L' = \sigma L$ for some $\sigma \in G(F)$, and in the same *proper class* if $\sigma \in G^+(F)$. They are in the same *genus* if for each finite [[place|BT5V3TSNY6]] $v$ there is $\sigma_v \in G(F_v)$ with $L'_v = \sigma_v L_v$.
 
 By the local-global principle, $G(\mathbb{A}_{F,f})$ acts on lattices on $V$: for $g = (g_v)$, the lattice $gL$ is the one with $(gL)_v = g_v L_v$. This uses that $g_v L_v = L_v$ for almost all $v$. Let $K_L = \{g \in G(\mathbb{A}_{F,f}) : gL = L\}$, a compact open subgroup.
 
@@ -213,7 +213,7 @@ $$|\mathrm{U}_n(\mathbb{F}_q)| = q^{n(n-1)/2} \prod_{i=1}^n \left(q^i - (-1)^i\r
 
 For a place $v$ unramified or split in $E$, put $\eta_v(\varpi) = -1$ in the inert case and $\eta_v = 1$ in the split case, and $L_v(s, \eta_v^i) = (1 - \eta_v(\varpi)^i q^{-s})^{-1}$. In the ramified case $L_v(s, \eta_v^i) = 1$ for $i$ odd and $(1 - q^{-s})^{-1}$ for $i$ even.
 
-**Theorem (unimodular densities).** Let $E_v/F_v$ be unramified or split, $L$ unimodular of rank $m$, and $T$ unimodular of rank $a \le m$. Then
+**Theorem (unimodular local densities).** Let $E_v/F_v$ be unramified or split, $L$ unimodular of rank $m$, and $T$ unimodular of rank $a \le m$. Then
 $$\alpha_v(L, T) = \prod_{i = m-a+1}^{m} \left(1 - \eta_v(\varpi)^i q^{-i}\right).$$
 In particular $\alpha_v(L, L) = \prod_{i=1}^m L_v(i, \eta_v^i)^{-1}$, and $\alpha_v(L, t) = 1 - \eta_v(\varpi)^m q^{-m}$ for $t \in \mathcal{O}_v^\times$.
 
@@ -237,7 +237,7 @@ The development checks the same identity in the two simplest cases: $L \mapsto \
 
 Let $G$ be $\mathrm{U}(V)$ or $\mathrm{O}(V)$ over a number field $F$, with $G(F_\infty) = G(F \otimes \mathbb{R})$ compact, and let $L$ be a lattice on $V$ with stabilizer $K = K_L$. Let $L_1, \dots, L_h$ represent the classes in the genus of $L$, and $\Gamma_i = \mathrm{U}(L_i)$ or $\mathrm{O}(L_i)$.
 
-**Definition (mass).** The *mass* of the genus of $L$ is
+**Definition (mass of a genus).** The *mass* of the genus of $L$ is
 $$\mathrm{mass}(L) = \sum_{i=1}^{h} \frac{1}{|\Gamma_i|}.$$
 
 **Proposition (mass as a volume).** For every Haar measure $\mu$ on $G(\mathbb{A}_F)$,
@@ -275,7 +275,7 @@ with $\varepsilon = 1/2$ if $m = n+1$ or $m = n > 1$, and $\varepsilon = 1$ othe
 
 This is Siegel, Über die analytische Theorie der quadratischen Formen, Ann. of Math. 36 (1935). The archimedean density uses the Lebesgue measure on the entries $t_{ij}$ with $i \le j$. See Kitaoka, Arithmetic of Quadratic Forms, Chapter 6, "Quadratic forms over $\mathbb{Z}$", for a proof with these conventions.
 
-**Corollary (Siegel's mass formula).** For $m = n > 1$ and $T = S$,
+**Corollary (Siegel mass formula).** For $m = n > 1$ and $T = S$,
 $$\mathrm{mass}(L) = \frac{2}{\alpha_\infty(S, S) \prod_p \alpha_p(S, S)}.$$
 
 *Proof.* If $X^T S_i X = S$, then $X$ is an isometry from $L$ onto $L_i$. So $r(L_i, S) = |\mathrm{O}(L)|$ if $L_i \cong L$, and $0$ otherwise. The left side of Siegel's formula is $1/\mathrm{mass}(L)$, and $\varepsilon = 1/2$. $\square$
@@ -300,7 +300,7 @@ With $d_v(L) = v(\mathfrak{d}L)$ this reads $\lambda_v(L) = \alpha_{\mathrm{std}
 
 By the theorem on unimodular densities, $\lambda_v(L) = 1$ when $E_v/F_v$ is unramified or split and $L_v$ is unimodular. So $\lambda_v(L) = 1$ for all but finitely many $v$.
 
-**Theorem (mass formula for unitary groups).** There is a constant $c(V) > 0$, depending on $V$ but not on $L$, with
+**Theorem (unitary mass formula).** There is a constant $c(V) > 0$, depending on $V$ but not on $L$, with
 $$\mathrm{mass}(L) = c(V) \prod_{i=1}^n L(i, \eta^i) \prod_{v < \infty} \lambda_v(L)$$
 for every lattice $L$ on $V$. Here $L(s, \eta^i)$ is $L(s, \eta)$ for $i$ odd and the [[Dedekind zeta function|KXS5DQDFYD]] $\zeta_F(s)$ for $i$ even.
 
@@ -319,7 +319,7 @@ This is the case of the hypothesis `IsCMUnram` in the proof, and of the standard
 
 **Remark (rank one).** For $n = 1$ the group is the torus $E^1$, and the formula says that $h^1(K_L)/|\mu_E|$ is $L(1, \eta)$ times elementary factors. This is the analytic class number formula for $E/F$ in Ono's form for the norm one torus.
 
-The development volumes do not use Tamagawa numbers for the constant. They use Siegel's induction on the rank, which gives the ratio of consecutive masses directly. We describe it in the everywhere unramified case.
+The development volumes do not use Tamagawa numbers for the constant. They use the Siegel induction on the rank, which gives the ratio of consecutive masses directly. We describe it in the everywhere unramified case.
 
 **Proposition (Siegel's induction).** Let $E/F$ be unramified at all finite places, and for each $m$ let $L^{(m)}$ be a lattice that is unimodular at all finite places on a positive definite space $V_m = V_{m-1} \perp \langle 1 \rangle$. Assume Siegel's representation theorem for Hermitian lattices and $a = 1$: the weighted average of $r(L_i, 1)$ over the genus of $L^{(m)}$ is $\alpha_\infty \prod_{v < \infty} \alpha_v(L^{(m)}, 1)$, with $\alpha_\infty$ an explicit archimedean density. Then
 $$\frac{\mathrm{mass}(L^{(m)})}{\mathrm{mass}(L^{(m-1)})} = \frac{L(m, \eta^m)}{\alpha_\infty}.$$

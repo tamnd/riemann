@@ -20,7 +20,7 @@ Every p-adic representation has a lattice, since $G_K$ is compact. For an [[abel
 
 *Proof.* Put $L = \mathrm{Frac}\, B$, so $L^{G_K} = E$. For 1 it is enough to show that elements $d_1, \dots, d_r$ of $(L \otimes V)^{G_K}$ that are linearly independent over $E$ stay independent over $L$, since $D_B(V) \subset (L \otimes V)^{G_K}$ and $B \otimes_E D_B(V) \subset L \otimes_E D_B(V)$. Suppose not, and take a relation $\sum \lambda_i d_i = 0$ with $\lambda_i \in L$ of minimal length, ordered so that $\lambda_1 = 1$. For $g \in G_K$, the relation $\sum g(\lambda_i) d_i = 0$ minus the first one is shorter, so it is trivial, and $g(\lambda_i) = \lambda_i$. Hence all $\lambda_i$ lie in $L^{G_K} = E$, which contradicts independence over $E$. The bound follows, as $L \otimes V$ has dimension $\dim V$ over $L$. For 2, let $d = \dim V$ and suppose $\dim_E D_B(V) = d$. Choose bases $(d_i)$ of $D_B(V)$ and $(v_j)$ of $V$, and write $d_i = \sum_j b_{ij} v_j$. Then $b = \det(b_{ij})$ is not zero by 1, and applying $g$ gives $g(b) \det \rho(g) = b$, where $\rho$ is the action on $V$. So $\mathbb{Q}_p b$ is stable, $b$ is a unit by regularity, and $\alpha_V$ is an isomorphism. The converse is a rank count. Part 3 is formal from 1 and 2; see Fontaine, Exposé III of Astérisque 223, or the chapter on admissible representations in Fontaine and Ouyang. $\square$
 
-The rest of the chapter applies this to four rings. To compute invariants we need Tate's theorem on $C$.
+The rest of the chapter applies this to four rings. To compute invariants we need Tate's theorem on C(i), the twists of $C$.
 
 **Theorem (Tate, 1967).** $H^0(G_K, C(i))$ is $K$ for $i = 0$ and $0$ for $i \neq 0$. $H^1(G_K, C)$ is a one-dimensional $K$-vector space, spanned by the class of $\log \chi$, and $H^1(G_K, C(i)) = 0$ for $i \neq 0$.
 
@@ -130,7 +130,7 @@ Which filtered $(\varphi, N)$-modules come from representations? The answer is a
 $$t_H(D) = \sum_i i \dim_K \mathrm{gr}^i D_K, \qquad t_N(D) = v_p(\det \varphi),$$
 where $\det \varphi$ is the determinant of the matrix of $\varphi$ in any $K_0$-basis and $v_p(p) = 1$. The second is independent of the basis since $\sigma$ preserves $v_p$. A *subobject* of $D$ is a $K_0$-subspace $D'$ stable under $\varphi$ and $N$, with the filtration $\mathrm{Fil}^i D'_K = D'_K \cap \mathrm{Fil}^i D_K$.
 
-$t_H(D)$ is the sum of the jumps, and $t_N(D)$ is the sum of the slopes of $\varphi$ in the [[Dieudonné-Manin classification|TKAB3ZDEZD]]. Both are additive in short exact sequences and satisfy $t(D) = t(\det D)$.
+$t_H(D)$ is the sum of the jumps, and $t_N(D)$ is the sum of the slopes of $\varphi$ in the [[Dieudonné-Manin classification|TKAB3ZDEZD]]. Both are additive in short exact sequences and satisfy $t(D) = t(\det D)$. The Dieudonné-Manin slopes are read from Frobenius eigenvalues: they are the p-adic valuations of the eigenvalues of the linear map $\varphi^f$, divided by $f$. `PhiKilled` of [GeoOne](/step/geo-one-def/) uses them in this form.
 
 **Definition (weakly admissible).** $D$ is *weakly admissible* if $t_H(D) = t_N(D)$ and $t_H(D') \leq t_N(D')$ for every subobject $D'$.
 
@@ -217,7 +217,7 @@ See Tsuji, *p-adic étale cohomology and crystalline cohomology in the semi-stab
 
 **Theorem (Katz and Messing, 1974).** If $\mathfrak{X}$ is smooth proper over $\mathcal{O}_K$, the characteristic polynomial of $\varphi^f$ on $H^n_{\mathrm{cris}}(\mathfrak{X}_k/W(k))[1/p]$ equals the characteristic polynomial of the geometric [[Frobenius element|H5145REFMW]] on $H^n_{\mathrm{et}}(\mathfrak{X}_{\overline{k}}, \mathbb{Q}_{\ell'})$ for every prime $\ell' \neq p$. It has integer coefficients independent of $\ell'$.
 
-See Katz and Messing, *Some consequences of the Riemann hypothesis for varieties over finite fields*, Invent. Math. 23 (1974). With $C_{\mathrm{cris}}$ and the Proposition of the previous section, this says $\mathrm{WD}(V)$ has the same Frobenius characteristic polynomial as the $\ell'$-adic Weil-Deligne representations of the same variety. Proof pages use exactly this kind of compatibility between $\ell$-adic and $\ell'$-adic data.
+See Katz and Messing, *Some consequences of the Riemann hypothesis for varieties over finite fields*, Invent. Math. 23 (1974). With $C_{\mathrm{cris}}$ and the Proposition of the previous section, this says $\mathrm{WD}(V)$ has the same Frobenius characteristic polynomial as the $\ell'$-adic Weil-Deligne representations of the same variety. The statement `PhiKilled` of [GeoOne](/step/geo-one-def/) uses this Katz-Messing compatibility between $\ell$-adic and $\ell'$-adic data.
 
 **Theorem (good reduction).** An abelian variety $A$ over $K$ has good reduction if and only if $V_p A$ is crystalline.
 
@@ -245,7 +245,7 @@ See Wach, *Représentations p-adiques potentiellement cristallines*, Bull. SMF 1
 
 **Definition (Breuil-Kisin module).** Fix a uniformizer $\varpi$ of $K$ with Eisenstein polynomial $E(u) \in W(k)[u]$, and put $\mathfrak{S} = W(k)[[u]]$ with $\varphi$ extending $\sigma$ by $\varphi(u) = u^p$. A *Breuil-Kisin module* of height $\leq h$ is a finite free $\mathfrak{S}$-module $\mathfrak{M}$ with a $\varphi$-semilinear map $\varphi_{\mathfrak{M}}$ whose linearization $\varphi^* \mathfrak{M} \to \mathfrak{M}$ is injective with cokernel killed by $E(u)^h$.
 
-Let $K_\infty = K(\varpi^{1/p^\infty})$ for a compatible system of $p$-power roots, and $\varpi^\flat \in \mathcal{O}_{C^\flat}$ the corresponding element. The map $u \mapsto [\varpi^\flat]$ embeds $\mathfrak{S}$ in $A_{\mathrm{inf}} \subset W(C^\flat)$ compatibly with $\varphi$, and $G_{K_\infty}$ fixes its image.
+Let $K_\infty = K(\varpi^{1/p^\infty})$ for a compatible system of $p$-power roots, and $\varpi^\flat \in \mathcal{O}_{C^\flat}$ the corresponding element. The map $u \mapsto [\varpi^\flat]$ embeds $\mathfrak{S}$ in $A_{\mathrm{inf}} \subset W(C^\flat)$ compatibly with $\varphi$, and $G_{K_\infty}$ fixes its image. Here $A_{\mathrm{inf}} = W(\mathcal{O}_{C^\flat})$ is the ring of Witt vectors of $\mathcal{O}_{C^\flat}$, so the integral theory rests on Witt vectors and A_inf. The statement `PrismaticDieudonneHodge` of [CM divisibility](/proof/cm-divisibility/) asks for modules over $A_{\mathrm{inf}}$.
 
 **Theorem (Kisin, 2006).** Let $V$ be crystalline with weights in $[-h, 0]$ and $T \subset V$ a lattice. There is a Breuil-Kisin module $\mathfrak{M}$ of height $\leq h$, unique up to unique isomorphism, with
 $$T|_{G_{K_\infty}} \cong (\mathfrak{M} \otimes_{\mathfrak{S}} W(C^\flat))^{\varphi = 1}.$$
@@ -306,7 +306,7 @@ $$\begin{aligned} &0 \to H^0(K, V) \to D_{\mathrm{cris}}(V) \to D_{\mathrm{cris}
 
 The map $\exp$ is the *Bloch-Kato exponential*. For $V = \mathbb{Q}_p(1)$ it is the p-adic exponential $K \to \widehat{K^\times} \otimes \mathbb{Q}_p$ followed by the Kummer map, which explains the name.
 
-**Corollary (dimension formulas).** For de Rham $V$, with all dimensions over $\mathbb{Q}_p$,
+**Corollary (Bloch-Kato dimension formulas).** For de Rham $V$, with all dimensions over $\mathbb{Q}_p$,
 $$\begin{aligned} \dim H^1_f(K, V) &= \dim D_{\mathrm{dR}}(V)/\mathrm{Fil}^0 + \dim H^0(K, V), \\ \dim H^1_f(K, V) &= \dim H^1_e(K, V) + \dim D_{\mathrm{cris}}(V)^{\varphi = 1}. \end{aligned}$$
 
 *Proof.* Take alternating sums of dimensions in the two sequences. In the first the two copies of $D_{\mathrm{cris}}(V)$ cancel. $\square$
@@ -321,7 +321,7 @@ Here $\dim_{\mathbb{Q}_p} D_{\mathrm{dR}}(V) = [K : \mathbb{Q}_p] \dim V$, and $
 
 **Theorem (Bloch and Kato, Proposition 3.8).** Let $V$ be de Rham. Under the local Tate pairing $H^1(K, V) \times H^1(K, V^*(1)) \to \mathbb{Q}_p$, the subspaces $H^1_f(K, V)$ and $H^1_f(K, V^*(1))$ are exact annihilators of each other, and so are $H^1_e(K, V)$ and $H^1_g(K, V^*(1))$.
 
-Given the Proposition, the first statement reduces to the fact that $H^1_f(V)$ and $H^1_f(V^*(1))$ are orthogonal, which Bloch and Kato prove with the cup product $B_{\mathrm{cris}} \otimes B_{\mathrm{cris}} \to B_{\mathrm{cris}}$.
+Given the Proposition, the first statement reduces to the fact that $H^1_f(V)$ and $H^1_f(V^*(1))$ are orthogonal, which Bloch and Kato prove with the cup product $B_{\mathrm{cris}} \otimes B_{\mathrm{cris}} \to B_{\mathrm{cris}}$. The first statement is local Tate duality for H^1_f, which sits beside `BlochKatoLocal` in `nLink` of [UnitaryGroupThirdPlaceHypotheses](/step/unitary-group-third-place-hypotheses-def/).
 
 **Corollary.** For de Rham $V$, $\dim H^1_g(K, V) = \dim H^1_f(K, V) + \dim D_{\mathrm{cris}}(V^*(1))^{\varphi = 1}$.
 
