@@ -2,21 +2,21 @@ The chapter [Block determinants and theta Parseval](/proof/determinants/) follow
 
 ## Read first
 
-- [Matrices](/learn/algebra/#matrices): the determinant and the leading principal minors $\Delta_s$ of Step 3.
+- [Matrices](/learn/algebra/#matrices): the determinant and the leading principal minors $\Delta_s$ of Section 2.
 - [Polynomials and power series](/learn/algebra/#polynomials-and-power-series). The test vector lives in a polynomial ring.
-- Step 6 uses [Zorn's lemma](/learn/algebra/#zorns-lemma).
+- Section 5 uses [Zorn's lemma](/learn/algebra/#zorns-lemma).
 - [Hermitian and skew-Hermitian forms](/learn/algebra/#hermitian-and-skew-hermitian-forms) and [kinds of number fields](/learn/number-fields/#kinds-of-number-fields): a definite space $X$ and a space $W$ over a CM field $E$.
 - [Measures and integrals](/learn/analysis/#measures-and-integrals). The Rallis step first shows that a product of matrix coefficients is integrable.
-- [Analytic continuation and the identity theorem](/learn/complex-analysis/#analytic-continuation-and-the-identity-theorem) carry an identity to $z = s_0$ in Step 4.
+- [Analytic continuation and the identity theorem](/learn/complex-analysis/#analytic-continuation-and-the-identity-theorem) carry an identity to $z = s_0$ in Section 3.
 - [Unitary groups](/learn/groups/#unitary-groups). Since $X$ is definite, $U(X)$ is compact at infinity.
-- [Quotients of finite volume](/learn/groups/#quotients-of-finite-volume): a height on the doubled group controls the tail of Step 5.
+- [Quotients of finite volume](/learn/groups/#quotients-of-finite-volume): a height on the doubled group controls the tail of Section 4.
 - [Compact groups](/learn/representations/#compact-groups) and [highest weights and branching](/learn/representations/#highest-weights-and-branching), for matrix coefficients, Schur orthogonality and the highest weight vector.
 - [Modular forms](/learn/automorphic-forms/#modular-forms) define the Petersson inner product.
 - [Automorphic forms on adelic groups](/learn/automorphic-forms/#automorphic-forms-on-adelic-groups) and [automorphic representations](/learn/automorphic-forms/#automorphic-representations): the lift is an automorphic form on $U(W)$, and $U$, $U'$ are automorphic representations.
 - [Eisenstein series](/learn/automorphic-forms/#eisenstein-series), for the Siegel Eisenstein series on the doubled group.
 - [The Fock model](/learn/theta/#the-fock-model) and [the global theta lift](/learn/theta/#the-global-theta-lift): the space of $f_0$ and the lift $\theta(\Phi, \varphi)$.
-- [The doubling method](/learn/theta/#the-doubling-method) and [the Siegel-Weil formula](/learn/theta/#the-siegel-weil-formula) are two tools of Step 4.
-- [The Rallis inner product formula](/learn/theta/#the-rallis-inner-product-formula), the deepest; Step 4 proves one direction of it.
+- [The doubling method](/learn/theta/#the-doubling-method) and [the Siegel-Weil formula](/learn/theta/#the-siegel-weil-formula) are two tools of Section 3.
+- [The Rallis inner product formula](/learn/theta/#the-rallis-inner-product-formula), the deepest; Section 3 proves one direction of it.
 
 ## The new objects
 
@@ -29,7 +29,7 @@ The chapter [Block determinants and theta Parseval](/proof/determinants/) follow
 
 ## The path through the chapter
 
-1. Leading minors give a test vector $f_0$ whose types match a form $\varphi \in U$ (Step 3).
-2. The Rallis identity comes from doubling, analytic continuation and Siegel-Weil (Step 4).
-3. The integral splits into a main term and a smaller tail, so the lift is not zero (Step 5).
-4. A projection gives $U'$, and its weights are read from the types of $f_0$ (Step 6).
+1. Leading minors give a test vector $f_0$ whose types match a form $\varphi \in U$ (Section 2).
+2. The Rallis identity comes from doubling, analytic continuation and Siegel-Weil (Section 3).
+3. The integral splits into a main term and a smaller tail, so the lift is not zero (Section 4).
+4. A projection gives $U'$, and its weights are read from the types of $f_0$ (Section 5).
