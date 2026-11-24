@@ -20,7 +20,7 @@
 - [BaseChangeIsobaricN](/step/base-change-isobaric-n-def/) says: over a CM field $E$ with $E/E^+$ unramified at all finite places, each automorphic representation of the unitary group $U_n$ has a base change of automorphic representations to an isobaric sum on $\mathrm{GL}_n$. [baseChangeN](/step/base-change-n/) proves it.
 - [LiteratureCMHypothesis](/step/cm-abelian-inputs-from-literature/), [LiteratureRankNHypothesis](/step/v-window-of-depth-zero-residual-bc-cm/) and HypothesesH' are records of named results. A theorem of the code fills each field.
 - LemmaK bounds $\log \#H^2(L, \mathbb{Z}_l(e+1))$ in the degree and the discriminant of $L$, for $L$ totally complex with the $l$-th roots of unity (the 4th if $l = 2$).
-- A host is a character, an exponent and two primes, with a modulus $N$. For each case of the odd prime $l$, a count bounds a Selmer-type length, by $(lNe)^C$ in cases II, III and V and by $0$ in case Z; case I bounds a weighted sum.
+- A host is a character, an exponent and two primes, with a modulus $N$. For each case of the odd prime $l$, a count bounds a Selmer-type length, by $(lNe)^C$ in cases II, III and V; in case Z the length is $0$; case I bounds a weighted sum.
 
 ## The path through the chapter
 
