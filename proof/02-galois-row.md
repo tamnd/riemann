@@ -64,232 +64,290 @@ next:
     sub: the proof of the theta lift TLiftK
 steps: [row0b-def, is-rect-def, rect-exists-def, rect-exists, galois-row-holds, galois-representations-of-theta-lift, galois-local-global-strong-of-geometry-lift, geo-one-holds, geo-one-def, t-lift-k, tlift-k-def]
 ---
-## Result
+## Local parameters
 
-The top of the proof is the theorem `everyCharacter` (see [the map of the trunk](/proof/trunk/)). It is one line:
+The final theorem of the Lean proof follows from one hypothesis, the statement Row0b of the next section (see [the map of the trunk](/proof/trunk/)). Row0b attaches an $\ell$-adic [[Galois representation|QW17YJ6ZCT]] to each regular algebraic polarized cuspidal representation of $\mathrm{GL}_a$ over a CM field, with conditions at each place. The proof reduces Row0b to spherical places, and then to a geometric input and a theta lift. On the trunk every input of this branch is a proved theorem. No input reads a field of the structure of literature statements.
 
-```lean
-theorem UpperTheory.FinalTheorems.everyCharacter_of_row
-    (h : UpperTheory.GalStar.Row0b fun h rc => UpperTheory.Zero.LLC.IsRecT h rc) :
-    UpperTheory.EveryCharacter := ...
+Let $E$ be an [[algebraic number field|WXGM3VWEK6]] with a finite place $w$, completion $E_w$ and a place above $w$ in an algebraic closure (see [places and completions](/learn/number-fields/#places-and-completions)). Let $\mathrm{Irr}(E_w)$ be the set of pairs $(n, x)$ with $x$ an irreducible smooth representation of $\mathrm{GL}_n(E_w)$, up to isomorphism. Let $\mathrm{WD}(E_w)$ be the set of classes of finite-dimensional Weil-Deligne representations of the [[Weil group|TH24PGYAM5]] $W_{E_w}$ over $\mathbb{C}$ (see [Weil-Deligne representations](/learn/galois-representations/#weil-deligne-representations)). We say $y \in \mathrm{WD}(E_w)$ has $N = 0$ if its monodromy operator is zero. Let $K_1 \subset \mathrm{GL}_m(\mathcal{O}_{E_w})$ be the first congruence subgroup.
 
-theorem UpperTheory.FinalTheorems.everyCharacter : UpperTheory.EveryCharacter :=
-  UpperTheory.FinalTheorems.everyCharacter_of_row UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter
-```
+**Definition (Good representations).** A cuspidal $y \in \mathrm{Irr}(E_w)$ of degree $m$ is good if $m = 1$, or if there is a prime $g$ and a continuous isomorphism $\mathbb{Q}_g \cong E_w$ such that $y = y_0 \otimes \chi$ with $\chi$ a smooth character and $y_0$ of depth zero, that is, with a nonzero $K_1$-fixed vector (see [depth zero representations and types](/learn/representations/#depth-zero-representations-and-types)). An element $x \in \mathrm{Irr}(E_w)$ is good if it has a cuspidal support $s$ whose members are all good.
 
-The hypothesis `h` is used twice in `everyCharacter_of_row` ([MainConclusion.lean#L7](lean:Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean#L7)): once as a field of the structure of literature statements, and once as the input of `vwin_of_row`. This page is about the proof of that hypothesis:
+Lean: `UpperTheory.Zero.LLC.Good`
 
-```lean
-theorem galoisLocalGlobalStrong_recParameter : UpperTheory.GalStar.Row0b recT :=
-  galoisRepresentations_of_thetaLift UpperTheory.TP.K.tLiftK
-```
+**Definition (Type law).** A map $\mathrm{rc} : \mathrm{Irr}(E_w) \to \mathrm{WD}(E_w)$ satisfies the type law if the following holds. Let $g$ be a prime with a continuous isomorphism $i : \mathbb{Q}_g \cong E_w$, and let $n > 0$. Let $E'/E$ be a finite extension with a place $w'$ such that $g \notin w'^2$ and $\mathrm{N}w' = g^n$. Let $a'$ be a local Artin map for $E'_{w'}$ and let $K = \mathcal{O}_{E'}/w'$, a field with $g^n$ elements. Let $\theta : K^\times \to \mathbb{C}^\times$ be regular, so that $\theta^{g^i} = \theta^{g^j}$ with $i, j < n$ forces $i = j$. Let $\tau$ be the cuspidal representation of $\mathrm{GL}_n(\mathbb{F}_g)$ whose character at each $y$ with irreducible characteristic polynomial, with a root $z \in K^\times$, is $(-1)^{n-1} \sum_{j<n} \theta(z^{g^j})$. Let $\sigma$ be an irreducible representation of $\mathrm{GL}_n(E_w)$ that inflates $\tau$ through $i$. Then $\mathrm{rc}(\sigma)$ has $N = 0$. For each $t$ in the inertia group of $E'$ at $w'$ and each $x \in \mathcal{O}_{E'}$ with $a'(t) \equiv x \bmod w'$ and image $z$ in $K$, the characteristic polynomial of $\mathrm{rc}(\sigma)(t)$ is $\prod_{j<n} (X - \theta(z^{g^j}))$.
 
-Here `recT` is `fun h rc => UpperTheory.Zero.LLC.IsRecT h rc` ([Development.lean#L18](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean#L18)). In standard notation, the Lean statement says this. Let $E$ be a CM field with maximal real subfield $E^+$. Let $\ell$ be a prime, let $\iota : \overline{\mathbb{Q}}_\ell \cong \mathbb{C}$ and let $a \geq 1$. Let $\pi$ be a cuspidal automorphic representation of $\mathrm{GL}_a(\mathbb{A}_E)$ that is regular algebraic, and let $\chi$ be a Hecke character of $E^+$ such that $(\pi, \chi)$ is a polarized pair. Then there is a continuous semisimple representation $r : \mathrm{Gal}(\overline{E}/E) \to \mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$, with an integer $wt$ and Hodge-Tate multisets $HT_\tau$, that satisfy a list of local conditions at every finite place. The conditions compare $r$ at a place $w$ with the Weil-Deligne parameter $rc(\pi_w)$, for each local map $rc$ that satisfies `IsRecT`.
+Lean: `UpperTheory.Zero.LLC.TypeLaw`
 
-The whole branch has 51,591 declarations in its dominator tree. This is the second largest branch below the trunk.
+**Definition (Local Langlands laws).** A map $\mathrm{rc} : \mathrm{Irr}(E_w) \to \mathrm{WD}(E_w)$ satisfies the local Langlands laws if there is a local Artin map $\mathrm{Art} : W_{E_w} \to E_w^\times$ with the following twelve properties. The first six hold for all $x$.
 
-## Idea
+1. (Dimension.) $\mathrm{rc}(n, x)$ has dimension $n$.
+2. (Characters.) $\mathrm{rc}(\chi) = \chi \circ \mathrm{Art}$ for each smooth character $\chi$ of $E_w^\times$.
+3. (Langlands classification.) If the Langlands classification attaches $x$ to a list of segments, then $\mathrm{rc}(x)$ is the sum of the images of the segments.
+4. (Cuspidal.) $\mathrm{rc}$ sends cuspidal $x$ to irreducible classes.
+5. (Unramified twists.) $\mathrm{rc}(x \otimes |\det|^s) = \mathrm{rc}(x) \otimes |\cdot|^s$ for real $s$.
+6. (Absolute central character.) If $x$ has central character $\omega$, then the product of the eigenvalues of $\mathrm{rc}(x)(\sigma)$ has absolute value $|\omega(\mathrm{Art}(\sigma))|$.
 
-The statement is a version of the existence of Galois representations attached to regular algebraic, conjugate self-dual cuspidal representations over CM fields, with local-global compatibility. The Lean names use words of that literature ("galois local global", "row"). This page says only what the Lean statements say.
+The next five hold for good $x$.
 
-The proof has a short top and three large parts. The top first proves a variant `Row0` with a slightly stronger local clause, and then weakens it to `Row0b` by one structural lemma. `Row0` itself comes from a theorem `galoisLocalGlobal_of_localGlobalCompatibility`. That theorem takes three inputs: `CoreAll` (existence of $r$ and its properties at places where $\pi_w$ is spherical), `R1` (compatibility at places where $\pi_w$ has a support of characters with no links) and `LocalGlobalCompatAtIwahoriFixedPlaces`. The last two come from `CoreAll` again.
+7. (Twists.) $\mathrm{rc}(x \otimes \chi) = \mathrm{rc}(x) \otimes \mathrm{rc}(\chi)$.
+8. (Central character.) The product of the eigenvalues of $\mathrm{rc}(x)(\sigma)$ is $\omega(\mathrm{Art}(\sigma))$.
+9. (Duals.) $\mathrm{rc}(x^\vee) = \mathrm{rc}(x)^\vee$.
+10. (Injectivity.) If $y$ is good and $\mathrm{rc}(x) = \mathrm{rc}(y)$, then $x = y$.
+11. (Depth zero.) If $x$ has a nonzero $K_1$-fixed vector, then $\mathrm{rc}(x)$ is tame.
 
-So almost all the work is in `CoreAll`. The Lean code gets `CoreAll` from four inputs. Two of them are large:
+The last one is the type law.
 
-1. `GeoOne`, a statement about Galois representations cut out of geometric towers (43,297 declarations). Its proof uses a holomorphic Lefschetz formula for finite étale correspondences of smooth projective schemes over $\mathbb{C}$.
-2. `TLiftK`, a theta lift statement between definite unitary groups (2,709 declarations).
+Lean: `UpperTheory.Zero.LLC.IsRecT`
 
-The rest (about 5,400 declarations) assembles `CoreAll`, then `R1` and the Iwahori clause, then `Row0`.
+The [[local Langlands conjectures|9E45NBX1G0]] for $\mathrm{GL}_n$ give a map with these properties (see [the local Langlands correspondence](/learn/galois-representations/#the-local-langlands-correspondence)). The laws are a list of properties of that correspondence. We do not claim that a map with these laws is the correspondence. The step [the local condition IsRecT](/step/is-rect-def/) gives the definition.
 
-## Before you read
+**Theorem (Existence of local parameters).** For every number field $E$, every finite place $w$ of $E$ and every place above $w$ of an algebraic closure, there is a map $\mathrm{Irr}(E_w) \to \mathrm{WD}(E_w)$ that satisfies the local Langlands laws.
 
-- An [[algebraic number field|WXGM3VWEK6]] $E$ that is a CM field, its ring of integers and its finite places $w$ (the Lean type `HeightOneSpectrum (𝓞 E)`), and the completion $E_w$.
-- The [[absolute Galois group|DPFMXS71D1]], here written as `G E Ω`, the group of $E$-automorphisms of an algebraic closure $\Omega$ of $E$. A [[Galois representation|QW17YJ6ZCT]] is a group map from it to $\mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$.
-- The [[Weil group|TH24PGYAM5]] of $E_w$ and its Weil-Deligne representations.
-- [[Cuspidal representations|9AZ164C298]] and [[automorphic forms|68SJQEC11F]] on $\mathrm{GL}_a$ over the [[adele ring|NYJFYZ0B4M]] of $E$.
-- [[Hecke characters|KPYFGB342X]].
-- The [[local Langlands conjectures|9E45NBX1G0]] for $\mathrm{GL}_n$, which `IsRecT` imitates as a list of laws.
-- [[p-adic Hodge theory|6YDZNXR19H]]: crystalline, de Rham, potentially semistable, Hodge-Tate weights.
-- The [[theta correspondence|6WB6TKE70H]] and [[unitary groups|0R9R0Y1HDK]], for `TLiftK`.
-- The [[Lefschetz fixed-point theorem|G44NQXCWT9]], for the geometric part.
+Lean: `UpperTheory.Zero.LLC.recTExists`
 
-## Plan
+*Proof.* The Lean proof builds the map from a proved local Artin map, a proved construction on cuspidal representations and an extension through the Langlands classification. We did not unfold these inputs. See the steps [the statement RecTExists](/step/rect-exists-def/) and [local Langlands existence](/step/rect-exists/). $\square$
 
-1. Say what `IsRecT` states about a map from local representations to Weil-Deligne classes.
-2. Say what `Row0b` states, and how it differs from `Row0`.
-3. Show the top of the proof: `galoisLocalGlobalStrong_recParameter` and `galoisRepresentations_of_thetaLift`.
-4. Show how `Row0` comes from `CoreAll` (the `rest` step).
-5. Show how `CoreAll` comes from `GeoOne`, `TLiftK` and two other inputs (the `coreAll_of` step).
-6. Describe the geometric branch `geoOne_holds`.
-7. Describe the theta lift branch `tLiftK`.
+**Remark (Why existence matters).** The local clauses of Row0b quantify over maps with the local Langlands laws. Without such a map they would say nothing. The theorem above closes this gap.
 
-## The steps
+**Remark (Formalization).** The laws and the class of good representations are in [IsRecTOfIsRec.lean#L55](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/IsRecTOfIsRec.lean#L55) and [IsRecTOfIsRec.lean#L24](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/IsRecTOfIsRec.lean#L24). The type `IrrGL` is in [NonemptyEquivMultiProdOne.lean#L179](lean:Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/NonemptyEquivMultiProdOne.lean#L179) and the type `WD h` in [MonodromyZeroOfWeilDeligneRepClassIff.lean#L380](lean:Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/MonodromyZeroOfWeilDeligneRepClassIff.lean#L380). The place above $w$ is `h : IsPlaceOver A w`. We did not unfold `IsLocalArtin`, `segSum` and `IsL`.
 
-### Step 1. The local notion IsRecT
+## The statements Row0b and Row0
 
-Fix a finite place $w$ of $E$ and a valuation subring $A$ of $\Omega$ above $w$ (the proof `h : IsPlaceOver A w`). The Lean type `IrrGL (w.adicCompletion E)` is the set of pairs $(n, x)$ where $x$ is an isomorphism class of irreducible smooth representations of $\mathrm{GL}_n(E_w)$ ([NonemptyEquivMultiProdOne.lean#L179](lean:Development/AbelianVarietyTheory/Definitions/NonGaloisDescent/NonemptyEquivMultiProdOne.lean#L179)). The type `WD h` is the set of isomorphism classes of finite-dimensional Weil-Deligne representations of the Weil group `Weil h` ([MonodromyZeroOfWeilDeligneRepClassIff.lean#L380](lean:Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/MonodromyZeroOfWeilDeligneRepClassIff.lean#L380)).
+Fix a CM field $E$ with maximal totally real subfield $E^+$ and complex conjugation $c$. Fix a prime $\ell$, an isomorphism $\iota : \overline{\mathbb{Q}}_\ell \cong \mathbb{C}$ and an integer $a \ge 1$. Let $\pi$ be an irreducible space of [[cusp forms|9AZ164C298]] on $\mathrm{GL}_a$ over the [[adele ring|NYJFYZ0B4M]] $\mathbb{A}_E$, stable under the finite adelic group and the $(\mathfrak{g}, K)$-action at infinity (see [[automorphic forms|68SJQEC11F]] and [automorphic representations](/learn/automorphic-forms/#automorphic-representations)). Let $\chi$ be a [[Hecke character|KPYFGB342X]] of $E^+$. For a local component $\sigma$ of $\pi$ at $w$, put $\sigma^{\mathrm{alg}} = \sigma \otimes |\det|^{(1-a)/2}$.
 
-```lean
-def IsRecT (rc : IrrGL (w.adicCompletion E) → WD h) : Prop := ∃ a ha, LawsT (h := h) a ha rc
-```
+**Definition (Regular algebraic and polarized).** The representation $\pi$ is regular algebraic if, for each embedding $\tau : E \to \mathbb{C}$, the infinitesimal character of $\pi$ at $\tau$ has distinct entries, each in $\frac{a-1}{2} + \mathbb{Z}$. The pair $(\pi, \chi)$ is polarized if $\chi_v(-1) = (-1)^a$ at each real place $v$ of $E^+$, and $\pi^\vee$ matches the conjugate $\pi^c$ after a twist by $\chi \circ \mathrm{N}_{E/E^+}$.
 
-So `IsRecT h rc` says: there is a map $a : W_{E_w} \to E_w^\times$ with `IsLocalArtin h a` (a local Artin map; this page does not unfold `IsLocalArtin`), such that the twelve laws of `LawsT` hold ([IsRecTOfIsRec.lean#L55](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/IsRecTOfIsRec.lean#L55)). In words, with $rc$ the map:
+Lean: `GlobalTheory.ContraPair.PolarizedPair` (regularity: `GlobalTheory.CuspRep.CG.IsRegAlg`)
 
-- `dim`: $rc(x)$ has dimension $n$ when $x$ is a representation of $\mathrm{GL}_n$.
-- `one`: on a character $\chi$ of $\mathrm{GL}_1(E_w) = E_w^\times$, $rc(\chi)$ is the character $\chi \circ a$.
-- `langlands`: if a list of segments is related to $x$ by `IsL` (by its name, a Langlands classification; this page does not unfold it), then $rc(x)$ is the sum `segSum` over the segments.
-- `cusp`: $rc$ sends each $x$ with `IsCusp` to an irreducible Weil-Deligne class.
-- `nu`: $rc$ commutes with the twist by $|\det|^s$.
-- `absCentral`: if $x$ has central character $\omega$, then $|\det rc(x)(\sigma)| = |\omega(a(\sigma))|$.
-- `twist`, `central`, `dual`, `inj`, `depth`: for $x$ in a class `Good` (below), $rc$ commutes with twists by characters, has determinant $\omega \circ a$, sends the contragredient to the dual, is injective, and sends depth zero (a nonzero vector fixed by the first congruence subgroup `KOne`) to a tame class.
-- `type`: the law `TypeLaw`, a formula for the characteristic polynomial of inertia on $rc(\sigma)$ when $E_w \cong \mathbb{Q}_g$ and $\sigma$ inflates a cuspidal representation of $\mathrm{GL}_n(\mathbb{F}_{g^n})$ given by a regular character $\theta$. The formula is $\prod_{j<n} (X - \theta(z^{g^j}))$.
+**Definition (Local relations).** Let $x, y \in \mathrm{WD}(E_w)$ have the same dimension $n$, and let $q$ be the residue cardinality of $E_w$.
 
-The class `Good` ([IsRecTOfIsRec.lean#L24](lean:Development/AutomorphicArithmetic/Foundations/LocalLanglands/IsRecTOfIsRec.lean#L24)) holds when the supercuspidal support of $x$ has only characters, or (over $\mathbb{Q}_g$) twists of depth zero supercuspidals. So the laws for all of $\mathrm{GL}_n$ are only the first six. The other laws hold only on this subclass. The site does not claim that `IsRecT` is the local Langlands correspondence. It is a list of properties that the local Langlands correspondence has. A separate theorem `recTExists` gives a map with these properties (it is the second field passed in `everyCharacter_of_row`).
+1. The class $y$ is toral if each commutator in $W_{E_w}$ has characteristic polynomial $(X - 1)^n$ on $y$.
+2. The class $y$ is wildly trivial if each element of wild inertia has characteristic polynomial $(X - 1)^n$ on $y$.
+3. The class $y$ is tamely square-free if each root of multiplicity at least 2 of the characteristic polynomial at a tame generator is a $(q-1)$-th root of unity.
 
-### Step 2. The global statement Row0b
+The relation $\mathrm{Away}(x, y)$ says two things. If $y$ is toral with $N = 0$, then $x = y$. If $E_w \cong \mathbb{Q}_g$ continuously and $y$ is wildly trivial, tamely square-free and has $N = 0$, then $x$ has $N = 0$ and the same characteristic polynomials on inertia as $y$. The relation $\mathrm{Away}^b(x, y)$ is the same with the last clause asked only when $n = 1$ or $16 n^2 < g$.
 
-```lean
-def Row0b : Prop :=
-  ∀ (E Ω : Type) [Field E] [NumberField E] [IsCMField E] [Field Ω] [Algebra E Ω] [IsAlgClosure E Ω]
-    (l : ℕ) [Fact l.Prime] (ι : Qbar l ≃+* ℂ) (a : ℕ), 1 ≤ a →
-    ∀ (π : CuspSub E a) (χ : HChar (maximalRealSubfield E)), (CG.mk π).IsRegAlg → GlobalTheory.ContraPair.PolarizedPair π χ →
-      ∃ (r : G E Ω →* GL (Fin a) (Qbar l)) (wt : ℤ) (HT : (E →+* Qbar l) → Multiset ℤ), PropsB Rc π ι r wt HT
-```
+Lean: `UpperTheory.GalStar.AwayB`
 
-The objects are these.
+**Definition (The Galois row Row0b).** Row0b says this. For every $(E, \ell, \iota, a, \pi, \chi)$ as above, with $\pi$ regular algebraic and $(\pi, \chi)$ polarized, there are a homomorphism $r : \mathrm{Gal}(\overline{E}/E) \to \mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$ from the [[absolute Galois group|DPFMXS71D1]], an integer $wt$ and multisets of integers $HT_\tau$ for the embeddings $\tau : E \to \overline{\mathbb{Q}}_\ell$, with these properties.
 
-- `CuspSub E a` is a nonzero subspace $V$ of cusp forms in the smooth functions on $\mathrm{GL}_a(\mathbb{A}_E)$. It is stable under the action of $\mathrm{GL}_a(\mathbb{A}_{E,f})$, the maximal compact subgroup and the Lie algebra at infinity, and it is irreducible for that action ([ExpoConjOfIsCsd.lean#L209](lean:Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/ExpoConjOfIsCsd.lean#L209)).
-- `HChar L` is the group of continuous characters $\mathbb{A}_L^\times \to \mathbb{C}^\times$ that are trivial on $L^\times$.
-- `IsRegAlg` says: for each embedding $\tau : E \to \mathbb{C}$, the infinitesimal character multiset of $\pi$ at $\tau$ has distinct entries, and each entry is $n + \frac{a-1}{2}$ for an integer $n$.
-- `PolarizedPair π χ` says: $\chi_v(-1) = (-1)^a$ at each real place $v$ of $E^+$, and $\pi^\vee$ matches the complex conjugate of $\pi$ after a twist by $\chi \circ N_{E/E^+}$ ([DualIsConjByOne.lean#L53](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/DualIsConjByOne.lean#L53)).
+1. (Continuity.) $r$ is continuous.
+2. (Semisimplicity.) Each $r$-stable subspace has an $r$-stable complement.
+3. (Away from $\ell$.) At each $w \nmid \ell$, for each local component $\sigma$ of $\pi$ at $w$ and each map $\mathrm{rc}$ with the local Langlands laws, $\mathrm{Away}^b(\mathrm{WD}(r|_w), \mathrm{rc}(\sigma^{\mathrm{alg}}))$ holds. Here $\mathrm{WD}(r|_w)$ is the Weil-Deligne class of $r$ at $w$, carried to $\mathbb{C}$ by $\iota$.
+4. (Weights.) $HT_\tau$, read in $\mathbb{C}$, is $\{\frac{a-1}{2} - z\}$ with $z$ in the infinitesimal character of $\pi$ at $\iota \circ \tau$.
+5. (Conjugate weights.) $HT_{\tau \circ c} = \{wt - h : h \in HT_\tau\}$.
+6. (Above $\ell$.) At each $w \mid \ell$ where $\sigma$ is spherical, $r|_w$ is crystalline and de Rham with the Hodge-Tate jumps given by the weights. Let $\mathrm{rc}$ satisfy the local Langlands laws. Assume that $\mathrm{rc}(\sigma^{\mathrm{alg}})$ has $N = 0$ and is toral, or is wildly trivial and tamely square-free with $E_w \cong \mathbb{Q}_g$ and ($a = 1$ or $16a^2 < g$). Then $r|_w$ is de Rham and potentially semistable with the right jumps, and $\mathrm{Away}^b(\mathrm{WD}_{\mathrm{pst}}(r|_w), \mathrm{rc}(\sigma^{\mathrm{alg}}))$ holds. Here $\mathrm{WD}_{\mathrm{pst}}(r|_w)$ is the class given by $p$-adic Hodge theory.
 
-The conclusion `PropsB` ([WeightsConjBis.lean#L54](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean#L54)) has six fields:
+Lean: `UpperTheory.GalStar.Row0b`
 
-- `cont`, `ss`: $r$ is continuous and semisimple (each invariant subspace has an invariant complement).
-- `away`: at each place $w$ not above $\ell$, for each $rc$ with `IsRecT`, and each local component $\sigma$ of $\pi$ at $w$, the class `wdOf h hl ι r` (the Weil-Deligne class of $r$ at $w$) and $rc(\sigma \otimes |\det|^{(1-a)/2})$ satisfy `AwayB`. `AwayB x y` says: equal dimension; $x = y$ if $y$ has $N = 0$ and is trivial on commutators of the Weil group (`Tor`); and in a tame case, $x$ has $N = 0$ and the same characteristic polynomials as $y$ on degree zero elements.
-- `weights`: $HT_\tau$, read in $\mathbb{C}$, is $\{\frac{a-1}{2} - z\}$ over the infinitesimal character of $\pi$ at $\iota \circ \tau$.
-- `weights_conj`: $HT_{\tau \circ c} = \{wt - h : h \in HT_\tau\}$, with $c$ the complex conjugation of $E$.
-- `above`: at places above $\ell$, crystalline, de Rham and Hodge-Tate jump conditions when $\sigma$ is spherical, and de Rham, potentially semistable and `AwayB` with $rc(\sigma)$ in the cases of `AboveB.nice`.
+See also the step [the statement Row0b](/step/row0b-def/). Item 6 uses [[p-adic Hodge theory|6YDZNXR19H]] (see [crystalline, de Rham and potentially semistable representations](/learn/galois-representations/#crystalline-de-rham-and-potentially-semistable-representations)).
 
-`Row0` ([WeightsConjAlt.lean#L85](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjAlt.lean#L85)) is the same statement with `Props` and `Away` in place of `PropsB` and `AwayB`. The only change is in the tame clause. `Away` asks for it when $E_w \cong \mathbb{Q}_g$ (`IsQp`). `AwayB` asks for it only when $E_w \cong \mathbb{Q}_g$ and also $n = 1$ or $16 n^2 < g$ (`IsQpBig`). So `Row0b` is weaker than `Row0`, and the theorem `Row0.row0b` ([WeightsConjBis.lean#L84](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean#L84)) proves `Row0 Rc → Row0b Rc` by `IsQpBig.isQp`.
+**Definition (The strong form Row0).** Row0 is the same statement with $\mathrm{Away}$ in place of $\mathrm{Away}^b$, and with no condition $a = 1$ or $16 a^2 < g$ in item 6.
 
-### Step 3. The top of the proof
+Lean: `UpperTheory.GalStar.Row0`
 
-```lean
-theorem galoisRepresentations_of_thetaLift (up : UpperTheory.TP.TLiftK) : UpperTheory.GalStar.Row0b recT :=
-  galoisLocalGlobalStrong_of_geometry_lift UpperTheory.Gal.Int.Geo.geoOne_holds up
+**Lemma (Row0 implies Row0b).** For every notion of local parameter, Row0 implies Row0b.
 
-theorem galoisLocalGlobalStrong_of_geometry_lift (geo : GeoOne) (up : UpperTheory.TP.TLiftK) : Row0b recT :=
-  UpperTheory.GalStar.Row0.row0b recT (galoisLocalGlobal_of_geometry_lift geo up)
+Lean: `UpperTheory.GalStar.Row0.row0b`
 
-theorem galoisLocalGlobal_of_geometry_lift (geo : GeoOne) (up : UpperTheory.TP.TLiftK) : Row0 recT :=
-  rest (coreAll_of (UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne geo)
-    (UpperTheory.Gal.Int.Cong.congFinOdd_of_ex UpperTheory.Gal.Wt.wtLacEx_holds) up)
-```
+*Proof.* The condition "$E_w \cong \mathbb{Q}_g$ and ($n = 1$ or $16 n^2 < g$)" implies "$E_w \cong \mathbb{Q}_g$". So each hypothesis in Row0b is at least as strong as the matching one in Row0, and $\mathrm{Away}$ implies $\mathrm{Away}^b$. $\square$
 
-So the direct uses of `galoisLocalGlobalStrong_recParameter` are `galoisRepresentations_of_thetaLift` (48,870 declarations below it) and the theta lift theorem `UpperTheory.TP.K.tLiftK` (2,709). The first one feeds the proof `geoOne_holds` of `GeoOne` into a conditional theorem. It is a plain chain of implications. `GeoOne` enters at one point only: `seedFinOdd_of_geoOne` turns it into `SeedFinOdd`. `TLiftK` enters at one point only, inside `coreAll_of`.
+**Remark (The bound $16 n^2 < g$).** The proof of this branch goes through the stronger Row0. So the bound $16 n^2 < g$ is not used here. Other users of Row0b may need only the weaker form.
 
-### Step 4. From CoreAll to Row0 (the step rest)
+**Remark (Classes defined by choice).** The class $\mathrm{WD}(r|_w)$ and the infinitesimal character are defined by choice. The first is the trivial class if no Weil-Deligne class of $r$ at $w$ exists. The second is $a$ copies of $0$ if no infinitesimal character exists. A reader must check that the hypotheses force the intended values.
 
-```lean
-theorem rest (h : GlobalTheory.RoadU.CoreAll) : UpperTheory.GalStar.Row0 recT :=
-  galoisLocalGlobal_of_localGlobalCompatibility h (galoisCompat_unlinkedSupport_of_spherical h)
-    (localGlobalCompatAtIwahoriFixed_of_unlinked (galoisCompat_unlinkedSupport_of_spherical h))
-```
+**Remark (Formalization).** `PropsB` is in [WeightsConjBis.lean#L54](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean#L54), `Row0` in [WeightsConjAlt.lean#L85](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjAlt.lean#L85) and `Row0.row0b` in [WeightsConjBis.lean#L84](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/TypeConditions/WeightsConjBis.lean#L84). `CuspSub E a` is in [ExpoConjOfIsCsd.lean#L209](lean:Development/AbelianVarietyTheory/Definitions/AutomorphicMembership/ExpoConjOfIsCsd.lean#L209) and the duality in `PolarizedPair` in [DualIsConjByOne.lean#L53](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/DualIsConjByOne.lean#L53). The classes $\mathrm{WD}(r|_w)$ and $\mathrm{WD}_{\mathrm{pst}}(r|_w)$ are `wdOf h hl ι r` and `wdAt`. Row0b in this chapter is `Row0b` at the notion `fun h rc => IsRecT h rc`. We did not unfold `IsCrysAt`, `IsdRAt`, `IsPstAt`, `IsJumpsAt`, `wdAt` and `LocBridge`.
 
-`CoreAll` ([CyclicStrongAtCusp.lean#L96](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/CyclicStrongAtCusp.lean#L96)) is `Ex .all ∧ ∀ c, SphericalLevelCondition .all c`. In words: for each $(E, \ell, \iota, a, \pi, \chi)$ as in `Row0b`, there is a continuous $r$ that is attached to $\pi$ (`Weak`: $r$ is semisimple, and at all but finitely many places $w$ there are Satake parameters $B$ of $\pi$ such that $r$ is trivial on inertia and the characteristic polynomial of $r(\mathrm{Frob}_w^{-1})$, through $\iota$, is $\prod (X - q_w^{(a-1)/2} b)$ over $b \in B$). And for each such $r$, at each place $w$ where $\pi_w$ has Satake parameters $B$, four clauses hold: unramified with matching Frobenius eigenvalues (away from $\ell$), de Rham with the right Hodge-Tate jumps, crystalline, and a Frobenius characteristic polynomial equal to the one of the unramified class built from $B$ (above $\ell$).
+## Spherical places and the step to Row0
 
-`R1` ([IsQg.lean#L13](lean:Development/AbelianVarietyTheory/Statements/EllipticCurveLevels/IsQg.lean#L13)) says: when $\sigma \otimes |\det|^{(1-a)/2}$ has support of characters with no two linked by $|\cdot|$ (`PlainTor`), the class of $r$ at $w$ equals $rc$ of it for each $rc$ with `IsRecT` (away from $\ell$), and the analogous statement for the class `wdAt` above $\ell$. `LocalGlobalCompatAtIwahoriFixedPlaces` ([LocalGlobalCompatAtIwahoriFixedPlaces.lean#L16](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalGaloisCompatibility/PAdicSplitting/LocalGlobalCompatAtIwahoriFixedPlaces.lean#L16)) gives $N = 0$ and equal inertia characteristic polynomials when $\sigma$ has a `KOne`-fixed vector and either `PlainTor` holds or $E_w \cong \mathbb{Q}_g$ with a separation condition `Apart`.
+The proof of Row0 starts at spherical places and extends to two larger classes of places. Here $q_w$ is the residue cardinality at $w$, and $B$ is a multiset of Satake parameters of $\pi_w$ when $\pi_w$ is spherical. Put $B^{\mathrm{alg}} = q_w^{(a-1)/2} B$.
 
-The proof of `galoisLocalGlobal_of_localGlobalCompatibility` ([GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/InertCharpoly/GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192)) takes $r$ from `CoreAll.1`, takes $wt$ and $HT$ from a lemma `exists_weights`, and fills each field of `Props` from the three inputs. The sizes are: `localGlobalCompatAtIwahoriFixed_of_unlinked` 1,522, `galoisCompat_unlinkedSupport_of_spherical` 238, and the assembly 116. The step `localGlobalCompatAtIwahoriFixed_of_unlinked` itself uses `UpperTheory.Zero.LLC.recTExists`.
+**Definition (Attached representations).** A representation $r : \mathrm{Gal}(\overline{E}/E) \to \mathrm{GL}_a(\overline{\mathbb{Q}}_\ell)$ is attached to $\pi$ if it is continuous and semisimple, and at all but finitely many places $w$ there are Satake parameters $B$ of $\pi_w$ with this property: $r$ is trivial on inertia at $w$, and the characteristic polynomial of $r(\mathrm{Frob}_w^{-1})$, carried by $\iota$, is $\prod_{b \in B^{\mathrm{alg}}} (X - b)$.
 
-### Step 5. CoreAll from four inputs (the step coreAll_of)
+Lean: `GlobalTheory.GalCut.Weak`
 
-```lean
-theorem coreAll_of (seed : SeedFinOdd) (cong : CongFinOdd) (up : UpperTheory.TP.TLiftK) : GlobalTheory.RoadU.CoreAll :=
-  UpperTheory.Gal.Int.Inp.coreAll_of_core
-    (UpperTheory.Gal.Int.Core.toCoreK up UpperTheory.Gal.ClosedPhiFromClosedTrace.congPhi_holds
-      UpperTheory.Gal.Desc.descOffT (UpperTheory.Gal.Lim.limFinOdd_of seed cong))
-```
+**Definition (Spherical compatibility, CoreAll).** CoreAll is the conjunction of two statements. First, for every $(E, \ell, \iota, a, \pi, \chi)$ as in Row0b, some $r$ is attached to $\pi$. Second, for each such $r$ and each place $w$ where $\pi_w$ has Satake parameters $B$, four clauses hold.
 
-The Lean code first proves `Core`, the same as `CoreAll` but restricted to a smaller scope (`Level.csd`: $E$ has an element $x$ with $x^2 = -d$, $[E^+ : \mathbb{Q}]$ even, conditions at non-split places, $\chi$ a fixed power of a quadratic character, and only split places). `toCoreK` gives `Core` from `TLiftK`, `ClosedPhi`, `DescOffT` and `LimFinOdd`. Then `coreAll_of_core` extends `Core` to `CoreAll`. `LimFinOdd` comes from `SeedFinOdd` and `CongFinOdd`. Sizes: `coreAll_of` 1,760 in total, `toCoreK` 496, `seedFinOdd_of_geoOne` 718, `congFinOdd_of_ex` 495, `wtLacEx_holds` 183. This page does not unfold `SeedFinOdd`, `CongFinOdd`, `LimFinOdd`, `ClosedPhi` and `DescOffT`. They are defined in [LimWU4OfLimWU3.lean#L103](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWU4OfLimWU3.lean#L103) and nearby files.
+1. If $w \nmid \ell$, then $r$ is trivial on inertia at $w$ and $r(\mathrm{Frob}_w^{-1})$ has characteristic polynomial $\prod_{b \in B^{\mathrm{alg}}} (X - b)$.
+2. If $w \mid \ell$, then $r|_w$ is de Rham with the Hodge-Tate jumps given by the infinitesimal character.
+3. If $w \mid \ell$, then $r|_w$ is crystalline.
+4. If $w \mid \ell$, then $\mathrm{WD}_{\mathrm{pst}}(r|_w)$ has the characteristic polynomials of the unramified class with entries $b^{-1}$ ($b \in B$) twisted by $|\cdot|^{(1-a)/2}$.
 
-### Step 6. The geometric branch geoOne_holds
+Lean: `GlobalTheory.RoadU.CoreAll`
 
-This is the largest part (43,297 declarations).
+A representation $x \in \mathrm{Irr}(E_w)$ has plain toral support if its cuspidal support consists of characters and no two of them differ by $|\cdot|$.
 
-```lean
-theorem weight_one_geometric_realization : LocalSmoothExtension.HolomorphicLefschetzFormula := by
-  unfold LocalSmoothExtension.HolomorphicLefschetzFormula
-  exact GlobalTheory.T.lefschetz_fixedPoint_finite_etale_correspondence
+**Definition (Compatibility at plain toral support, R1).** R1 says this. Let $(\pi, \chi)$ be as in Row0b, let $r$ be attached to $\pi$, and let $\sigma$ be a local component of $\pi$ at $w$ such that $\sigma^{\mathrm{alg}}$ has plain toral support. If $w \nmid \ell$, then $\mathrm{WD}(r|_w)$ has $N = 0$ and equals $\mathrm{rc}(\sigma^{\mathrm{alg}})$ for each map $\mathrm{rc}$ with the local Langlands laws. If $w \mid \ell$, then $r|_w$ is de Rham with the right jumps and potentially semistable, $\mathrm{WD}_{\mathrm{pst}}(r|_w)$ has $N = 0$, and it has the same characteristic polynomial as $\mathrm{rc}(\sigma^{\mathrm{alg}})$ at each element of $W_{E_w}$.
 
-theorem geoOne_holds : GeoOne := geometric_realization_of_weight_one weight_one_geometric_realization
+Lean: `GlobalTheory.DeRhamOfPlainTorus.R1`
 
-theorem geometric_realization_of_weight_one (hW : HolomorphicLefschetzFormula) : GeoOne :=
-  geoOne_of_parts steps_holds (kodaira_spencer_of_weight_one hW) Pl.planEx_holds
-```
+**Definition (The Iwahori clause).** The Iwahori clause says this. Let $(\pi, \chi)$, $r$ and $\sigma$ be as in R1, and assume that $\sigma$ has a nonzero $K_1$-fixed vector. Assume also that $\sigma^{\mathrm{alg}}$ has plain toral support, or that $E_w \cong \mathbb{Q}_g$ and no two members of dimension at least 2 of the support of $\sigma^{\mathrm{alg}}$ are linked by a relation of inertness, which we did not unfold. Let $\mathrm{rc}$ satisfy the local Langlands laws, with $\mathrm{rc}(\sigma^{\mathrm{alg}})$ of $N = 0$. Put $D = \mathrm{WD}(r|_w)$ if $w \nmid \ell$ and $D = \mathrm{WD}_{\mathrm{pst}}(r|_w)$ if $w \mid \ell$. Then $D$ has $N = 0$ and the same characteristic polynomials on inertia as $\mathrm{rc}(\sigma^{\mathrm{alg}})$. If $w \mid \ell$, then also $r|_w$ is de Rham and potentially semistable.
 
-`GeoOne` ([HodgeTrAt.lean#L79](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean#L79)) is a statement about an odd $a$, an integer $d$ and $x \in E$ with $x^2 = -d$, places $w_0, v'$ above $\ell$, finite sets of places $T, S$, and a space $U$ of automorphic functions on the unitary group $U_a(\mathbb{A}_E)$ with conditions at those places. It concludes that there are Galois representations $\rho$ with `VBase ι d U ρ`, with matching Frobenius eigenvalues at good places away from $\ell$, and with crystalline, Hodge-Tate jump and Frobenius conditions at places above $\ell$. This page does not unfold `VBase`, `SatU`, `AutOffT`, `TyEll` and `SphOffU`.
+Lean: `UpperTheory.Gal.ToralGalois.R2.LocalGlobalCompatAtIwahoriFixedPlaces`
 
-`HolomorphicLefschetzFormula` ([HodgeTraceFromLefschetzAndGroupSide.lean#L102](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HodgeTraceFromLefschetzAndGroupSide.lean#L102)) states: let $Z$ be smooth of relative dimension $d$ and projective over $\mathbb{C}$, let $c_1, c_2 : Y \to Z$ be finite étale, let $F$ be the finite set of complex points $y$ with $c_1(y) = c_2(y)$, and let $A_y$ be a $d \times d$ matrix with `IsTan` and $\det(1 - A_y) \neq 0$. Then for each $a$,
+**Proposition (Spherical places give plain toral support).** CoreAll implies R1.
 
-$$
-\sum_{b=0}^{d} (-1)^b \operatorname{tr}\big(c_{1*} \circ c_2^* \mid H^{a,b}\big) = \sum_{y \in F} \frac{[X^a] \det(1 + X A_y)}{\det(1 - A_y)} ,
-$$
+Lean: `UpperTheory.Gal.ToralGalois.galoisCompat_unlinkedSupport_of_spherical`
 
-where $H^{a,b}$ is the Lean object `hodgeH s a b` and the spaces are finite-dimensional. This has the shape of the holomorphic Lefschetz fixed-point formula. This page does not unfold `hodgeH`, `hodgeTrace`, `hodgePull` and `IsTan`. The proof is `UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence` with 1,812 declarations below it.
+*Proof.* The Lean proof applies a proved implication with one more proved input. We did not unfold them. $\square$
 
-The three parts of `geoOne_of_parts` are:
+**Proposition (Plain toral support gives the Iwahori clause).** R1 implies the Iwahori clause.
 
-- `steps_holds : Steps` (26,256). `Steps` is a structure of seventeen fields built by `steps_of`. Three are the main local steps: `CrysStep` (a piece of the cohomology of a tower is crystalline at places above $\ell$ where a cover is onto), `JumpStep` (Hodge-Tate jumps occur where the Hodge numbers say) and `PhiStep` (the Frobenius characteristic polynomial divides a power of a root polynomial). The largest children are `crysStep_holds` (4,188), `jumpStep_holds` (2,709), a projective bundle formula (1,595), `UpperTheory.Et.proper_base_change` (1,247) and `phiStep` (1,031).
-- `kodaira_spencer_of_weight_one hW : KSAll` (11,907). `KSAll` has six fields: `StdEx`, `KSEx`, `KSNice`, `KSGood`, `KSCong`, `KSHodge`. The Lefschetz formula enters only in the field `KSHodge`, through `ksHodge_of_geo hW FixK_holds`. The largest children are `model_nonempty` (2,597), `ksHodge_of_geo` (1,902) and `FixK_holds` (1,789).
-- `Pl.planEx_holds : PlanEx` (1,934). `PlanEx` has the same hypotheses as `GeoOne` and gives "plans" with Hodge-Tate and congruence properties. `Plan.pack` turns a plan into a `Pack` by `KSAll`.
+Lean: `UpperTheory.Gal.ToralGalois.R2.localGlobalCompatAtIwahoriFixed_of_unlinked`
 
-### Step 7. The theta lift branch tLiftK
+*Proof.* The Lean proof applies a general reduction to R1. The reduction has four further inputs, all proved. One of them is the existence of local parameters from the first section. We did not unfold the others. $\square$
 
-```lean
-theorem UpperTheory.TP.K.tLiftK : UpperTheory.TP.TLiftK := UpperTheory.TP.tLift_holds_k
-```
+**Theorem (Row0 from the three clauses).** CoreAll, R1 and the Iwahori clause together imply Row0 for the local Langlands laws.
 
-`TLiftK` ([TLiftK.lean#L12](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/HalfIndexLattices/TLiftK.lean#L12)) says, in words: let $E$ be a CM field with a good base `B`. Let $X$ be a hermitian lattice space of rank $n$ with Gram matrix $J = 1$, positive definite at each infinite place of $E^+$. Then there is $d_0$ such that for each $d \geq d_0$, each skew-hermitian space $W$ of rank $d$ with $J = \delta \cdot 1$, definite in the same sense, each pair of Hecke characters $\chi_X, \chi_W$ with conditions `ResEtaPow` and exponents $m_X, m_W$, and each automorphic representation $U$ of $U_n(\mathbb{A}_E)$ with dominant weights $\lambda_w$ that satisfy $d + m_{W,w} \leq 2 \lambda_{w,k}$, there is an automorphic representation $U'$ of $U_d(\mathbb{A}_E)$ with `IsLift`. `IsLift` ([SchurStep.lean#L106](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SchurStep.lean#L106)) asks three things: $U'$ is automorphic, its weights $\lambda'$ satisfy
+Lean: `UpperTheory.Gal.Int.Row.galoisLocalGlobal_of_localGlobalCompatibility`
 
-$$
-2\lambda'_k = \begin{cases} 2\lambda_k - d - m_W + n + m_X & k < n, \\ n + m_X & k \geq n, \end{cases}
-$$
+*Proof.* The Lean proof takes $r$ from the first part of CoreAll and takes $wt$ and $HT_\tau$ from a proved lemma on weights. It fills the local items of Row0 from the spherical clauses, from R1 and from the Iwahori clause. We did not unfold this assembly place by place. $\square$
 
-and at each split place the local components are related by a nonzero map from a Schwartz-Bruhat space that intertwines the two actions (`LocPair`). The Lean name points to the theta lift. The statement is an existence statement of this form; this page does not claim it is a published theorem.
+**Corollary (Row0 from CoreAll).** CoreAll implies Row0 for the local Langlands laws.
 
-The proof `tLift_holds_k` is `tLift_of_tools_k tools_holds_k (hgtEx_of_k stab2Cpt_k)`. The two parts are `tools_holds_k` (2,169, with `siegelWeilStd_k` 1,680, a Siegel-Weil statement by its name, and `weilEx_k` 395) and `tLift_of_tools_k` (503, with `realPair_k` 140). The chapter [block determinants and theta Parseval](/proof/determinants/) follows `tLift_of_tools_k` in detail. The chapter [the theta matching](/proof/theta-matching/) treats theta lifts in more detail.
+Lean: `UpperTheory.Gal.Int.rest`
 
-## Where it is in the code
+*Proof.* The first proposition gives R1, the second gives the Iwahori clause, and the theorem gives Row0. $\square$
 
-| Declaration | Module | Size |
-|---|---|---|
-| `galoisLocalGlobalStrong_recParameter` | `…IntegralStructures.RowSrc` | 51,591 |
-| `galoisRepresentations_of_thetaLift` | `…IntegralStructures.GaloisRepresentationsOfThetaLift` | 48,870 |
-| `Geo.geoOne_holds` | `…GeometricFlagBases.WeightOneGeometricRealization` | 43,297 |
-| `Geo.geometric_realization_of_weight_one` | `…GeometricFlagBases.GeometricRealizationOfWeightOne` | 41,363 |
-| `Geo.steps_holds` | same | 26,256 |
-| `Geo.kodaira_spencer_of_weight_one` | same | 11,907 |
-| `Geo.Pl.planEx_holds` | `…PrimeLevelLocalization.SpecTopHolds` | 1,934 |
-| `Geo.weight_one_geometric_realization` | `…WeightOneGeometricRealization` | 1,814 |
-| `galoisLocalGlobalStrong_of_geometry_lift` | `…IntegralStructures.Development` | 5,415 |
-| `galoisLocalGlobal_of_geometry_lift` | same | 5,414 |
-| `rest` | same | 1,944 |
-| `coreAll_of` | same | 1,760 |
-| `Div.seedFinOdd_of_geoOne` | `…ZetaCharacterDivisibility.MainFin` | 718 |
-| `Cong.congFinOdd_of_ex` | `…CongruenceOddLevel.CongFinOddOfLvLac` | 495 |
-| `UpperTheory.TP.K.tLiftK` | `…ThetaParseval.ThetaKernels.TLiftK` | 2,709 |
-| `UpperTheory.TP.tLift_of_tools_k` | `…ThetaKernels.TPGTop` | 503 |
-| `UpperTheory.TP.tools_holds_k` | `…ThetaKernels.TPGHolds` | 2,169 |
+**Remark (Formalization).** `CoreAll` is `Ex .all ∧ ∀ c, SphericalLevelCondition .all c` in [CyclicStrongAtCusp.lean#L96](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/CyclicStrongAtCusp.lean#L96). `R1` is in [IsQg.lean#L13](lean:Development/AbelianVarietyTheory/Statements/EllipticCurveLevels/IsQg.lean#L13) and the Iwahori clause in [LocalGlobalCompatAtIwahoriFixedPlaces.lean#L16](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/SphericalGaloisCompatibility/PAdicSplitting/LocalGlobalCompatAtIwahoriFixedPlaces.lean#L16). The assembly theorem is in [GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/InertCharpoly/GaloisLocalGlobalOfLocalGlobalCompatibility.lean#L192). Plain toral support is `PlainTor` and inertness is `Inert`. The weights lemma is `exists_weights`. The two propositions use `inq_holds` and `r2g mixedOf toTor_holds drDesc recTExists`. Sizes: `rest` 1,944, `localGlobalCompatAtIwahoriFixed_of_unlinked` 1,522, `galoisCompat_unlinkedSupport_of_spherical` 238, assembly 116.
 
-The prefix `…` is `Development.AutomorphicArithmetic.Foundations.GaloisRepresentations`. Names without a namespace are in `UpperTheory.Gal.Int`. "Size" is the number of declarations in the dominator subtree: the declarations that the trunk reaches only through this one.
+## CoreAll from four inputs
 
-## Notes
+Almost all the work is in CoreAll. The Lean proof first proves a restricted form, Core, from four inputs, and then extends it. The inputs are the theta lift TLiftK, a limit statement for odd level, a closedness statement for Frobenius and a descent statement off a finite set. The limit statement comes from a seed and a congruence statement, and the seed comes from the geometric input GeoOne. We did not unfold the seed, congruence, limit, closedness and descent statements.
 
-- `IsRecT` is a hypothesis inside `Row0b`. The local clauses of `Row0b` hold for each $rc$ with `IsRecT`. If no such $rc$ existed, those clauses would hold for no $rc$ and say nothing. The Lean code closes this gap with a separate theorem `recTExists`, which `everyCharacter_of_row` also uses. This page does not describe that theorem.
-- `wdOf` and `infChar` are defined by choice. `wdOf` returns the trivial class if no Weil-Deligne class of $r$ at $w$ exists. `infChar` returns $a$ copies of $0$ if no infinitesimal character exists. A reader who checks the statement must check that the hypotheses force the intended values.
-- The difference between `Row0` and `Row0b` is the bound $16 n^2 < g$ in `IsQpBig`. The proof goes through the stronger `Row0`, so the bound is not used in this branch. The other users of `Row0b` may need only the weaker form.
-- `GeoOne` is very large (43,297 declarations), but the Lean code uses it at one point only, to prove `SeedFinOdd`. This page does not unfold `SeedFinOdd`, so it does not say why that statement needs the geometry.
-- This page does not unfold `IsLocalArtin`, `segSum`, `IsL`, `IsCrysAt`, `IsdRAt`, `IsPstAt`, `IsJumpsAt`, `wdAt`, `LocBridge`, `VBase`, `hodgeH`, `ResEtaPow`, `IsAutRepU` and `LocPair`. Their names suggest standard notions, but the words above use those notions only where the code shows them.
-- The theorem `galoisLocalGlobalStrong_recParameter` has one other user, `UpperTheory.V.SmallClassNumbers.litN`. This page does not describe it.
+**Definition (The restricted core, Core).** A pair $(\pi, \chi)$ as in Row0b is in the restricted scope at $\ell$ if four conditions hold. There are $x \in E$ and an integer $d > 0$ with $x^2 = -d$. The degree $[E^+ : \mathbb{Q}]$ is even. At each place $w$ that does not split in $E/E^+$ and does not divide $\ell$, $E/E^+$ is unramified at $w$ and $\pi_w$ has Satake parameters. The character $\chi$ is the $a$-th power of the quadratic character of $E/E^+$. Core is CoreAll for pairs in the restricted scope, with the spherical clauses asked only at split places.
+
+Lean: `GlobalTheory.RoadU.Core`
+
+**Lemma (The seed from geometry).** GeoOne implies the seed statement for odd level.
+
+Lean: `UpperTheory.Gal.Int.Div.seedFinOdd_of_geoOne`
+
+*Proof.* The Lean proof applies a general implication to GeoOne, a proved divisibility statement and further proved inputs. We did not unfold them. $\square$
+
+**Lemma (The congruence for odd level).** The congruence statement for odd level holds.
+
+Lean: `UpperTheory.Gal.Int.Cong.congFinOdd_of_ex`
+
+*Proof.* The Lean proof applies a general implication to a proved existence statement for lacunary weights. We did not unfold them. $\square$
+
+**Theorem (CoreAll from the seed and the theta lift).** Assume the seed statement for odd level, the congruence statement for odd level and TLiftK. Then CoreAll holds.
+
+Lean: `UpperTheory.Gal.Int.coreAll_of`
+
+*Proof.* The Lean proof has three steps. First, the seed and the congruence statement give the limit statement. Second, TLiftK, the closedness statement, the descent statement and the limit statement give Core. The closedness and descent statements are proved theorems. Third, a proved extension result turns Core into CoreAll. We did not unfold these steps. $\square$
+
+**Theorem (Row0 from geometry and the theta lift).** GeoOne and TLiftK imply Row0 for the local Langlands laws.
+
+Lean: `UpperTheory.Gal.Int.galoisLocalGlobal_of_geometry_lift`
+
+*Proof.* The two lemmas give the seed and the congruence statement. The theorem above gives CoreAll. The corollary of the last section gives Row0. $\square$
+
+**Theorem (Row0b from geometry and the theta lift).** GeoOne and TLiftK imply Row0b.
+
+Lean: `UpperTheory.Gal.Int.galoisLocalGlobalStrong_of_geometry_lift`
+
+*Proof.* The previous theorem gives Row0. The lemma "Row0 implies Row0b" gives Row0b. The step [the Galois row from geometry and the theta lift](/step/galois-local-global-strong-of-geometry-lift/) records this proof. $\square$
+
+So GeoOne and TLiftK each enter at one point only. Since we did not unfold the seed, we do not say why it needs the geometry.
+
+**Remark (Formalization).** The four inputs are `SeedFinOdd`, `CongFinOdd`, `ClosedPhi` and `DescOffT`, and the limit statement is `LimFinOdd`. They are defined in [LimWU4OfLimWU3.lean#L103](lean:Development/AbelianVarietyTheory/Definitions/GaloisGeometry/LimWU4OfLimWU3.lean#L103) and nearby files. The proof of `coreAll_of` is in [Development.lean#L18](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/Development.lean#L18). It uses `Core.toCoreK`, `limFinOdd_of` and `Inp.coreAll_of_core`. The congruence input is `congFinOdd_of_ex wtLacEx_holds`. Sizes: `coreAll_of` 1,760, `toCoreK` 496, `seedFinOdd_of_geoOne` 718, `congFinOdd_of_ex` 495, `wtLacEx_holds` 183, `galoisLocalGlobal_of_geometry_lift` 5,414.
+
+## The geometric input
+
+GeoOne is the largest part of the branch. It gives Galois representations cut out of towers for [[unitary groups|0R9R0Y1HDK]]. Its proof uses a holomorphic [[Lefschetz fixed-point theorem|G44NQXCWT9]] for finite étale correspondences (see [complex manifolds](/learn/geometry/#complex-manifolds) and [étale cohomology](/learn/geometry/#tale-cohomology)). We did not unfold the objects of the tower.
+
+**Definition (The geometric input, GeoOne).** GeoOne says this. Let $E$ be a CM field, $\ell$ a prime, $\iota : \overline{\mathbb{Q}}_\ell \cong \mathbb{C}$ and $a$ odd. Let $x \in E$ with $x^2 = -d$, with conditions on $(E, \ell, d)$. Let $T$ be a set of places that do not split, and let $w_0$ and $v'$ be places above $\ell$ that are apart and satisfy a condition with $x$. Let $S$ be a finite set of places and let $U$ be a space of automorphic functions on $U_a(\mathbb{A}_E)$. Assume that $U$ satisfies conditions off $T$ and off $S$, a type condition at $w_0$, and has Satake parameters and lacunary weights at $v'$. Then three things hold.
+
+1. There are $dd$ and $\rho$ in the base family cut out by $U$.
+2. At each place $w \nmid \ell$ of the right kind where $U$ has Satake parameters $B$, some $\rho$ in the base family is trivial on inertia at $w$, and $\prod_{b \in B^{\mathrm{alg}}} (X - \iota^{-1} b)$ annihilates $\rho(\mathrm{Frob}_w^{-1})$.
+3. At each place $w \mid \ell$ of the right kind where $U$ has Satake parameters, some $\rho$ in the base family is crystalline at $w$ with the expected Hodge-Tate jumps, and some $\rho$ in it has its Frobenius killed by the expected polynomial.
+
+Lean: `UpperTheory.Gal.Int.Geo.GeoOne`
+
+The step [the geometric statement GeoOne](/step/geo-one-def/) lists all conditions. The dimension $dd$ is free, and the $\rho$ in the three items can differ. Item 2 asks for annihilation, not for equal characteristic polynomials.
+
+**Theorem (Holomorphic Lefschetz formula).** Let $Z$ be smooth and projective over $\mathbb{C}$ of relative dimension $d$. Let $c_1, c_2 : Y \to Z$ be finite étale. Let $F$ be the finite set of complex points $y$ of $Y$ with $c_1(y) = c_2(y)$. For $y \in F$ let $A_y$ be a $d \times d$ matrix with a tangent condition and $\det(1 - A_y) \ne 0$. Then for each $p$ the groups $H^{p,q}$ are finite-dimensional, and
+
+$$\sum_{q=0}^{d} (-1)^q \operatorname{tr}\big(c_{1*} \circ c_2^* \mid H^{p,q}\big) = \sum_{y \in F} \frac{[X^p] \det(1 + X A_y)}{\det(1 - A_y)}.$$
+
+Lean: `UpperTheory.Gal.LocalSmoothExtension.HolomorphicLefschetzFormula` (proved by `UpperTheory.Gal.Int.Geo.weight_one_geometric_realization`)
+
+*Proof.* The Lean proof applies a proved fixed-point theorem for finite étale correspondences (1,812 declarations), which we did not unfold. The statement has the shape of the classical formula of Atiyah and Bott. $\square$
+
+**Proposition (GeoOne from the Lefschetz formula).** The holomorphic Lefschetz formula implies GeoOne.
+
+Lean: `UpperTheory.Gal.Int.Geo.geometric_realization_of_weight_one`
+
+*Proof.* The Lean proof combines three parts. The first is seventeen proved local steps. The main ones say that a piece of the cohomology of a tower is crystalline above $\ell$ where a cover is onto, that the Hodge-Tate jumps occur where the Hodge numbers say, and that the Frobenius characteristic polynomial divides a power of a root polynomial. The second is six Kodaira-Spencer statements, and the Lefschetz formula enters only the last of them. The third is a proved existence of plans. The Kodaira-Spencer statements turn plans into packs, and the local steps give GeoOne from the packs. We did not unfold these parts. $\square$
+
+**Theorem (The geometric input holds).** GeoOne holds.
+
+Lean: `UpperTheory.Gal.Int.Geo.geoOne_holds`
+
+*Proof.* Apply the proposition to the theorem. The step [GeoOne holds](/step/geo-one-holds/) records this proof. $\square$
+
+**Remark (Formalization).** `GeoOne` is in [HodgeTrAt.lean#L79](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/IntegralStructures/GeometricFlagBases/HodgeTrAt.lean#L79) and `HolomorphicLefschetzFormula` in [HodgeTraceFromLefschetzAndGroupSide.lean#L102](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/LefschetzSigmaSums/HodgeTraceFromLefschetzAndGroupSide.lean#L102). The base family is `VBase ι dd U ρ`, item 2 is `ESAt`, and the groups $H^{p,q}$ are `hodgeH s p q`. The proof of the formula is `GlobalTheory.T.lefschetz_fixedPoint_finite_etale_correspondence`, a wrapper of `UpperTheory.Cb.lefschetz_fixedPoint_finite_etale_correspondence`. The proposition is `geoOne_of_parts steps_holds (kodaira_spencer_of_weight_one hW) Pl.planEx_holds`. The parts are `Steps`, `KSAll` and `PlanEx`. The Lefschetz formula enters `KSAll` through `ksHodge_of_geo hW FixK_holds`. Sizes: `geoOne_holds` 43,297, `geometric_realization_of_weight_one` 41,363, `steps_holds` 26,256, `kodaira_spencer_of_weight_one` 11,907, `planEx_holds` 1,934, `weight_one_geometric_realization` 1,814. We did not unfold `VBase`, `SatU`, `AutOffT`, `TyEll`, `SphOffU`, `hodgeH`, `hodgeTrace`, `hodgePull` and `IsTan`.
+
+## The theta lift and the top of the proof
+
+The last input is a theta lift between definite unitary groups (see the [[theta correspondence|6WB6TKE70H]], [the global theta lift](/learn/theta/#the-global-theta-lift) and [hermitian and skew-hermitian forms](/learn/algebra/#hermitian-and-skew-hermitian-forms)). We do not claim that the Lean statement is a published theorem. The chapter [block determinants and theta Parseval](/proof/determinants/) follows its proof, and [the theta matching](/proof/theta-matching/) treats theta lifts in more detail.
+
+**Definition (Theta lift relation).** Let $U$ be an automorphic representation of $U_n(\mathbb{A}_E)$ with dominant weights $\lambda_w$, and let $U'$ be a space of functions on $U_d(\mathbb{A}_E)$. The space $U'$ is a lift of $U$ for the characters $\chi_X$, $\chi_W$ with exponents $m_X$, $m_W$ if three things hold. First, $U'$ is an automorphic representation. Second, it has weights $\lambda'_w$ with
+
+$$2\lambda'_{w,k} = \begin{cases} 2\lambda_{w,k} - d - m_{W,w} + n + m_{X,w} & k < n, \\ n + m_{X,w} & k \ge n. \end{cases}$$
+
+Third, at each split place the local components are related by a nonzero map from a Schwartz-Bruhat space that intertwines the two actions.
+
+Lean: `UpperTheory.TP.IsLift`
+
+**Definition (The theta lift statement, TLiftK).** TLiftK says this. Let $E$ be a CM field with a good base. Let $X$ be a hermitian space of rank $n \ge 1$ with Gram matrix $1$, of signature $(n, 0)$ at each infinite place of $E^+$. Then there is $d_0$ with this property. Let $d \ge d_0$ and let $W$ be a skew-hermitian space of rank $d$ with Gram matrix $\delta \cdot 1$, definite in the same sense. Let $\chi_X$, $\chi_W$ be Hecke characters with restriction conditions for $n$, $d$ and exponents $m_X$, $m_W$. Let $U$ be an automorphic representation of $U_n(\mathbb{A}_E)$ with weights $\lambda_w$ such that $d + m_{W,w} \le 2\lambda_{w,k}$ for all $w$ and $k$. Then some $U'$ on $U_d(\mathbb{A}_E)$ is a lift of $U$.
+
+Lean: `UpperTheory.TP.TLiftK`
+
+See also the step [the theta lift statement TLiftK](/step/tlift-k-def/).
+
+**Theorem (The theta lift).** TLiftK holds.
+
+Lean: `UpperTheory.TP.K.tLiftK`
+
+*Proof.* The Lean proof applies a proved implication to a proved set of tools and a proved height statement. The tools contain a Siegel-Weil statement, by its name (see [the Siegel-Weil formula](/learn/theta/#the-siegel-weil-formula)). We did not unfold them. The step [the theta lift statement holds](/step/t-lift-k/) records the proof. $\square$
+
+**Theorem (Row0b from the theta lift).** TLiftK implies Row0b.
+
+Lean: `UpperTheory.Gal.Int.galoisRepresentations_of_thetaLift`
+
+*Proof.* Apply "Row0b from geometry and the theta lift" to GeoOne, which holds, and to TLiftK. The step [the Galois row from the theta lift](/step/galois-representations-of-theta-lift/) records it. $\square$
+
+**Theorem (The Galois row).** Row0b holds for the local Langlands laws.
+
+Lean: `UpperTheory.Gal.Int.galoisLocalGlobalStrong_recParameter`
+
+*Proof.* Apply the previous theorem to the theta lift. The step [the Galois row holds](/step/galois-row-holds/) records this proof. $\square$
+
+**Corollary (EveryCharacter from the Galois row).** Row0b for the local Langlands laws implies EveryCharacter: $L(s, \chi) \ne 0$ for each Dirichlet character $\chi$ modulo $N \ge 1$ and each $s$ with $\mathrm{Re}(s) > \frac12$ and ($\chi \ne 1$ or $s \ne 1$). So EveryCharacter holds.
+
+Lean: `UpperTheory.FinalTheorems.everyCharacter_of_row`
+
+*Proof.* The Lean proof uses the hypothesis three times. It fills a structure of three literature statements: the first and third fields are the hypothesis, and the second is the existence of local parameters. It proves the statement VWin from the hypothesis (see [VWin from Row0b](/step/vwin-of-row/)) and applies the main implication to the structure and VWin. The steps [EveryCharacter from Row0b](/step/every-character-of-row/) and [OpenLiteratureStatements](/step/open-literature-statements-def/) give the details. The last claim follows by the theorem above. $\square$
+
+**Remark (Formalization).** `TLiftK` is in [TLiftK.lean#L12](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/HalfIndexLattices/TLiftK.lean#L12) and `IsLift` in [SchurStep.lean#L106](lean:Development/AutomorphicArithmetic/Foundations/GaloisRepresentations/ThetaParseval/SchurStep.lean#L106). The restriction conditions are `ResEtaPow`, the automorphic condition is `IsAutRepU` and the local relation is `LocPair`; we did not unfold them. `tLiftK` is `tLift_holds_k`, which is `tLift_of_tools_k tools_holds_k (hgtEx_of_k stab2Cpt_k)`. Sizes: `tLiftK` 2,709, `tools_holds_k` 2,169, `siegelWeilStd_k` 1,680, `tLift_of_tools_k` 503, `galoisRepresentations_of_thetaLift` 48,870, and the whole branch 51,591, the second largest below the trunk. A size counts the declarations that the trunk reaches only through the given one. The final theorem is in [MainConclusion.lean#L7](lean:Development/AutomorphicArithmetic/CharacterBoxes/MainConclusion.lean#L7). Its term is `every_character_of_literature_of_vWin ⟨h, recTExists, h⟩ (vwin_of_row h)`, with fields `caraianiLocalGlobalDual`, `localLanglandsExists` and `galoisRepOfPolarizedPairLit`. The term `local_langlands_recT_exists_of_literature` reads `O.localLanglandsExists`, and on the trunk that field is `recTExists`. The other user of `galoisLocalGlobalStrong_recParameter` is `UpperTheory.V.SmallClassNumbers.litN`, which this chapter does not describe.
+
+## Notes and references
+
+Nobody has reviewed the Lean proofs. The [trust report](/trust/) says what has been checked.
+
+Row0b is a version of the existence of Galois representations for regular algebraic, conjugate self-dual cuspidal representations over CM fields, with local-global compatibility. This chapter says only what the Lean statements say. The literature file of the repo cites Chenevier and Harris, Shin, Caraiani and Barnet-Lamb, Gee, Geraghty and Taylor for the Galois row, and Harris and Taylor, Henniart and Scholze for the local parameters. The Lefschetz formula is in Atiyah and Bott, *A Lefschetz fixed point formula for elliptic complexes II. Applications*, Ann. of Math. 88 (1968), §4. The characters in the type law are those of Green, and the segments those of Bernstein and Zelevinsky. For theta lifts and the Siegel-Weil formula see Howe, Kudla and Rallis, and Ichino.
+
+- I. N. Bernstein and A. V. Zelevinsky, *Induced representations of reductive p-adic groups I*, Ann. Sci. École Norm. Sup. (4) 10 (1977), pages 441 to 472.
+- A. Caraiani, *Local-global compatibility and the action of monodromy on nearby cycles*, Duke Math. J. 161 (2012), pages 2311 to 2413.
+- G. Chenevier and M. Harris, *Construction of automorphic Galois representations II*, Camb. J. Math. 1 (2013), pages 53 to 73.
+- L. Clozel, M. Harris and R. Taylor, *Automorphy for some l-adic lifts of automorphic mod l Galois representations*, Publ. Math. IHÉS 108 (2008), pages 1 to 181.
+- J. A. Green, *The characters of the finite general linear groups*, Trans. Amer. Math. Soc. 80 (1955), pages 402 to 447.
+- G. Henniart, *Une preuve simple des conjectures de Langlands pour GL(n) sur un corps p-adique*, Invent. Math. 139 (2000), pages 439 to 455.
+- R. Howe, *θ-series and invariant theory*, Proc. Sympos. Pure Math. 33, Part 1 (1979), pages 275 to 285.
+- A. Ichino, *A regularized Siegel-Weil formula for unitary groups*, Math. Z. 247 (2004), pages 241 to 277.
+- S. Kudla and S. Rallis, *A regularized Siegel-Weil formula: the first term identity*, Ann. of Math. 140 (1994), pages 1 to 80.
+- P. Scholze, *The local Langlands correspondence for GL_n over p-adic fields*, Invent. Math. 192 (2013), pages 663 to 715.
+- S. W. Shin, *Galois representations arising from some compact Shimura varieties*, Ann. of Math. 173 (2011), pages 1645 to 1741.
+- A. V. Zelevinsky, *Induced representations of reductive p-adic groups II. On irreducible representations of GL(n)*, Ann. Sci. École Norm. Sup. (4) 13 (1980), pages 165 to 210.
