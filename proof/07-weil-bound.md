@@ -94,7 +94,9 @@ Lean: `GlobalTheory.CovHt.WtGap`
 
 **Definition (Error term).** For $u$ with gap $g$ and $s \in \mathbb{R}$ put
 
-$$B(u,g) = 4\,|\Psi|\,N^2 \Big(1 + \frac{\max |u_{\tau,i}|}{g}\Big), \qquad \mathrm{err}(s,u,g) = \big(\log B(u,g) + s\big)\,\|u\|_1 + q \sum_{\tau} \big(\max_i u_{\tau,i} - \min_i u_{\tau,i}\big).$$
+$$B(u,g) = 4\,|\Psi|\,N^2 \Big(1 + \frac{\max |u_{\tau,i}|}{g}\Big),$$
+
+$$\mathrm{err}(s,u,g) = \big(\log B(u,g) + s\big)\,\|u\|_1 + q \sum_{\tau} \big(\max_i u_{\tau,i} - \min_i u_{\tau,i}\big).$$
 
 Lean: `GlobalTheory.CovHt.errX`
 
