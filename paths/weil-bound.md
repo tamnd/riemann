@@ -5,7 +5,7 @@
 - [Number fields and their integers](/learn/number-fields/#number-fields-and-their-integers): the discriminant, and the root discriminant $\mathrm{rd}(E) = |\operatorname{disc} E|^{1/[E:\mathbb{Q}]}$ of the error term.
 - [Kinds of number fields](/learn/number-fields/#kinds-of-number-fields). $E$ is a CM field, abelian over $\mathbb{Q}$ in the volume theorem.
 - [The logarithmic derivative](/learn/complex-analysis/#the-logarithmic-derivative) and [quadratic symbols](/learn/class-field-theory/#quadratic-symbols) give $L'/L(1, \chi_d)$ for the quadratic character $\chi_d$.
-- That term comes from [the Chowla-Selberg formula](/learn/elliptic-curves/#the-chowla-selberg-formula), in Step 4.
+- That term comes from [the Chowla-Selberg formula](/learn/elliptic-curves/#the-chowla-selberg-formula), in Section 4.
 - [Abelian varieties and abelian schemes](/learn/elliptic-curves/#abelian-varieties-and-abelian-schemes). SlopeBoundSt is about the Lie algebra of a semi-abelian scheme.
 - [Dieudonné modules and the Hodge-Tate sequence](/learn/formal-groups/#dieudonn-modules-and-the-hodge-tate-sequence): one input is an exactness result of Fargues.
 - [Schemes and varieties](/learn/geometry/#schemes-and-varieties). The arithmetic variety sits in a product of projective spaces.
@@ -28,7 +28,7 @@
 
 ## The path through the chapter
 
-1. Step 2 gets small sections from intersection numbers by Moriwaki and Yuan, and the reverse bound by Hilbert-Samuel and Zhang's successive minima.
-2. Step 3 gets the absolute Siegel lemma, and from it SlopeBoundSt, in place of a Bost slope inequality.
-3. Step 4 computes intersection numbers on the tower. The Chowla-Selberg formula gives the term $L'/L(1, \chi_d)$.
-4. Step 5 turns the intersection slope into a volume slope, again by Moriwaki and Yuan, and so proves DeepStR.
+1. Section 2 gets small sections from intersection numbers by Moriwaki and Yuan, and the reverse bound by Hilbert-Samuel and Zhang's successive minima.
+2. Section 3 gets the absolute Siegel lemma, and from it SlopeBoundSt, in place of a Bost slope inequality.
+3. Section 4 computes intersection numbers on the tower. The Chowla-Selberg formula gives the term $L'/L(1, \chi_d)$.
+4. Section 5 turns the intersection slope into a volume slope, again by Moriwaki and Yuan, and so proves DeepStR.
