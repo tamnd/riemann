@@ -32,7 +32,7 @@ So $\dim A$ is finite, and $\dim A \le \dim_k \mathfrak m/\mathfrak m^2$, becaus
 
 For $A \subseteq B$ integral, each prime of $A$ is $\mathfrak q \cap A$ for some prime $\mathfrak q$ of $B$ (lying over), chains of primes lift (going up), and $\dim A = \dim B$ (Atiyah and Macdonald, Chapter 5).
 
-**Definition.** Let $A$ be noetherian, $I$ an ideal and $W$ a prime that is minimal over $I$. Then $A_W / I A_W$ is a local ring of dimension $0$, so it has finite length. The *multiplicity* of $I$ at $W$ is $\operatorname{mult}_W(I) = \operatorname{len}_{A_W}(A_W/IA_W)$.
+**Definition (multiplicity at a prime).** Let $A$ be noetherian, $I$ an ideal and $W$ a prime that is minimal over $I$. Then $A_W / I A_W$ is a local ring of dimension $0$, so it has finite length. The *multiplicity* of $I$ at $W$ is $\operatorname{mult}_W(I) = \operatorname{len}_{A_W}(A_W/IA_W)$.
 
 **Example.** In $A = k[x, y]$ let $I = (y, y - x^2) = (y, x^2)$ and $W = (x, y)$. Then $A_W / IA_W$ has basis $1, x$, so $\operatorname{mult}_W(I) = 2$: the parabola $y = x^2$ meets the line $y = 0$ at the origin with multiplicity $2$. The chapter of Volume 3 on formal algebraization computes the multiplicity of a component of a hyperplane section in this way, as a sum of the orders of the local branches.
 
@@ -40,7 +40,7 @@ For $A \subseteq B$ integral, each prime of $A$ is $\mathfrak q \cap A$ for some
 
 **Definition.** An $A$-module $M$ is *[[flat|73RYYEVDKA]]* if $N \mapsto N \otimes_A M$ takes injective maps to injective maps, so that it is exact. It is *[[faithfully flat|C31PYYPRGC]]* if it is flat and $N \otimes_A M = 0$ only for $N = 0$. An $A$-algebra $B$ is flat (faithfully flat) if it is so as an $A$-module. A morphism of schemes $f : X \to Y$ is *[[flat|5M6KS8F47R]]* at $x$ if $\mathcal{O}_{X,x}$ is flat over $\mathcal{O}_{Y,f(x)}$.
 
-**Example.** Free modules, projective modules and localizations $S^{-1}A$ are flat over $A$. The polynomial ring $A[x]$ is faithfully flat. The $\mathbb{Z}$-module $\mathbb{Q}$ is flat and not faithfully flat, since $\mathbb{Z}/p \otimes \mathbb{Q} = 0$. The $\mathbb{Z}$-module $\mathbb{Z}/n$ with $n \ge 2$ is not flat, since multiplication by $n$ on $\mathbb{Z}$ is injective and on $\mathbb{Z}/n$ it is $0$.
+**Example.** Free modules, projective modules and localizations $S^{-1}A$ are flat over $A$. The polynomial ring $A[x]$ is a faithfully flat module. The $\mathbb{Z}$-module $\mathbb{Q}$ is flat and not faithfully flat, since $\mathbb{Z}/p \otimes \mathbb{Q} = 0$. The $\mathbb{Z}$-module $\mathbb{Z}/n$ with $n \ge 2$ is not flat, since multiplication by $n$ on $\mathbb{Z}$ is injective and on $\mathbb{Z}/n$ it is $0$.
 
 **Proposition.** An $A$-module $M$ is flat if and only if $I \otimes_A M \to M$ is injective for each finitely generated ideal $I$, if and only if $\operatorname{Tor}_1^A(A/I, M) = 0$ for each such $I$ (Matsumura, §7).
 
@@ -50,7 +50,7 @@ For $A \subseteq B$ integral, each prime of $A$ is $\mathfrak q \cap A$ for some
 
 So a scheme $X$ over a discrete valuation ring with uniformizer $\pi$ is flat if and only if $\mathcal{O}_X$ has no $\pi$-torsion; for $X$ noetherian this means that no associated point of $X$ lies in the special fibre (Hartshorne, III.9.7). Integral models of Shimura varieties and abelian schemes over $\mathcal{O}_v$ are flat in this sense.
 
-**Proposition.** Let $(A, \mathfrak m, k)$ be a noetherian local ring and $M$ a finitely generated flat $A$-module. Then $M$ is [[free|0DZ9DKAKZR]].
+**Proposition (free module over a local ring).** Let $(A, \mathfrak m, k)$ be a noetherian local ring and $M$ a finitely generated flat $A$-module. Then $M$ is [[free|0DZ9DKAKZR]].
 
 *Proof.* Lift a basis of $M/\mathfrak m M$ to $m_1, \dots, m_n \in M$. By the corollary of Nakayama's lemma, the map $\varphi : A^n \to M$, $e_i \mapsto m_i$, is surjective. Its kernel $K$ is finitely generated, since $A$ is noetherian. Tensor $0 \to K \to A^n \to M \to 0$ with $k$. Since $M$ is flat, $\operatorname{Tor}_1^A(k, M) = 0$, so $0 \to K/\mathfrak m K \to k^n \to M/\mathfrak m M \to 0$ is exact. The last map is an isomorphism, so $K / \mathfrak m K = 0$, and $K = 0$ by Nakayama's lemma. $\square$
 
@@ -96,7 +96,7 @@ The Kummer cover of the example is a $\mathbb{Z}/n$-torsor. Torsors under $\math
 
 **Theorem (Krull intersection theorem).** Let $A$ be noetherian, $I$ an ideal and $M$ a finitely generated module. Then $\bigcap_n I^n M$ is the set of $m \in M$ with $(1 + x)m = 0$ for some $x \in I$. In particular, if $A$ is local and $I \neq A$, then $\bigcap_n I^n M = 0$.
 
-*Proof.* Put $N = \bigcap_n I^n M$. By Artin-Rees, for $n = c + 1$, $N = I^{c+1} M \cap N = I(I^c M \cap N) \subseteq IN$, so $N = IN$. The determinant trick in the proof of Nakayama's lemma gives $x \in I$ with $(1 + x) N = 0$. Conversely, if $(1 + x) m = 0$, then $m = -xm = x^2 m = \dots$ lies in each $I^n M$. In a local ring with $I \ne A$, $1 + x$ is a unit. $\square$
+*Proof.* Put $N = \bigcap_n I^n M$. By the Artin-Rees lemma, for $n = c + 1$, $N = I^{c+1} M \cap N = I(I^c M \cap N) \subseteq IN$, so $N = IN$. The determinant trick in the proof of Nakayama's lemma gives $x \in I$ with $(1 + x) N = 0$. Conversely, if $(1 + x) m = 0$, then $m = -xm = x^2 m = \dots$ lies in each $I^n M$. In a local ring with $I \ne A$, $1 + x$ is a unit. $\square$
 
 **Theorem.** Let $A$ be noetherian and $I$ an ideal. Then:
 
@@ -159,7 +159,7 @@ So on a normal noetherian scheme $X$, each prime divisor $D$ gives a valuation $
 
 *Proof.* For $g \in G$, $\det(1 - Xg \mid L) \in \mathcal{O}[X]$ is the characteristic polynomial of $g$ on $V$, and its reduction is $\det(1 - Xg \mid L/\pi L)$. So $L/\pi L$ and $L'/\pi L'$ give the same polynomials. The polynomial of a representation is the product of the polynomials of its composition factors, so the semisimplifications have the same polynomials. Apply Brauer-Nesbitt. $\square$
 
-So the *residual representation* $\bar\rho^{\mathrm{ss}}$ of an $\ell$-adic Galois representation is well defined. The chapter of Volume 4 on lattices over discrete valuation rings uses stable lattices and their reductions to compare Galois representations modulo powers of $\ell$.
+So the *residual representation* $\bar\rho^{\mathrm{ss}}$ of an $\ell$-adic Galois representation is well defined. The chapter of Volume 4 on lattices over discrete valuation rings uses this stable lattice and reduction argument to compare Galois representations modulo powers of $\ell$.
 
 ### Depth and purity of the branch locus
 
@@ -226,7 +226,7 @@ The development volumes need a harder fact of this kind: over the generic fibre 
 
 Let $X$ be a scheme. A sheaf of $\mathcal{O}_X$-modules $\mathcal F$ is *[[quasi-coherent|KPKND0K7W6]]* if $X$ has an affine open cover $\{U_i = \operatorname{Spec} A_i\}$ with $\mathcal F|_{U_i} \cong \widetilde{M_i}$ for $A_i$-modules $M_i$. If $X$ is locally noetherian, $\mathcal F$ is *coherent* if also the $M_i$ can be taken finitely generated. On $X = \operatorname{Spec} A$, $M \mapsto \widetilde M$ is an equivalence from $A$-modules to quasi-coherent sheaves, and for $A$ noetherian from finitely generated modules to coherent sheaves (Hartshorne, II.5). The groups $H^i(X, \mathcal F)$ are the [[sheaf cohomology|PQ6Q143ARJ]] of $\mathcal F$, the right derived functors of $\Gamma(X, -)$ (Hartshorne, III.2).
 
-**Theorem (Serre).** Let $X$ be an affine scheme and $\mathcal F$ quasi-coherent. Then $H^i(X, \mathcal F) = 0$ for $i > 0$. Conversely, a noetherian scheme on which $H^1$ of each quasi-coherent ideal sheaf vanishes is affine (Hartshorne, III.3.5 and III.3.7, for $X$ noetherian; EGA III$_1$, §1.3 in general).
+**Theorem (Serre).** Let $X$ be an affine scheme and $\mathcal F$ a quasi-coherent sheaf. Then $H^i(X, \mathcal F) = 0$ for $i > 0$. Conversely, a noetherian scheme on which $H^1$ of each quasi-coherent ideal sheaf vanishes is affine (Hartshorne, III.3.5 and III.3.7, for $X$ noetherian; EGA III$_1$, §1.3 in general).
 
 **Theorem (Čech cohomology).** Let $X$ be a noetherian separated scheme, $\mathfrak U$ an open affine cover and $\mathcal F$ quasi-coherent. Then the Čech cohomology $\check H^i(\mathfrak U, \mathcal F)$ is $H^i(X, \mathcal F)$ (Hartshorne, III.4.5).
 

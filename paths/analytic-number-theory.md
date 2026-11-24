@@ -1,4 +1,4 @@
-This chapter covers the parts of analytic number theory that the proof uses: Gauss and Jacobi sums, Weil's bound for character sums, mean values and the large sieve, the zeros of Dirichlet $L$-functions, the explicit formula in the forms of von Mangoldt and of Guinand and Weil, primes in progressions and in short intervals, and primes represented by norm forms. We assume [L-functions](/learn/l-functions/) for Dirichlet characters, conductors, the functional equation and the statements of the theorems of Dirichlet and Linnik. We assume [class field theory](/learn/class-field-theory/) for Hecke characters, ray class fields and the Hilbert class field. The proof uses this material in four places. The window pair in [VWin](/step/vwin-def/) needs primes in progressions to a very large modulus. The window bound of [the theta matching](/proof/theta-matching/) turns bounds for twisted sums over primes into half planes free of zeros, which is the converse direction of the explicit formula. The fields `linnik` and `logDerOne` of [ThetaLocalInputs](/step/theta-local-inputs-def/) ask for a Linnik prime and for a bound on $L'/L(1, \chi)$, and their statements are given in [the literature chapter](/proof/literature/). The hypotheses of [HypsAlt](/step/hyps-alt-def/) ask for primes in short intervals, some of them represented by a norm form.
+This chapter covers the parts of analytic number theory that the proof uses: Gauss and Jacobi sums, the Weil bound for character sums, mean values and the large sieve, the zeros of Dirichlet $L$-functions, the explicit formula in the forms of von Mangoldt and of Guinand and Weil, primes in progressions and in short intervals, and primes represented by norm forms. We assume [L-functions](/learn/l-functions/) for Dirichlet characters, conductors, the functional equation and the statements of the theorems of Dirichlet and Linnik. We assume [class field theory](/learn/class-field-theory/) for Hecke characters, ray class fields and the Hilbert class field. The proof uses this material in four places. The window pair in [VWin](/step/vwin-def/) needs primes in progressions to a very large modulus. The window bound of [the theta matching](/proof/theta-matching/) turns bounds for twisted sums over primes into half planes free of zeros, which is the converse direction of the explicit formula. The fields `linnik` and `logDerOne` of [ThetaLocalInputs](/step/theta-local-inputs-def/) ask for a Linnik prime and for a bound on $L'/L(1, \chi)$, and their statements are given in [the literature chapter](/proof/literature/). The hypotheses of [HypsAlt](/step/hyps-alt-def/) ask for primes in short intervals, some of them represented by a norm form.
 
 ## Gauss and Jacobi sums
 
@@ -53,7 +53,7 @@ The lemma writes a multiplicative character as a combination of additive ones. I
 
 The identity $\tau(\chi_p)^2 = \chi_p(-1)p$ follows from the Jacobi sum formula with $J(\chi_p, \chi_p) = -\chi_p(-1)$. The sign of the square root is the hard part; see Davenport, chapter 2, or Ireland and Rosen, chapter 6. It gives root number $1$ in the functional equation of $L(s, \chi)$ for real primitive $\chi$.
 
-**Lemma (products of primitive characters).** Let $\chi_1$ be primitive modulo $q_1$ and $\chi_2$ primitive modulo $q_2$, with $(q_1, q_2) = 1$. Then $\chi_1\chi_2$ is primitive modulo $q_1q_2$, and
+**Lemma (product of primitive characters).** Let $\chi_1$ be primitive modulo $q_1$ and $\chi_2$ primitive modulo $q_2$, with $(q_1, q_2) = 1$. Then $\chi_1\chi_2$ is primitive modulo $q_1q_2$, and
 $$\tau(\chi_1\chi_2) = \chi_1(q_2)\chi_2(q_1)\tau(\chi_1)\tau(\chi_2).$$
 
 *Proof.* Suppose $\chi_1\chi_2$ is induced from a modulus $d_1d_2$ with $d_i \mid q_i$. On the integers $a \equiv 1 \pmod{q_2}$ the product equals $\chi_1$, and the Chinese remainder theorem shows that $\chi_1$ is then trivial on $a \equiv 1 \pmod{d_1}$ with $(a, q_1) = 1$. So $d_1 = q_1$; in the same way $d_2 = q_2$. For the Gauss sum, write $a = a_1q_2 + a_2q_1$ with $a_i$ modulo $q_i$. Then $e(a/(q_1q_2)) = e(a_1/q_1)e(a_2/q_2)$ and $\chi_1\chi_2(a) = \chi_1(a_1q_2)\chi_2(a_2q_1)$. $\square$
@@ -147,7 +147,7 @@ The fractions $a/q$ with $q \leq Q$ and $(a, q) = 1$ are $Q^{-2}$-spaced, since 
 
 For a single modulus the bound $\sum_{\chi \bmod q} |S(\chi)|^2 \leq (N/q + 1)\varphi(q)\sum |a_n|^2$ follows from orthogonality alone. The large sieve gives the same quality of bound for all moduli up to $Q$ together, at the cost of $Q^2$ in place of $\sum_q \varphi(q)$.
 
-**Proposition (mean square over primes of real character sums).** Let $A > 0$. There is $c = c(A) > 0$ such that for $Q \geq 3$, $1 \leq N \leq (\log Q)^A$ and complex numbers $c_n$ ($n \leq N$),
+**Proposition (mean square of real character sums over primes).** Let $A > 0$. There is $c = c(A) > 0$ such that for $Q \geq 3$, $1 \leq N \leq (\log Q)^A$ and complex numbers $c_n$ ($n \leq N$),
 $$\sum_{2 < p \leq Q}\Big|\sum_{n \leq N} c_n\Big(\frac{n}{p}\Big)\Big|^2 = \pi(Q)\sum_{\substack{n, m \leq N \\ nm = \square}} c_n\overline{c_m} + O_A\Big(Q e^{-c\sqrt{\log Q}}\Big(\sum_n |c_n|\Big)^2\Big),$$
 where $p$ runs over primes and the implied constant is not effective.
 
@@ -189,7 +189,7 @@ $$N(T, \chi) = \frac{T}{\pi}\log\frac{qT}{2\pi e} + O(\log(qT)).$$
 For each real $t$, the number of zeros with $|\gamma - t| \leq 1$ is $O(\log(q(|t| + 2)))$, and for $-1 \leq \sigma \leq 2$,
 $$\frac{L'}{L}(s, \chi) = \sum_{|\gamma - t| < 1} \frac{1}{s - \rho} + O(\log(q(|t| + 2))).$$
 
-See Davenport, chapters 15 and 16. The local formula comes from the partial fraction expansion of $L'/L$ and the bound at $\sigma = 2$, by subtraction. At $s = 1$ and $\chi$ nonprincipal it gives
+See Davenport, chapters 15 and 16. This is the *local formula for L'/L*. It comes from the partial fraction expansion of $L'/L$ and the bound at $\sigma = 2$, by subtraction. At $s = 1$ and $\chi$ nonprincipal it gives
 $$\frac{L'}{L}(1, \chi) = \sum_{|\gamma| < 1}\frac{1}{1 - \rho} + O(\log q).$$
 This is the content of `LogDerOne`, a field of [ThetaLocalInputs](/step/theta-local-inputs-def/) whose exact form is in [the literature chapter](/proof/literature/).
 
@@ -226,20 +226,20 @@ $$|\psi(x, \chi)| \ll x\log^2(qx)\exp\Big(-\frac{c\log x}{\log q + \sqrt{\log x}
 
 The development volumes use this bound with $\lambda$ in place of $\log q$ to control the tails of sums twisted by a character.
 
-**Lemma (the smoothed sum at $s = 1$).** Let $\chi$ be nonprincipal and $y \geq 1$. Then
+**Lemma (smoothed prime sum at s = 1).** Let $\chi$ be nonprincipal and $y \geq 1$. Then
 $$\sum_{n \leq y}\Lambda(n)\chi(n)\Big(\frac{y}{n} - 1\Big) + y\frac{L'}{L}(1, \chi) = -y\int_y^\infty \psi(u, \chi)\frac{du}{u^2}.$$
 
 *Proof.* By the prime number theorem for $\chi$, $\psi(u, \chi) \ll u e^{-c\sqrt{\log u}}$ with a constant that depends on $\chi$. By partial summation, $\sum_n \Lambda(n)\chi(n)n^{-s} = s\int_1^\infty \psi(u, \chi)u^{-s - 1}du$ for $\mathrm{Re}\, s > 1$, and the integral converges uniformly for $\mathrm{Re}\, s \geq 1$. Letting $s \to 1$ gives $-\frac{L'}{L}(1, \chi) = \int_1^\infty \psi(u, \chi)u^{-2}du$. Partial summation also gives $\sum_{n \leq y}\Lambda(n)\chi(n)(y/n - 1) = y\int_1^y \psi(u, \chi)u^{-2}du$. Subtract. $\square$
 
 **Remark.** For the trivial character, $\sum_{n \leq y}\Lambda(n)(y/n - 1) = y\log y - (1 + \gamma)y + o(y)$, where $\gamma$ is the [[Euler-Mascheroni constant|00C5P9JZBK]]. This follows from $\sum_{n \leq y}\Lambda(n)/n = \log y - \gamma + o(1)$ and $\psi(y) = y + o(y)$. The lemma turns a bound for $\psi(u, \chi)$ on $[y, \infty)$ into a bound for a sum of length $y$, with the constant $L'/L(1, \chi)$ as the only global term.
 
-**Theorem (the converse direction).** Let $\chi$ be a nonprincipal Dirichlet character and $0 \leq \theta < 1$. If $\psi(x, \chi) = O(x^\theta)$ as $x \to \infty$, then $L(s, \chi) \neq 0$ for $\mathrm{Re}\, s > \theta$. For the trivial character, $\psi(x) - x = O(x^\theta)$ implies $\zeta(s) \neq 0$ for $\mathrm{Re}\, s > \theta$.
+**Theorem (zero-free half planes from prime sums).** Let $\chi$ be a nonprincipal Dirichlet character and $0 \leq \theta < 1$. If $\psi(x, \chi) = O(x^\theta)$ as $x \to \infty$, then $L(s, \chi) \neq 0$ for $\mathrm{Re}\, s > \theta$. For the trivial character, $\psi(x) - x = O(x^\theta)$ implies $\zeta(s) \neq 0$ for $\mathrm{Re}\, s > \theta$.
 
 *Proof.* For $\mathrm{Re}\, s > 1$, $-\frac{L'}{L}(s, \chi) = s\int_1^\infty \psi(u, \chi)u^{-s - 1}du$. Under the hypothesis the integral converges absolutely and locally uniformly for $\mathrm{Re}\, s > \theta$, so the right side is holomorphic there. The left side is meromorphic in $\mathbb{C}$, and the two agree for $\mathrm{Re}\, s > 1$. So $L'/L$ has no pole in $\mathrm{Re}\, s > \theta$. A zero of $L$ of order $m \geq 1$ at $s_0$ is a pole of $L'/L$ with residue $m$ (see the [[order of a zero|0QX19C7K1C]]). For $\zeta$, use $-\frac{\zeta'}{\zeta}(s) - \frac{s}{s - 1} = s\int_1^\infty (\psi(u) - u)u^{-s - 1}du$. $\square$
 
 With $\theta = \frac{1}{2} + \varepsilon$ for each $\varepsilon > 0$, the theorem says that a bound for prime sums implies the [[Riemann Hypothesis|VCGF9YR36X]] for $L(s, \chi)$; the explicit formula gives the reverse implication. The proof needs a form in which the bound $G_m(x) \leq x^\theta$ for twisted prime sums is known only on windows $[Y, Y^\lambda]$ for a sequence of $Y$ tending to infinity. [The theta matching](/proof/theta-matching/) proves that this still gives $L(s, \psi') \neq 0$ for $\mathrm{Re}\, s > \theta$. The idea is a smoothed explicit formula in which a zero with real part greater than $\theta$ gives a term too large for some long window. With $\theta = \frac{1}{2}$ for each primitive character, the conclusion is [ZeroFreeAll](/step/zero-free-all-of-green-v-win/): $L(s, \psi) \neq 0$ for $\mathrm{Re}\, s > \frac{1}{2}$ for every primitive Dirichlet character $\psi$.
 
-**Theorem (Guinand and Weil).** Let $h$ be an even function, holomorphic in the strip $|\mathrm{Im}\, r| \leq \frac{1}{2} + \varepsilon$ for some $\varepsilon > 0$, with $h(r) \ll (1 + |r|)^{-2 - \varepsilon}$ there. Let $g(u) = \frac{1}{2\pi}\int_{\mathbb{R}} h(r)e^{-iru}dr$. Write the nontrivial zeros of the [[Riemann zeta function|TXB2F07CC6]] as $\rho = \frac{1}{2} + i\gamma$, with $\gamma \in \mathbb{C}$. Then
+**Theorem (Guinand-Weil explicit formula).** Let $h$ be an even function, holomorphic in the strip $|\mathrm{Im}\, r| \leq \frac{1}{2} + \varepsilon$ for some $\varepsilon > 0$, with $h(r) \ll (1 + |r|)^{-2 - \varepsilon}$ there. Let $g(u) = \frac{1}{2\pi}\int_{\mathbb{R}} h(r)e^{-iru}dr$. Write the nontrivial zeros of the [[Riemann zeta function|TXB2F07CC6]] as $\rho = \frac{1}{2} + i\gamma$, with $\gamma \in \mathbb{C}$. Then
 $$\begin{aligned} \sum_\rho h(\gamma) &= h\big(\tfrac{i}{2}\big) + h\big(-\tfrac{i}{2}\big) - g(0)\log\pi + \frac{1}{2\pi}\int_{\mathbb{R}} h(r)\,\frac{\Gamma'}{\Gamma}\Big(\frac{1}{4} + \frac{ir}{2}\Big)dr \\ &\quad - 2\sum_{n \geq 1}\frac{\Lambda(n)}{\sqrt{n}}\,g(\log n). \end{aligned}$$
 
 *Proof sketch.* Let $\xi(s) = \frac{1}{2}s(s - 1)\pi^{-s/2}\Gamma(s/2)\zeta(s)$. Integrate $h(-i(s - \frac{1}{2}))\,\xi'(s)/\xi(s)$ over the boundary of the rectangle with vertical sides $\mathrm{Re}\, s = -\varepsilon'$ and $\mathrm{Re}\, s = 1 + \varepsilon'$, and let its height tend to infinity. The residues give $\sum_\rho h(\gamma)$. The functional equation $\xi(s) = \xi(1 - s)$ folds the two vertical sides into one. On the right side, expand
@@ -272,7 +272,7 @@ This form is in Montgomery and Vaughan, "The large sieve" (1973). It is an upper
 **Theorem (Bombieri and Vinogradov).** For each $A > 0$ there is $B > 0$ such that
 $$\sum_{q \leq x^{1/2}(\log x)^{-B}}\ \max_{(a, q) = 1}\ \max_{y \leq x}\Big|\psi(y; q, a) - \frac{y}{\varphi(q)}\Big| \ll_A x(\log x)^{-A}.$$
 
-See Davenport, chapter 28. The proof uses the multiplicative large sieve for moduli in a dyadic range and Siegel-Walfisz for small moduli. On average over $q$ it gives what the [[Generalized Riemann Hypothesis|DNKA4WBKDS]] gives for each $q$.
+See Davenport, chapter 28. The proof of the Bombieri-Vinogradov theorem uses the multiplicative large sieve for moduli in a dyadic range and Siegel-Walfisz for small moduli. On average over $q$ it gives what the [[Generalized Riemann Hypothesis|DNKA4WBKDS]] gives for each $q$.
 
 For one modulus larger than a power of $\log x$, the exceptional zero must be kept in the main term. The following form is the one the development volumes use.
 
@@ -311,7 +311,7 @@ A prime of the form $x^2 + ny^2$ is a norm from an imaginary quadratic order. Wh
 
 See Cox, *Primes of the form $x^2 + ny^2$*, section 7. Under the bijection the principal form $x^2 + xy + \frac{1 - D}{4}y^2$ goes to the class of principal ideals.
 
-**Proposition.** Let $d > 3$ be a prime with $d \equiv 3 \pmod 4$, $K = \mathbb{Q}(\sqrt{-d})$ and $p \neq d$ a prime. The following are equivalent:
+**Proposition (primes of the form 4p = A^2 + dB^2).** Let $d > 3$ be a prime with $d \equiv 3 \pmod 4$, $K = \mathbb{Q}(\sqrt{-d})$ and $p \neq d$ a prime. The following are equivalent:
 
 1. $4p = A^2 + dB^2$ for some integers $A, B$;
 2. $p = \pi\overline{\pi}$ for some $\pi \in \mathcal{O}_K$;
@@ -340,7 +340,7 @@ The proof is the argument of Hoheisel and Ingham with the zero-free region and a
 
 *Proof.* The Artin symbol of $\mathfrak{p}$ in $K_{\mathfrak{m}}/K$ is the class of $\mathfrak{p}$ in $\mathrm{Cl}_{\mathfrak{m}}(K)$, and $\mathfrak{p}$ splits completely if and only if its Artin symbol is trivial, that is $\mathfrak{p} \in P_{\mathfrak{m}}$. The density is Chebotarev for $K_{\mathfrak{m}}/K$. $\square$
 
-The development volumes need primes of $K$ of the form $\pi\overline{\pi}$ with $\pi \equiv 1 \pmod N$ and $N\pi \leq N^{C}$. This is Linnik's theorem for the ray class characters modulo $N$. Fogels extended Linnik's method to Hecke $L$-functions, and Lagarias, Montgomery and Odlyzko gave a bound $N\mathfrak{p} \ll d_L^{A}$ for the least prime with a given Frobenius in a Galois extension $L$. For the ray class field $L = K_{(N)}$, $\log d_L$ is of size $[L : \mathbb{Q}]\log N$ and the degree grows with $N$, so this bound is not polynomial in $N$. The polynomial bound needs the method of Linnik applied to the $L$-functions of the ray class group, with the zero density theorem and Deuring-Heilbronn for that family.
+The development volumes need primes of $K$ of the form $\pi\overline{\pi}$ with $\pi \equiv 1 \pmod N$ and $N\pi \leq N^{C}$. This is Linnik's theorem for the ray class characters modulo $N$. Fogels extended Linnik's method to Hecke $L$-functions, and Lagarias, Montgomery and Odlyzko gave a bound $N\mathfrak{p} \ll d_L^{A}$ for the least prime in the Chebotarev theorem, that is, the least prime with a given Frobenius in a Galois extension $L$. For the ray class field $L = K_{(N)}$, $\log d_L$ is of size $[L : \mathbb{Q}]\log N$ and the degree grows with $N$, so this bound is not polynomial in $N$. The polynomial bound needs the method of Linnik applied to the $L$-functions of the ray class group, with the zero density theorem and Deuring-Heilbronn for that family.
 
 **Remark (effective Chebotarev).** Lagarias and Odlyzko proved an effective form of the [[Chebotarev|X8VKW5Y1CZ]] density theorem: for a Galois extension $L/K$ and a conjugacy class $C$ of its group $G$, the number of primes of $K$ of norm at most $x$ with Frobenius in $C$ is $\frac{|C|}{|G|}\mathrm{li}(x)$ up to an explicit error that involves a possible exceptional zero of the Dedekind zeta function of $L$, for $\log x$ larger than a constant times $[L : \mathbb{Q}](\log d_L)^2$. It is the general form of the theorem with the exceptional term of the previous section.
 

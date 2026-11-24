@@ -32,7 +32,7 @@ See Hartshorne, *Algebraic Geometry*, II.7 and III.5, and Lazarsfeld, *Positivit
 
 Both facts appear as `nef_pullback_is_nef` and `ample_add_nef_is_ample` in the vanishing theorem on a log resolution of the development volumes. The pullback of an ample divisor by a birational morphism is nef but in general not ample. The notion that survives is bigness.
 
-**Definition.** Let $X$ be a projective variety of dimension $n$ and $L$ a line bundle. The *volume* of $L$ is
+**Definition (big divisor and volume).** Let $X$ be a projective variety of dimension $n$ and $L$ a line bundle. The *volume* of $L$ is
 $$\operatorname{vol}(L) = \limsup_{m \to \infty} \frac{h^0(X, L^{\otimes m})}{m^n / n!}.$$
 $L$ is *big* if $\operatorname{vol}(L) > 0$. A $\mathbb{Q}$-Cartier divisor $D$ is big if $mD$ is big for some $m > 0$; then $\operatorname{vol}(mD) = m^n \operatorname{vol}(D)$.
 
@@ -50,7 +50,7 @@ If $\mu : Y \to X$ is birational and $D$ is nef and big on $X$, then $\mu^*D$ is
 
 ## Metrics, curvature and positivity
 
-Let $X$ be a complex manifold and $L$ a holomorphic line bundle with a [[Hermitian metric|Q6X6W2N29G]] $h$. In a local holomorphic frame $e$ on $U$ write $|e|_h^2 = e^{-\varphi}$; the function $\varphi$ is the *weight* of $h$ in this frame, and $|s|_h^2 = |f|^2 e^{-\varphi}$ for $s = fe$. If $e' = ge$ is another frame, $\varphi' = \varphi - \log|g|^2$. The Chern form of the Arakelov chapter is then $c_1(L, h) = -dd^c \log|e|_h^2 = dd^c \varphi$.
+Let $X$ be a complex manifold and $L$ a holomorphic line bundle with a [[Hermitian metric|Q6X6W2N29G]] $h$. In a local holomorphic frame $e$ on $U$ write $|e|_h^2 = e^{-\varphi}$; the function $\varphi$ is the *weight* of $h$ in this frame, and $|s|_h^2 = |f|^2 e^{-\varphi}$ for $s = fe$. If $e' = ge$ is another frame, $\varphi' = \varphi - \log|g|^2$. For a Hermitian metric and Chern form as in the Arakelov chapter, $c_1(L, h) = -dd^c \log|e|_h^2 = dd^c \varphi$.
 
 **Definition.** A real $(1,1)$-form $\alpha = i \sum_{j,k} \alpha_{j\bar k}\, dz_j \wedge d\bar z_k$ is *positive* at $x$ if the Hermitian matrix $(\alpha_{j\bar k}(x))$ is positive definite, and *semipositive* if it is positive semidefinite. A metric $h$ on $L$ is *positive* (*semipositive*) if $c_1(L, h)$ is positive (semipositive) at each point. A *Kähler form* is a closed positive $(1,1)$-form.
 
@@ -62,7 +62,7 @@ One direction is short: if $L^{\otimes m}$ is very ample, the $m$-th root of the
 
 The vanishing theorems for $\mathbb{Q}$-divisors need metrics with singularities.
 
-**Definition.** A function $\varphi : U \to [-\infty, \infty)$ on an open set $U \subseteq \mathbb{C}^n$ is *[[plurisubharmonic|FF2P7ER3QT]]* (psh) if it is upper semicontinuous, not identically $-\infty$ on any component, and its restriction to each complex line is subharmonic. A $C^2$ function is psh if and only if its Levi matrix $(\partial^2\varphi / \partial z_j \partial \bar z_k)$ is positive semidefinite at each point. It is *strictly psh* if the Levi matrix is positive definite.
+**Definition (plurisubharmonic function).** A function $\varphi : U \to [-\infty, \infty)$ on an open set $U \subseteq \mathbb{C}^n$ is *[[plurisubharmonic|FF2P7ER3QT]]* (psh) if it is upper semicontinuous, not identically $-\infty$ on any component, and its restriction to each complex line is subharmonic. A $C^2$ function is psh if and only if its Levi matrix $(\partial^2\varphi / \partial z_j \partial \bar z_k)$ is positive semidefinite at each point. It is *strictly psh* if the Levi matrix is positive definite.
 
 **Definition.** A *singular Hermitian metric* on $L$ is given by weights $\varphi$ in local frames that are locally integrable and satisfy $\varphi' = \varphi - \log|g|^2$ under change of frame. Its *curvature current* is $dd^c \varphi$, a closed real $(1,1)$-current. The metric is *semipositive* if the weights are psh, so that $dd^c\varphi$ is a positive current.
 
@@ -103,7 +103,7 @@ This follows from part 3 of the Chern-Weil theorem and Stokes. The development s
 
 **Example.** Let $T = T\mathbb{P}^n$. The Euler sequence gives $c(T) = (1 + \xi)^{n+1}$ with $\xi = c_1(\mathcal{O}(1))$, so $\int_{\mathbb{P}^n} c_n(T) = n + 1$, the Euler characteristic of $\mathbb{P}^n$. With the Fubini-Study metric the integrand is an explicit invariant form, and the integral of $c_1(\mathcal{O}(1), FS)^n = \omega_{FS}^n$ is $1$.
 
-**Proposition (splitting principle).** Let $f : \mathrm{Fl}(E) \to X$ be the bundle of full flags in $E$. Then $f^* : H^*(X) \to H^*(\mathrm{Fl}(E))$ is injective, and $f^*E$ has a filtration $0 = F_0 \subset F_1 \subset \dots \subset F_r = f^*E$ whose quotients $F_i / F_{i-1}$ are line bundles with first Chern classes $x_1, \dots, x_r$. Then $f^* c(E) = \prod_i (1 + x_i)$, so $c_k(E)$ pulls back to the $k$-th elementary symmetric function of the $x_i$ (Fulton, *Intersection Theory*, Section 3.2). The full flag bundle is an iterated projective bundle, so its cohomology follows from the projective bundle formula of the [geometry chapter](/learn/geometry/). The integral of a polynomial in the $x_i$ over $\mathrm{Fl}(E)$ is computed by a symmetrizing operator (divided differences); this is the statement `FlagPushForward` in `GoodChernWeil`.
+**Proposition (splitting principle and flag push-forward).** Let $f : \mathrm{Fl}(E) \to X$ be the bundle of full flags in $E$. Then $f^* : H^*(X) \to H^*(\mathrm{Fl}(E))$ is injective, and $f^*E$ has a filtration $0 = F_0 \subset F_1 \subset \dots \subset F_r = f^*E$ whose quotients $F_i / F_{i-1}$ are line bundles with first Chern classes $x_1, \dots, x_r$. Then $f^* c(E) = \prod_i (1 + x_i)$, so $c_k(E)$ pulls back to the $k$-th elementary symmetric function of the $x_i$ (Fulton, *Intersection Theory*, Section 3.2). The full flag bundle is an iterated projective bundle, so its cohomology follows from the projective bundle formula of the [geometry chapter](/learn/geometry/). The integral of a polynomial in the $x_i$ over $\mathrm{Fl}(E)$ is computed by a symmetrizing operator (divided differences); this is the statement `FlagPushForward` in `GoodChernWeil`.
 
 On a Shimura variety, the natural metrics on automorphic vector bundles are not smooth at the boundary of a toroidal compactification. Mumford's notion of a good metric controls this.
 
@@ -151,7 +151,7 @@ The orders follow from the Proposition above: each blow-up of a point adds $1$ t
 
 Discrepancies measure singularities of pairs. Let $X$ be normal and $\Delta$ a $\mathbb{Q}$-divisor with $K_X + \Delta$ $\mathbb{Q}$-Cartier, where $K_X$ is the [[canonical divisor|W05VYY4HBR]]. A *divisor over $X$* is a prime divisor $E$ on some normal $Y$ with a proper birational $\mu : Y \to X$; it gives a divisorial valuation $\operatorname{ord}_E$ of the function field, and its *centre* is the closure of $\mu(E)$.
 
-**Definition.** For $\mu$ as above, write
+**Definition (discrepancy and klt pair).** For $\mu$ as above, write
 $$K_Y + \mu^{-1}_*\Delta = \mu^*(K_X + \Delta) + \sum_E a(E; X, \Delta)\, E,$$
 with $\mu_* K_Y = K_X$ and the sum over the exceptional prime divisors of $\mu$. The number $a(E; X, \Delta)$ is the *discrepancy* of $E$; it depends only on the valuation $\operatorname{ord}_E$. For a prime divisor $E$ on $X$, put $a(E; X, \Delta) = -\operatorname{coeff}_E \Delta$. The pair $(X, \Delta)$ is *klt* (Kawamata log terminal) if $a(E; X, \Delta) > -1$ for all divisors $E$ over $X$, and *log canonical* (lc) if $a(E; X, \Delta) \geq -1$ for all $E$. It is klt or lc *at $x$* if this holds for all $E$ whose centre contains $x$.
 
@@ -262,7 +262,7 @@ To use the corollary, we need divisors that are singular at a point. The next pr
 
 *Proof of 1.* Let $E$ be the exceptional divisor of the blow-up of $x$. Principalization on the blow-up gives a log resolution of $D$ on which $E$ (its strict transform) is one of the $E_i$, with $k_E = n - 1$ and $b_E = \operatorname{mult}_x D$. If $f \in \mathcal{J}(D)_x$, then $\operatorname{ord}_E f \geq \lfloor \operatorname{mult}_x D \rfloor - n + 1 \geq k$. Since $\operatorname{ord}_E f = \operatorname{mult}_x f$, $f \in \mathfrak{m}_x^k$. $\square$
 
-Part 2 is Skoda's theorem: if $\nu(\varphi, x) < 1$, then $e^{-\varphi}$ is integrable near $x$ (Skoda, Bull. Soc. Math. France 100, 1972; Lazarsfeld, *Positivity II*, Chapter 9). The bound $n$ in part 1 cannot be lowered. For $D = \frac{c}{n}(H_1 + \dots + H_n)$, with $H_i$ the coordinate hyperplanes of $\mathbb{C}^n$, $\operatorname{mult}_0 D = c$ and $D$ has snc support, so $(X, D)$ is klt at $0$ exactly when $c < n$.
+Part 2 is Skoda's integrability theorem: if $\nu(\varphi, x) < 1$, then $e^{-\varphi}$ is integrable near $x$ (Skoda, Bull. Soc. Math. France 100, 1972; Lazarsfeld, *Positivity II*, Chapter 9). The bound $n$ in part 1 cannot be lowered. For $D = \frac{c}{n}(H_1 + \dots + H_n)$, with $H_i$ the coordinate hyperplanes of $\mathbb{C}^n$, $\operatorname{mult}_0 D = c$ and $D$ has snc support, so $(X, D)$ is klt at $0$ exactly when $c < n$.
 
 ## L2 estimates
 
@@ -274,14 +274,14 @@ For a $(0,1)$-form $g = \sum_k g_k\, d\bar z_k$ and a $C^2$ strictly psh functio
 $$|g|^2_{i\partial\bar\partial\varphi}(z) = \sup_{\xi \neq 0} \frac{\big|\sum_k g_k(z)\, \bar\xi_k\big|^2}{\sum_{j,k} \varphi_{j\bar k}(z)\, \xi_j \bar\xi_k},$$
 where $\varphi_{j\bar k} = \partial^2 \varphi / \partial z_j \partial \bar z_k$. If $(\varphi_{j\bar k}) \geq c \cdot 1$ for a constant $c > 0$, then $|g|^2_{i\partial\bar\partial\varphi} \leq |g|^2 / c$.
 
-**Theorem (Hörmander).** Let $\Omega \subseteq \mathbb{C}^n$ be pseudoconvex and $\varphi \in C^2(\Omega)$ strictly psh. Let $g$ be a $(0,1)$-form with locally square integrable coefficients and $\bar\partial g = 0$ in the sense of distributions. Then there is a function $u$ with $\bar\partial u = g$ and
+**Theorem (Hörmander L2 estimate).** Let $\Omega \subseteq \mathbb{C}^n$ be pseudoconvex and $\varphi \in C^2(\Omega)$ strictly psh. Let $g$ be a $(0,1)$-form with locally square integrable coefficients and $\bar\partial g = 0$ in the sense of distributions. Then there is a function $u$ with $\bar\partial u = g$ and
 $$\int_\Omega |u|^2 e^{-\varphi}\, d\lambda \leq \int_\Omega |g|^2_{i\partial\bar\partial\varphi}\, e^{-\varphi}\, d\lambda.$$
 
 See Hörmander, *L2 estimates and existence theorems for the $\bar\partial$ operator* (Acta Math. 113, 1965), and his book *An Introduction to Complex Analysis in Several Variables*, Chapter IV. Theorem 4.4.2 of the book is a version for any psh $\varphi$, with the weight $e^{-\varphi}(1 + |z|^2)^{-2}$ on the left; Demailly, *Complex Analytic and Differential Geometry*, Chapter VIII, gives the form above.
 
 **Example.** Let $n = 1$, $\Omega = \mathbb{C}$, $\varphi = |z|^2$ and $g = d\bar z$. Then $|g|^2_{i\partial\bar\partial\varphi} = 1$, and the right side is $\int e^{-|z|^2} d\lambda = \pi$. The solution of minimal norm is $u = \bar z$, which is orthogonal to the holomorphic functions in $L^2(e^{-|z|^2})$, and $\int |z|^2 e^{-|z|^2} d\lambda = \pi$. So the constant $1$ is sharp.
 
-*Proof (outline).* Let $T = \bar\partial$ from functions to $(0,1)$-forms and $S = \bar\partial$ from $(0,1)$-forms to $(0,2)$-forms, as closed densely defined operators between the weighted spaces $L^2(\Omega, e^{-\varphi})$. Let $T^*$ be the Hilbert space adjoint.
+*Proof (outline, by Hilbert space methods).* Let $T = \bar\partial$ from functions to $(0,1)$-forms and $S = \bar\partial$ from $(0,1)$-forms to $(0,2)$-forms, as closed densely defined operators between the weighted spaces $L^2(\Omega, e^{-\varphi})$. Let $T^*$ be the Hilbert space adjoint.
 
 1. *A priori estimate.* For smooth compactly supported $\alpha$, an integration by parts (the Morrey-Kohn-Hörmander identity) gives
 $$\begin{aligned} \|T^*\alpha\|^2 + \|S\alpha\|^2 &= \int \sum_{j,k} \varphi_{j\bar k}\, \alpha_j \bar\alpha_k\, e^{-\varphi} + \int \sum_{j,k} \Big|\frac{\partial \alpha_j}{\partial \bar z_k}\Big|^2 e^{-\varphi} \\ &\geq \int \sum_{j,k} \varphi_{j\bar k}\, \alpha_j \bar\alpha_k\, e^{-\varphi}. \end{aligned}$$
@@ -301,7 +301,7 @@ The same idea on a compact manifold, with the weight $\psi = n\log|s|^2$ for sec
 
 Extension from a submanifold is harder, since the weight must vanish along a whole hypersurface without losing integrability.
 
-**Theorem (Ohsawa-Takegoshi).** Let $\Omega \subseteq \mathbb{C}^n$ be a bounded pseudoconvex open set, $\varphi$ a psh function on $\Omega$, and $H = \Omega \cap \{z_n = 0\}$. For each holomorphic function $f$ on $H$ with $\int_H |f|^2 e^{-\varphi}\, d\lambda_{n-1} < \infty$ there is a holomorphic $F$ on $\Omega$ with $F|_H = f$ and
+**Theorem (Ohsawa-Takegoshi extension).** Let $\Omega \subseteq \mathbb{C}^n$ be a bounded pseudoconvex open set, $\varphi$ a psh function on $\Omega$, and $H = \Omega \cap \{z_n = 0\}$. For each holomorphic function $f$ on $H$ with $\int_H |f|^2 e^{-\varphi}\, d\lambda_{n-1} < \infty$ there is a holomorphic $F$ on $\Omega$ with $F|_H = f$ and
 $$\int_\Omega |F|^2 e^{-\varphi}\, d\lambda_n \leq C \int_H |f|^2 e^{-\varphi}\, d\lambda_{n-1},$$
 where $C$ depends only on $\sup_\Omega |z_n|$ (Ohsawa and Takegoshi, *On the extension of $L^2$ holomorphic functions*, Math. Z. 195, 1987).
 
@@ -309,7 +309,7 @@ If $\Omega \subseteq \mathbb{C}^{n-1} \times \{|z_n| < r\}$, one can take $C = \
 
 **Remark.** Ohsawa-Takegoshi gives the restriction theorem $\mathcal{J}(\varphi|_H) \subseteq \mathcal{J}(\varphi)|_H$, Demailly's approximation of psh functions, and Siu's invariance of plurigenera (Invent. Math. 134, 1998).
 
-**Remark (Bergman kernels and Hilbert-Samuel).** Let $(L, h)$ be a positive Hermitian line bundle on a compact manifold $X$ of dimension $n$, with $\omega = c_1(L, h)$. Give $H^0(X, L^{\otimes m})$ the $L^2$ norm $\int_X |s|^2 \omega^n / n!$, and let $B_m(x) = \sum_i |s_i(x)|^2$ for an orthonormal basis. Then $B_m(x) = m^n + O(m^{n-1})$ uniformly on $X$ (Tian, J. Differential Geom. 32, 1990; Bouche, Ann. Inst. Fourier 40, 1990; Zelditch, Int. Math. Res. Not. 1998). The upper bound $B_m \leq C m^n$, which says $\|s\|_{\sup} \leq C' m^{n/2}\|s\|_{L^2}$, follows from the sub-mean value inequality on balls of radius $m^{-1/2}$. The lower bound uses Hörmander's estimate to build peak sections, as in the interpolation example. With this comparison of sup norms and $L^2$ norms, Abbes and Bouche (Ann. Inst. Fourier 45, 1995) give a proof of the arithmetic Hilbert-Samuel formula of Gillet and Soulé (Invent. Math. 110, 1992), stated in the [Arakelov chapter](/learn/arakelov/). The block formula of the development has the same bound $|f(z)|/h(z)^m \leq C m^{D/2}\|f\|$.
+**Remark (Bergman kernel asymptotics and Hilbert-Samuel).** Let $(L, h)$ be a positive Hermitian line bundle on a compact manifold $X$ of dimension $n$, with $\omega = c_1(L, h)$. Give $H^0(X, L^{\otimes m})$ the $L^2$ norm $\int_X |s|^2 \omega^n / n!$, and let $B_m(x) = \sum_i |s_i(x)|^2$ for an orthonormal basis. Then $B_m(x) = m^n + O(m^{n-1})$ uniformly on $X$ (Tian, J. Differential Geom. 32, 1990; Bouche, Ann. Inst. Fourier 40, 1990; Zelditch, Int. Math. Res. Not. 1998). The upper bound $B_m \leq C m^n$, which says $\|s\|_{\sup} \leq C' m^{n/2}\|s\|_{L^2}$, follows from the sub-mean value inequality on balls of radius $m^{-1/2}$. The lower bound uses Hörmander's estimate to build peak sections, as in the interpolation example. With this comparison of sup norms and $L^2$ norms, Abbes and Bouche (Ann. Inst. Fourier 45, 1995) give a proof of the arithmetic Hilbert-Samuel formula of Gillet and Soulé (Invent. Math. 110, 1992), stated in the [Arakelov chapter](/learn/arakelov/). The block formula of the development has the same bound $|f(z)|/h(z)^m \leq C m^{D/2}\|f\|$.
 
 ## The Angehrn-Siu theorem
 

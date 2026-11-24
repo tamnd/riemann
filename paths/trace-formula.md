@@ -42,7 +42,7 @@ References are Borel and Harish-Chandra, *Arithmetic subgroups of algebraic grou
 
 **Theorem (Mahler's compactness criterion).** A subset $Y$ of $\mathrm{SL}_n(\mathbb{R}) / \mathrm{SL}_n(\mathbb{Z})$, the space of lattices of covolume $1$ in $\mathbb{R}^n$, is relatively compact if and only if there is $\varepsilon > 0$ such that no lattice in $Y$ has a nonzero vector of length less than $\varepsilon$.
 
-**Theorem (Godement's criterion; Borel and Harish-Chandra, 1962; Mostow and Tamagawa, 1962).** Let $G$ be semisimple over $\mathbb{Q}$ and $\Gamma$ arithmetic. Then $\Gamma \backslash G(\mathbb{R})$ is compact if and only if $G(\mathbb{Q})$ has no unipotent element other than $1$, that is, if and only if $G$ has no proper parabolic subgroup over $\mathbb{Q}$.
+**Theorem (Godement compactness criterion; Borel and Harish-Chandra, 1962; Mostow and Tamagawa, 1962).** Let $G$ be semisimple over $\mathbb{Q}$ and $\Gamma$ arithmetic. Then $\Gamma \backslash G(\mathbb{R})$ is compact if and only if $G(\mathbb{Q})$ has no unipotent element other than $1$, that is, if and only if $G$ has no proper parabolic subgroup over $\mathbb{Q}$.
 
 The adelic and the classical points of view are related by the finiteness of class numbers.
 
@@ -179,7 +179,7 @@ The same computation with a Hecke operator in place of the identity is a trace f
 
 Let $G$ be reductive over $F$, and $G(\mathbb{A}_F)^1$ the common kernel of the $|\chi|$, $\chi$ a rational character. If $G$ has a proper parabolic over $F$, then $G(F) \backslash G(\mathbb{A}_F)^1$ is not compact, the continuous spectrum of [the spectral decomposition](/learn/automorphic-forms/#the-discrete-spectrum) is not zero, and $K_f(x, x)$ is not integrable. Arthur cuts the diagonal off near the cusps.
 
-**Definition (Arthur's truncation).** Fix a minimal parabolic $P_0$ and a point $T$ of $\mathfrak{a}_0$ far inside the positive chamber. For a standard parabolic $P$, let $\hat\tau_P$ be the characteristic function of the $H \in \mathfrak{a}_0$ with $\varpi(H) > 0$ for the fundamental weights $\varpi$ of $P$, and $H_P$ the map of the Iwasawa decomposition. For a function $\phi$ on $G(F) \backslash G(\mathbb{A}_F)^1$,
+**Definition (Arthur truncation).** Fix a minimal parabolic $P_0$ and a point $T$ of $\mathfrak{a}_0$ far inside the positive chamber. For a standard parabolic $P$, let $\hat\tau_P$ be the characteristic function of the $H \in \mathfrak{a}_0$ with $\varpi(H) > 0$ for the fundamental weights $\varpi$ of $P$, and $H_P$ the map of the Iwasawa decomposition. For a function $\phi$ on $G(F) \backslash G(\mathbb{A}_F)^1$,
 $$\Lambda^T \phi(x) = \sum_{P \supseteq P_0} (-1)^{\dim(A_P/A_G)} \sum_{\delta \in P(F) \backslash G(F)} \phi_P(\delta x)\, \hat\tau_P(H_P(\delta x) - T).$$
 
 **Example.** For $\mathrm{SL}_2(\mathbb{Z}) \backslash \mathbb{H}$ and $T > 1$, $\Lambda^T \phi(z) = \phi(z) - \phi_N(y)$ on the part $y > T$ of $\mathcal{F}$, and $\Lambda^T\phi = \phi$ on the rest. Here $\phi_N(y) = \int_0^1 \phi(x + iy)\, dx$. For $E(z, s)$, the truncated function $\Lambda^T E(z, s)$ is square integrable.
@@ -316,7 +316,7 @@ It is left invariant under $\mathrm{GL}_n(F)$, since $\xi \mapsto \xi\gamma$ per
 
 *Proof.* Split the integral over $|t| \ge 1$ and $|t| \le 1$, and apply the [[Poisson summation formula|GARGJYSGFG]] for $F^n \subseteq \mathbb{A}_F^n$ to the second part, exactly as in Riemann's proof of the functional equation of $\zeta$. The terms $\xi = 0$ give the poles. $\square$
 
-**Theorem (unfolding of the Rankin-Selberg integral).** Let $\varphi \in \pi$, $\varphi' \in \pi'$ be cusp forms, and $\mu = (\omega\omega')^{-1}$. For $\operatorname{Re}(s)$ large,
+**Theorem (Rankin-Selberg unfolding).** Let $\varphi \in \pi$, $\varphi' \in \pi'$ be cusp forms, and $\mu = (\omega\omega')^{-1}$. For $\operatorname{Re}(s)$ large,
 $$\begin{aligned} I(s, \varphi, \varphi', \Phi) &= \int_{Z(\mathbb{A}_F)\mathrm{GL}_n(F) \backslash \mathrm{GL}_n(\mathbb{A}_F)} \varphi(g)\varphi'(g) E(g, \Phi, s)\, dg \\ &= \int_{N_n(\mathbb{A}_F) \backslash \mathrm{GL}_n(\mathbb{A}_F)} W_\varphi(g) W'_{\varphi'}(g) \Phi(e_n g) |\det g|^s\, dg, \end{aligned}$$
 with $W_\varphi$ for $\psi_N$ and $W'_{\varphi'}$ for $\psi_N^{-1}$, and $e_n = (0, \dots, 0, 1)$. For factorizable data this is $\prod_v \Psi_v(s, W_v, W'_v, \Phi_v)$, and at a place $v$ where everything is unramified, $\Psi_v = L(s, \pi_v \times \pi'_v)$.
 
@@ -344,5 +344,5 @@ The development volumes prove the pole statement `RSPole` for $\pi$ on $\mathrm{
 - H. Iwaniec, *Spectral Methods of Automorphic Forms*: the chapters on Eisenstein series and on the Selberg trace formula, for $\mathrm{SL}_2$ in classical language.
 - L. Clozel and P. Delorme, Invent. Math. 77 (1984), and D. Kazhdan, J. Analyse Math. 47 (1986): pseudo-coefficients. J. Arthur, Invent. Math. 97 (1989): their orbital integrals and the $L^2$-Lefschetz numbers.
 - J. Arthur and L. Clozel, *Simple Algebras, Base Change, and the Advanced Theory of the Trace Formula*, Annals of Math. Studies 120 (1989): the twisted trace formula, the norm map, transfer, local and global base change for $\mathrm{GL}_n$. R. Kottwitz, Compositio Math. 60 (1986), and L. Clozel and J.-P. Labesse, Duke Math. J. 61 (1990): the base change fundamental lemma. J.-P. Labesse, Astérisque 257 (1999): stable base change for unitary groups and very cuspidal functions.
-- H. Jacquet and S. Rallis, Clay Math. Proc. 13 (2011): the relative trace formulas and the fundamental lemma conjecture. Z. Yun, Duke Math. J. 156 (2011), and R. Beuzart-Plessis, Duke Math. J. 170 (2021): the proofs of the fundamental lemma. W. Zhang, Ann. of Math. 180 (2014): smooth transfer and the role of the Fourier transform.
+- H. Jacquet and S. Rallis, Clay Math. Proc. 13 (2011): the relative trace formulas and the fundamental lemma conjecture. Z. Yun, Duke Math. J. 156 (2011), and R. Beuzart-Plessis, Duke Math. J. 170 (2021): the proofs of the fundamental lemma. W. Zhang, Ann. of Math. 180 (2014): smooth transfer and the Fourier transform.
 - D. Bump, *Automorphic Forms and Representations*, Chapter 1 (Rankin-Selberg for $\mathrm{SL}_2(\mathbb{Z})$) and Chapter 3 (adelic $\mathrm{GL}_2$, Hecke's integral). H. Jacquet and J. Shalika, Amer. J. Math. 103 (1981): the integrals for $\mathrm{GL}_n \times \mathrm{GL}_n$, the pole and strong multiplicity one. H. Jacquet, I. Piatetski-Shapiro and J. Shalika, Amer. J. Math. 105 (1983): the local theory. J. Cogdell, *Lectures on L-functions, converse theorems, and functoriality for $\mathrm{GL}_n$*, Fields Inst. Monogr. 20 (2004): the best first account of Rankin-Selberg integrals for $\mathrm{GL}_n$.
