@@ -6,9 +6,9 @@ The chapter [Siegel-Weil, the metaplectic representation and cusp forms](/proof/
 - [Hecke characters](/learn/class-field-theory/#hecke-characters): $\chi$ restricts to $\eta^m$ on $\mathbb{A}_F^\times$.
 - [Haar measure](/learn/analysis/#haar-measure), for the fundamental domain $D$ of the theta integral.
 - [The Fourier transform](/learn/analysis/#the-fourier-transform): the Weyl element acts by one on the Schwartz space of matrices.
-- [Poisson summation, theta and Mellin](/learn/complex-analysis/#poisson-summation-theta-and-mellin): the Poisson summation formula yields the model of Step 2.
+- [Poisson summation, theta and Mellin](/learn/complex-analysis/#poisson-summation-theta-and-mellin): the Poisson summation formula yields the model of Section 2.
 - [Unitary groups](/learn/groups/#unitary-groups) and [parabolic subgroups](/learn/groups/#parabolic-subgroups): $U_A$, the doubled group $G_2$ and its Siegel parabolic.
-- [The Heisenberg and metaplectic groups](/learn/groups/#the-heisenberg-and-metaplectic-groups): the metaplectic group of Step 8.
+- [The Heisenberg and metaplectic groups](/learn/groups/#the-heisenberg-and-metaplectic-groups): the metaplectic group of Section 5.
 - [Eisenstein series](/learn/automorphic-forms/#eisenstein-series), [Fourier coefficients and Whittaker functions](/learn/automorphic-forms/#fourier-coefficients-and-whittaker-functions) and [constant terms and cusp forms](/learn/automorphic-forms/#constant-terms-and-cusp-forms): the Siegel Eisenstein series $E(x, s, \Phi)$, its coefficients, and the rapid decay of cusp forms.
 - [The Schrödinger model](/learn/theta/#the-schrdinger-model) and [theta kernels](/learn/theta/#theta-kernels): the formulas behind TAll (below) and the theta sum $\theta(\Phi) = \sum_\xi \Phi(\xi)$.
 - [The Siegel-Weil formula](/learn/theta/#the-siegel-weil-formula) is the theorem of the chapter.
@@ -26,8 +26,8 @@ The chapter [Siegel-Weil, the metaplectic representation and cusp forms](/proof/
 
 ## The path through the chapter
 
-1. The Poisson summation formula gives TAll (Step 2).
-2. For $n < m$, the Fourier coefficients of the theta integral and of the Siegel Eisenstein series are the same orbit integrals (Step 3).
-3. The case $n = m$ starts an induction on $n$ through the constant term, which covers $m < n$ (Steps 4 to 6).
-4. SiegelWeilStd and EisBL give [ThetaIntegralsAgree and LocalMatching](/step/theta-integrals-agree-and-local-matching-of-literature/) (Step 7).
-5. In the proof of FunctionalsSeparate, a Poincaré series whose identity term dominates at large level gives a cusp form with a nonzero theta period (Step 10).
+1. The Poisson summation formula gives the Weyl relation of TAll, and the other facts of TAll are proved one by one (Section 2).
+2. For $n < m$, the Fourier coefficients of the theta integral and of the Siegel Eisenstein series are the same orbit integrals (Section 3).
+3. The case $n = m$ starts an induction on $n$ through the constant term, which covers $m < n$ (Sections 3 and 4).
+4. SiegelWeilStd and EisBL give [ThetaIntegralsAgree and LocalMatching](/step/theta-integrals-agree-and-local-matching-of-literature/) (Section 4).
+5. In the proof of FunctionalsSeparate, a Poincaré series whose identity term dominates at large level gives a cusp form with a nonzero theta period (Section 6).
