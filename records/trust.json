@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-21",
+  "updated": "2026-11-25",
   "checks": [
     {
       "id": "Q0",
@@ -34,8 +34,8 @@
     {
       "id": "Q5",
       "question": "How much of the proof is written in words?",
-      "state": "not run",
-      "note": "Milestone M3 and later."
+      "state": "open",
+      "note": "The 12 proof chapters and the 50 steps of the spine are written, about 58,000 words, and each chapter was compared with the Lean source. All of them are drafts: 0 steps are checked and 0 are reviewed. A person must check each step against the code."
     }
   ]
 }

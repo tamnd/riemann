@@ -46,6 +46,8 @@ The draft of the review is [reviews/fidelity.md](https://github.com/tamnd/rieman
 
 This question is about this site, not about the Lean code. The [proof pages](/proof/) are drafts. When a person checks a step against the Lean code, its status changes to checked. When a person who works in the area agrees with it, the status changes to reviewed. The row counts the share of the spine at each status.
 
+On 2026-11-25 the 12 chapters and the 50 steps are written, about 58,000 words. Each chapter states the definitions and theorems of its part of the proof, with a Lean name under each statement and a proof in words. Each chapter was compared with the Lean source, and the comparison corrected many claims of the first drafts. All chapters and steps are still drafts: no step is checked or reviewed. So the row shows open.
+
 ## What a scan of the source shows now
 
 Some facts do not need a build. A text scan of the 175,187 files of riemann-lean at commit `9110120` gives these results. A scan reads the text only, so it is a first check and not a proof. Questions Q2 and Q3 give the exact answer after the build.
@@ -76,3 +78,9 @@ The option `allowUnsafeReducibility` lets a file change how Lean unfolds a defin
 All 1,790 notation lines are `local` or `scoped`, and `Main.lean` opens no namespace. So no notation of the release can change the meaning of a name in `Main.lean`.
 
 None of this is a problem by itself. All of it is in the list that question Q3 checks again with `lean4checker` after the build.
+
+## What the proof chapters show now
+
+The [proof chapters](/proof/) follow each input of the main theorem down to the term that supplies it. This reads the source; it does not build it. The trunk theorem `everyCharacter` has no hypothesis. Its proof passes through a record of three "open literature statements" (`OpenLiteratureStatements`), and the trunk fills each field with a proved theorem: the Galois row twice and the existence of local Langlands maps once. Many terms named `..._of_literature` take this record and do not read it. So on the trunk no literature input is assumed. The chapter [The trunk](/proof/trunk/) gives the chain, and each later chapter shows the same for its branch.
+
+This does not replace Q2 and Q3. A theorem with no hypothesis can still use an axiom, and only `#print axioms` and a second kernel after the full build can answer that. One statement of the code, `BesselPeriodGGP`, has no proof. Since the trunk theorem has no hypothesis, the trunk cannot depend on it.
